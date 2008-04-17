@@ -1,0 +1,91 @@
+% \documentclass{article}
+
+%%%%%%%%%%%%%%%%%%% agregado por pablo 
+\documentclass[a4paper, 10pt,titlepage]{article}
+\author{Echevarría - Giusto - Farjat - Freijo }
+%  \usepackage{a4wide}
+%  \usepackage{multicol}
+%  \usepackage{verbatim}
+%  \usepackage[pdftex]{graphicx}
+%  \usepackage{fancyvrb}
+%  \usepackage[ansinew]{inputenc}
+%  \usepackage{color}
+%  \usepackage{amsfonts}
+%  \usepackage{bbm}
+%  \usepackage{fancyhdr} %Para el enunciado
+%  \usepackage[spanish, activeacute]{babel} %Para el enunciado
+
+\usepackage{caratula}
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+
+% \usepackage[spanish, activeacute]{babel}
+\usepackage{amsmath}
+
+\usepackage{fancyhdr}
+
+ \usepackage[x11names, rgb]{xcolor}
+
+\usepackage{tikz}
+	\usetikzlibrary{snakes,arrows,shapes}
+
+\usepackage{amsmath}
+
+\usepackage{listings}
+\usepackage{graphicx}
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{lastpage}
+
+\usepackage{geometry}
+  \geometry{left=1cm, right=1cm, top=2cm, bottom=2cm}
+
+
+\pagestyle{fancy}
+  \fancyhead[LO]{Sistemas Operativos}
+  \fancyhead[C]{Trabajo Práctico Final}
+  \fancyhead[RO]{Primer Cuatrimestre 2007}
+  \renewcommand{\headrulewidth}{0.4pt}
+
+  \fancyfoot[LO]{Echevarría - Giusto - Farjat - Freijo}
+  \fancyfoot[C]{}
+  \fancyfoot[RO]{P\'agina \thepage\ de \pageref{LastPage}}
+
+  \renewcommand{\footrulewidth}{0.4pt}   
+
+%%%%%%%%%%%% pablo 17.2.08
+
+\begin{document}
+\parindent = 1.5 em 
+\parskip = 8 pt %OJO CON ESTO!!!!PUEDE CREAR ESPACIOS ENTRE PÁRRAFOS MUY GRANDES
+
+%%%%%%%%%%%%%%%% COMANDOS %%%%%%%%%%%%%%%%%%%%
+\newcommand{\todo}{{\large\textbf{TODO: }}}
+\newcommand{\paso}{\textsc{Paso }}
+\newcommand{\func}[1]{\verb"#1"}
+%		\textbf{\Large{[Acá va #1 el gráfico:\verb" #2"]}}
+% \newenvironment{codigo}
+% 
+%  {\DefineShortVerb[obeytabs=true,tabsize=4]{\"}\small\begin{center}\textit{\\Pseudocódigo:\\}
+%  \begin{tabular}{|l@{\hspace{0.3in}}  l|}\hline}
+%  {\\ \hline\end{tabular}
+%  
+%  \end{center}}
+
+%%%%%%%%%%%%%%%% FIN COMANDOS %%%%%%%%%%%%%%%%%%%%
+
+\input{caratula.tex}
+\tableofcontents
+
+
+\section{Requerimientos y Especificación}
+
+
+
+\newpage
+\listoffigures
+
+
+
+\end{document}
