@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2007.10.31)  17 APR 2008 08:45
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2007.10.31)  30 APR 2008 16:26
 entering extended mode
  %&-line parsing enabled.
 **informe.tex
@@ -314,29 +314,29 @@ LaTeX Info: Redefining \] on input line 2667.
 \f@ncyO@orf=\skip54
 )
 (/usr/share/texmf/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2005/12/21 v2.09 LaTeX color extensions (UK)
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
 (/etc/texmf/tex/latex/config/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package xcolor Info: Driver file: pdftex.def on input line 220.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
 
 (/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2007/01/08 v0.04d Graphics/color for pdfTeX
 \Gread@gobject=\count99
 )
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1328.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1332.
-Package xcolor Info: Model `RGB' extended on input line 1344.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1346.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1347.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1348.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1349.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1350.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1351.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 
 (/usr/share/texmf/tex/latex/xcolor/x11nam.def
-File: x11nam.def 2005/12/21 v2.09 Predefined colors according to Unix/X11 (UK)
+File: x11nam.def 2007/01/21 v2.11 Predefined colors according to Unix/X11 (UK)
 ))
 (/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texmf/tex/latex/pgf/basiclayer/pgf.sty
@@ -749,27 +749,28 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 \tf@toc=\write4
 \openout4 = `informe.toc'.
 
- [2] (./informe.lof)
+ [2] [3] (./informe.lof)
 \tf@lof=\write5
 \openout5 = `informe.lof'.
 
 
-AED: lastpage setting LastPage [3] (./informe.aux) ) 
+AED: lastpage setting LastPage [4] (./informe.aux) ) 
 Here is how much of TeX's memory you used:
- 11560 strings out of 95086
- 189624 string characters out of 1183254
- 251747 words of memory out of 1500000
- 14468 multiletter control sequences out of 10000+50000
- 7324 words of font info for 29 fonts, out of 1200000 for 2000
+ 11564 strings out of 95086
+ 189678 string characters out of 1183254
+ 255053 words of memory out of 1500000
+ 14472 multiletter control sequences out of 10000+50000
+ 7631 words of font info for 30 fonts, out of 1200000 for 2000
  28 hyphenation exceptions out of 8191
- 46i,11n,53p,384b,218s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 46i,11n,53p,384b,221s stack positions out of 5000i,500n,6000p,200000b,5000s
 </usr/share/texmf-texlive/f
-onts/type1/bluesky/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/
-cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmr12.pfb></usr/s
-hare/texmf-texlive/fonts/type1/bluesky/cm/cmtt10.pfb>
-Output written on informe.pdf (3 pages, 35767 bytes).
+onts/type1/bluesky/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/
+cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmr10.pfb></usr/
+share/texmf-texlive/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/texmf-texlive/
+fonts/type1/bluesky/cm/cmtt10.pfb>
+Output written on informe.pdf (4 pages, 49776 bytes).
 PDF statistics:
- 28 PDF objects out of 1000 (max. 8388607)
+ 35 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
