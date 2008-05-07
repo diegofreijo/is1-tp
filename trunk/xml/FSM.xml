@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:DFD="http://www.sparxsystems.com/profiles/DFD/1.0">
+	<xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5"/>
+	<uml:Model xmi:type="uml:Model" name="EA_Model" visibility="public">
+		<packagedElement xmi:type="uml:Package" xmi:id="EAPK_376F8304_1C86_11dd_B49B_001D60B44DDE" name="fms1" visibility="public">
+			<packagedElement xmi:type="uml:StateMachine" xmi:id="EAID_SM000001_1C86_11dd_B49B_001D60B44DDE" name="EA_StateMachine1" visibility="public">
+				<region xmi:type="uml:Region" xmi:id="EAID_SR000001_1C86_11dd_B49B_001D60B44DDE" name="EA_Region1" visibility="public">
+					<subvertex xmi:type="uml:State" xmi:id="EAID_359D36A0_1C88_11dd_B49B_001D60B44DDE" visibility="public" isSubmachineState="false">
+						<outgoing xmi:idref="EAID_4958D316_1C88_11dd_B49B_001D60B44DDE"/>
+					</subvertex>
+					<transition xmi:type="uml:Transition" xmi:id="EAID_4958D316_1C88_11dd_B49B_001D60B44DDE" visibility="public" kind="local" source="EAID_359D36A0_1C88_11dd_B49B_001D60B44DDE" target="EAID_45830BBC_1C88_11dd_B49B_001D60B44DDE">
+						<guard xmi:type="uml:Constraint" xmi:id="EAID_CO000000_1C88_11dd_B49B_001D60B44DDE">
+							<specification xmi:type="uml:OpaqueExpression" xmi:id="EAID_OE000000_1C88_11dd_B49B_001D60B44DDE" body="guarda"/>
+						</guard>
+						<effect xmi:type="uml:OpaqueBehavior" xmi:id="EAID_OB000000_1C88_11dd_B49B_001D60B44DDE" body="asignacion etc et"/>
+					</transition>
+					<subvertex xmi:type="uml:State" xmi:id="EAID_45830BBC_1C88_11dd_B49B_001D60B44DDE" visibility="public" isSubmachineState="false">
+						<incoming xmi:idref="EAID_4958D316_1C88_11dd_B49B_001D60B44DDE"/>
+					</subvertex>
+					<subvertex xmi:type="uml:State" xmi:id="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE" name="State1" visibility="public" isSubmachineState="false">
+						<incoming xmi:idref="EAID_99E1029C_1C86_11dd_B49B_001D60B44DDE"/>
+						<outgoing xmi:idref="EAID_99E1029C_1C86_11dd_B49B_001D60B44DDE"/>
+						<outgoing xmi:idref="EAID_93AFF612_1C86_11dd_B49B_001D60B44DDE"/>
+					</subvertex>
+					<transition xmi:type="uml:Transition" xmi:id="EAID_93AFF612_1C86_11dd_B49B_001D60B44DDE" visibility="public" kind="local" source="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE" target="EAID_8CF79D3E_1C86_11dd_B49B_001D60B44DDE"/>
+					<transition xmi:type="uml:Transition" xmi:id="EAID_99E1029C_1C86_11dd_B49B_001D60B44DDE" visibility="public" kind="local" source="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE" target="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE"/>
+					<subvertex xmi:type="uml:State" xmi:id="EAID_8CF79D3E_1C86_11dd_B49B_001D60B44DDE" name="State2" visibility="public" isSubmachineState="false">
+						<incoming xmi:idref="EAID_93AFF612_1C86_11dd_B49B_001D60B44DDE"/>
+					</subvertex>
+				</region>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Activity" xmi:id="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE" visibility="public"/>
+			<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_DFD8BB0A_1C86_11dd_B49B_001D60B44DDE" visibility="public" supplier="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE" client="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE"/>
+			<packagedElement xmi:type="uml:Activity" xmi:id="EAID_CE336CF6_1C86_11dd_B49B_001D60B44DDE" visibility="public"/>
+			<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_D53D7DC0_1C86_11dd_B49B_001D60B44DDE" visibility="public" supplier="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE" client="EAID_CE336CF6_1C86_11dd_B49B_001D60B44DDE"/>
+		</packagedElement>
+		<DFD:DFD_Process base_Activity="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE"/>
+		<DFD:DFD_DataFlow base_Dependency="EAID_DFD8BB0A_1C86_11dd_B49B_001D60B44DDE" _Bezier="1"/>
+		<DFD:DFD_DataFlow base_Dependency="EAID_D53D7DC0_1C86_11dd_B49B_001D60B44DDE" _Bezier="1"/>
+		<DFD:DFD_Process base_Activity="EAID_CE336CF6_1C86_11dd_B49B_001D60B44DDE"/>
+		<uml:Profile xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1/uml.xml" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:id="923D8EB5-6" nsPrefix="DFD" name="DFD" metamodelReference="mmref01">
+			<ownedComment xmi:type="uml:Comment" xmi:id="comment01" annotatedElement="923D8EB5-6">
+				<body>DFD Version:1.0</body>
+			</ownedComment>
+			<packageImport xmi:id="mmref01">
+				<importedPackage href="http://schema.omg.org/spec/UML/2.1/uml.xml"/>
+			</packageImport>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="DFD_DataFlow" name="DFD_DataFlow">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="DFD_DataFlow-base_Dependency" name="base_Dependency" association="Dependency_DFD_DataFlow">
+					<type href="http://schema.omg.org/spec/UML/2.1/uml.xml#Dependency"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="DFD_DataFlow-_Bezier" name="_Bezier">
+					<type href="http://schema.omg.org/spec/UML/2.1/uml.xml#String"/>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="Dependency_DFD_DataFlow" name="A_Dependency_DFD_DataFlow" memberEnd="extension_DFD_DataFlow DFD_DataFlow-base_Dependency">
+				<ownedEnd xmi:id="extension_DFD_DataFlow" name="extension_DFD_DataFlow" type="DFD_DataFlow" isComposite="true" lower="0" upper="1" memberEnd="extension_DFD_DataFlow DFD_DataFlow-base_Dependency"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="DFD_DataStore" name="DFD_DataStore">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="DFD_DataStore-base_Class" name="base_Class" association="Class_DFD_DataStore">
+					<type href="http://schema.omg.org/spec/UML/2.1/uml.xml#Class"/>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="Class_DFD_DataStore" name="A_Class_DFD_DataStore" memberEnd="extension_DFD_DataStore DFD_DataStore-base_Class">
+				<ownedEnd xmi:id="extension_DFD_DataStore" name="extension_DFD_DataStore" type="DFD_DataStore" isComposite="true" lower="0" upper="1" memberEnd="extension_DFD_DataStore DFD_DataStore-base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="DFD_External" name="DFD_External">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="DFD_External-base_Class" name="base_Class" association="Class_DFD_External">
+					<type href="http://schema.omg.org/spec/UML/2.1/uml.xml#Class"/>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="Class_DFD_External" name="A_Class_DFD_External" memberEnd="extension_DFD_External DFD_External-base_Class">
+				<ownedEnd xmi:id="extension_DFD_External" name="extension_DFD_External" type="DFD_External" isComposite="true" lower="0" upper="1" memberEnd="extension_DFD_External DFD_External-base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="DFD_Process" name="DFD_Process">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="DFD_Process-base_Activity" name="base_Activity" association="Activity_DFD_Process">
+					<type href="http://schema.omg.org/spec/UML/2.1/uml.xml#Activity"/>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="Activity_DFD_Process" name="A_Activity_DFD_Process" memberEnd="extension_DFD_Process DFD_Process-base_Activity">
+				<ownedEnd xmi:id="extension_DFD_Process" name="extension_DFD_Process" type="DFD_Process" isComposite="true" lower="0" upper="1" memberEnd="extension_DFD_Process DFD_Process-base_Activity"/>
+			</packagedElement>
+		</uml:Profile>
+	</uml:Model>
+	<xmi:Extension extender="Enterprise Architect" extenderID="6.5">
+		<elements>
+			<element xmi:idref="EAPK_376F8304_1C86_11dd_B49B_001D60B44DDE" xmi:type="uml:Package" name="fms1" scope="public">
+				<model package2="EAID_376F8304_1C86_11dd_B49B_001D60B44DDE" package="EAPK_7D82A552_1C85_11dd_B49B_001D60B44DDE" tpos="0" ea_localid="66" ea_eleType="package"/>
+				<properties isSpecification="false" sType="Package" nType="0" scope="public"/>
+				<project author="pablo" version="1.0" phase="1.0" created="2008-05-07 19:37:49" modified="2008-05-07 19:37:49" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="FSM"/>
+				<packageproperties version="1.0"/>
+				<paths/>
+				<times created="2008-05-07 00:00:00" modified="2008-05-07 00:00:00"/>
+				<flags iscontrolled="FALSE" isprotected="FALSE" usedtd="FALSE" logxml="FALSE" packageFlags="isModel=1;VICON=1;"/>
+			</element>
+			<element xmi:idref="EAID_359D36A0_1C88_11dd_B49B_001D60B44DDE" xmi:type="uml:State" scope="public">
+				<model package="EAPK_376F8304_1C86_11dd_B49B_001D60B44DDE" tpos="0" ea_localid="240" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="pablo" version="1.0" phase="1.0" created="2008-05-07 19:52:03" modified="2008-05-07 19:55:00" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={359EAEC2-1C88-11dd-B49B-001D60B44DDE}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isSimple@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isSubmachineState@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isOrthogonal@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isComposite@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={359D36A0-1C88-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="fms1"/>
+				<links>
+					<StateFlow xmi:id="EAID_4958D316_1C88_11dd_B49B_001D60B44DDE" start="EAID_359D36A0_1C88_11dd_B49B_001D60B44DDE" end="EAID_45830BBC_1C88_11dd_B49B_001D60B44DDE"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_45830BBC_1C88_11dd_B49B_001D60B44DDE" xmi:type="uml:State" scope="public">
+				<model package="EAPK_376F8304_1C86_11dd_B49B_001D60B44DDE" tpos="0" ea_localid="241" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="pablo" version="1.0" phase="1.0" created="2008-05-07 19:52:29" modified="2008-05-07 19:55:05" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={45856812-1C88-11dd-B49B-001D60B44DDE}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isSimple@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isSubmachineState@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isOrthogonal@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isComposite@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={45830BBC-1C88-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="fms1"/>
+				<links>
+					<StateFlow xmi:id="EAID_4958D316_1C88_11dd_B49B_001D60B44DDE" start="EAID_359D36A0_1C88_11dd_B49B_001D60B44DDE" end="EAID_45830BBC_1C88_11dd_B49B_001D60B44DDE"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE" xmi:type="uml:State" name="State1" scope="public">
+				<model package="EAPK_376F8304_1C86_11dd_B49B_001D60B44DDE" tpos="0" ea_localid="236" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="pablo" version="1.0" phase="1.0" created="2008-05-07 19:40:01" modified="2008-05-07 19:40:01" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={87B2A06C-1C86-11dd-B49B-001D60B44DDE}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isSimple@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isSubmachineState@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isOrthogonal@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isComposite@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={87AED798-1C86-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="fms1"/>
+				<links>
+					<StateFlow xmi:id="EAID_93AFF612_1C86_11dd_B49B_001D60B44DDE" start="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE" end="EAID_8CF79D3E_1C86_11dd_B49B_001D60B44DDE"/>
+					<StateFlow xmi:id="EAID_99E1029C_1C86_11dd_B49B_001D60B44DDE" start="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE" end="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE"/>
+					<StateFlow xmi:id="EAID_99E1029C_1C86_11dd_B49B_001D60B44DDE" start="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE" end="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_8CF79D3E_1C86_11dd_B49B_001D60B44DDE" xmi:type="uml:State" name="State2" scope="public">
+				<model package="EAPK_376F8304_1C86_11dd_B49B_001D60B44DDE" tpos="0" ea_localid="237" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="pablo" version="1.0" phase="1.0" created="2008-05-07 19:40:10" modified="2008-05-07 19:40:10" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={8CF9F854-1C86-11dd-B49B-001D60B44DDE}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isSimple@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isSubmachineState@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isOrthogonal@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isComposite@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={8CF79D3E-1C86-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="fms1"/>
+				<links>
+					<StateFlow xmi:id="EAID_93AFF612_1C86_11dd_B49B_001D60B44DDE" start="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE" end="EAID_8CF79D3E_1C86_11dd_B49B_001D60B44DDE"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE" xmi:type="uml:Activity" scope="public">
+				<model package="EAPK_376F8304_1C86_11dd_B49B_001D60B44DDE" tpos="0" ea_localid="239" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Activity" nType="0" scope="public" stereotype="DFD_Process" isAbstract="false"/>
+				<project author="pablo" version="1.0" phase="1.0" created="2008-05-07 19:42:09" modified="2008-05-07 19:42:37" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={D38CEF56-1C86-11dd-B49B-001D60B44DDE}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=DFD_Process;@ENDSTEREO;$DES;$CLT={D389286C-1C86-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={D38CF51E-1C86-11dd-B49B-001D60B44DDE}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isReadOnly@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=precondition@ENDNAME;@TYPE=string@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isSingleExecution@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=postcondition@ENDNAME;@TYPE=string@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=parameterName@ENDNAME;@TYPE=string@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=_defaultDiagramType@ENDNAME;@TYPE=string@ENDTYPE;@VALU=DiagramProfile::DataFlowDiagram@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={D389286C-1C86-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="fms1"/>
+				<links>
+					<Dependency xmi:id="EAID_DFD8BB0A_1C86_11dd_B49B_001D60B44DDE" start="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE" end="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE"/>
+					<Dependency xmi:id="EAID_D53D7DC0_1C86_11dd_B49B_001D60B44DDE" start="EAID_CE336CF6_1C86_11dd_B49B_001D60B44DDE" end="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE"/>
+					<Dependency xmi:id="EAID_DFD8BB0A_1C86_11dd_B49B_001D60B44DDE" start="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE" end="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_CE336CF6_1C86_11dd_B49B_001D60B44DDE" xmi:type="uml:Activity" scope="public">
+				<model package="EAPK_376F8304_1C86_11dd_B49B_001D60B44DDE" tpos="0" ea_localid="238" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Activity" nType="0" scope="public" stereotype="DFD_Process" isAbstract="false"/>
+				<project author="pablo" version="1.0" phase="1.0" created="2008-05-07 19:42:00" modified="2008-05-07 19:42:43" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={CE35B038-1C86-11dd-B49B-001D60B44DDE}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=DFD_Process;@ENDSTEREO;$DES;$CLT={CE336CF6-1C86-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={CE35B38A-1C86-11dd-B49B-001D60B44DDE}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isReadOnly@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=precondition@ENDNAME;@TYPE=string@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isSingleExecution@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=postcondition@ENDNAME;@TYPE=string@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=parameterName@ENDNAME;@TYPE=string@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=_defaultDiagramType@ENDNAME;@TYPE=string@ENDTYPE;@VALU=DiagramProfile::DataFlowDiagram@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={CE336CF6-1C86-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="fms1"/>
+				<links>
+					<Dependency xmi:id="EAID_D53D7DC0_1C86_11dd_B49B_001D60B44DDE" start="EAID_CE336CF6_1C86_11dd_B49B_001D60B44DDE" end="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE"/>
+				</links>
+			</element>
+		</elements>
+		<connectors>
+			<connector xmi:idref="EAID_4958D316_1C88_11dd_B49B_001D60B44DDE">
+				<source xmi:idref="EAID_359D36A0_1C88_11dd_B49B_001D60B44DDE">
+					<model ea_localid="240" type="State"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_45830BBC_1C88_11dd_B49B_001D60B44DDE">
+					<model ea_localid="241" type="State"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="87"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="1" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt=" [guarda]&#xA; /asignacion etc et"/>
+				<extendedProperties virtualInheritance="0" privatedata2="guarda" privatedata3="asignacion etc et"/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={495E20D2-1C88-11dd-B49B-001D60B44DDE}$XID;$NAM=CustomProperties$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isEffect@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=kind@ENDNAME;@TYPE=TransitionKind@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={4958D316-1C88-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_93AFF612_1C86_11dd_B49B_001D60B44DDE">
+				<source xmi:idref="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE">
+					<model ea_localid="236" type="State" name="State1"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_8CF79D3E_1C86_11dd_B49B_001D60B44DDE">
+					<model ea_localid="237" type="State" name="State2"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="83"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="1" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={93B485BA-1C86-11dd-B49B-001D60B44DDE}$XID;$NAM=CustomProperties$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isEffect@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=kind@ENDNAME;@TYPE=TransitionKind@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={93AFF612-1C86-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_99E1029C_1C86_11dd_B49B_001D60B44DDE">
+				<source xmi:idref="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE">
+					<model ea_localid="236" type="State" name="State1"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_87AED798_1C86_11dd_B49B_001D60B44DDE">
+					<model ea_localid="236" type="State" name="State1"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="84"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="1" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={99E68A00-1C86-11dd-B49B-001D60B44DDE}$XID;$NAM=CustomProperties$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isEffect@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=kind@ENDNAME;@TYPE=TransitionKind@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={99E1029C-1C86-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_DFD8BB0A_1C86_11dd_B49B_001D60B44DDE">
+				<source xmi:idref="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE">
+					<model ea_localid="239" type="Activity"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE">
+					<model ea_localid="239" type="Activity"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="86"/>
+				<properties ea_type="Dependency" stereotype="DFD_DataFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="8" linecolor="-1" linewidth="1" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mb=" &#xA;«DFD_DataFlow»"/>
+				<extendedProperties conditional=" &#xA;«DFD_DataFlow»" virtualInheritance="0"/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={DFE7EAE4-1C86-11dd-B49B-001D60B44DDE}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=DFD_DataFlow;@ENDSTEREO;$DES;$CLT={DFD8BB0A-1C86-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags>
+					<tag xmi:id="EAID_7CDE7680_FE95_43fe_B49B_001D60B44DDE" name="_Bezier" value="1" notes="Default: 1&#xA;"/>
+				</tags>
+			</connector>
+			<connector xmi:idref="EAID_D53D7DC0_1C86_11dd_B49B_001D60B44DDE">
+				<source xmi:idref="EAID_CE336CF6_1C86_11dd_B49B_001D60B44DDE">
+					<model ea_localid="238" type="Activity"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_D389286C_1C86_11dd_B49B_001D60B44DDE">
+					<model ea_localid="239" type="Activity"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="85"/>
+				<properties ea_type="Dependency" stereotype="DFD_DataFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="8" linecolor="-1" linewidth="1" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mb=" &#xA;«DFD_DataFlow»"/>
+				<extendedProperties conditional=" &#xA;«DFD_DataFlow»" virtualInheritance="0"/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={D54E1FD6-1C86-11dd-B49B-001D60B44DDE}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=DFD_DataFlow;@ENDSTEREO;$DES;$CLT={D53D7DC0-1C86-11dd-B49B-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags>
+					<tag xmi:id="EAID_7CDE7680_FE95_43fe_B49B_001D60B44DDE" name="_Bezier" value="1" notes="Default: 1&#xA;"/>
+				</tags>
+			</connector>
+		</connectors>
+		<diagrams>
+			<diagram xmi:id="EAID_51503F3E_1C86_11dd_B49B_001D60B44DDE">
+				<model package="EAPK_376F8304_1C86_11dd_B49B_001D60B44DDE" localID="53" owner="EAPK_376F8304_1C86_11dd_B49B_001D60B44DDE"/>
+				<properties name="fms1" type="Object"/>
+				<project author="pablo" version="1.0" created="2008-05-07 19:38:30" modified="2008-05-07 19:42:09"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=823;DocSize.cy=1169;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
+				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
+			</diagram>
+			<diagram xmi:id="EAID_2D91D5F6_1C88_11dd_B49B_001D60B44DDE">
+				<model package="EAPK_376F8304_1C86_11dd_B49B_001D60B44DDE" localID="54" owner="EAPK_376F8304_1C86_11dd_B49B_001D60B44DDE"/>
+				<properties name="fms1" type="Statechart"/>
+				<project author="pablo" version="1.0" created="2008-05-07 19:51:49" modified="2008-05-07 19:52:29"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=823;DocSize.cy=1169;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
+				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
+				<elements>
+					<element geometry="Left=111;Top=120;Right=231;Bottom=180;imgL=25;imgT=35;imgR=145;imgB=95;" subject="EAID_359D36A0_1C88_11dd_B49B_001D60B44DDE" seqno="1" style="DUID=359D1486;"/>
+					<element geometry="Left=385;Top=173;Right=505;Bottom=233;imgL=299;imgT=88;imgR=419;imgB=148;" subject="EAID_45830BBC_1C88_11dd_B49B_001D60B44DDE" seqno="2" style="DUID=4582D976;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_4958D316_1C88_11dd_B49B_001D60B44DDE" style=";Hidden=0;"/>
+				</elements>
+			</diagram>
+		</diagrams>
+	</xmi:Extension>
+</xmi:XMI>
