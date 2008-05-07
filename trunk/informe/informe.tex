@@ -1,114 +1,58 @@
-% \documentclass{article}
+\documentclass[spanish, a4paper, 10pt, titlepage]{article}
+\author{Echevarr'ia - Farjat - Freijo - Giusto}
 
-%%%%%%%%%%%%%%%%%%% agregado por pablo 
-\documentclass[a4paper, 10pt,titlepage]{article}
-\author{Echevarr'ia - Giusto - Farjat - Freijo }
-%  \usepackage{a4wide}
-%  \usepackage{multicol}
-%  \usepackage{verbatim}
-%  \usepackage[pdftex]{graphicx}
-%  \usepackage{fancyvrb}
-%  \usepackage[ansinew]{inputenc}
-%  \usepackage{color}
-%  \usepackage{amsfonts}
-%  \usepackage{bbm}
-%  \usepackage{fancyhdr} %Para el enunciado
-%  \usepackage[spanish, activeacute]{babel} %Para el enunciado
+% Incluyo los paquetes y configuraciones
+\input{config.tex}
 
-\usepackage{caratula}
-
-%\usepackage[latin1]{inputenc}
-\usepackage[utf8]{inputenc}
-
-\usepackage[spanish, activeacute]{babel}
-\usepackage{amsmath}
-
-\usepackage{fancyhdr}
-
- \usepackage[x11names, rgb]{xcolor}
-
-\usepackage{tikz}
-	\usetikzlibrary{snakes,arrows,shapes}
-
-\usepackage{amsmath}
-
-\usepackage{listings}
-\usepackage{graphicx}
-
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{lastpage}
-
-\usepackage{geometry}
-  \geometry{left=1cm, right=1cm, top=2cm, bottom=2cm}
-
-
-\pagestyle{fancy}
-  \fancyhead[LO]{Ingenieria de Software I}
-  \fancyhead[C]{Trabajo Pr'actico}
-  \fancyhead[RO]{Primer Cuatrimestre 2007}
-  \renewcommand{\headrulewidth}{0.4pt}
-
-  \fancyfoot[LO]{Echevarria - Farjat - Freijo - Giusto }
-  \fancyfoot[C]{}
-  \fancyfoot[RO]{P\'agina \thepage\ de \pageref{LastPage}}
-
-  \renewcommand{\footrulewidth}{0.4pt}   
-
-%%%%%%%%%%%% pablo 17.2.08
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%   Inicio del documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\parindent = 1.5 em 
-\parskip = 8 pt %OJO CON ESTO!!!!PUEDE CREAR ESPACIOS ENTRE PÁRRAFOS MUY GRANDES
 
-%%%%%%%%%%%%%%%% COMANDOS %%%%%%%%%%%%%%%%%%%%
-\newcommand{\todo}{{\large\textbf{TODO: }}}
-\newcommand{\paso}{\textsc{Paso }}
-\newcommand{\func}[1]{\verb"#1"}
-%		\textbf{\Large{[Ac'a va #1 el gr'afico:\verb" #2"]}}
-% \newenvironment{codigo}
-% 
-%  {\DefineShortVerb[obeytabs=true,tabsize=4]{\"}\small\begin{center}\textit{\\Pseudoc'odigo:\\}
-%  \begin{tabular}{|l@{\hspace{0.3in}}  l|}\hline}
-%  {\\ \hline\end{tabular}
-%  
-%  \end{center}}
-
-%%%%%%%%%%%%%%%% FIN COMANDOS %%%%%%%%%%%%%%%%%%%%
-
+% Caratula y tabla de contenidos
 \input{caratula.tex}
 \tableofcontents
+\clearpage
 
+% ------------------------------------------------------
+% Secciones
+% ------------------------------------------------------
 
+% Introduccion
 \section{Introducci'on}
+\input{introduccion.tex}
+\clearpage
 
-    \subsection{ Objetivo del documento	}
-    \subsection{ Convenciones de notaci'on	}
-    \subsection{ Destinatarios del documento	}
-    \subsection{ Descripci'on del problema 	}
-    \subsection{ Documentos relacionados	}
-    \subsection{ Organizaci'on del informe	}
-
+% Descripcion general
 \section{Descripci'on General	}
-    \subsection{ Perspectiva del producto	}
-    \subsection{ Funciones principales del producto 	}
-    \subsection{ Caracter'isticas de los usuarios	}
-    \subsection{ Restricciones	}
-    \subsection{ Supuestos y dependencias	}
+\input{descripcion_general.tex}
+\clearpage
 
-\section{ Requerimientos espec'ificos	}
+% Requerimientos especificos
+\section{Requerimientos espec'ificos}
+\input{requerimientos_especificos.tex}
+\clearpage
+
+% Glosario
 \section{Glosario}
-
-\appendix 
-Anexo I – Conclusiones del TP 
-\section{  Comentarios del Corrector}
-  \newpage
+\input{glosario.tex}
+\clearpage
 
 
+% -------------------------------------
+% Anexos
+% -------------------------------------
+\appendix
 
+% Conclusiones del TP
+\section{Anexo I - Conclusiones del TP}
+\input{conclusiones.tex}
+\clearpage
 
-\listoffigures
-
+% Espacio para comentarios del corrector
+\section{Comentarios del corrector}
 
 
 \end{document}
