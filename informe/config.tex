@@ -31,7 +31,7 @@
 \pagestyle{fancy}
   \fancyhead[LO]{Ingenier\'ia de Software I}
   \fancyhead[C]{Trabajo Práctico}
-  \fancyhead[RO]{Primer Cuatrimestre 2007}
+  \fancyhead[RO]{Primer Cuatrimestre 2008}
   \renewcommand{\headrulewidth}{0.4pt}
 
   \fancyfoot[LO]{Echevarr\'ia - Farjat - Freijo - Giusto}
@@ -47,11 +47,11 @@
 \newcommand{\todo}{{\large\textbf{TODO: }}}
 \newcommand{\paso}{\textsc{Paso }}
 \newcommand{\func}[1]{\verb"#1"}
-\newcommand{\imagen}[2]
+\newcommand{\imagen}[3]
 {
 	\begin{figure}[htbp]
 	  \centering
-	    \includegraphics[scale=0.5]{#1}
+	    \includegraphics[scale=#3]{../img/#1}
 	  \caption{#2}
 	\end{figure}
 }
@@ -59,7 +59,9 @@
 \newcommand{\nat}{\mathds{N}}
 \newcommand{\algoritmo}[3]{\noindent {\bf\underline{#1}:} #2 $\longrightarrow$ #3}
 \newcommand{\superindice}[1]{$^\textrm{{\tiny #1}}$}
-\newcommand{\subsubsubsection}[1]{{\bf\small #1}}
+\newcommand{\subsubsubsection}[1]{\noindent\negrita{#1}
+
+}
 \newcommand{\negrita}[1]{{\bf #1}}
 
 %%%%%%%%%%%%%%%% FIN COMANDOS %%%%%%%%%%%%%%%%%%%%
