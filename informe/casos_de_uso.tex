@@ -27,11 +27,11 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \negrita{Desarrollo normal}
 \begin{enumerate}
-\item El sistema le muestra al jugador los tipos de juego que dispone el casino.
-\item El jugador elige el tipo de juego al que desea jugar y si desea unirse a una mesa existente o crear una nueva.
+\item El sistema le pregunta al jugador si quiere jugar a tragamonedas o a craps.
+\item El jugador elige el tipo de juego al que desea jugar.
+\item Si elige jugar al tragamonedas, EXTIENDE ''Creando mesa'' e IR A PASO \ref{label_jugar}. Si no, el sistema le pregunta si desea unirse a una mesa existente o crear una nueva.
 \item Si elige unirse a una mesa, EXTIENDE ''Eligiendo mesa''. Si en cambio elige crear una mesa, EXTIENDE ''Creando mesa''.
 \item Si eligi'o jugar a Craps, EXTIENDE ''Jugando Craps''. Si en cambio eligi'o jugar a Tragamonedas, EXTIENDE ''Tragamonedas''.\label{label_jugar}
-\item Si el jugador desea volver a jugar, ir a PASO \ref{label_jugar}.
 \item Fin CU.
 \end{enumerate}
 
@@ -47,7 +47,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \negrita{Desarrollo normal}
 \begin{enumerate}
-\item El sistema le muestra al eligidor de mesa las mesas abiertas disponibles del juego seleccionado.
+\item El sistema le muestra al eligidor de mesa las mesas de craps abiertas.
 \item El eligidor de mesa elige una mesa.
 \item Fin CU.
 \end{enumerate}
@@ -57,17 +57,24 @@ Se modelaron cuatro actores en los casos de uso del sistema
 % --------------- Creando mesa ---------------------
 \subsubsubsection{CU: Creando mesa}
 \negrita{Pre condici'on}: - \newline
-\indent\negrita{Post condici'on}: -
+\indent\negrita{Post condici'on}: Se crea la mesa requerida.
 
 \negrita{Actor primario}: Creador de mesa \newline
 \indent\negrita{Actores secundarios}: -
 
 \negrita{Desarrollo normal}
 \begin{enumerate}
-\item El sistema le muestra
-\item El creador de mesa 
+\item Si el juego elegido es tragamonedas, el sistema le pide al creador de mesa el valor de la ficha. Si en cambio el juego elegido es craps, IR A \ref{label_val_ficha_invalido}. \label{cu_pedir_valor}
+\item El sistema valida el valor de ficha ingresado.
+\item El sistema crea la mesa requerida del juego elegido. \label{label_val_ficha_invalido}
 \item Fin CU.
 \end{enumerate}
+
+\negrita{Desarrollo alternativo}
+
+\ref{label_val_ficha_invalido}.1 El sistema le advierte al creador de mesa que el valor de ficha es invalido. IR A \ref{cu_pedir_valor}.
+
+
 
 
 
@@ -81,6 +88,12 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \negrita{Desarrollo normal}
 \begin{enumerate}
+\item El sistema le pregunta al jugador de craps si desea apostar, cuantas fichas y de que tipo. \label{cu_jugar_craps}
+\item El jugador de craps informa sus decisiones.
+\item Al jugador de craps que le toque tirar, tira.
+\item El sistema muestra el n'umero salido; debita del saldo del jugador de craps sus apuestas perdidas y le acredita las apuestas ganadas.
+\item El sistema guarda la informaci'on de la jugada para futuras referencias.
+\item Si la ronda no finaliz'o y el jugador de craps es el siguiente en tirar, o si el jugador realiz'o una apuesta venir o no venir, o si desea seguir jugando, IR A PASO \ref{cu_jugar_craps}.
 \item Fin CU.
 \end{enumerate}
 
@@ -96,6 +109,11 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \negrita{Desarrollo normal}
 \begin{enumerate}
+\item El sistema le pregunta al jugador de tragamonedas si quiere jugar 1, 2 o 3 fichas. \label{cu_jugar_traga}
+\item El jugador elige cuantas fichas quiere jugar y acciona los rodillos.
+\item El sistema le muestra el resultado de la tirada, debita la apuesta de la cuenta del jugador de tragamonedas y acredita la ganancia correspondiente.
+\item El sistema guarda la informaci'on de la jugada para futuras referencias.
+\item Si el jugador de tragamonedas desea seguir jugando, IR A PASO \ref{cu_jugar_traga}.
 \item Fin CU.
 \end{enumerate}
 
@@ -112,11 +130,11 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \negrita{Desarrollo normal}
 \begin{enumerate}
-\item El sistema le muestra al invitado los tipos de juego que dispone el casino.
+\item El sistema le consulta al invitado si desea mirar una mesa de craps o de tragamonedas.
 \item El invitado elige el tipo de juego que desea mirar.
 \item El sistema le muestra al invitado las mesas abiertas del juego elegido.
 \item El invitado elige la mesa que desea mirar.
-\item El sistema le muestra al invitad la mesa elegida.
+\item El sistema le muestra al invitado la mesa elegida.
 \item Fin CU.
 \end{enumerate}
 
@@ -159,6 +177,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 
 
+
 % --------------- Cerrando casino ---------------------
 \subsubsubsection{CU: Cerrando casino}
 \negrita{Pre condici'on}: El casino est'a abierto. \newline
@@ -169,6 +188,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \negrita{Desarrollo normal}
 \begin{enumerate}
+
 \item El sistema verifica que no hayan mesas abiertas.
 \item El sistema cierra el casino. \label{label_mesas_abiertas}
 \item Fin CU. \label{label_fincucc}
@@ -176,9 +196,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \negrita{Desarrollo alternativo}
 
-%\begin{enumerate}
 \ref{label_mesas_abiertas}.1 Si hay mesas abiertas, el sistema le advierte al administrador que la operaci'on no puede ser realizada. Ir a PASO \ref{label_fincucc}.
-%\end{enumerate}
 
 
 
@@ -195,7 +213,13 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \begin{enumerate}
 \item El sistema le muestra al administrador los posibles reportes a pedir: Ranking de jugadores, Estado actual y Detalle movimientos por jugador.
 \item El administrador elige el reporte que desea.
-\item El sistema le muestra al administrador el reporte solicitado.
+\item El sistema le mostrar'a al administrador
+	\begin{itemize}
+	\item si elige \negrita{Ranking de jugadores}, los jugadores que m'as dinero ganaron en el d'ia.
+	\item si elige \negrita{Estado actual}, el informe del estado actual del casino y los clientes, especialmente los saldos respectivos.
+	\item si elige \negrita{Detalle movimientos por jugador}, el detalle de todos los movimientos (apuestas, premios ganados, monto ganado) desde que ingresaron al casino.
+	\end{itemize}
+\item El sistema le muestra al administrador el reporte solicitado a partir de la informaci'on guardada en las jugadas sucedidas.
 \item Fin CU.
 \end{enumerate}
 
