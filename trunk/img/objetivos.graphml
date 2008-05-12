@@ -5,7 +5,7 @@
   <key for="edge" id="d2" yfiles.type="edgegraphics"/>
   <key attr.name="description" attr.type="string" for="edge" id="d3"/>
   <key for="graphml" id="d4" yfiles.type="resources"/>
-  <graph edgedefault="directed" id="G" parse.edges="26" parse.nodes="21" parse.order="free">
+  <graph edgedefault="directed" id="G" parse.edges="27" parse.nodes="21" parse.order="free">
     <node id="n0">
       <data key="d0">
         <y:UMLClassNode>
@@ -37,13 +37,13 @@ a las Vegas</y:NodeLabel>
     <node id="n2">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="47.0" width="147.0" x="206.5" y="176.5"/>
+          <y:Geometry height="47.0" width="199.1623188405797" x="220.41884057971015" y="176.5"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.888671875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="129.0" x="9.0" y="0.5556640625">Rosa hace
-bien su trabajo
-(no se roba el dinero)</y:NodeLabel>
-          <y:Shape type="trapezoid"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.888671875" modelName="internal" modelPosition="r" textColor="#000000" visible="true" width="173.0" x="22.1623188405797" y="0.5556640625">La secretaria lleva un manejo
+ correcto de los saldos y
+clientes</y:NodeLabel>
+          <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
       <data key="d1"/>
@@ -80,9 +80,8 @@ jugadores</y:NodeLabel>
           <y:Geometry height="60.0" width="200.0" x="780.0" y="250.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.888671875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="159.0" x="20.5" y="7.0556640625">Que el balance de jugadas
-en algún periodo de más
-ganacias que pérdidas</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.92578125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="183.0" x="8.5" y="14.037109375">Que el balance de jugadas
+de más ganacias que pérdidas</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -91,10 +90,10 @@ ganacias que pérdidas</y:NodeLabel>
     <node id="n6">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="62.0" width="292.0" x="121.0" y="350.0"/>
+          <y:Geometry height="62.0" width="269.4753623188405" x="145.26231884057975" y="449.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.888671875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="160.0" x="66.0" y="8.0556640625">que los posibles jugadores
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.888671875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="160.0" x="54.73768115942025" y="8.0556640625">que los posibles jugadores
 tengan los requerimientos
  técnicos necesarios</y:NodeLabel>
           <y:Shape type="trapezoid"/>
@@ -105,7 +104,7 @@ tengan los requerimientos
     <node id="n7">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="53.0" width="195.0" x="222.5" y="453.5"/>
+          <y:Geometry height="53.0" width="195.0" x="222.5" y="373.5"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.888671875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="164.0" x="15.5" y="3.5556640625">que la gente pueda hacer 
@@ -160,7 +159,7 @@ poder configurar los juegos</y:NodeLabel>
     <node id="n11">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="146.48000000000002" x="206.76" y="545.0"/>
+          <y:Geometry height="30.0" width="146.48000000000002" x="166.76" y="305.0"/>
           <y:Fill color="#FFFF99" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.962890625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="61.0" x="42.74000000000001" y="6.0185546875">secretaria</y:NodeLabel>
@@ -204,7 +203,7 @@ ganas de jugar</y:NodeLabel>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.92578125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="104.0" x="23.823991868852488" y="22.727893243852463">Un diseño grafico
 atractivo</y:NodeLabel>
-          <y:Image href="file:/home/pablo/Desktop/IS1/is1-tp/informe/nuvecita.png" refid="1"/>
+          <y:Image refid="1"/>
         </y:ImageNode>
       </data>
       <data key="d1"/>
@@ -215,9 +214,9 @@ atractivo</y:NodeLabel>
           <y:Geometry height="77.38156773770493" width="151.64798373770498" x="524.1760081311475" y="641.3092161311475"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.92578125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="100.0" x="25.823991868852488" y="22.727893243852463">interfaz intuitiva 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.92578125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="100.0" x="25.823991868852545" y="22.727893243852463">interfaz intuitiva 
 y sencilla</y:NodeLabel>
-          <y:Image href="file:/home/pablo/Desktop/IS1/is1-tp/informe/nuvecita.png" refid="1"/>
+          <y:Image refid="1"/>
         </y:ImageNode>
       </data>
       <data key="d1"/>
@@ -309,7 +308,7 @@ información</y:NodeLabel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="59.7279052734375" y="7.684648827208036"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="77.7216796875" y="-29.08867187499999"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -354,7 +353,7 @@ información</y:NodeLabel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="60.625" y="-28.3125"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="33.8125" y="2.0"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -487,7 +486,7 @@ información</y:NodeLabel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="78.3515625" y="-18.17578125"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="54.5" y="-14.5"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -514,7 +513,7 @@ información</y:NodeLabel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="none"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="12.60546875" y="-21.2109375"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="23.26953125" y="17.26953125"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -648,10 +647,22 @@ información</y:NodeLabel>
       </data>
       <data key="d3"/>
     </edge>
+    <edge id="e26" source="n2" target="n11">
+      <data key="d2">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-23.833343505859375" y="38.75"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+      <data key="d3"/>
+    </edge>
   </graph>
   <data key="d4">
     <y:Resources>
-      <y:Resource id="1" type="sun.awt.image.ToolkitImage">iVBORw0KGgoAAAANSUhEUgAAAIgAAABaCAYAAABjTB52AAAYNElEQVR42u2diX9TZbrH+TfuIIKo&#13;
+      <y:Resource id="1" type="java.awt.image.BufferedImage">iVBORw0KGgoAAAANSUhEUgAAAIgAAABaCAYAAABjTB52AAAYNElEQVR42u2diX9TZbrH+TfuIIKo&#13;
 jKKCXgQ3HFAQxm3mquO4jDN6P96hUFooCIUutAVbsHDZFLkuoKCiIpugKLJKoRRo0422SVpaWrpB&#13;
 F5a2lNKm+d33ec55T87JUpo0TdOS8/m8n5EkDCd5v+fZ3+cZhNAVurq4BoV+gtAVAiR0hQAJXSFA&#13;
 /HLV1dWjsKgIP+zYhZenL8RTM5fjsdnr8fisD/H0zFQ8F56EV8IWICwqmj8bAuQWgeLZGYsxdu6X&#13;
