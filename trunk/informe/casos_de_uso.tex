@@ -3,9 +3,9 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \begin{description}
 \item[Invitado]: un posible futuro jugador al cual se le permite acceder al casino con el objetivo de observar las mesas donde se desarrollan los juegos.
-\item[Jugador]: aquel que aparece en la lista de jugadores ingresadada al sistema. Tiene la posibilidad de jugar a cualquier juego asi como cierto saldo de donde se debitan las apuestas y acreditan las ganancias.
-\item[Administrador]: un representante del equipo de Timbalistas. Es aquel que realiza tareas administrativas en el sistema.
-\item[Jefe de contabilidad]: es aquel capaz de realizar las tareas de Administrador y a su vez ''Dirigir el azar''.
+\item[Jugador]: aquel que aparece en la lista de jugadores ingresada al sistema. Tiene la posibilidad de jugar a cualquier juego asi como cierto saldo de donde se debitan las apuestas y acreditan las ganancias.
+\item[Administrador]: un representante del equipo de SOCIOS. Es aquel que realiza tareas administrativas en el sistema.
+\item[Jefe de contabilidad]: es aquel capaz de realizar las tareas de Administrador y a su vez ``Dirigir el azar''.
 \end{description}
 
 \imagen{CU_Actores.png}{Diagrama de herencia de los actores}{0.6}
@@ -29,9 +29,9 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \begin{enumerate}
 \item El sistema le pregunta al jugador si quiere jugar a tragamonedas o a craps.
 \item El jugador elige el tipo de juego al que desea jugar.
-\item Si elige jugar al tragamonedas, EXTIENDE ''Creando mesa'' e IR A PASO \ref{label_jugar}. Si no, el sistema le pregunta si desea unirse a una mesa existente o crear una nueva.
-\item Si elige unirse a una mesa, EXTIENDE ''Eligiendo mesa''. Si en cambio elige crear una mesa, EXTIENDE ''Creando mesa''.
-\item Si eligi'o jugar a Craps, EXTIENDE ''Jugando Craps''. Si en cambio eligi'o jugar a Tragamonedas, EXTIENDE ''Tragamonedas''.\label{label_jugar}
+\item Si elige jugar al tragamonedas, EXTIENDE ``Creando mesa'' e IR A PASO \ref{label_jugar}. Si no, el sistema le pregunta si desea unirse a una mesa existente o crear una nueva.
+\item Si elige unirse a una mesa, EXTIENDE ``Eligiendo mesa''. Si en cambio elige crear una mesa, EXTIENDE ``Creando mesa''.
+\item Si eligi'o jugar a Craps, EXTIENDE ``Jugando Craps''. Si en cambio eligi'o jugar a Tragamonedas, EXTIENDE ``Tragamonedas''.\label{label_jugar}
 \item Fin CU.
 \end{enumerate}
 
