@@ -1,31 +1,122 @@
 Para lograr los objetivos de los SOCIOS el sistema posee los siguientes requerimientos
 
 \subsubsection{Esenciales}
-\begin{itemize}
-    \item Que existan juegos (\textbf{funcional}). Cada vez que un jugador quiera jugar debe tener juegos disponibles en el casino para poder apostar.
-    \item Que los jugadores puedan jugar (\textbf{funcional}) Si un jugador posee los requerimientos t'ecnicos necesarios, entonces deber'a tener acceso a los juegos del casino cuando lo desee.
-\end{itemize}
+\subsubsubsection{Existen juegos} 
+\negrita{Tipo}: funcional. 
+
+\negrita{Descripci'on}: Un casino sin juegos no es un casino. Para poder conseguir que los jugadores juegen, har'a falta ofrecerles cierta cantidad de juegos.
+
+\negrita{Modelos de referencia}: En el modelo conceptual se observan mesas de Tragamonedas y Craps, al igual que las apuestas que se pueden hacer. En los casos de uso tambien se marca una jugada como una acci'on entre un jugador y el sistema. En el diagrama de actividad y m'aquinas de estado finito se modela el desarrollo de cada juego y en el diagrama de contexto se toma el suceso de jugar como emitido por un jugador y recibido por el sistema. 
+
+
+
+\subsubsubsection{Si un jugador desea jugar, puede hacerlo}
+\negrita{Tipo}: funcional.
+
+\negrita{Descripci'on}: Para que existan jugadores, se les debe permitir el ingreso al casino y acceso a los juegos.
+
+\negrita{Modelos de referencia}: En los casos de uso se puede ver la acci'on de jugar que realiza un jugador en el casino, al igual que su asociaci'on con una mesa en el modelo conceptual.
+
+
+
 
 
 \subsubsection{Importantes}
-\begin{itemize}
-    \item Poder configurar los juegos (\textbf{funcional}) Poder ajustar las variables de probabilidad y ganancias de cada juego, y as'i facilitar la rentabilidad del casino.
-    \item Poder configurar los pozos (\textbf{funcional}) Poder configurar el m'inimo del pozo feliz y progresivo, al igual de la probabilidad de ocurrencia de las jugadas felices y todos ponen.
-    \item Que exista el modo dirigido (\textbf{funcional}) Poder manejar cuando se desee la ocurrencia de las jugadas todos ponen y feliz, al igual de los resultados de cualquier jugada en cualquier mesa.
-    \item Que se puedan pedir reportes (\textbf{funcional}) Poder pedir reportes del estado del casino y sus jugadores para mantener control de la rentabilidad.
-    \item Que el sistema sea escalable (\textbf{no funcional}) El sistema deber'a poder adaptarse f'acilmente para permitir que el n'umero de jugadores se incremente en el tiempo (y permitir que las ganancias tambi'en lo hagan).
-    \item Que se puedan agregar nuevos juegos (\textbf{funcional}) Cuando los SOCIOS lo deseen, podr'an agregar nuevos juegos al sistema.
-    \item Que puedan acceder al casino m'as de un jugador a la vez desde la misma terminal (\textbf{funcional}) Es un requerimiento explicitado por los SOCIOS.
-    \item Que el sistema sea seguro (\textbf{no funcional}) Se necesita que las transacciones sean seguras para brindar mayor confianza a los jugadores y as'i fomentar el uso del casino.
-\end{itemize}
+
+\subsubsubsection{Los juegos y pozos se pueden configurar}
+\negrita{Tipo}: funcional.
+
+\negrita{Descripci'on}: Poder ajustar las variables de probabilidad y ganancias de cada juego al igual que las probabilidades de ocurrencia de jugadas felices y todos ponen. De 'esta forma se puede asegurar la rentabilidad del casino.
+
+\negrita{Modelos de referencia}: Se puede observar la operaci'on correspondiente en el modelo de casos de uso.
+	
+	
+	
+\subsubsubsection{Existe el modo dirigido}
+\negrita{Tipo}: funcional.
+
+\negrita{Descripci'on}: Poder manejar cuando se desee la ocurrencia de las jugadas todos ponen y feliz, al igual de los resultados de cualquier jugada en cualquier mesa. De 'esta forma se puede asegurar la rentabilidad del casino.
+
+\negrita{Modelos de referencia}: Se puede observar la operaci'on correspondiente en el modelo de casos de uso.
+
+
+
+\subsubsubsection{El sistema ofrece buena informaci'on sobre el estado del casino}
+\negrita{Tipo}: funcional.
+
+\negrita{Descripci'on}: Poder pedir reportes del estado del casino y sus jugadores para mantener control de la rentabilidad y ajustar correctamente los juegos y pozos.
+
+\negrita{Modelos de referencia}: Los reportes fueron modelados como una acci'on al sistema en el modelo de casos de uso.
+
+
+
+\subsubsubsection{El sistema es seguro}
+\negrita{Tipo}: no funcional.
+
+\negrita{Descripci'on}: Se necesita que las transacciones sean seguras para brindar mayor confianza a los jugadores y as'i fomentar el uso del casino.
+
+
+
+
+\subsubsubsection{El sistema permite suficientes jugadores} 
+\negrita{Tipo}: no funcional.
+
+\negrita{Descripci'on}: El sistema deber'a poder adaptarse f'acilmente para permitir que el n'umero de jugadores sea el requerido para satisfacer las necesidades de rentabilidad.
+
+
+
+
+
+\subsubsubsection{El sistema permite acceder al casino a m'as de un jugador a la vez desde la misma terminal}
+\negrita{Tipo}: funcional.
+
+\negrita{Descripci'on}:  Es un requerimiento explicitado por los SOCIOS.
+
+
+	
+	
+\subsubsubsection{Se pueden agregar nuevos juegos}
+\negrita{Tipo}: funcional.
+
+\negrita{Descripci'on}: Cuando los SOCIOS lo deseen, podr'an agregar nuevos juegos al sistema. Fue requerido por ellos.
+
+
+
+
 
 \subsubsection{Deseables}
-\begin{itemize}
-    \item Interfaz intuitiva y sencilla (\textbf{no funcional}) Es necesario para que los jugadores se sientan c'omodos y no frustrados mientras juegan y as'i incentivarlos a que realicen muchas apuestas.
-    \item Dise'no gr'afico atractivo (\textbf{no funcional}) Al igual que el anterior, fomentan el uso de los juegos.
-    \item Que el sistema sea r'apido (\textbf{no funcional}) Se necesita que las operaciones hechas al sistema respondan r'apidamente. 'Esto ayuda a lograr una mejor experiencia de usuario, con lo que se fomenta el uso de los juegos.
-    \item Que exista un chat entre jugadores de una misma mesa (\textbf{funcional}) De esta forma, los jugadores podr'an expresar entre s'i su felicidad por estar jugando.
-\end{itemize}
+
+
+\subsubsubsection{Interfaz intuitiva y sencilla}
+\negrita{Tipo}: no funcional.
+
+\negrita{Descripci'on}: Es necesario para que los jugadores se sientan c'omodos y no frustrados mientras juegan y as'i incentivarlos a que realicen muchas apuestas (y as'i, que logren su felicidad).
+
+
+    
+	
+\subsubsubsection{Dise'no gr'afico atractivo} 
+\negrita{Tipo}: no funcional.
+
+\negrita{Descripci'on}: Al igual que el anterior, fomentan el uso de los juegos.
+
+    
+	
+\subsubsubsection{El sistema es eficaz}
+\negrita{Tipo}: no funcional.
+
+\negrita{Descripci'on}: Se necesita que las operaciones hechas al sistema respondan lo suficientemente r'apido. 'Esto ayuda a lograr una mejor experiencia de usuario, con lo que se fomenta el uso de los juegos.
+
+    
+	
+\subsubsubsection{Existe un chat entre jugadores de una misma mesa} 
+\negrita{Tipo}: funcional.
+
+\negrita{Descripci'on}: De esta forma, los jugadores podr'an expresar entre s'i su felicidad por estar jugando. Los SOCIOS lo establecieron como un requerimiento deseable.
+
+
+
+
 
 \subsubsection{Compromisos por parte del grupo}
 Lamentablemente, nuestro equipo de dise'no gr'afico se encuentra en huelga porque el gobierno aument'o las retenciones a los dise'nos que hacen hacia el exterior. Es por eso que no podremos asegurar el cumplimiento de los requerimientos \negrita{Interfaz intuitiva y sencilla} y \negrita{Dise'no gr'afico atractivo}. 

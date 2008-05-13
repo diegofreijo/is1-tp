@@ -31,7 +31,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \item El jugador elige el tipo de juego al que desea jugar.
 \item Si elige jugar al tragamonedas, EXTIENDE ``Creando mesa'' e IR A PASO \ref{label_jugar}. Si no, el sistema le pregunta si desea unirse a una mesa existente o crear una nueva.
 \item Si elige unirse a una mesa, EXTIENDE ``Eligiendo mesa''. Si en cambio elige crear una mesa, EXTIENDE ``Creando mesa''.
-\item Si eligi'o jugar a Craps, EXTIENDE ``Jugando Craps''. Si en cambio eligi'o jugar a Tragamonedas, EXTIENDE ``Tragamonedas''.\label{label_jugar}
+\item Si eligi'o jugar a Craps, EXTIENDE ``Jugando a Craps''. Si en cambio eligi'o jugar a Tragamonedas, EXTIENDE ``Jugando a Tragamonedas''.\label{label_jugar}
 \item Fin CU.
 \end{enumerate}
 
@@ -88,7 +88,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \negrita{Desarrollo normal}
 \begin{enumerate}
-\item El sistema le pregunta al jugador de craps si desea apostar, cuantas fichas y de que tipo. \label{cu_jugar_craps}
+\item El sistema le pregunta al jugador de craps si desea apostar, cuantas fichas y de qu'e tipo. \label{cu_jugar_craps}
 \item El jugador de craps informa sus decisiones.
 \item Al jugador de craps que le toque tirar, tira.
 \item El sistema muestra el n'umero salido; debita del saldo del jugador de craps sus apuestas perdidas y le acredita las apuestas ganadas.
@@ -213,13 +213,12 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \begin{enumerate}
 \item El sistema le muestra al administrador los posibles reportes a pedir: Ranking de jugadores, Estado actual y Detalle movimientos por jugador.
 \item El administrador elige el reporte que desea.
-\item El sistema le mostrar'a al administrador
+\item El sistema le mostrar'a al administrador, a partir de la informaci'on guardada en las jugadas sucesivas:
 	\begin{itemize}
 	\item si elige \negrita{Ranking de jugadores}, los jugadores que m'as dinero ganaron en el d'ia.
 	\item si elige \negrita{Estado actual}, el informe del estado actual del casino y los clientes, especialmente los saldos respectivos.
 	\item si elige \negrita{Detalle movimientos por jugador}, el detalle de todos los movimientos (apuestas, premios ganados, monto ganado) desde que ingresaron al casino.
 	\end{itemize}
-\item El sistema le muestra al administrador el reporte solicitado a partir de la informaci'on guardada en las jugadas sucedidas.
 \item Fin CU.
 \end{enumerate}
 
