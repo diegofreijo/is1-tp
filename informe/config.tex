@@ -20,8 +20,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage[x11names, rgb]{xcolor}
-\usepackage{tikz}
-	\usetikzlibrary{snakes,arrows,shapes}
+% \usepackage{tikz}
+% 	\usetikzlibrary{snakes,arrows,shapes}
 \usepackage{listings}
 \usepackage{lastpage}
 \usepackage{geometry}
@@ -62,7 +62,43 @@
 \newcommand{\subsubsubsection}[1]{\noindent\negrita{#1}
 
 }
+
+% codigo para generar los casos de uso, basado en caratula.sty del DC-FCEN-UBA 
+% autor Nicolas Rosner
+% Modificado por Pablo Echevarria 25-5-08
+% ToDo: ver como declarar primero titulo y despues operaciones
+% ver como numerar automaticamente las operaciones
+
 \newcommand{\negrita}[1]{{\bf #1}}
 \newcommand{\italica}[1]{{\it #1}}
+
+
+% ----- Token list para las instrucciones ------------------------------------
+\newtoks\oplist\oplist={}
+% ----- Comando para que el usuario agregue operaciones del CU
+
+
+\def\op#1#2{\oplist=\expandafter{\the\oplist
+	#1&#2\\}}
+
+
+\newcommand{\cu}[5]{ 
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\textit{\negrita{CASO DE USO} #1}}\\ 
+\hline
+\multicolumn{2}{|l|}{\negrita{Actor Primario:} #2}\\
+\hline
+\multicolumn{2}{|l|}{\negrita{Actor Secundario:} #3 }\\
+\hline
+\multicolumn{2}{|l|}{\negrita{Precondición:} #4 }\\
+\hline
+\multicolumn{2}{|l|}{\negrita{Poscondición:} #5} \\
+\hline
+\negrita{Curso Normal} & \negrita{CursoAlternativo} \\
+\the\oplist
+\hline
+\end{tabular}
+}
 
 %%%%%%%%%%%%%%%% FIN COMANDOS %%%%%%%%%%%%%%%%%%%%
