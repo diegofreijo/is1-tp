@@ -1,0 +1,61 @@
+Puntos que Nico remarcó que debemos corregir (estos son las memorias de muy corto plazo de Lucas que serán inmediatamente borradas luego de caer en la cama, con lo cual prefiero dejarlas plasmadas en un documento y compartirlas con ustedes, mis queridos compañeritos :D):
+
+--- Pensando en requerimientos...
+
+[lacax, giga, maxi]* identificar claramente los "16 a 20" requerimientos "oficiales" que le gusten a Nico: pensarlos, anotar ideas y luego bombardearlo a preguntas y/o trompadas
+
+--- Pensando en el modelo de objetivos...
+
+[kubuntu]* agregar lo que falta a DC
+
+[lacax, giga]* pensar en el objetivo planteado en el enunciado acerca de "fomentar el juego" como un objetivo real de los clientes y modelar esta idea y sus refinamientos en el modelo de objetivos
+
+--- Pensando en el modelo de casos de uso...
+
+[maxi, giga]* eliminar el caso de uso "Jugando en una mesa" y que todos los casos de uso que extendían de este sean casos de uso independientes (pensar, corregir y consultar acerca de las pre y poscondiciones de los mismos)
+
+[maxi, giga]* Jugador debe heredar de Invitado en el diagrama de casos de uso
+
+[maxi, giga]* detallar casos de uso usando tablitas gay con mucha onda (como a Nico sea que le guste) y especificar en los mismos en la sección, aún inexistente, denominada "requerimientos" (si mal no entendí) qué requerimientos satisface cada caso de uso
+
+--- Pensando en FSMs...
+
+[maxi, kubuntu]* re-modelar FSMs en general (pensar en la dinámica de los juegos y no modelar en detalle las formas de pagos); idea: pensar en FSMs "Jugador i", "tirador de dados", "dados", "apuesta Craps de tipo X i", consultar acerca de la posibilidad de modelado de máquinas con vida temporal (las apuestas por ejemplo)
+
+--- Pensando en el modelo conceptual...
+
+[lacax, maxi]* modelar historial en diagrama de clases conceptuales
+
+[lacax, maxi]* especificar operaciones en OCL para reportes
+
+[lacax, maxi]* modelar la clase "Apuesta", de la cual derivarán todos los tipos de apuestas
+
+[lacax, maxi]* un jugador realizará "apuestas" en una "jugada" en alguna "mesa"
+
+[lacax, maxi]* pensar en modelar una única jornada (desde que el casino abre hasta que cierra)
+
+[lacax, maxi]* eliminar la clase "Jornada" y modelar la clase "Casino" restringiendo con OCL que exista una única instancia (ponerle como atributo el saldo del casino)
+
+[lacax, maxi]* cuando usamos herencia podemos asumir que no existen instancias de la clase base (esto es que podemos asumir que: clasePapá.allInstances()->size() = 0)
+
+--- Pensando en DA...
+
+[giga]* modelar los tramites que se hacen con la secretaria por afuera del sistema y como marketing le da esa info al casino
+
+[giga, maxi]* modelarle las apuestas y pagos a los juegos
+
+--- Pensando en prototipos de pantalla...
+
+[kubuntu]* en la pantalla de Craps se deben poder ver los otros jugadores
+
+[kubuntu]* construir prototipos de pantalla para los admins (reportes y modo dirigido)
+
+--- Pensando en general...
+
+[kubuntu, maxi => FSM]* modelar donde corresponda la idea de que un jugador puede "cancelar" sus apuestas
+
+[todos]* redacción: enriquecer el documento con más comentarios en castellano y explicaciones acerca del modelado
+
+[todos]* usar referencias cruzadas por todo el documento de forma que quien lo lea tenga la sensación de estar comiendo un spagetti (se admiten cross-references recursivas)
+
+[todos]* utilizar alguna notación críptica para referirse a los requerimientos y demases referencias (onda REQ3476, UC236)
