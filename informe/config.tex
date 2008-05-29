@@ -79,26 +79,33 @@
 
 
 \def\op#1#2{\oplist=\expandafter{\the\oplist
-	#1&#2\\}}
+\hline#1&#2\\ }}
 
 
 \newcommand{\cu}[5]{ 
-\begin{tabular}{|l|l|}
+\begin{center}
+ 
+\begin{tabular}{|p{10cm}|p{6cm}|}
 \hline
-\multicolumn{2}{|l|}{\textit{\negrita{CASO DE USO} #1}}\\ 
+\multicolumn{2}{|l|}{\begin{large}\textit{\negrita{CASO DE USO} #1}\end{large} } \\ [0.5cm]
 \hline
-\multicolumn{2}{|l|}{\negrita{Actor Primario:} #2}\\
+\multicolumn{2}{|l|}{\negrita{Actor Primario:} #2}\\[0.2em]
 \hline
-\multicolumn{2}{|l|}{\negrita{Actor Secundario:} #3 }\\
+\multicolumn{2}{|l|}{\negrita{Actor Secundario:} #3 }\\[0.2em]
 \hline
-\multicolumn{2}{|l|}{\negrita{Precondición:} #4 }\\
+\multicolumn{2}{|l|}{\negrita{Precondición:} #4 }\\[0.2em]
 \hline
-\multicolumn{2}{|l|}{\negrita{Poscondición:} #5} \\
+\multicolumn{2}{|l|}{\negrita{Poscondición:} #5} \\[0.2em]
 \hline
-\negrita{Curso Normal} & \negrita{CursoAlternativo} \\
+\multicolumn{2}{|l|}{} \\[0.2em]
+\hline
+\negrita{Curso Normal} & \negrita{CursoAlternativo} \\[0.2em]
 \the\oplist
 \hline
 \end{tabular}
+\end{center}
 }
+
+
 
 %%%%%%%%%%%%%%%% FIN COMANDOS %%%%%%%%%%%%%%%%%%%%

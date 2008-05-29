@@ -18,35 +18,27 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \subsubsection{Descripci'on de cada caso de uso}
 
 %%%%%%%%%%%%% NUEVA FORMA DE ESCRIBIR CASOS DE USO
-\op{1 operacion 1}{la otra}
-\op{2 operacion 2}{}
-\op{3 operacion 3}{3.1 si falla aca, cagamos }
+ \op{1 El sistema le pregunta al jugador si quiere jugar a tragamonedas o a craps.}{ }
+ \op{2 El jugador elige el tipo de juego al que desea jugar.}{ }
+ \op{3 Si elige jugar al tragamonedas, EXTIENDE ``Creando mesa'' e IR A PASO \ref{label_jugar}. Si no, el sistema le pregunta si desea unirse a una mesa existente o crear una nueva.}{ }
+\op{4 Si elige unirse a una mesa, EXTIENDE ``Eligiendo mesa''. Si en cambio elige crear una mesa, EXTIENDE ``Creando mesa''.}{ }
+\op{5 Si eligi'o jugar a Craps, EXTIENDE ``Jugando a Craps''. Si en cambio eligi'o jugar a Tragamonedas, EXTIENDE ``Jugando a Tragamonedas''.\label{label_jugar}}{ }
+\op{6 Fin CU.}{6.1 aca iria el alternativo }
 
-\cu {Nombre del Caso} {El Actor Primario} {El Actor Secundario} {La Precondicion } {La Poscondicion}
+\cu {Jugando en una mesa} {Jugador} {} {el esta logueado } { el jugardor esta }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\begin{tabular}{|p{4cm}|}
+
+ columna 3 esto lo pongo de relleno para
+remarcar que el ancho de la columna es de 4 cm
 
 
+\end{tabular}
 
-% --------------- Jugando en una mesa ---------------------
-\subsubsubsection{CU: Jugando en una mesa}
-\negrita{Pre condici'on}: - \newline
-\indent\negrita{Post condici'on}: -
 
-\negrita{Actor primario}: Jugador \newline
-\indent\negrita{Actores secundarios}: -
-
-\negrita{Desarrollo normal}
-\begin{enumerate}
-\item El sistema le pregunta al jugador si quiere jugar a tragamonedas o a craps.
-\item El jugador elige el tipo de juego al que desea jugar.
-\item Si elige jugar al tragamonedas, EXTIENDE ``Creando mesa'' e IR A PASO \ref{label_jugar}. Si no, el sistema le pregunta si desea unirse a una mesa existente o crear una nueva.
-\item Si elige unirse a una mesa, EXTIENDE ``Eligiendo mesa''. Si en cambio elige crear una mesa, EXTIENDE ``Creando mesa''.
-\item Si eligi'o jugar a Craps, EXTIENDE ``Jugando a Craps''. Si en cambio eligi'o jugar a Tragamonedas, EXTIENDE ``Jugando a Tragamonedas''.\label{label_jugar}
-\item Fin CU.
-\end{enumerate}
 
 
 
