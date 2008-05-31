@@ -49,9 +49,17 @@
 \newcommand{\func}[1]{\verb"#1"}
 \newcommand{\imagen}[3]
 {
-	\begin{figure}[htbp]
+	\begin{figure}[p!hbt]
 	  \centering
 	    \includegraphics[scale=#3]{../img/#1}
+	  \caption{#2}
+	\end{figure}
+}
+\newcommand{\imagenvertical}[3]
+{
+	\begin{figure}[p!hbt]
+	  \centering
+	    \includegraphics[angle=90,scale=#3]{../img/#1}
 	  \caption{#2}
 	\end{figure}
 }
@@ -62,32 +70,27 @@
 \newcommand{\subsubsubsection}[1]{\noindent\negrita{#1}
 
 }
+\newcommand{\negrita}[1]{{\bf #1}}
+\newcommand{\italica}[1]{{\it #1}}
 
-% codigo para generar los casos de uso, basado en caratula.sty del DC-FCEN-UBA 
+% -----------------------------------------------------------------------------------------------------
+% Codigo para generar los casos de uso, basado en caratula.sty del DC-FCEN-UBA 
 % autor Nicolas Rosner
 % Modificado por Pablo Echevarria 25-5-08
 % ToDo: ver como declarar primero titulo y despues operaciones
 % ver como numerar automaticamente las operaciones
-
-\newcommand{\negrita}[1]{{\bf #1}}
-\newcommand{\italica}[1]{{\it #1}}
-
-
-% ----- Token list para las instrucciones ------------------------------------
+% -----------------------------------------------------------------------------------------------------
+% Token list para las instrucciones ----
 \newtoks\oplist\oplist={}
-% ----- Comando para que el usuario agregue operaciones del CU
-
-
-\def\op#1#2{\oplist=\expandafter{\the\oplist
+% Comando para que el usuario agregue operaciones del CU
+\newcommand{\op}[2]{\oplist=\expandafter{\the\oplist
 \hline#1&#2\\ }}
-
-
-\newcommand{\cu}[5]{ 
+% Comando para generar el CU con las operaciones ya pasadas y dandole la info que falta
+\newcommand{\cu}[5]{
 \begin{center}
- 
-\begin{tabular}{|p{10cm}|p{6cm}|}
+\begin{tabular}{|p{12cm}|p{5cm}|}
 \hline
-\multicolumn{2}{|l|}{\begin{large}\textit{\negrita{CASO DE USO} #1}\end{large} } \\ [0.5cm]
+\multicolumn{2}{|l|}{\begin{large}\italica{\negrita{CASO DE USO:} #1}\end{large} } \\ [0.2em]
 \hline
 \multicolumn{2}{|l|}{\negrita{Actor Primario:} #2}\\[0.2em]
 \hline
@@ -104,6 +107,7 @@
 \hline
 \end{tabular}
 \end{center}
+\oplist={}
 }
 
 

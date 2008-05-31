@@ -24,38 +24,19 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \op{4 Si elige unirse a una mesa, EXTIENDE ``Eligiendo mesa''. Si en cambio elige crear una mesa, EXTIENDE ``Creando mesa''.}{ }
 \op{5 Si eligi'o jugar a Craps, EXTIENDE ``Jugando a Craps''. Si en cambio eligi'o jugar a Tragamonedas, EXTIENDE ``Jugando a Tragamonedas''.\label{label_jugar}}{ }
 \op{6 Fin CU.}{6.1 aca iria el alternativo }
-
 \cu {Jugando en una mesa} {Jugador} {} {el esta logueado } { el jugardor esta }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{tabular}{|p{4cm}|}
-
- columna 3 esto lo pongo de relleno para
-remarcar que el ancho de la columna es de 4 cm
-
-
-\end{tabular}
 
 
 
 
 
 % --------------- Eligiendo mesa ---------------------
-\subsubsubsection{CU: Eligiendo mesa}
-\negrita{Pre condici'on}: - \newline
-\indent\negrita{Post condici'on}: -
-
-\negrita{Actor primario}: Eligidor de mesa \newline
-\indent\negrita{Actores secundarios}: -
-
-\negrita{Desarrollo normal}
-\begin{enumerate}
-\item El sistema le muestra al eligidor de mesa las mesas de craps abiertas.
-\item El eligidor de mesa elige una mesa.
-\item Fin CU.
-\end{enumerate}
+\op{1. El sistema le muestra al eligidor de mesa las mesas de craps abiertas}{}
+\op{2. El eligidor de mesa elige una mesa}{}
+\op{3. Fin CU}{}
+\cu{CU: Eligiendo mesa}{Jugador}{-}{-}{El jugador tiene como 'unica mesa elegida para jugar a la mesa seleccionada.}
 
 
 
