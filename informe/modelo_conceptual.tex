@@ -1,10 +1,25 @@
-\subsubsection{Diagrama}
+\subsubsection{Diagrama de clases conceptuales}
+Para comprender mejor las relaciones estructurales entre las entidades del sistema, aqu'i se muestra el modelo conceptual del mismo. 
+
 \imagenvertical{MC_Diagrama.png}{Diagrama de clases conceptuales}{0.5}
 
+
+\subsubsection{Detalles de las clases}
+A continuaci'on se comenta el significado y raz'on de ser de las clases principales en el diagrama
+\begin{description}
+\item [Jugada] Para poder obtener los reportes de \italica{Ranking de jugadores} y \italica{Detalle de movimientos por jugador} es necesario guardar el historial de jugadas realizadas por cada jugador en la jornada. La clase jugada representa exactamente eso: una jugada realizada por alg'un jugador en alguna mesa en alg'un momento de la jornada del casino. Se especializa en el tipo de jugada correspondiente (Tragamonedas o Craps) y puede estar asociada a su resultado.
+\item [Invitado] Es un visitante del casino (se le podr'ia decir cliente del mismo). Puede mirar las mesas para ver jugar a sus jugadores.
+\item [Jugador] Es aquel capaz de realizar jugadas en una mesa. Siendo coherentes con el modelo de casos de uso, un jugador \italica{es} a la vez un invitado. Es decir, puede mirar una mesa sin necesidad de jugar.
+\item [Jornada] Representa una jornada del casino, desde que abre hasta que cierra.
+\item [Mesa] Es en donde se realizan las jugadas. Puede ser de Tragamonedas o Craps y en una jornada puede recibir cualquier cantidad de jugadas.
+\end{description}
+
+
+\subsubsection{Restricciones OCL al modelo conceptual}
 \begin{itemize}
- \item \textit{ Solo hay una jugada feliz como m'aximo \\}
+ \item \textit{Solo hay una jugada feliz como m'aximo \\}
   \textbf{context} Jugada 
-  \\ \textbf{inv:} 
+  \\ \textbf{inv:}
   Jugada.allInstances()$\rightarrow$select(tipo = TipoJugada::feliz)$\rightarrow$size() $\leq$ 1)
 
 
@@ -35,29 +50,19 @@
   Jugador.allInstances()$\rightarrow$forAll($j_{1}$, $j_{2}$ : Jugador $|$ $j_{1} < > j_{2}$ \textbf{implies} $j_{1}.dni < > j_{2}.dni$)
 
 
-\item \textit{Los jugadores son comunes o vip}
-
-\textbf{context}  Jugador \\ \textbf{inv:} 
-  self.oclIsTypeOf(JugadorComun) or self.oclIsTypeOf(JugadorVip)
-
-
-\item \textit{Las mesas son de tragamonedas o craps}
-
-\textbf{context}  Mesa \\ \textbf{inv:} 
-  self.oclIsTypeOf(MesaDeTragamonedas) or self.oclIsTypeOf(MesaDeCraps)
-
-
-\item \textit{Las jugadas son de tragamonedas o craps}
-
-\textbf{context}  Jugada \\ \textbf{inv:} 
-  self.oclIsTypeOf(JugadaCrap) or self.oclIsTypeOf(JugadaTragamoneda)
-
-
 \item\textit{ El tipo de jugada (normal, feliz o todosPonen) tiene que ser el mismo para las jugadas de una misma mesa}
 
 \textbf{context}  Mesa \\ \textbf{inv:} 
   self.Jugada$\rightarrow$forAll($j_{1}$, $j_{2}$ : Jugada $|$ $j_{1}$.tipo = $j_{2}$.tipo)
 
+  
+\item\textit{El resultado de una jugada debe ser del mismo tipo que la jugada}
+FALTA!!!!!
+%\textbf{context}  Mesa \\ \textbf{inv:} 
+%  self.Jugada$\rightarrow$forAll($j_{1}$, $j_{2}$ : Jugada $|$ $j_{1}$.tipo = $j_{2}$.tipo)
+
+  
+  
 
 \item\textit{ En una jugada Crap las apuestas en sitio a ganar de un jugador son a distintos n'umeros}
 
