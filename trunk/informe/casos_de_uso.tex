@@ -3,234 +3,127 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \begin{description}
 \item[Invitado]: un posible futuro jugador al cual se le permite acceder al casino con el objetivo de observar las mesas donde se desarrollan los juegos.
-\item[Jugador]: aquel que aparece en la lista de jugadores ingresada al sistema. Tiene la posibilidad de jugar a cualquier juego as'i como cierto saldo de donde se debit'an las apuestas y acreditan las ganancias.
+\item[Jugador]: aquel que aparece en la lista de jugadores ingresada al sistema. Tiene la posibilidad de jugar a cualquier juego as'i como cierto saldo de donde se debit'an las apuestas y acreditan las ganancias. Si lo desea, tambien puede observar las mesas de juego tal como lo har'ia un invitado.
 \item[Administrador]: un representante del equipo de SOCIOS. Es aquel que realiza tareas administrativas en el sistema.
 \item[Jefe de contabilidad]: es aquel capaz de realizar las tareas de Administrador y a su vez ``Dirigir el azar''.
 \end{description}
 
-\imagen{CU_Actores.png}{Diagrama de herencia de los actores}{0.6}
+\imagen{CU_Actores.png}{Diagrama de actores}{0.7}
 
+\clearpage
+\subsubsection{Diagrama de casos de uso}
 
-\subsubsection{Diagrama}
-\imagen{CU_CasosDeUso.png}{Diagrama de casos de uso}{0.6}
-
-
-\subsubsection{Descripci'on de cada caso de uso}
-
-%%%%%%%%%%%%% NUEVA FORMA DE ESCRIBIR CASOS DE USO
- \op{1 El sistema le pregunta al jugador si quiere jugar a tragamonedas o a craps.}{ }
- \op{2 El jugador elige el tipo de juego al que desea jugar.}{ }
- \op{3 Si elige jugar al tragamonedas, EXTIENDE ``Creando mesa'' e IR A PASO \ref{label_jugar}. Si no, el sistema le pregunta si desea unirse a una mesa existente o crear una nueva.}{ }
-\op{4 Si elige unirse a una mesa, EXTIENDE ``Eligiendo mesa''. Si en cambio elige crear una mesa, EXTIENDE ``Creando mesa''.}{ }
-\op{5 Si eligi'o jugar a Craps, EXTIENDE ``Jugando a Craps''. Si en cambio eligi'o jugar a Tragamonedas, EXTIENDE ``Jugando a Tragamonedas''.\label{label_jugar}}{ }
-\op{6 Fin CU.}{6.1 aca iria el alternativo }
-\cu {Jugando en una mesa} {Jugador} {} {el esta logueado } { el jugardor esta }
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\imagen{CU_Diagrama.png}{Diagrama de casos de uso}{0.6}
 
 
 
-
+\subsubsection{Descripci'on de los casos de uso}
 
 % --------------- Eligiendo mesa ---------------------
-\op{1. El sistema le muestra al eligidor de mesa las mesas de craps abiertas}{}
-\op{2. El eligidor de mesa elige una mesa}{}
+\op{1. El sistema le muestra al jugador las mesas de craps abiertas}{}
+\op{2. El jugador elige una mesa}{}
 \op{3. Fin CU}{}
-\cu{CU: Eligiendo mesa}{Jugador}{-}{-}{El jugador tiene como 'unica mesa elegida para jugar a la mesa seleccionada.}
+\cu{Eligiendo mesa}{Jugador}{-}{El casino est'a abierto.}{El jugador tiene como 'unica mesa elegida para jugar a la mesa seleccionada.}{}
 
 
 
 % --------------- Creando mesa ---------------------
-\subsubsubsection{CU: Creando mesa}
-\negrita{Pre condici'on}: - \newline
-\indent\negrita{Post condici'on}: Se crea la mesa requerida.
-
-\negrita{Actor primario}: Creador de mesa \newline
-\indent\negrita{Actores secundarios}: -
-
-\negrita{Desarrollo normal}
-\begin{enumerate}
-\item Si el juego elegido es tragamonedas, el sistema le pide al creador de mesa el valor de la ficha. Si en cambio el juego elegido es craps, IR A \ref{label_val_ficha_invalido}. \label{cu_pedir_valor}
-\item El sistema valida el valor de ficha ingresado.
-\item El sistema crea la mesa requerida del juego elegido. \label{label_val_ficha_invalido}
-\item Fin CU.
-\end{enumerate}
-
-\negrita{Desarrollo alternativo}
-
-\ref{label_val_ficha_invalido}.1 El sistema le advierte al creador de mesa que el valor de ficha es invalido. IR A \ref{cu_pedir_valor}.
-
+\op{1. Si el juego elegido es tragamonedas, el sistema le pide al creador de mesa el valor de la ficha. Si en cambio el juego elegido es craps, IR A 3.}{}
+\op{2. El sistema valida el valor de ficha ingresado.}{}
+\op{3. El sistema crea la mesa requerida del juego elegido.}{3.1 El sistema le advierte al creador de mesa que el valor de ficha es invalido. IR A 1.}{}
+\op{4. Fin CU.}{}
+\cu{Creando mesa}{Jugador}{-}{El casino est'a abierto.}{Se crea la mesa requerida y el jugador tiene como 'unica mesa elegida a la reci'en creada.}{}
 
 
 
 
 % --------------- Jugando a craps ---------------------
-\subsubsubsection{CU: Jugando a craps}
-\negrita{Pre condici'on}: - \newline
-\indent\negrita{Post condici'on}: -
-
-\negrita{Actor primario}: Jugador de craps \newline
-\indent\negrita{Actores secundarios}: -
-
-\negrita{Desarrollo normal}
-\begin{enumerate}
-\item El sistema le pregunta al jugador de craps si desea apostar, cuantas fichas y de qu'e tipo. \label{cu_jugar_craps}
-\item El jugador de craps informa sus decisiones.
-\item Al jugador de craps que le toque tirar, tira.
-\item El sistema muestra el n'umero salido; debita del saldo del jugador de craps sus apuestas perdidas y le acredita las apuestas ganadas.
-\item El sistema guarda la informaci'on de la jugada para futuras referencias.
-\item Si la ronda no finaliz'o y el jugador de craps es el siguiente en tirar, o si el jugador realiz'o una apuesta venir o no venir, o si desea seguir jugando, IR A PASO \ref{cu_jugar_craps}.
-\item Fin CU.
-\end{enumerate}
+\op{1. El sistema le pregunta al jugador que apuesta desea realizar y de que monto.}{}
+\op{2. El jugador informa sus decisiones.}{}
+\op{3. Si al jugador le tocaba tirar los dados, el sistema le da la posibilidad de hacerlo. Si no, IR A 5.}{}
+\op{4. El jugador tira los dados.}{}
+\op{5. El sistema muestra el n'umero salido; debita del saldo del jugador sus apuestas perdidas y le acredita las apuestas ganadas.}{}
+\op{6. Si la ronda no finaliz'o y el jugador es el siguiente en tirar, o si el jugador realiz'o una apuesta venir o no venir, IR A PASO 1.}{}
+\op{7. Fin CU.}{}
+\cu{Jugando a Craps}{Jugador}{-}{El jugador eligi'o una mesa de craps para jugar.}{-}{En cualquier momento, el jugador podr'a chatear con los demas jugadores en la misma mesa.}
 
 
 
 % --------------- Jugando a tragamonedas ---------------------
-\subsubsubsection{CU: Jugando a tragamonedas}
-\negrita{Pre condici'on}: - \newline
-\indent\negrita{Post condici'on}: -
-
-\negrita{Actor primario}: Jugador de tragamonedas \newline
-\indent\negrita{Actores secundarios}: -
-
-\negrita{Desarrollo normal}
-\begin{enumerate}
-\item El sistema le pregunta al jugador de tragamonedas si quiere jugar 1, 2 o 3 fichas. \label{cu_jugar_traga}
-\item El jugador elige cuantas fichas quiere jugar y acciona los rodillos.
-\item El sistema le muestra el resultado de la tirada, debita la apuesta de la cuenta del jugador de tragamonedas y acredita la ganancia correspondiente.
-\item El sistema guarda la informaci'on de la jugada para futuras referencias.
-\item Si el jugador de tragamonedas desea seguir jugando, IR A PASO \ref{cu_jugar_traga}.
-\item Fin CU.
-\end{enumerate}
+\op{1. El sistema le pregunta al jugador si quiere jugar 1, 2 o 3 fichas.}{}
+\op{2. El jugador elige cuantas fichas quiere jugar y acciona los rodillos.}{}
+\op{3. El sistema le muestra el resultado de la tirada, debita la apuesta de la cuenta del jugador de tragamonedas y acredita la ganancia correspondiente (de existir alguna)}{}
+\op{4. Fin CU.}{}
+\cu{Jugando a Tragamonedas}{Jugador}{-}{El jugador eligi'o una mesa de tragamonedas para jugar.}{-}{}
 
 
 
 
 % --------------- Mirando mesa ---------------------
-\subsubsubsection{CU: Mirando mesa}
-\negrita{Pre condici'on}: El invitado no esta mirando ninguna mesa. \newline
-\indent\negrita{Post condici'on}: El invitado esta mirando una mesa.
-
-\negrita{Actor primario}: Invitado \newline
-\indent\negrita{Actores secundarios}: -
-
-\negrita{Desarrollo normal}
-\begin{enumerate}
-\item El sistema le consulta al invitado si desea mirar una mesa de craps o de tragamonedas.
-\item El invitado elige el tipo de juego que desea mirar.
-\item El sistema le muestra al invitado las mesas abiertas del juego elegido.
-\item El invitado elige la mesa que desea mirar.
-\item El sistema le muestra al invitado la mesa elegida.
-\item Fin CU.
-\end{enumerate}
-
+\op{1. El sistema le consulta al invitado si desea mirar una mesa de craps o de tragamonedas.}{}
+\op{2. El invitado elige el tipo de juego que desea mirar.}{}
+\op{3. El sistema le muestra al invitado las mesas abiertas del juego elegido.}{}
+\op{4. El invitado elige la mesa que desea mirar.}{}
+\op{5. El sistema le muestra al invitado la mesa elegida.}{}
+\op{6. Fin CU.}{}
+\cu{Mirando mesa}{Invitado}{-}{El invitado no est'a mirando ninguna mesa.}{El invitado est'a mirando una mesa.}{}
 
 
 
 % --------------- Saliendo de mesa ---------------------
-\subsubsubsection{CU: Saliendo de mesa}
-\negrita{Pre condici'on}: El invitado esta mirando una mesa. \newline
-\indent\negrita{Post condici'on}: El invitado no esta mirando ninguna mesa.
-
-\negrita{Actor primario}: Invitado \newline
-\indent\negrita{Actores secundarios}: -
-
-\negrita{Desarrollo normal}
-\begin{enumerate}
-\item El jugador le informa al sistema que no desea mirar mas la mesa que esta mirando.
-\item El sistema le deja de mostrar la mesa.
-\item Fin CU.
-\end{enumerate}
+\op{1. El invitado le informa al sistema que no desea mirar m'as la mesa que esta mirando.}{}
+\op{2. El sistema le deja de mostrar la mesa.}{}
+\op{3. Fin CU.}{}
+\cu{Saliendo de mesa}{Invitado}{-}{El invitado est'a mirando una mesa.}{El invitado no est'a mirando ninguna mesa.}{}
 
 
 
 
 % --------------- Abriendo casino ---------------------
-\subsubsubsection{CU: Abriendo casino}
-\negrita{Pre condici'on}: El casino est'a cerrado. \newline
-\indent\negrita{Post condici'on}: El casino est'a abierto.
-
-\negrita{Actor primario}: Administrador \newline
-\indent\negrita{Actores secundarios}: -
-
-\negrita{Desarrollo normal}
-\begin{enumerate}
-\item El sistema carga la lista de clientes con sus saldos y las configuraciones de craps, tragamonedas y pozo feliz.
-\item El sistema abre el casino.
-\item Fin CU.
-\end{enumerate}
-
+\op{1. El sistema carga la lista de clientes con sus saldos y las configuraciones de craps, tragamonedas y pozo feliz.}{}
+\op{2. El sistema abre el casino y se lo informa al administrador.}{}
+\op{3. Fin CU.}{}
+\cu{Abriendo casino}{Administrador}{-}{El casino est'a cerrado.}{El casino est'a abierto.}{}
 
 
 
 
 % --------------- Cerrando casino ---------------------
-\subsubsubsection{CU: Cerrando casino}
-\negrita{Pre condici'on}: El casino est'a abierto. \newline
-\indent\negrita{Post condici'on}: El casino est'a cerrado.
-
-\negrita{Actor primario}: Administrador \newline
-\indent\negrita{Actores secundarios}: -
-
-\negrita{Desarrollo normal}
-\begin{enumerate}
-
-\item El sistema verifica que no hayan mesas abiertas.
-\item El sistema cierra el casino. \label{label_mesas_abiertas}
-\item Fin CU. \label{label_fincucc}
-\end{enumerate}
-
-\negrita{Desarrollo alternativo}
-
-\ref{label_mesas_abiertas}.1 Si hay mesas abiertas, el sistema le advierte al administrador que la operaci'on no puede ser realizada. Ir a PASO \ref{label_fincucc}.
+\op{1. El sistema verifica que no hayan mesas abiertas.}{}
+\op{2. El sistema cierra el casino y se lo informa al administrador.}{2. Si hay mesas abiertas, el sistema le advierte al administrador que la operaci'on no puede ser realizada. Ir a PASO 3}
+\op{3. Fin CU.}{}
+\cu{Cerrando casino}{Administrador}{-}{El casino est'a abierto.}{El casino est'a cerrado.}{}
 
 
 
 
 % --------------- Pidiendo reporte ---------------------
-\subsubsubsection{CU: Pidiendo reporte}
-\negrita{Pre condici'on}: - \newline
-\indent\negrita{Post condici'on}: -
-
-\negrita{Actor primario}: Administrador \newline
-\indent\negrita{Actores secundarios}: -
-
-\negrita{Desarrollo normal}
-\begin{enumerate}
-\item El sistema le muestra al administrador los posibles reportes a pedir: Ranking de jugadores, Estado actual y Detalle movimientos por jugador.
-\item El administrador elige el reporte que desea.
-\item El sistema le mostrar'a al administrador, a partir de la informaci'on guardada en las jugadas sucesivas:
+\op{1. El sistema le muestra al administrador los posibles reportes a pedir: Ranking de jugadores, Estado actual y Detalle movimientos por jugador.}{}
+\op{2. El administrador elige el reporte que desea.}{}
+\op{3. El sistema le mostrar'a al administrador, a partir de la informaci'on guardada en las jugadas sucesivas:
 	\begin{itemize}
 	\item si elige \negrita{Ranking de jugadores}, los jugadores que m'as dinero ganaron en el d'ia.
 	\item si elige \negrita{Estado actual}, el informe del estado actual del casino y los clientes, especialmente los saldos respectivos.
 	\item si elige \negrita{Detalle movimientos por jugador}, el detalle de todos los movimientos (apuestas, premios ganados, monto ganado) desde que ingresaron al casino.
 	\end{itemize}
-\item Fin CU.
-\end{enumerate}
+}{}
+\op{4. Fin CU.}{}
+\cu{Pidiendo reporte}{Administrador}{-}{-}{-}{}
 
 
 
 
 % --------------- Dirigiendo el azar ---------------------
-\subsubsubsection{CU: Dirigiendo el azar}
-\negrita{Pre condici'on}: - \newline
-\indent\negrita{Post condici'on}: La/s mesa/s seleccionadas por el jefe de contabilidad se comportar'an de la forma se'nalada por 'este.
-
-\negrita{Actor primario}: Jefe de contabilidad \newline
-\indent\negrita{Actores secundarios}: -
-
-\negrita{Desarrollo normal}
-\begin{enumerate}
-\item El sistema le muestra al jefe de contabilidad las opciones de
+\op{1. El sistema le muestra al jefe de contabilidad las opciones de
 	\begin{itemize}
 	\item Activar/desactivar modo dirigido de craps.
 	\item Activar/desactivar modo dirigido de tragamonedas.
 	\item Activar ''todos ponen''.
 	\item Activar ''jugada feliz''.
 	\end{itemize}
-\item El jefe de contabilidad elige la opci'on deseada e ingresa los parametros necesarios.
-\item El sistema efect'ua los cambios correspondientes sobre las mesas correspondientes.
-\item Fin CU.
-\end{enumerate}
-
+}{}
+\op{2. El jefe de contabilidad elige la opci'on deseada e ingresa los parametros necesarios.}{}
+\op{3. El sistema efect'ua los cambios correspondientes sobre las mesas correspondientes.}{}
+\op{4. Fin CU.}{}
+\cu{Dirigiendo el azar}{Jefe de contabilidad}{-}{-}{La/s mesa/s seleccionadas por el jefe de contabilidad se comportar'an de la forma se'nalada por 'este.}{}
 
