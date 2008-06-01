@@ -3,8 +3,8 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \begin{description}
 \item[Invitado]: un posible futuro jugador al cual se le permite acceder al casino con el objetivo de observar las mesas donde se desarrollan los juegos.
-\item[Jugador]: aquel que aparece en la lista de jugadores ingresada al sistema. Tiene la posibilidad de jugar a cualquier juego as'i como cierto saldo de donde se debit'an las apuestas y acreditan las ganancias. Si lo desea, tambien puede observar las mesas de juego tal como lo har'ia un invitado.
-\item[Administrador]: un representante del equipo de SOCIOS. Es aquel que realiza tareas administrativas en el sistema.
+\item[Jugador]: aquel que aparece en la lista de jugadores ingresada al sistema. Tiene la posibilidad de jugar a cualquier juego as'i como cierto saldo de donde se deb'itan las apuestas y acreditan las ganancias. Si lo desea, tambi'en puede observar las mesas de juego tal como lo har'ia un invitado.
+\item[Administrador]: un representante del equipo de los SOCIOS. Es aquel que realiza tareas administrativas en el sistema.
 \item[Jefe de contabilidad]: es aquel capaz de realizar las tareas de Administrador y a su vez ``Dirigir el azar''.
 \end{description}
 
@@ -19,30 +19,52 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \subsubsection{Descripci'on de los casos de uso}
 
-% --------------- Eligiendo mesa ---------------------
-\op{1. El sistema le muestra al jugador las mesas de craps abiertas}{}
-\op{2. El jugador elige una mesa}{}
-\op{3. Fin CU}{}
-\cu{Eligiendo mesa}{Jugador}{-}{El casino est'a abierto.}{El jugador tiene como 'unica mesa elegida para jugar a la mesa seleccionada.}{}
+% --------------- Mirando mesa ---------------------
+\op{1. El sistema le consulta al invitado si desea mirar una mesa de craps o de tragamonedas.}{}
+\op{2. El invitado elige el tipo de juego que desea mirar.}{}
+\op{3. El sistema le muestra al invitado las mesas abiertas del juego elegido.}{}
+\op{4. El invitado elige la mesa que desea mirar.}{}
+\op{5. El sistema le muestra al invitado la mesa elegida.}{}
+\op{6. Fin CU.}{}
+\cu{Mirando mesa}{Invitado}{-}{El invitado no est'a mirando ninguna mesa.}{El invitado est'a mirando una mesa.}{}
+
+
+
+
+% --------------- Saliendo de mesa ---------------------
+\op{1. El invitado le informa al sistema que no desea mirar m'as la mesa que esta mirando.}{}
+\op{2. El sistema le deja de mostrar la mesa.}{}
+\op{3. Fin CU.}{}
+\cu{Saliendo de mesa}{Invitado}{-}{El invitado est'a mirando una mesa.}{El invitado no est'a mirando ninguna mesa.}{}
+
 
 
 
 % --------------- Creando mesa ---------------------
-\op{1. Si el juego elegido es tragamonedas, el sistema le pide al creador de mesa el valor de la ficha. Si en cambio el juego elegido es craps, IR A 3.}{}
+\op{1. Si el juego elegido es tragamonedas, el sistema le pide al jugador el valor de la ficha. Si en cambio el juego elegido es craps, IR A 3.}{}
 \op{2. El sistema valida el valor de ficha ingresado.}{}
-\op{3. El sistema crea la mesa requerida del juego elegido.}{3.1 El sistema le advierte al creador de mesa que el valor de ficha es invalido. IR A 1.}{}
+\op{3. El sistema crea la mesa requerida del juego elegido.}{3.1 El sistema le advierte al jugador que el valor de ficha es inv'alido. IR A 1.}{}
 \op{4. Fin CU.}{}
 \cu{Creando mesa}{Jugador}{-}{El casino est'a abierto.}{Se crea la mesa requerida y el jugador tiene como 'unica mesa elegida a la reci'en creada.}{}
 
 
 
 
+% --------------- Eligiendo mesa ---------------------
+\op{1. El sistema le muestra al jugador las mesas abiertas.}{}
+\op{2. El jugador elige una mesa.}{}
+\op{3. Fin CU.}{}
+\cu{Eligiendo mesa}{Jugador}{-}{El casino est'a abierto.}{El jugador tiene como 'unica mesa elegida para jugar a la mesa seleccionada.}{}
+
+
+
+
 % --------------- Jugando a craps ---------------------
-\op{1. El sistema le pregunta al jugador que apuesta desea realizar y de que monto.}{}
+\op{1. El sistema le pregunta al jugador qu'e apuesta desea realizar y de que monto.}{}
 \op{2. El jugador informa sus decisiones.}{}
 \op{3. Si al jugador le tocaba tirar los dados, el sistema le da la posibilidad de hacerlo. Si no, IR A 5.}{}
 \op{4. El jugador tira los dados.}{}
-\op{5. El sistema muestra el n'umero salido; debita del saldo del jugador sus apuestas perdidas y le acredita las apuestas ganadas.}{}
+\op{5. El sistema muestra el n'umero salido, debita del saldo del jugador sus apuestas perdidas y le acredita las apuestas ganadas.}{}
 \op{6. Si la ronda no finaliz'o y el jugador es el siguiente en tirar, o si el jugador realiz'o una apuesta venir o no venir, IR A PASO 1.}{}
 \op{7. Fin CU.}{}
 \cu{Jugando a Craps}{Jugador}{-}{El jugador eligi'o una mesa de craps para jugar.}{-}{En cualquier momento, el jugador podr'a chatear con los demas jugadores en la misma mesa.}
@@ -59,26 +81,6 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 
 
-% --------------- Mirando mesa ---------------------
-\op{1. El sistema le consulta al invitado si desea mirar una mesa de craps o de tragamonedas.}{}
-\op{2. El invitado elige el tipo de juego que desea mirar.}{}
-\op{3. El sistema le muestra al invitado las mesas abiertas del juego elegido.}{}
-\op{4. El invitado elige la mesa que desea mirar.}{}
-\op{5. El sistema le muestra al invitado la mesa elegida.}{}
-\op{6. Fin CU.}{}
-\cu{Mirando mesa}{Invitado}{-}{El invitado no est'a mirando ninguna mesa.}{El invitado est'a mirando una mesa.}{}
-
-
-
-% --------------- Saliendo de mesa ---------------------
-\op{1. El invitado le informa al sistema que no desea mirar m'as la mesa que esta mirando.}{}
-\op{2. El sistema le deja de mostrar la mesa.}{}
-\op{3. Fin CU.}{}
-\cu{Saliendo de mesa}{Invitado}{-}{El invitado est'a mirando una mesa.}{El invitado no est'a mirando ninguna mesa.}{}
-
-
-
-
 % --------------- Abriendo casino ---------------------
 \op{1. El sistema carga la lista de clientes con sus saldos y las configuraciones de craps, tragamonedas y pozo feliz.}{}
 \op{2. El sistema abre el casino y se lo informa al administrador.}{}
@@ -90,7 +92,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 % --------------- Cerrando casino ---------------------
 \op{1. El sistema verifica que no hayan mesas abiertas.}{}
-\op{2. El sistema cierra el casino y se lo informa al administrador.}{2. Si hay mesas abiertas, el sistema le advierte al administrador que la operaci'on no puede ser realizada. Ir a PASO 3}
+\op{2. El sistema cierra el casino y se lo informa al administrador.}{2.1. Si hay mesas abiertas, el sistema le advierte al administrador que la operaci'on no puede ser realizada. Ir a PASO 3}
 \op{3. Fin CU.}{}
 \cu{Cerrando casino}{Administrador}{-}{El casino est'a abierto.}{El casino est'a cerrado.}{}
 
