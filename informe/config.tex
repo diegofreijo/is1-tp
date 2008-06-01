@@ -47,18 +47,23 @@
 {
 	\begin{figure}[p!hbt]
 	  \centering
-	    \includegraphics[scale=#3]{../img/#1}
+	  \includegraphics[scale=#3]{../img/#1}
 	  \caption{#2}
+          \label{fig_#1}
 	\end{figure}
 }
 \newcommand{\imagenvertical}[3]
 {
 	\begin{figure}[p!hbt]
 	  \centering
-	    \includegraphics[angle=90,scale=#3]{../img/#1}
+	  \includegraphics[angle=90,scale=#3]{../img/#1}
 	  \caption{#2}
+          \label{fig_#1}
 	\end{figure}
 }
+
+
+
 
 \newcommand{\nat}{\mathds{N}}
 \newcommand{\algoritmo}[3]{\noindent {\bf\underline{#1}:} #2 $\longrightarrow$ #3}
