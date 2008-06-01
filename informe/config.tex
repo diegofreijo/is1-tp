@@ -1,21 +1,17 @@
 % Archivo de configuracion del informe
 % -------------------------------------------
 
-\usepackage[spanish,activeacute]{babel}			% Idioma castellano
-
-
+\usepackage[spanish,activeacute]{babel}								% Idioma castellano
 \usepackage{caratula}														% Caratula de Algo2
 %\usepackage[a4paper=true,pagebackref=true]{hyperref}				% Agrega la TOC al PDF e hipervinculos
-\usepackage{graphicx} 											% Permite insertar graficos
+\usepackage{graphicx} 														% Permite insertar graficos
 \usepackage{fancyhdr}														% Permite manejo de cabeceras de pagina
 \usepackage{eufrak}															% Usado en el enunciado del trabajo
 \usepackage{latexsym}
-
 %\usepackage{algorithmic}													% Para escribir los algos
 %\usepackage{dsfont}															% Para el simbolo de naturales
-
-
 \usepackage[font=small,labelfont=bf]{caption}						% Para editar las captions
+%\usepackage{array}
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
@@ -75,40 +71,48 @@
 
 % -----------------------------------------------------------------------------------------------------
 % Codigo para generar los casos de uso, basado en caratula.sty del DC-FCEN-UBA 
-% autor Nicolas Rosner
+% Autor: Nicolas Rosner
 % Modificado por Pablo Echevarria 25-5-08
-% ToDo: ver como declarar primero titulo y despues operaciones
-% ver como numerar automaticamente las operaciones
+% ToDo: ver como declarar primero titulo y despues operaciones, ver como numerar automaticamente las operaciones
 % -----------------------------------------------------------------------------------------------------
 % Token list para las instrucciones ----
 \newtoks\oplist\oplist={}
+
 % Comando para que el usuario agregue operaciones del CU
+% Uso: \op{Caso normal}{Caso alternativo}
 \newcommand{\op}[2]{\oplist=\expandafter{\the\oplist
 \hline#1&#2\\ }}
+
 % Comando para generar el CU con las operaciones ya pasadas y dandole la info que falta
-\newcommand{\cu}[5]{
-\begin{center}
-\begin{tabular}{|p{12cm}|p{5cm}|}
+% Uso: \cu{Nombre CU}{Actor primario}{Actores secundarios}{Precondicion}{Postcondicion}{Aclaraciones generales a todos los pasos}
+\newcommand{\cu}[6]{
+\begin{center}	
+\begin{tabular}{|p{11cm}|p{5cm}|}
 \hline
-\multicolumn{2}{|l|}{\begin{large}\italica{\negrita{CASO DE USO:} #1}\end{large} } \\ [0.2em]
+\multicolumn{2}{|l|}{\begin{large}\italica{\negrita{CASO DE USO:} #1}\end{large}}\\[0.2em]
 \hline
 \multicolumn{2}{|l|}{\negrita{Actor Primario:} #2}\\[0.2em]
 \hline
 \multicolumn{2}{|l|}{\negrita{Actor Secundario:} #3 }\\[0.2em]
 \hline
-\multicolumn{2}{|l|}{\negrita{Precondición:} #4 }\\[0.2em]
+\multicolumn{2}{|l|}{\negrita{Precondicion:} #4 }\\[0.2em]
 \hline
-\multicolumn{2}{|l|}{\negrita{Poscondición:} #5} \\[0.2em]
+\multicolumn{2}{|l|}{\negrita{Poscondicion:} #5}\\[0.2em]
 \hline
-\multicolumn{2}{|l|}{} \\[0.2em]
+\multicolumn{2}{|l|}{}\\[0.2em]
 \hline
-\negrita{Curso Normal} & \negrita{CursoAlternativo} \\[0.2em]
+\negrita{Curso Normal} & \negrita{Curso Alternativo}\\[0.2em]
 \the\oplist
+\hline
+\multicolumn{2}{|l|}{}\\[0.2em]
+\hline
+%\multicolumn{2}{|1|}{#6}\\[0.2em]
 \hline
 \end{tabular}
 \end{center}
 \oplist={}
 }
+
 
 
 
