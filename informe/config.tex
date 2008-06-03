@@ -93,20 +93,21 @@
 \newcommand{\cu}[6]{
 \begin{center}	
 \begin{tabular}{|p{11cm}|p{5cm}|}
+% \hline
+ \multicolumn{2}{l}{Caso de Uso:\begin{large}\italica{\negrita{#1}}\end{large}}\\ 
+% \multicolumn{2}{l}{ Caso de Uso: #1}\\ 
 \hline
-\multicolumn{2}{|l|}{\begin{large}\italica{\negrita{Caso de Uso:} #1}\end{large}}\\
+\multicolumn{2}{|l|}{Actor Primario:\negrita{#2}}\\
 \hline
-\multicolumn{2}{|l|}{\negrita{Actor Primario:} #2}\\
+\multicolumn{2}{|l|}{Actor Secundario:\negrita{#3}}\\
 \hline
-\multicolumn{2}{|l|}{\negrita{Actor Secundario:} #3 }\\
+\multicolumn{2}{|l|}{Precondici'on:\negrita{#4}}\\
 \hline
-\multicolumn{2}{|l|}{\negrita{Precondici'on:} #4 }\\
+\multicolumn{2}{|l|}{Postcondici'on: \negrita{#5}}\\
+% \hline
+% \multicolumn{2}{l}{}\\
 \hline
-\multicolumn{2}{|l|}{\negrita{Postcondici'on:} #5}\\
-\hline
-\multicolumn{2}{|l|}{}\\
-\hline
-\negrita{Curso Normal} & \negrita{Curso Alternativo}\\
+Curso Normal & Curso Alternativo\\
 \the\oplist
 \hline
 \multicolumn{2}{|l|}{}\\
