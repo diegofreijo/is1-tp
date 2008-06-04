@@ -1,0 +1,35 @@
+This is pdfTeX, Version 3.141592-1.40.3 (MiKTeX 2.6) (preloaded format=pdflatex 2007.8.21)  1 JUN 2008 19:57
+entering extended mode
+**config.tex
+(config.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8g> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman, ngerman, french, loaded.
+
+! LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4 \usepackage[spanish,activeacute]{
+                                     babel}								% Idioma castellano
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.4 \usepackage[spanish,activeacute]{
+                                     babel}								% Idioma castellano
+\usepackage may only appear in the document preamble, i.e.,
+between \documentclass and \begin{document}.
+
+ 
+Here is how much of TeX's memory you used:
+ 8 strings out of 95305
+ 227 string characters out of 1184953
+ 44877 words of memory out of 1048577
+ 3286 multiletter control sequences out of 60000
+ 3640 words of font info for 14 fonts, out of 1000000 for 2000
+ 14 hyphenation exceptions out of 8191
+ 5i,0n,5p,80b,14s stack positions out of 5000i,500n,10000p,200000b,32768s
+!  ==> Fatal error occurred, no output PDF file produced!
