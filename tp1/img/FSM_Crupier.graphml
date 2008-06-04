@@ -5,7 +5,7 @@
   <key for="edge" id="d2" yfiles.type="edgegraphics"/>
   <key attr.name="description" attr.type="string" for="edge" id="d3"/>
   <key for="graphml" id="d4" yfiles.type="resources"/>
-  <graph edgedefault="directed" id="G" parse.edges="9" parse.nodes="6" parse.order="free">
+  <graph edgedefault="directed" id="G" parse.edges="18" parse.nodes="6" parse.order="free">
     <node id="n0">
       <data key="d0">
         <y:ShapeNode>
@@ -33,7 +33,7 @@
     <node id="n2">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="313.65058927604616" y="227.13267584841878"/>
+          <y:Geometry height="30.0" width="30.0" x="336.65058927604616" y="318.1326758484188"/>
           <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="4.0" x="13.0" y="13.0"/>
@@ -48,7 +48,7 @@
           <y:Geometry height="30.0" width="30.0" x="247.54608714463336" y="121.34374766401254"/>
           <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#FFFFFF" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.548004150390625" modelName="internal" modelPosition="c" rotationAngle="335.0" textColor="#000000" visible="true" width="16.0" x="3.8301750673081187" y="3.2139536083308258">...</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.962890625" modelName="internal" modelPosition="c" rotationAngle="335.0" textColor="#000000" visible="true" width="16.0" x="3.953814897818887" y="3.4791000805118415">...</y:NodeLabel>
           <y:Shape type="ellipse"/>
         </y:ShapeNode>
       </data>
@@ -57,10 +57,10 @@
     <node id="n4">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="115.05987883294512" y="249.50785882918956"/>
+          <y:Geometry height="30.0" width="30.0" x="116.05987883294512" y="234.75785882918956"/>
           <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#FFFFFF" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.548004150390625" modelName="internal" modelPosition="c" rotationAngle="90.0" textColor="#000000" visible="true" width="16.0" x="5.7259979248046875" y="7.0">...</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.962890625" modelName="internal" modelPosition="c" rotationAngle="90.0" textColor="#000000" visible="true" width="16.0" x="6.0185546875" y="7.0">...</y:NodeLabel>
           <y:Shape type="ellipse"/>
         </y:ShapeNode>
       </data>
@@ -86,7 +86,7 @@
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.09600830078125" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="190.0" x="37.28905928762336" y="-9.93180093608919">Darle dados al proximo jugador
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.92578125" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="190.0" x="39.167581658614324" y="-8.76157388530794">Darle dados al proximo jugador
 {tirador++}</y:EdgeLabel>
           <y:Arc height="80.35079" ratio="1.0" type="fixedRatio"/>
         </y:ArcEdge>
@@ -110,7 +110,7 @@
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="328.6506042480469" y="242.13267517089844"/>
+            <y:Point x="351.6506042480469" y="333.1326904296875"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="none"/>
@@ -123,13 +123,13 @@
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="227.89877319335938" y="182.5964813232422"/>
+            <y:Point x="221.19876098632812" y="232.69647216796875"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.09600830078125" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="77.0" x="-64.51745499776877" y="36.81401824951172">[tirador=1] 
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.92578125" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="77.0" x="-65.36798594228526" y="62.53740692138672">[tirador=1] 
 serTirador1!</y:EdgeLabel>
-          <y:Arc height="-43.463036" ratio="-0.80000037" type="fixedRatio"/>
+          <y:Arc height="-61.14442" ratio="-0.80000037" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -138,13 +138,13 @@ serTirador1!</y:EdgeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="305.3584899902344" y="122.90369415283203"/>
+            <y:Point x="339.6084899902344" y="162.6536865234375"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.09600830078125" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="77.0" x="81.79982610403817" y="10.265180698745212">[tirador=n] 
-serTirador1!</y:EdgeLabel>
-          <y:Arc height="54.32877" ratio="1.0" type="fixedRatio"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.92578125" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="84.0" x="62.75694548518351" y="12.36958593706909">[tirador=n] 
+serTirador n! </y:EdgeLabel>
+          <y:Arc height="76.43049" ratio="1.0" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -153,13 +153,13 @@ serTirador1!</y:EdgeLabel>
       <data key="d2">
         <y:BezierEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="-42.3210954242474" y="239.8759149038534"/>
+            <y:Point x="-14.821095424247403" y="162.3759149038534"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="47.644012451171875" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="85.0" x="-225.05147011511625" y="-50.965461571595">[tirador=1]
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.92578125" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="85.0" x="-302.9780841851775" y="-100.61891884652621">[tirador=1]
 dejarDados1?
-tirador++</y:EdgeLabel>
+</y:EdgeLabel>
         </y:BezierEdge>
       </data>
       <data key="d3"/>
@@ -168,14 +168,14 @@ tirador++</y:EdgeLabel>
       <data key="d2">
         <y:BezierEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="-125.11044744913528" y="412.74616674776564"/>
+            <y:Point x="18.5" y="269.75"/>
             <y:Point x="-133.5" y="53.5"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="47.644012451171875" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="84.0" x="-266.8042088717008" y="102.67443556702557">[tirador=n]
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.888671875" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="84.0" x="-205.99288163150817" y="-86.56787251371128">[tirador=n]
 dejarDadosn?
-tirador=1</y:EdgeLabel>
+{tirador=0}</y:EdgeLabel>
         </y:BezierEdge>
       </data>
       <data key="d3"/>
@@ -186,7 +186,7 @@ tirador=1</y:EdgeLabel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.548004150390625" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="61.0" x="7.723619500652234" y="27.570708129161915">tirador=0</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.962890625" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="61.0" x="7.687311384093661" y="27.863264891857227">tirador=0</y:EdgeLabel>
         </y:BezierEdge>
       </data>
       <data key="d3"/>
@@ -199,6 +199,134 @@ tirador=1</y:EdgeLabel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="none"/>
+        </y:BezierEdge>
+      </data>
+      <data key="d3"/>
+    </edge>
+    <edge id="e9" source="n4" target="n4">
+      <data key="d2">
+        <y:BezierEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="122.0" y="261.75"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+        </y:BezierEdge>
+      </data>
+      <data key="d3"/>
+    </edge>
+    <edge id="e10" source="n2" target="n2">
+      <data key="d2">
+        <y:BezierEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="473.0" y="227.5"/>
+            <y:Point x="475.0" y="304.5"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.962890625" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="56.0" x="73.52352200425452" y="-62.72726688888548">natural1!</y:EdgeLabel>
+        </y:BezierEdge>
+      </data>
+      <data key="d3"/>
+    </edge>
+    <edge id="e11" source="n2" target="n2">
+      <data key="d2">
+        <y:BezierEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="361.0" y="294.5"/>
+            <y:Point x="449.0" y="212.5"/>
+            <y:Point x="517.0" y="231.5"/>
+            <y:Point x="504.0" y="285.5"/>
+            <y:Point x="438.0" y="312.5"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.962890625" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="59.0" x="59.24452023389864" y="-74.725341796875">natural n!</y:EdgeLabel>
+        </y:BezierEdge>
+      </data>
+      <data key="d3"/>
+    </edge>
+    <edge id="e12" source="n2" target="n2">
+      <data key="d2">
+        <y:BezierEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="521.0" y="347.5"/>
+            <y:Point x="459.0" y="392.5"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.962890625" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="52.0" x="55.82425704036683" y="-15.509956406996082">punto n!</y:EdgeLabel>
+        </y:BezierEdge>
+      </data>
+      <data key="d3"/>
+    </edge>
+    <edge id="e13" source="n2" target="n2">
+      <data key="d2">
+        <y:BezierEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="512.0" y="320.5"/>
+            <y:Point x="516.0" y="417.5"/>
+            <y:Point x="387.0" y="389.5"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.962890625" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="49.0" x="14.038791567068188" y="25.72828742068441">punto1!</y:EdgeLabel>
+        </y:BezierEdge>
+      </data>
+      <data key="d3"/>
+    </edge>
+    <edge id="e14" source="n2" target="n1">
+      <data key="d2">
+        <y:BezierEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="-45.0" y="434.16666666666663"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.92578125" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="77.0" x="-234.32692704166442" y="61.777134267016436">craps n!
+{tirador = 0}</y:EdgeLabel>
+        </y:BezierEdge>
+      </data>
+      <data key="d3"/>
+    </edge>
+    <edge id="e15" source="n2" target="n1">
+      <data key="d2">
+        <y:BezierEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="-23.0" y="388.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.962890625" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="52.0" x="-210.54018387760192" y="3.3401419286996656">craps 1!</y:EdgeLabel>
+        </y:BezierEdge>
+      </data>
+      <data key="d3"/>
+    </edge>
+    <edge id="e16" source="n2" target="n1">
+      <data key="d2">
+        <y:BezierEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="148.75" y="671.5"/>
+            <y:Point x="-445.66666666666663" y="476.25000000000006"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.962890625" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="73.0" x="-462.4509044456726" y="219.299072265625">sevenOut 1!</y:EdgeLabel>
+        </y:BezierEdge>
+      </data>
+      <data key="d3"/>
+    </edge>
+    <edge id="e17" source="n2" target="n1">
+      <data key="d2">
+        <y:BezierEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="-39.0" y="642.8333333333333"/>
+            <y:Point x="-290.6666666666667" y="364.8333333333333"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.92578125" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="77.0" x="-294.5363444893522" y="139.40289855170187">sevenOut n!
+{tirador = 0}</y:EdgeLabel>
         </y:BezierEdge>
       </data>
       <data key="d3"/>
