@@ -38,6 +38,7 @@
 \parindent = 1.5 em 
 \parskip = 8 pt
 
+\usepackage{multirow}
 
 %%%%%%%%%%%%%%%% COMANDOS %%%%%%%%%%%%%%%%%%%%
 \newcommand{\todo}{{\large\textbf{TODO: }}}
@@ -92,18 +93,17 @@
 % Uso: \cu{Nombre CU}{Actor primario}{Actores secundarios}{Precondicion}{Postcondicion}{Aclaraciones generales a todos los pasos}
 \newcommand{\cu}[6]{
 \begin{center}	
-\begin{tabular}{|p{11cm}|p{5cm}|}
-% \hline
- \multicolumn{2}{l}{Caso de Uso:\begin{large}\italica{\negrita{#1}}\end{large}}\\ 
+\begin{tabular}{|p{10cm}|p{6cm}|}
+ \multicolumn{2}{p{16cm}}{ \large{Caso de Uso: \italica{\negrita{#1}}}}\\
 % \multicolumn{2}{l}{ Caso de Uso: #1}\\ 
 \hline
-\multicolumn{2}{|l|}{Actor Primario:\negrita{#2}}\\
+\multicolumn{2}{|p{16cm}|}{Actor Primario: \negrita{#2}}\\
 \hline
-\multicolumn{2}{|l|}{Actor Secundario:\negrita{#3}}\\
+\multicolumn{2}{|p{16cm}|}{Actor Secundario: \negrita{#3}}\\
 \hline
-\multicolumn{2}{|l|}{Precondici'on:\negrita{#4}}\\
+\multicolumn{2}{|p{16cm}|}{Precondici'on: \negrita{#4}}\\
 \hline
-\multicolumn{2}{|l|}{Postcondici'on: \negrita{#5}}\\
+\multicolumn{2}{|p{16cm}|}{Postcondici'on: \negrita{#5}}\\
 % \hline
 % \multicolumn{2}{l}{}\\
 \hline
