@@ -67,7 +67,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \op{5. El sistema muestra el n'umero salido, debita del saldo del jugador sus apuestas perdidas y le acredita las apuestas ganadas.}{}
 \op{6. Si la ronda no finaliz'o y el jugador es el siguiente en tirar, o si el jugador realiz'o una apuesta venir o no venir, IR A PASO 1.}{}
 \op{7. Fin CU.}{}
-\cu{Jugando a Craps}{Jugador}{-}{El jugador eligi'o una mesa de craps para jugar.}{-}{En cualquier momento, el jugador podr'a chatear con los demas jugadores en la misma mesa.}
+\cu{Jugando a Craps}{Jugador}{-}{El jugador eligi'o una mesa de craps para jugar.}{-}{En cualquier momento, el jugador podr'a chatear con los demas jugadores en la misma mesa. Tambi'en podr'a cancelar su apuesta en cualquier momento.}
 
 
 
@@ -82,17 +82,27 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 
 % --------------- Abriendo casino ---------------------
-\op{1. El sistema carga la lista de clientes con sus saldos y las configuraciones de craps, tragamonedas y pozo feliz.}{}
-\op{2. El sistema abre el casino y se lo informa al administrador.}{}
+\op{1. El sistema carga la lista de clientes con sus saldos. Adem'as carga las siguientes configuraciones:
+	\begin{itemize}
+	\item probabilidad de ocurrencia de cereza, bar simple, doble, triple y dinosaurio en los rodillos de las m'aquinas tragamonedas.
+	\item probabilidad asignada a cada n'umero del 2 al 12 en los dados de las mesas de craps.
+	\item el porcentaje que se le descuenta a cada jugador del monto ganado en una jugada \italica{todos ponen}.
+	\item el porcentaje que se le descuenta a cada jugador en cada apuesta para engordar el pozo progresivo.
+	\item la cantidad de jugadas que debe un jugador apostar la apuesta m'axima para que tenga posibilidad de sacar el \italica{gordo progresivo}.
+	\item probabilidad de ocurrencia de una jugada \italica{feliz}, de una jugada \italica{todos ponen} y una jugada \italica{gordo progresivo}.
+	\item monto m'inimo del pozo progresivo y feliz.
+	\end{itemize}
+}{}
+\op{2. El sistema abre el casino y se lo informa al administrador.}{2.1 Si alguna configuraci'on fue incorrecta, ir a PASO 3.}
 \op{3. Fin CU.}{}
-\cu{Abriendo casino}{Administrador}{-}{El casino est'a cerrado.}{El casino est'a abierto.}{}
+\cu{Abriendo casino}{Administrador}{-}{El casino est'a cerrado.}{El casino est'a abierto.}{La configuraci'on puede ser brindada por el Administrador al momento de la apertura del casino o bien el sistema puede obtenerla desde alg'un medio ya predefinido (un archivo o una base de datos por ejemplo).}
 
 
 
 
 % --------------- Cerrando casino ---------------------
 \op{1. El sistema verifica que no hayan mesas abiertas.}{}
-\op{2. El sistema cierra el casino y se lo informa al administrador.}{2.1. Si hay mesas abiertas, el sistema le advierte al administrador que la operaci'on no puede ser realizada. Ir a PASO 3}
+\op{2. El sistema cierra el casino, persiste la informaci'on de todas las jugadas realizadas por cada jugador y le informa al administrador que las acciones fueron realizadas.}{2.1. Si hay mesas abiertas, el sistema le advierte al administrador que la operaci'on no puede ser realizada. Ir a PASO 3.}
 \op{3. Fin CU.}{}
 \cu{Cerrando casino}{Administrador}{-}{El casino est'a abierto.}{El casino est'a cerrado.}{}
 
@@ -104,7 +114,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \op{2. El administrador elige el reporte que desea.}{}
 \op{3. El sistema le mostrar'a al administrador, a partir de la informaci'on guardada en las jugadas sucesivas:
 	\begin{itemize}
-	\item si elige \negrita{Ranking de jugadores}, los jugadores que m'as dinero ganaron en el d'ia.
+	\item si elige \negrita{Ranking de jugadores}, los jugadores que m'as dinero ganaron y perdieron en el d'ia.
 	\item si elige \negrita{Estado actual}, el informe del estado actual del casino y los clientes, especialmente los saldos respectivos.
 	\item si elige \negrita{Detalle movimientos por jugador}, el detalle de todos los movimientos (apuestas, premios ganados, monto ganado) desde que ingresaron al casino.
 	\end{itemize}
@@ -118,15 +128,15 @@ Se modelaron cuatro actores en los casos de uso del sistema
 % --------------- Dirigiendo el azar ---------------------
 \op{1. El sistema le muestra al jefe de contabilidad las opciones de
 	\begin{itemize}
-	\item Activar/desactivar modo dirigido de craps.
-	\item Activar/desactivar modo dirigido de tragamonedas.
-	\item Activar ``todos ponen''.
-	\item Activar ``jugada feliz''.
+	\item Activar modo dirigido de craps/tragamonedas, donde podr'a seleccionar una mesa y un resultado. 'Este saldr'a en todas las jugadas de esa mesa.
+	\item Desactivar modo dirigido de craps/tragamonedas, donde podr'a seleccionar una mesa. 'Esta manejar'a los resultados azarosamente con las probabilidades especificadas al comienzo de la jornada.
+	\item Activar \italica{todos ponen}/\italica{jugada feliz}, donde podr'a seleccionar una mesa. Saldr'a siempre 'ese tipo de jugada en todas las jugadas de esa mesa.
+	\item Desactivar \italica{todos ponen}/\italica{jugada feliz}, donde podr'a seleccionar una mesa. La decisi'on acerca de si sale o no 'ese tipo de jugada en todas las jugadas de esa mesa quedar'a a cargo del azar en base a las probabilidades especificadas al comienzo de la jornada.
+	\item Anular \italica{todos ponen}/\italica{jugada feliz}, donde podr'a seleccionar una mesa. Nunca saldr'a 'ese tipo de jugada en todas las jugadas de esa mesa.
 	\end{itemize}
 }{}
 \op{2. El jefe de contabilidad elige la opci'on deseada e ingresa los parametros necesarios.}{}
-\op{3. El sistema efect'ua los cambios correspondientes sobre las mesas correspondientes.}{}
+\op{3. El sistema efect'ua los cambios correspondientes sobre las mesas especificadas a partir de la jugada siguiente a la que estaba en curso.}{}
 \op{4. Fin CU.}{}
-\cu{Dirigiendo el azar}{Jefe de contabilidad}{-}{-}{La/s mesa/s
- seleccionadas por el jefe de contabilidad se comportar'an de la forma se'nalada por 'este.}{}
+\cu{Dirigiendo el azar}{Jefe de contabilidad}{-}{-}{La/s mesa/s seleccionadas por el jefe de contabilidad se comportar'an de la forma se'nalada por 'este.}{}
 
