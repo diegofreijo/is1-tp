@@ -3,3 +3,84 @@
 {\bf jornada} : es el per'iodo comprendido entre una apertura y cierre del casino
 
 {\bf invitado} : persona que visita el casino en forma an'onima (no se identific'o con una cuenta de usuario)
+
+\textbf{Estiquetas de las FSM's:} :
+\begin{center}
+    \begin{tabular}{p{4cm}|p{8cm}}
+ 
+%      \multicolumn{2}{c}{Referencias de las etiquetas y Variable de la \negrita{ \tirador{} } \\
+    \hline
+    \negrita{Etiqueta de la transici'on} & \negrita{Acci'on} \\
+    \hline
+    serTirador i & el jugador i pasa a ser tirador.\\
+    \hline
+    estanSaliendo i & \italica{el tirador i tira} los dados la primera vez en esa ronda \\
+    \hline
+    natural i& ''  un 7 u 11 \\
+    \hline
+    craps i & ''   2, 3 o 12\\
+    \hline
+    punto i & ''  establece el punto \\ 
+    \hline
+    tirarDados i & '' los dados \\
+    \hline
+    sevenOut i & ''  un 7 antes de repetir el punto \\
+    \hline 
+    ganoCraps i & '' acierta el punto\\
+    \hline
+    dejarDados i  & '' deja los dados  
+
+    \label{glosarioFSMjugadori}
+    \end{tabular}
+\end{center}
+ 
+ \begin{center}
+    \begin{tabular}{p{4cm}|p{8cm}}
+           \multicolumn{2}{c}{Referencias de las etiquetas de la \crupier } \\
+        \hline
+           \negrita{Etiqueta de la transici'on} & \negrita{Acci'on} \\
+         \hline
+            darleDadosAl ProximoTirador & los dados pasan al pr'oximo jugador  \\
+        \hline
+            \italica{Variable} tirador & almancena el n'umero de tirador actual o candidato a tirador si decidiera dejar los dados\\
+ \end{tabular}
+ \end{center}
+
+\begin{center}
+  \begin{tabular}{p{4cm}|p{8cm}}
+      \multicolumn{2}{c}{Referencias de las etiquetas de la \textbf{FSM Apuesta m'as de una ronda i } } \\
+      \hline
+      \negrita{Etiqueta de la transici'on} & \negrita{Acci'on} \\
+      apuestaDeMasDeUna Ronda i & el jugador i hace una apuesta  \\
+      \hline
+      perdi'oApuestaDeUna Ronda i & el jugador i gano su apuesta \\
+      \hline
+      perdi'oApuestaDeUna Ronda i & el jugador i perdió su apuesta    \\  
+  \end{tabular}
+\end{center}
+
+
+\begin{center}
+    \begin{tabular}{p{4cm}|p{8cm}}
+    \multicolumn{2}{c}{Referencias de las etiquetas de la \textbf{FSM Apuesta de un tiro i } } \\
+    \hline
+    \negrita{Etiqueta de la transici'on} & \negrita{Acci'on} \\
+    apuestaDeMasDeUna Ronda i & el jugador i hace una apuesta  \\
+    \hline
+    perdi'oApuestaDeUna Ronda i & el jugador i gano su apuesta \\
+    \hline
+    perdi'oApuestaDeUna Ronda i & el jugador i perdió su apuesta    \\  
+    \end{tabular}
+\end{center}
+
+\subsubsection{Tragamonedas}
+
+\begin{center}
+\begin{tabular}{p{3cm}|p{8cm}}
+        \multicolumn {2}{c}{\negrita{TRAGAMONEDAS}}  \\
+        \hline
+        \italica{Mesa i}& din'amica de la mesa i donde juega el jugador i\\
+        \hline
+        \italica{Jugador i} & din'amica del jugador i
+\end{tabular}
+\end{center}
