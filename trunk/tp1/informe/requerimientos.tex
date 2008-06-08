@@ -95,7 +95,7 @@ El casino podr'a ser abierto cuando se lo desee por un administrador del sistema
 
  Un administrador de sistema puede configurar la probabilidad de ganar el ``premio gordo progresivo'' de un jugador que satisface los requisitos necesarios para intentar ganarlo.
 
-\item \negrita{El sistema permite la configuraci'on del pozo progresivo de las Tragamonedas}\req{req:ajuste_de_pozo_progresivo}
+\item \negrita{El sistema permite la configuraci'on del valor m'inimo del pozo progresivo de las Tragamonedas}\req{req:ajuste_de_pozo_progresivo}
 
  Un administrador de sistema puede ajustar el valor m'inimo posible para el pozo com'un progresivo de los juegos de m'aquinas tragamonedas.
 
@@ -124,6 +124,18 @@ El casino podr'a ser abierto cuando se lo desee por un administrador del sistema
 
  Los jugadores podr'an expresar entre s'i su felicidad por estar jugando.
 
+\item \negrita{El sistema permite a los invitados ingresar y salir del casino} \req{req:inv_ingreso_egreso_al_casino}
+
+ Los invitados deben poder entrar y salir del casino sin necesidad de poseer una cuenta de usuario.
+
+\item \negrita{El sistema permite a los invitados mirar una mesa de juego existente} \req{req:inv_mirar_mesa}
+
+ Los invitados que no est'en mirando una mesa de juego deben poder ingresar a una mesa existente cuando lo deseen.
+
+\item \negrita{El sistema permite a los invitados abandonar una mesa de juego}\req{req:inv_salir_de_mesa}
+
+ Los invitados que est'en mirando una mesa de juego deben poder abandonar la misma.
+
 \end{itemize}
 
 
@@ -132,25 +144,17 @@ El casino podr'a ser abierto cuando se lo desee por un administrador del sistema
 
 \begin{itemize}
 
-\item \negrita{El sistema es seguro} \req{req:sistema_seguro}
+\item \negrita{El sistema es seguro respecto a las transacciones de dinero} \req{req:sistema_seguro}
 
  Se necesita que las transacciones sean seguras para brindar mayor confianza a los jugadores y as'i fomentar el uso del casino.
 
-\item \negrita{El sistema permite suficientes jugadores} \req{req:suficientes_jugadores}
+\item \negrita{El sistema permite suficiente cantidad de jugadores} \req{req:suficientes_jugadores}
 
  El sistema deber'a poder adaptarse f'acilmente para permitir que el n'umero de jugadores sea el requerido para satisfacer las necesidades de rentabilidad.
 
-\item \negrita{Interfaz intuitiva y sencilla} \req{req:cool_GUI}
+\item \negrita{Los juegos que el sistema ofrece son similares a los de la realidad} \req{req:realGames}
 
- Es necesario para que los jugadores se sientan c'omodos y no frustrados mientras juegan y as'i incentivarlos a que realicen muchas apuestas (y as'i, que logren su felicidad).
-
-\item \negrita{Dise'no gr'afico atractivo} \req{req:graficos_buena_onda}
-
- Al igual que el anterior, fomentan el uso de los juegos.
-
-\item \negrita{El sistema es eficaz} \req{req:sistema_eficaz}
-
- Se necesita que las operaciones hechas al sistema respondan lo suficientemente r'apido. 'Esto ayuda a lograr una mejor experiencia de usuario, con lo que se fomenta el uso de los juegos.
+ Es necesario para que los jugadores se sientan c'omodos y les sea sencillo a los jugadores nuevos adaptarse al sistema inform'atico.
 
 \end{itemize}
 
