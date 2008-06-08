@@ -93,7 +93,7 @@
     <node id="n7">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="60.0" width="95.0" x="112.5" y="-110.0"/>
+          <y:Geometry height="60.0" width="95.0" x="152.5" y="-230.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.548004150390625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="209.0" x="-57.0" y="20.725997924804688">FSM Apuesta de más de una Ronda</y:NodeLabel>
