@@ -1,145 +1,54 @@
 
-Con las m'aquinas de estado modelaremos cierta funcionalidad:
- 
+\newcommand{\ronda}{ \italica{ FSM Ronda} }
+\newcommand{\crupier}{ \italica{ FSM Crupier} }
+\newcommand{\tirador}{ \italica{ FSM tirador i} }
+\newcommand{\unaRonda}{\italica{FSM Jugador i haciendo apuestas de \textbf{una ronda}}}
+\newcommand{\muchasRondas}{\italica{FSM Jugador i haciendo apuestas en\textbf{ m'as de una ronda}}}
+\newcommand{\unTiro}{\italica{FSM Jugador i haciendo apuestas de \textbf{un tiro}}}
+
+\subsubsection{Craps}
+
+El juedo de craps consta de varios tipos de apuestas, decidimos usar
+un nombre genérico para los nombres de las máquinas en pos de buscar mayor generalidad.
+Con estas de estado modelaremos cierta funcionalidad:
+
 \begin{center}
-\begin{tabular}{p{3.5cm}|p{8cm}}
-        
-        \multicolumn{2}{c}{ \negrita{CRAPS}  }\\
-        \hline 
-        Ronda & modelamos los estados de una ronda de Craps \\
+\begin{tabular}{p{4cm}|p{8cm}}        
+        \ronda & modelamos los estados de una ronda de Craps \\
         \hline
-        Crupier & esta ser'a una vista de una de las funcionalidades provista por el sistema, aqu'i se podra ver parte de la interaci'on de los jugadores con el sistema. \\
+        \crupier & esta ser'a una vista de una de las funcionalidades provista por el sistema, aqu'i se pod'a ver parte de la interaCci'on de los jugadores con el sistema. \\
          \hline 
-        Jugardor i & modela un jugador en particular en su rol de tirador \\
+         \tirador  & modela un jugador en particular en su rol de tirador \\
         \hline 
-        Apuesta de un tiro& modela jugador haciendo/cancelando una o varias apuestas que duran un tiro \\
+        \unTiro & modela un jugador en particular haciendo/cancelando una o varias apuestas que duran un tiro \\
         \hline 
-        Apuesta de una ronda& \italica{'idem} para una ronda. \\
+        \unaRonda& \italica{'idem} para apuestas que duran una ronda. \\
         \hline 
-        Apuesta de m'as de una ronda& \italica{'idem} para m'as de una ronda. \\
+        \muchasRondas & \italica{'idem} para apuestas para m'as de una ronda. \\
 \end{tabular}
 \end{center}
 
-\begin{center}
-\begin{tabular}{p{3cm}|p{8cm}}
-        \multicolumn {2}{c}{\negrita{TRAGAMONEDAS}}  \\
-        \hline
-        Mesa i & din'amica de la mesa i donde juega el jugador i\\
-        \hline
-        Jugador i & din'amica del jugador i
-\end{tabular}
-\end{center}
-
-\begin{table}[p!hbt]
  \begin{center}
+ \begin{tabular}{p{3cm}|p{2cm}|p{3cm}|p{2cm}|p{4cm}}
+    \multicolumn{5}{c}{\negrita{Donde se modela cada apuesta}}  \\
+    \hline
+    \italica{Apuesta} & \negrita{Cuando} & \negrita{Se resuelve} & \negrita{Duraci'on } & \negrita{La modela} \\ 
+    \hline
+     \vskip0.05cm \negrita{L'inea de pase o L'inea de no pase } &\vskip0.05cm  Antes del tiro de salida &\vskip0.05cm Craps o Natural, \negrita{despues de que sale el punto}, 7 'o punto &\vskip0.05cm  una ronda & \unaRonda  \\
 
- \begin{tabular}{p{3cm}|p{3cm}|p{3cm}|p{5cm}}
-    
-    \multicolumn{4}{c}{Donde se modela cada apuesta}  \\
-    \hline
-    \italica{Apuesta} & \negrita{Cuando} & \negrita{se resuelve} & \negrita{Duraci'on / lo modela} \\ 
-    \hline
-    \vskip0.05cm \negrita{Linea de pase o linea de no pase } &\vskip0.05cm  Antes del tiro de salida &\vskip0.05cm Craps o Natural, \negrita{cuando sale el punto}, 7 o punto &\vskip0.05cm  una ronda / FSM una ronda  \\ 
-    \hline
-    \vskip0.05cm \negrita{Venir ó No venir}&\vskip0.05cmDespues del punto   &\vskip0.05cm Natural o Craps, \negrita{cuando sale el punto}, 7 o punto   & $n$ rondas / FSM n rondas\\
-    \hline
-    \vskip0.05cm \negrita{Campo}&\vskip0.05cmAntes de Cualquier tiro   &\vskip0.05cmCon los dados que salier'on   & un tiro / FSM un tiro\\  
-    \hline
-    \vskip0.05cm \negrita{Sitio}&\vskip0.05cmAntes de Cualquier tiro   &\vskip0.05cmCon los dados que salier'on  & $n$ rondas / FSM n rondas  \\
-    
+     \hline
+     \vskip0.05cm \negrita{Venir ó No venir}&\vskip0.05cmDespues del punto   &\vskip0.05cm Natural o Craps, \negrita{despues de que sale el punto}, 7 'o el punto   & $n$ rondas & \muchasRondas\\
+     \hline
+     \vskip0.05cm \negrita{Campo}&\vskip0.05cmAntes de cualquier tiro   &\vskip0.05cmCon los dados que salier'on   & un tiro & \unTiro \\  
+     \hline
+     \vskip0.05cm \negrita{Sitio}&\vskip0.05cmAntes de cualquier tiro   &\vskip0.05cmCon los dados que salier'on  & $n$ rondas & \muchasRondas  \\
+     
 
-\end{tabular}
-
+  \end{tabular}
 \end{center}
 
-\end{table}
+En al Glosario se encuentran las definiciones de cada etiqueda usada.
 
-
-
-
-Glosario de estiquetas de las FSM's:
-
-
-\begin{center}
-    \begin{tabular}{p{4cm}|p{8cm}}
-    
-    \multicolumn{2}{c}{Referencias de las etiquetas y Variable de la \negrita{FSM jugador i}} \\
-    \hline
-    \negrita{Etiqueta de la transici'on} & \negrita{Acci'on} \\
-    \hline
-    serTirador i & el jugador i pasa a ser tirador.\\
-    \hline
-    estanSaliendo i & \italica{el tirador i tira} los dados la primera vez en esa ronda \\
-    \hline
-    natural i& ''  un 7 u 11 \\
-    \hline
-    craps i & ''   2, 3 o 12\\
-    \hline
-    punto i & ''  establece el punto \\ 
-    \hline
-    tirarDados i & '' los dados \\
-    \hline
-    sevenOut i & ''  un 7 antes de repetir el punto \\
-    \hline 
-    ganoCraps i & '' acierta el punto\\
-    \hline
-    dejarDados i  & '' deja los dados  
-
-    \label{glosarioFSMjugadori}
-    \end{tabular}
-\end{center}
-
-\begin{center}
-    \begin{tabular}{p{4cm}|p{8cm}}
-    
-\multicolumn{2}{c}{Referencias de las etiquetas de la \textbf{FSM Crupier} } \\
-
-            \hline
-\negrita{Etiqueta de la 
-transici'on} & \negrita{Acci'on} \\
-    \hline
-    darleDadosAl ProximoTirador & los dados pasan al pr'oximo jugador  \\
-\hline
-     \italica{Variable} tirador & almancena el n'umero de tirador actual o candidato a tirador si decidiera dejar los dados\\
-        \multicolumn{2}{c}{ }  \\
-    
-    \end{tabular}
-\end{center}
-
-\begin{center}
-    \begin{tabular}{p{4cm}|p{8cm}}
-    
-     \multicolumn{2}{c}{Referencias de las etiquetas de la \textbf{FSM Apuesta m'as de una ronda i } } \\
-    \hline
-    \negrita{Etiqueta de la transici'on} & \negrita{Acci'on} \\
-
-    apuestaDeMasDeUna Ronda i & el jugador i hace una apuesta  \\
-\hline
-    perdi'oApuestaDeUna Ronda i & el jugador i gano su apuesta \\
-
-\hline
-    perdi'oApuestaDeUna Ronda i & el jugador i perdió su apuesta    \\  
-        
-\end{tabular}
-\end{center}
-
-
-\begin{center}
-    \begin{tabular}{p{4cm}|p{8cm}}
-    
-     \multicolumn{2}{c}{Referencias de las etiquetas de la \textbf{FSM Apuesta de un tiro i } } \\
-    \hline
-    \negrita{Etiqueta de la transici'on} & \negrita{Acci'on} \\
-
-    apuestaDeMasDeUna Ronda i & el jugador i hace una apuesta  \\
-\hline
-    perdi'oApuestaDeUna Ronda i & el jugador i gano su apuesta \\
-
-\hline
-    perdi'oApuestaDeUna Ronda i & el jugador i perdió su apuesta    \\  
-        
-\end{tabular}
-\end{center}
 
 \imagen{FSM_Ronda.png}{FSM Ronda}{0.5}
 \imagen{FSM_Crupier.png}{FSM Crupier}{0.5}
@@ -148,14 +57,12 @@ transici'on} & \negrita{Acci'on} \\
 \imagenvertical{FSM_Apuesta_mas_de_una_ronda.png}{FSM Apuesta de más de una Ronda}{0.6}
 FALTA LA DE UNA RONDA... MIRANDOLA FIJOOOOOOO
 % \imagenvertical{FSM_Apuesta_una_ronda.png}{FSM Apuesta de una Ronda}{0.4}
-\imagenvertical{FSM_Apuesta_un_tiro.png}{FSM Apuesta de un Tiro}{0.8}
+\imagenvertical{FSM_Apuesta_un_tiro.png}{FSM Apuesta de un Tiro}{0.7}
 
 
 
-Limitaciones del modelo:
+\textbf{Limitaciones del modelo:}
 
-FSM apuesta de una ronda.
-
-Por la traza, el jugador podria apostar en una ronda y en la siguiente ronda cancelar la apuesta, 
-esta es una limitacion del modelo. Entendemos que una apuesta una vez que se tiraron los dados no se puede retirar ni modificar. Lo que podrá cancelar serán las n apuestas anteriores antes de que se tiren los dados.
-
+\underline{\unaRonda} :
+Analizando la traza, el jugador podr'ia apostar en una ronda y en la siguiente ronda cancelar la apuesta, 
+esta es una limitacion del modelo. Entendemos que una apuesta una vez que se tiraron los dados no se puede retirar ni modificar. Lo que podrá cancelar serán las n apuestas anteriores antes de que se tiren los dados, una vez tirados estos no se podr'a cancelar.
