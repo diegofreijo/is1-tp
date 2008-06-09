@@ -79,8 +79,8 @@
 % Comandos de requerimientos
 \newcounter{reqsCounter}
 \setcounter{reqsCounter}{1}
-\newcommand{\req}[1]{(\newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}req\#\arabic{#1})}
-\newcommand{\rref}[1]{(req\#\arabic{#1})}
+\newcommand{\req}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}Req \arabic{#1} }}
+\newcommand{\rref}[1]{ \italica{req \arabic{#1}}}
 
 % -----------------------------------------------------------------------------------------------------
 % Codigo para generar los casos de uso, basado en caratula.sty del DC-FCEN-UBA 
