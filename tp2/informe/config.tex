@@ -74,6 +74,17 @@
 \newcommand{\negrita}[1]{{\bf #1}}
 \newcommand{\italica}[1]{{\it #1}}
 
+% Comandos y seteos iniciales para los escenarios
+% Uso para crear un escenario
+% 		\escenario{descrpcion}
+\newcounter{contadorEscenarios}
+\setcounter{contadorEscenarios}{1}
+\newcommand{\escenario}[1]
+{\negrita{Escenario \arabic{contadorEscenarios}}
+#1
+\stepcounter{contadorEscenarios}
+}
+
 % -----------------------------------------------------------------------------------------------------
 % Codigo para generar los casos de uso, basado en caratula.sty del DC-FCEN-UBA 
 % Autor: Nicolas Rosner
