@@ -3,7 +3,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 \begin{description}
 \item[Invitado]: un posible futuro jugador al cual se le permite acceder al casino con el objetivo de observar las mesas donde se desarrollan los juegos.
-\item[Jugador]: aquel que aparece en la lista de jugadores ingresada al sistema. Tiene la posibilidad de jugar a cualquier juego as'i como cierto saldo de donde se deb'itan las apuestas y acreditan las ganancias. Si lo desea, tambi'en puede observar las mesas de juego tal como lo har'ia un invitado.
+\item[Jugador]: aquel que aparece en la lista de jugadores ingresada al sistema. Tiene la posibilidad de jugar a cualquier juego as'i como cierto saldo de donde se debitan las apuestas y acreditan las ganancias. Si lo desea, tambi'en puede observar las mesas de juego tal como lo har'ia un invitado.
 \item[Administrador]: un representante del equipo de los SOCIOS. Es aquel que realiza tareas administrativas en el sistema.
 \item[Jefe de contabilidad]: es aquel capaz de realizar las tareas de Administrador y a su vez ``Dirigir el azar''.
 \end{description}
@@ -60,20 +60,20 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 
 % --------------- Jugando a craps ---------------------
-\op{1. El sistema le pregunta al jugador qu'e apuesta desea realizar y de que monto.}{}
+\op{1. El sistema le pregunta al jugador qu'e apuesta desea realizar y el monto de la misma.}{}
 \op{2. El jugador informa sus decisiones.}{}
 \op{3. Si al jugador le tocaba tirar los dados, el sistema le da la posibilidad de hacerlo. Si no, IR A 5.}{}
 \op{4. El jugador tira los dados.}{}
-\op{5. El sistema muestra el n'umero salido, debita del saldo del jugador sus apuestas perdidas y le acredita las apuestas ganadas.}{}
+\op{5. El sistema muestra el n'umero obtenido, debita del saldo del jugador sus apuestas perdidas y le acredita las apuestas ganadas.}{}
 \op{6. Si la ronda no finaliz'o y el jugador es el siguiente en tirar, o si el jugador realiz'o una apuesta venir o no venir, IR A PASO 1.}{}
 \op{7. Fin CU.}{}
-\cu{Jugando a Craps}{Jugador}{-}{El jugador eligi'o una mesa de craps para jugar.}{-}{En cualquier momento, el jugador podr'a chatear con los demas jugadores en la misma mesa. Tambi'en podr'a cancelar su apuesta en cualquier momento.}
+\cu{Jugando a Craps}{Jugador}{-}{El jugador eligi'o una mesa de craps para jugar.}{-}{En cualquier momento, el jugador podr'a chatear con los dem'as jugadores en la misma mesa. Tambi'en podr'a cancelar su apuesta en cualquier momento.}
 
 
 
 % --------------- Jugando a tragamonedas ---------------------
 \op{1. El sistema le pregunta al jugador si quiere jugar 1, 2 o 3 fichas.}{}
-\op{2. El jugador elige cuantas fichas quiere jugar y acciona los rodillos.}{}
+\op{2. El jugador elige cu'antas fichas quiere jugar y acciona los rodillos.}{}
 \op{3. El sistema le muestra el resultado de la tirada, debita la apuesta de la cuenta del jugador de tragamonedas y acredita la ganancia correspondiente (de existir alguna)}{}
 \op{4. Fin CU.}{}
 \cu{Jugando a Tragamonedas}{Jugador}{-}{El jugador eligi'o una mesa de tragamonedas para jugar.}{-}{}
@@ -116,7 +116,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 	\begin{itemize}
 	\item si elige \negrita{Ranking de jugadores}, los jugadores que m'as dinero ganaron y perdieron en el d'ia.
 	\item si elige \negrita{Estado actual}, el informe del estado actual del casino y los clientes, especialmente los saldos respectivos.
-	\item si elige \negrita{Detalle movimientos por jugador}, el detalle de todos los movimientos (apuestas, premios ganados, monto ganado) desde que ingresaron al casino.
+	\item si elige \negrita{Detalle de movimientos por jugador}, el detalle de todos los movimientos (apuestas, premios ganados, monto ganado) desde que ingresaron al casino.
 	\end{itemize}
 }{}
 \op{4. Fin CU.}{}
@@ -135,7 +135,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 	\item Anular \italica{todos ponen}/\italica{jugada feliz}, donde podr'a seleccionar una mesa. Nunca saldr'a 'ese tipo de jugada en todas las jugadas de esa mesa.
 	\end{itemize}
 }{}
-\op{2. El jefe de contabilidad elige la opci'on deseada e ingresa los parametros necesarios.}{}
+\op{2. El jefe de contabilidad elige la opci'on deseada e ingresa los par'ametros necesarios.}{}
 \op{3. El sistema efect'ua los cambios correspondientes sobre las mesas especificadas a partir de la jugada siguiente a la que estaba en curso.}{}
 \op{4. Fin CU.}{}
 \cu{Dirigiendo el azar}{Jefe de contabilidad}{-}{-}{La/s mesa/s seleccionadas por el jefe de contabilidad se comportar'an de la forma se'nalada por 'este.}{}

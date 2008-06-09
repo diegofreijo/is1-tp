@@ -8,17 +8,19 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
 
 \begin{itemize}
 
-\item { \negrita{El sistema permite abrir el casino} \req{req:abrir_casino}
+\item \negrita{El sistema permite abrir el casino} \req{req:abrir_casino}
 
-El casino podr'a ser abierto cuando se lo desee por un administrador del sistema. 
-}
-
+ El casino podr'a ser abierto cuando se lo desee por un administrador del sistema. 
 
 \item \negrita{El sistema permite cerrar el casino cuando no hay jugadores en el mismo} \req{req:cerrar_casino}
 
  El casino podr'a ser cerrado cuando se lo desee por un administrador del sistema, con la condici'on de que no existan jugadores dentro al momento de hacerlo.
 
-\item \negrita{El sistema cuenta con juegos de tipo Tragamonedas } \req{req:existe_juego_tragamoneda}
+\item \negrita{El sistema permite la carga de los clientes con sus respectivos saldos} \req{req:carga_clientes}
+
+ Los administradores podr'an ingresar al sistema la lista de usuarios y sus saldos (tambi'en especificando qui'enes son vip).
+
+\item \negrita{El sistema cuenta con juegos de tipo Tragamonedas} \req{req:existe_juego_tragamoneda}
 
  Un casino sin juegos no es un casino. Para poder conseguir que los jugadores juegen hay, entre otros, juegos de tipo Tragamonedas.
 
@@ -30,21 +32,33 @@ El casino podr'a ser abierto cuando se lo desee por un administrador del sistema
 
  Los jugadores deben poder ingresar al casino utilizando para ello los datos de su cuenta.
 
+\item \negrita{El sistema permite a los jugadores salir del casino} \req{req:egreso_del_casino}
+
+ Los jugadores deben poder salir del casino.
+ 
 \item \negrita{El sistema permite a los jugadores crear una nueva mesa de juego} \req{req:creacion_de_mesa}
 
  Los jugadores que no est'en en una mesa de juego deben poder crear una nueva mesa de juego del tipo que elijan.
+
+\item \negrita{El sistema llevar'a registro de las mesas existentes} \req{req:registro_de_mesas}
+
+ El sistema mantendr'a actualizada la informaci'on sobre las mesas existentes.
 
 \item \negrita{El sistema permite a los jugadores ingresar a una mesa de juego existente} \req{req:ingreso_a_mesa}
 
  Los jugadores que no est'en en una mesa de juego deben poder ingresar a una mesa existente cuando lo deseen.
 
-\item \negrita{El sistema permite a los jugadores abandonar una mesa de juego}\req{req:salir_de_mesa}
+\item \negrita{El sistema permite a los jugadores abandonar una mesa de juego} \req{req:salir_de_mesa}
 
  Los jugadores que est'en en una mesa de juego deben poder salir de la misma.
 
-\item \negrita{El sistema se encargar'a de cerrar las mesas que no tengan jugadores}\req{req:auto_cerrar_mesas}
+\item \negrita{El sistema se encargar'a de cerrar las mesas que no tengan jugadores} \req{req:auto_cerrar_mesas}
 
  Cuando una mesa de juego haya sido abandonada por el 'ultimo jugador que la utilizaba, la misma ser'a cerrada de forma autom'atica por el sistema.
+
+\item \negrita{El sistema brinda valores de fichas preestablecidos para poder apostar} \req{req:apuesta_con_fichas}
+
+ Los jugadores solamente podr'an utilizar los valores de fichas preestablecidos para realizar apuestas.
 
 \item \negrita{El sistema permite a los jugadores apostar a los juegos si poseen suficiente cr'edito} \req{req:apuesta_a_juegos}
 
@@ -54,6 +68,22 @@ El casino podr'a ser abierto cuando se lo desee por un administrador del sistema
 
  Los jugadores vip que se encuentren en una mesa de juego deben poder apostar siempre, incluso si su saldo es insuficiente para realizar una apuesta (los jugadores vip pueden tener saldo negativo).
 
+\item \negrita{El sistema mantendr'a actualizado el saldo del ``pozo feliz''} \req{req:pozo_feliz_actualizado}
+
+ El sistema se encargar'a de mantener actualizado el saldo del ``pozo feliz'' cuando se realicen jugadas ``feliz'' y ``todos ponen''.
+ 
+\item \negrita{El sistema mantendr'a actualizado el saldo del ``pozo progresivo''} \req{req:pozo_progresivo_actualizado}
+
+ El sistema se encargar'a de mantener actualizado el saldo del ``pozo progresivo'' cuando se realicen jugadas en m'aquinas tragamonedas.
+
+\item \negrita{El sistema persistir'a informaci'on de saldos de casino y jugadores como resultado de la resoluci'on de jugadas} \req{req:cuentas_claras}
+
+ El sistema se encargar'a de mantener actualizados los saldos de los jugadores y del casino cuando se resuelvan jugadas que requieran modificarlos.
+
+\item \negrita{El sistema llevar'a registro detallado de apuestas y jugadas} \req{req:historial_clientes}
+ 
+ El casino registrar'a la informaci'on necesaria para generar los 3 tipos de reportes solicitados.
+
 \end{itemize}
 
 
@@ -61,10 +91,6 @@ El casino podr'a ser abierto cuando se lo desee por un administrador del sistema
 \subsubsubsection{Importantes}
 
 \begin{itemize}
-
-%% \item \negrita{El sistema permite la configuraci�n de los juegos
-%% \req{}
-%%  Poder ajustar las variables de probabilidad y ganancias de cada juego al igual que las probabilidades de ocurrencia de jugadas felices y todos ponen. De 'esta forma se puede asegurar la rentabilidad del casino.
 
 \item \negrita{El sistema permite entrar y salir del ``modo dirigido''} \req{req:existe_modo_dirigido}
 
@@ -78,7 +104,7 @@ El casino podr'a ser abierto cuando se lo desee por un administrador del sistema
 
  Un administrador del sistema en ``modo dirigido'' puede controlar el tipo de jugada (``normal'', ``feliz'' 'o ``todos ponen'') de los juegos.
 
-\item \negrita{El sistema permite la configuraci'on de las probabilidades de los resultados de los juegos}\req{req:conf_probabilidades_resultados}
+\item \negrita{El sistema permite la configuraci'on de las probabilidades de los resultados de los juegos} \req{req:conf_probabilidades_resultados}
 
  Un administrador de sistema puede configurar la probabilidad de ocurrencia de los distintos resultados de los juegos.
 
@@ -90,7 +116,7 @@ El casino podr'a ser abierto cuando se lo desee por un administrador del sistema
 
  Un administrador de sistema puede configurar la probabilidad de ganar el ``premio gordo progresivo'' de un jugador que satisface los requisitos necesarios para intentar ganarlo.
 
-\item \negrita{El sistema permite la configuraci'on del valor m'inimo del pozo progresivo de las Tragamonedas}\req{req:ajuste_de_pozo_progresivo}
+\item \negrita{El sistema permite la configuraci'on del valor m'inimo del pozo progresivo de las Tragamonedas} \req{req:ajuste_de_pozo_progresivo}
 
  Un administrador de sistema puede ajustar el valor m'inimo posible para el pozo com'un progresivo de los juegos de m'aquinas tragamonedas.
 
@@ -98,7 +124,7 @@ El casino podr'a ser abierto cuando se lo desee por un administrador del sistema
 
  Un administrador de sistema puede pedir reportes del estado del casino y sus jugadores para mantener control de la rentabilidad y ajustar correctamente los juegos y pozos.
 
-\item \negrita{El sistema permite acceder al casino a m'as de un jugador a la vez desde la misma terminal}\req{req:acceso_multiple}
+\item \negrita{El sistema permite acceder al casino a m'as de un jugador a la vez desde la misma terminal} \req{req:acceso_multiple}
 
  Dos o m'as jugadores deben poder acceder al casino desde una misma terminal.
 
@@ -127,7 +153,7 @@ El casino podr'a ser abierto cuando se lo desee por un administrador del sistema
 
  Los invitados que no est'en mirando una mesa de juego deben poder ingresar a una mesa existente cuando lo deseen.
 
-\item \negrita{El sistema permite a los invitados abandonar una mesa de juego}\req{req:inv_salir_de_mesa}
+\item \negrita{El sistema permite a los invitados abandonar una mesa de juego} \req{req:inv_salir_de_mesa}
 
  Los invitados que est'en mirando una mesa de juego deben poder abandonar la misma.
 
