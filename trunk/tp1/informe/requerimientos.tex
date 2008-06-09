@@ -1,8 +1,3 @@
-% reqs referencing specific custom commands definition
-\newcounter{reqsCounter}
-\setcounter{reqsCounter}{1}
-\newcommand{\req}[1]{(\newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}req\#\arabic{#1})}
-\newcommand{\rref}[1]{(req\#\arabic{#1})}
 A continuaci'on se detallan los requerimientos del sistema a construir. Se ha identificado cada requerimiento con un c'odigo 'unico que permite referenciar a dichos requerimientos desde el resto del documento.
 
 \subsubsection{Requerimientos funcionales}
