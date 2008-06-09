@@ -13,31 +13,32 @@ En los gr'aficos veremos que opciones tiene un jugador en el juego de tragamoned
 
 Notar que si bien deber'ia de ser posible elegir en que mesa jugar a que juego, para el caso del tragamonedas al jugador $i$ se le asigna la mesa $i$. Esto se debe a que no es posible elegir jugar en una mesa ya existente, pues 'esta est'a ocupada. Adem'as al abandonarla la misma ser'a cerrada, lo que imposibilita el poder elegirla.
 
-\imagen{FSM_Juego_tragamonedas_i.png}{FSM Mesa tragamonedas}{0.5}
+\imagen{FSM_Juego_tragamonedas_i.png}{FSM Mesa tragamonedas i}{0.5}
 \imagen{FSM_Jugador_tragamonedas_i.png}{FSM Jugador tragamonedas i}{0.5}
 \clearpage
 
 
 \subsubsection{Craps}
-
-El juedo de craps consta de varios tipos de apuestas, decidimos usar un nombre gen'erico para las m'aquinas en pos de buscar mayor generalidad.
+Para modelar el juego de craps usaremos varias m'aquinas, en particular:
+el tirador, el crupier (sistema) y los jugadores haciendo los varios tipos de apuestas
+posibles. Decidimos usar un nombre gen'erico para estas m'aquinas (apuestas) en pos de buscar mayor generalidad.
 
 En al Glosario se encuentran las definiciones de cada etiqueda usada.
 
 
-
+ 
 \begin{center}
 \begin{tabular}{p{4cm}|p{12cm}}        
          \multicolumn{2}{c}{M'AQUINAS USADAS PARA MODELAR EL CRAPS}     \\
         \hline
         \ronda & Modelamos los estados de una ronda de Craps \\
         \hline
-        \crupier & Esta ser'a una vista de una de las funcionalidades provista por el sistema, aqu'i se pod'a ver parte de la interaCci'on de los jugadores con el sistema. \\
+        \crupier & Esta ser'a una vista de una de las funcionalidades provista por el sistema, aqu'i se pod'a ver parte de la interacci'on de los jugadores con el sistema. \\
          \hline 
          \tirador  & Modela un jugador en particular en su rol de tirador. Usamos una variable temporal para mostrar que un tirador no puede quedarse con los dados indefinidamente. Las constantes $k1$ y $k2$ son constantes de tiempo a definir en la etapa de dise\~{n}o.\\
         \hline 
-        \unTiro & Modela un jugador en particular haciendo/cancelando una o varias apuestas que duran un tiro \\
-        \hline 
+        \unTiro & Modela un jugador en particular haciendo/cancelando una o varias apuestas que duran un tiro. \\
+        \hline  
         \unaRonda& \italica{'idem} para apuestas que duran una ronda. Analizando la traza, el jugador podr'ia apostar en una ronda y en la siguiente ronda cancelar la apuesta, 'esta es una limitacion del modelo. Entendemos que una apuesta una vez que se tiraron los dados no se puede retirar ni modificar. Lo que podr'a cancelar ser'an las n apuestas anteriores antes de que se tiren los dados, una vez tirados estos no se podr'a cancelar. \\
         \hline 
         \muchasRondas & \italica{'idem} para apuestas para m'as de una ronda. \\
