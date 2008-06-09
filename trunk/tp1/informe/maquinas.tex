@@ -20,8 +20,7 @@ Notar que si bien deber'ia de ser posible elegir en que mesa jugar a que juego, 
 
 \subsubsection{Craps}
 
-El juedo de craps consta de varios tipos de apuestas, decidimos usar
-un nombre gen√©rico para las m√°quinas en pos de buscar mayor generalidad.
+El juedo de craps consta de varios tipos de apuestas, decidimos usar un nombre gen'erico para las m'aquinas en pos de buscar mayor generalidad.
 
 En al Glosario se encuentran las definiciones de cada etiqueda usada.
 
@@ -29,19 +28,19 @@ En al Glosario se encuentran las definiciones de cada etiqueda usada.
 
 \begin{center}
 \begin{tabular}{p{4cm}|p{12cm}}        
-         \multicolumn{2}{c}{M√ÅQUINAS USADAS PARA MODELAR EL CRAPS}     \\
+         \multicolumn{2}{c}{M¡QUINAS USADAS PARA MODELAR EL CRAPS}     \\
         \hline
         \ronda & Modelamos los estados de una ronda de Craps \\
         \hline
         \crupier & Esta ser'a una vista de una de las funcionalidades provista por el sistema, aqu'i se pod'a ver parte de la interaCci'on de los jugadores con el sistema. \\
          \hline 
          \tirador  & Modela un jugador en particular en su rol de tirador. Usamos una variablem temporal para mostrar que un tirador no puede quedarse con los dados indefinidamente.
-las constantes $k1$ y $k2$ son constantes de tiempo a definir en la etapa de dise√±o.\\
+las constantes $k1$ y $k2$ son constantes de tiempo a definir en la etapa de diseÒo.\\
         \hline 
         \unTiro & Modela un jugador en particular haciendo/cancelando una o varias apuestas que duran un tiro \\
         \hline 
         \unaRonda& \italica{'idem} para apuestas que duran una ronda. Analizando la traza, el jugador podr'ia apostar en una ronda y en la siguiente ronda cancelar la apuesta, 
-esta es una limitacion del modelo. Entendemos que una apuesta una vez que se tiraron los dados no se puede retirar ni modificar. Lo que podr√° cancelar ser√°n las n apuestas anteriores antes de que se tiren los dados, una vez tirados estos no se podr'a cancelar. \\
+esta es una limitacion del modelo. Entendemos que una apuesta una vez que se tiraron los dados no se puede retirar ni modificar. Lo que podr· cancelar ser·n las n apuestas anteriores antes de que se tiren los dados, una vez tirados estos no se podr'a cancelar. \\
         \hline 
         \muchasRondas & \italica{'idem} para apuestas para m'as de una ronda. \\
 
@@ -57,7 +56,7 @@ esta es una limitacion del modelo. Entendemos que una apuesta una vez que se tir
      \vskip0.05cm \negrita{L'inea de pase o L'inea de no pase } &\vskip0.05cm  Antes del tiro de salida &\vskip0.05cm Craps o Natural, \negrita{despues de que sale el punto}, 7 'o punto &\vskip0.05cm  una ronda & \unaRonda  \\
 
      \hline
-     \vskip0.05cm \negrita{Venir √≥ No venir}&\vskip0.05cmDespues del punto   &\vskip0.05cm Natural o Craps, \negrita{despues de que sale el punto}, 7 'o el punto   & $n$ rondas & \muchasRondas\\
+     \vskip0.05cm \negrita{Venir 'o No venir}&\vskip0.05cmDespues del punto   &\vskip0.05cm Natural o Craps, \negrita{despues de que sale el punto}, 7 'o el punto   & $n$ rondas & \muchasRondas\\
      \hline
      \vskip0.05cm \negrita{Campo}&\vskip0.05cmAntes de cualquier tiro   &\vskip0.05cmCon los dados que salier'on   & un tiro & \unTiro \\  
      \hline
