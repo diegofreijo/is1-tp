@@ -112,8 +112,8 @@
 \hline\negrita{#1}&\negrita{#2}\\ }}
 
 % Comando para generar el CU con las operaciones ya pasadas y dandole la info que falta
-% Uso: \cu{Nombre CU}{Actor primario}{Actores secundarios}{Precondicion}{Postcondicion}{Aclaraciones generales a todos los pasos}
-\newcommand{\cu}[6]
+% Uso: \cu{Nombre CU}{Actor primario}{Actores secundarios}{Precondicion}{Postcondicion}{Aclaraciones generales a todos los pasos}{Requerimientos que involucra}
+\newcommand{\cu}[7]
 {
 \begin{center}
 	\begin{tabular}{|p{10cm}|p{6cm}|}
@@ -126,6 +126,8 @@
 	\multicolumn{2}{|p{16cm}|}{Precondici\'on: \negrita{#4}}\\
 	\hline
 	\multicolumn{2}{|p{16cm}|}{Postcondici\'on: \negrita{#5}}\\
+	\hline
+	\multicolumn{2}{|p{16cm}|}{Requerimientos: \negrita{#7}}\\
 	\hline
 	Curso Normal & Curso Alternativo\\
 	\the\oplist
