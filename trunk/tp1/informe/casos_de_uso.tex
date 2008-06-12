@@ -26,7 +26,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \op{4. El invitado elige la mesa que desea mirar.}{}
 \op{5. El sistema le muestra al invitado la mesa elegida.}{}
 \op{6. Fin CU.}{}
-\cu{Mirando mesa}{Invitado}{-}{El invitado no est'a mirando ninguna mesa.}{El invitado est'a mirando una mesa.}{}
+\cu{Mirando mesa}{Invitado}{-}{El invitado no est'a mirando ninguna mesa.}{El invitado est'a mirando una mesa.}{}{\rrefDeseable{req:inv_mirar_y_salir_mesas}}
 
 
 
@@ -35,7 +35,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \op{1. El invitado le informa al sistema que no desea mirar m'as la mesa que esta mirando.}{}
 \op{2. El sistema le deja de mostrar la mesa.}{}
 \op{3. Fin CU.}{}
-\cu{Saliendo de mesa}{Invitado}{-}{El invitado est'a mirando una mesa.}{El invitado no est'a mirando ninguna mesa.}{}
+\cu{Saliendo de mesa}{Invitado}{-}{El invitado est'a mirando una mesa.}{El invitado no est'a mirando ninguna mesa.}{}{\rrefEsencial{req:creacion_ingreso_y_salida_de_mesa}}
 
 
 
@@ -45,7 +45,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \op{2. El sistema valida el valor de ficha ingresado.}{}
 \op{3. El sistema crea la mesa requerida del juego elegido.}{3.1 El sistema le advierte al jugador que el valor de ficha es inv'alido. IR A 1.}{}
 \op{4. Fin CU.}{}
-\cu{Creando mesa}{Jugador}{-}{El casino est'a abierto.}{Se crea la mesa requerida y el jugador tiene como 'unica mesa elegida a la reci'en creada.}{}
+\cu{Creando mesa}{Jugador}{-}{El casino est'a abierto.}{Se crea la mesa requerida y el jugador tiene como 'unica mesa elegida a la reci'en creada.}{}{\rrefEsencial{req:creacion_ingreso_y_salida_de_mesa}}
 
 
 
@@ -54,7 +54,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \op{1. El sistema le muestra al jugador las mesas abiertas.}{}
 \op{2. El jugador elige una mesa.}{}
 \op{3. Fin CU.}{}
-\cu{Eligiendo mesa}{Jugador}{-}{El casino est'a abierto.}{El jugador tiene como 'unica mesa elegida para jugar a la mesa seleccionada.}{}
+\cu{Eligiendo mesa}{Jugador}{-}{El casino est'a abierto.}{El jugador tiene como 'unica mesa elegida para jugar a la mesa seleccionada.}{}{\rrefEsencial{req:creacion_ingreso_y_salida_de_mesa}}
 
 
 
@@ -67,8 +67,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \op{5. El sistema muestra el n'umero obtenido, debita del saldo del jugador sus apuestas perdidas y le acredita las apuestas ganadas.}{}
 \op{6. Si la ronda no finaliz'o y el jugador es el siguiente en tirar, o si el jugador realiz'o una apuesta venir o no venir, IR A PASO 1.}{}
 \op{7. Fin CU.}{}
-\cu{Jugando a Craps}{Jugador}{-}{El jugador eligi'o una mesa de craps para jugar.}{-}
-{En cualquier momento, el jugador podr'a chatear con los dem'as jugadores en la misma mesa. Tambi'en podr'a cancelar su apuesta, Ver FSM Craps sección \ref{FSMCraps} }
+\cu{Jugando a Craps}{Jugador}{-}{El jugador eligi'o una mesa de craps para jugar.}{-}{En cualquier momento, el jugador podr'a chatear con los dem'as jugadores en la misma mesa. Tambi'en podr'a cancelar su apuesta (ver FSM Craps secci'on {\ref{FSM:Craps}}).}{\rrefEsencial{req:apuesta_a_juegos}}
 
 
 
@@ -77,8 +76,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \op{2. El jugador elige cu'antas fichas quiere jugar y acciona los rodillos.}{}
 \op{3. El sistema le muestra el resultado de la tirada, debita la apuesta de la cuenta del jugador de tragamonedas y acredita la ganancia correspondiente (de existir alguna)}{}
 \op{4. Fin CU.}{}
-\cu{Jugando a Tragamonedas}{Jugador}{-}{El jugador eligi'o una mesa de tragamonedas para jugar.}{-}{}
-
+\cu{Jugando a Tragamonedas}{Jugador}{-}{El jugador eligi'o una mesa de tragamonedas para jugar.}{-}{}{\rrefEsencial{req:apuesta_a_juegos}}
 
 
 
@@ -89,14 +87,15 @@ Se modelaron cuatro actores en los casos de uso del sistema
 	\item probabilidad asignada a cada n'umero del 2 al 12 en los dados de las mesas de craps.
 	\item el porcentaje que se le descuenta a cada jugador del monto ganado en una jugada \italica{todos ponen}.
 	\item el porcentaje que se le descuenta a cada jugador en cada apuesta para engordar el pozo progresivo.
+	\item valores de fichas admitidos para realizar apuestas y configurar nuevas mesas de tragamonedas.
 	\item la cantidad de jugadas que debe un jugador apostar la apuesta m'axima para que tenga posibilidad de sacar el \italica{gordo progresivo}.
-	\item probabilidad de ocurrencia de una jugada \italica{feliz}, de una jugada \italica{todos ponen} y una jugada \italica{gordo progresivo}.
+	\item probabilidad de ocurrencia de una jugada \italica{feliz} y de una jugada \italica{todos ponen}.
 	\item monto m'inimo del pozo progresivo y feliz.
 	\end{itemize}
 }{}
 \op{2. El sistema abre el casino y se lo informa al administrador.}{2.1 Si alguna configuraci'on fue incorrecta, ir a PASO 3.}
 \op{3. Fin CU.}{}
-\cu{Abriendo casino}{Administrador}{-}{El casino est'a cerrado.}{El casino est'a abierto.}{La configuraci'on puede ser brindada por el Administrador al momento de la apertura del casino o bien el sistema puede obtenerla desde alg'un medio ya predefinido (un archivo o una base de datos por ejemplo).}
+\cu{Abriendo casino}{Administrador}{-}{El casino est'a cerrado.}{El casino est'a abierto.}{La configuraci'on puede ser brindada por el Administrador al momento de la apertura del casino o bien el sistema puede obtenerla desde alg'un medio ya predefinido (un archivo o una base de datos por ejemplo).}{\rrefEsencial{req:abrir_y_cerrar_casino}, \rrefEsencial{req:carga_clientes}, \rrefImportante{req:conf_juegos_fichas_jugadas_y_pozos}}
 
 
 
@@ -105,7 +104,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \op{1. El sistema verifica que no hayan mesas abiertas.}{}
 \op{2. El sistema cierra el casino, persiste la informaci'on de todas las jugadas realizadas por cada jugador y le informa al administrador que las acciones fueron realizadas.}{2.1. Si hay mesas abiertas, el sistema le advierte al administrador que la operaci'on no puede ser realizada. Ir a PASO 3.}
 \op{3. Fin CU.}{}
-\cu{Cerrando casino}{Administrador}{-}{El casino est'a abierto.}{El casino est'a cerrado.}{}
+\cu{Cerrando casino}{Administrador}{-}{El casino est'a abierto.}{El casino est'a cerrado.}{}{\rrefEsencial{req:abrir_y_cerrar_casino}}
 
 
 
@@ -121,7 +120,7 @@ Se modelaron cuatro actores en los casos de uso del sistema
 	\end{itemize}
 }{}
 \op{4. Fin CU.}{}
-\cu{Pidiendo reporte}{Administrador}{-}{-}{-}{}
+\cu{Pidiendo reporte}{Administrador}{-}{-}{-}{}{\rrefImportante{req:reportes}}
 
 
 
@@ -139,5 +138,5 @@ Se modelaron cuatro actores en los casos de uso del sistema
 \op{2. El jefe de contabilidad elige la opci'on deseada e ingresa los par'ametros necesarios.}{}
 \op{3. El sistema efect'ua los cambios correspondientes sobre las mesas especificadas a partir de la jugada siguiente a la que estaba en curso.}{}
 \op{4. Fin CU.}{}
-\cu{Dirigiendo el azar}{Jefe de contabilidad}{-}{-}{La/s mesa/s seleccionadas por el jefe de contabilidad se comportar'an de la forma se'nalada por 'este.}{}
+\cu{Dirigiendo el azar}{Jefe de contabilidad}{-}{-}{La/s mesa/s seleccionadas por el jefe de contabilidad se comportar'an de la forma se'nalada por 'este.}{}{\rrefImportante{req:existe_modo_dirigido}, \rrefImportante{req:controlar_juegos}}
 

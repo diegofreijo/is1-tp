@@ -43,10 +43,6 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
 
     Cuando una mesa de juego haya sido abandonada por el 'ultimo jugador que la utilizaba, la misma ser'a cerrada por el sistema de forma autom'atica.
 
-\item \reqEsencial{req:apuesta_con_fichas}\negrita{El sistema permite configurar el conjunto de valores de fichas que estar'an disponibles a los jugadores para que interact'uen con el casino} 
-
-    Los jugadores solamente podr'an utilizar los valores de fichas configurados para realizar apuestas y al momento de configurar el valor de ficha de una nueva mesa de tragamonedas.
-
 \item \reqEsencial{req:apuesta_a_juegos}\negrita{El sistema permite a los jugadores apostar a los juegos} 
 
     \begin{itemize}
@@ -70,7 +66,7 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
 
 \begin{itemize}
 
-\item \reqImportante{req:existe_modo_dirigido}\negrita{El sistema permite a un administrador entrar y salir del ``modo dirigido''} 
+\item \reqImportante{req:existe_modo_dirigido}\negrita{El sistema permite a un administrador activar y desactivar el ``modo dirigido''} 
 
     Un administrador de sistema puede activar y desactivar el ``modo dirigido'', lo que le permite controlar el azar y asegurar las ganancias del casino.
 
@@ -81,14 +77,20 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
         \item Un administrador del sistema en ``modo dirigido'' puede controlar el tipo de jugada (``normal'', ``feliz'' 'o ``todos ponen'') de los juegos.
     \end{itemize}
 
-\item \reqImportante{req:conf_juegos_jugadas_y_pozos}\negrita{El sistema permite la configuraci'on de los juegos, jugadas especiales y pozos especiales al inicio de una jornada}
+
+\item \reqImportante{req:conf_juegos_fichas_jugadas_y_pozos}\negrita{El sistema permite la configuraci'on de los juegos, valores de fichas, jugadas especiales y pozos especiales al inicio de una jornada}
 
     Al dar inicio a una jornada el casino permitir'a a un administrador especificar las siguientes configuraciones:
     \begin{itemize}
-        \item La probabilidad de ocurrencia de los distintos tipos de figuras de los juegos tragamonedas.
-        \item El valor m'inimo posible para el pozo com'un progresivo de los juegos de m'aquinas tragamonedas.
+        \item La probabilidad de ocurrencia de los distintos tipos de figuras de los juegos tragamonedas: cereza, bar simple, bar doble, bar triple y dinosaurio.
+        \item La probabilidad asignada a cada n'umero del 2 al 12 en los dados de las mesas de craps.
+        \item Valores de fichas admitidos para realizar apuestas y configurar nuevas mesas de tragamonedas.
+        \item El valor m'inimo para el pozo ``feliz''.
+        \item El valor m'inimo para el pozo com'un progresivo de los juegos de m'aquinas tragamonedas.
         \item El valor m'inimo de jugadas consecutivas con apuesta m'axima que debe realizar un jugador para tener oportunidad de ganar el ``premio gordo progresivo''.
         \item La probabilidad de ocurrencia de las jugadas especiales (``feliz'' y ``todos ponen'').
+        \item El porcentaje que se le descuenta a cada jugador del monto ganado en una jugada ``todos ponen''.
+        \item El porcentaje que se le descuenta a cada jugador en cada apuesta para engordar el pozo progresivo.
     \end{itemize}
 
 \item \reqImportante{req:reportes} \negrita{El sistema llevar'a registro detallado de apuestas y jugadas y permitir'a generar reportes con informaci'on del estado del casino y sus jugadores}
@@ -173,17 +175,15 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
     \hline
     \rrefEsencial{req:auto_cerrar_mesas} & El sistema se encargar'a de cerrar autom'aticamente las mesas que no tengan jugadores\\
     \hline
-    \rrefEsencial{req:apuesta_con_fichas} & El sistema permite configurar el conjunto de valores de fichas que estar'an disponibles a los jugadores para que interact'uen con el casino\\
-    \hline
     \rrefEsencial{req:apuesta_a_juegos} & El sistema permite a los jugadores apostar a los juegos\\
     \hline
     \rrefEsencial{req:saldos_actualizados} & El sistema actualizar'a el saldo del casino, jugadores y pozos especiales cuando se realicen apuestas y resuelvan jugadas\\
     \hline
-    \rrefImportante{req:existe_modo_dirigido} & El sistema permite a un administrador entrar y salir del ``modo dirigido''\\
+    \rrefImportante{req:existe_modo_dirigido} & El sistema permite a un administrador activar y desactivar el ``modo dirigido''\\
     \hline
     \rrefImportante{req:controlar_juegos} & El sistema permite a un administrador controlar los juegos en ``modo dirigido''\\
     \hline
-    \rrefImportante{req:conf_juegos_jugadas_y_pozos} & El sistema permite la configuraci'on de los juegos, jugadas especiales y pozos especiales al inicio de una jornada\\
+    \rrefImportante{req:conf_juegos_fichas_jugadas_y_pozos} & El sistema permite la configuraci'on de los juegos, valores de fichas, jugadas especiales y pozos especiales al inicio de una jornada\\
     \hline
     \rrefImportante{req:reportes} & El sistema llevar'a registro detallado de apuestas y jugadas y permitir'a generar reportes con informaci'on del estado del casino y sus jugadores\\
     \hline
