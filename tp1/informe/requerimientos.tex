@@ -8,30 +8,30 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
 
 \begin{itemize}
 
-\item \req{req:abrir_y_cerrar_casino} \negrita{El sistema permite abrir y cerrar el casino}
+\item \reqEsencial{req:abrir_y_cerrar_casino} \negrita{El sistema permite abrir y cerrar el casino}
 
     \begin{itemize}
         \item El casino podr'a ser abierto cuando se lo desee por un administrador del sistema. 
         \item El casino podr'a ser cerrado cuando se lo desee por un administrador del sistema, con la condici'on de que no existan jugadores dentro al momento de hacerlo.
     \end{itemize}
 
-\item \req{req:carga_clientes} \negrita{El sistema permite la carga de los clientes con sus respectivos saldos}
+\item \reqEsencial{req:carga_clientes} \negrita{El sistema permite la carga de los clientes con sus respectivos saldos}
 
     Los administradores podr'an ingresar al sistema la lista de usuarios y sus saldos (permitiendo especificar qui'enes son vip).
 
-\item \req{req:existe_juego_tragamoneda} \negrita{El sistema cuenta con juegos de tipo Tragamonedas conforme al reglamento proporcionado por los SOCIOS}
+\item \reqEsencial{req:existe_juego_tragamoneda} \negrita{El sistema cuenta con juegos de tipo Tragamonedas conforme al reglamento proporcionado por los SOCIOS}
 
     El sistema proveer'a un juego de tipo Tragamonedas con las caracter'isticas del juego real y conforme a las reglas presentadas por los SOCIOS.
 
-\item \req{req:existe_juego_craps}\negrita{El sistema cuenta con juegos de tipo Craps conforme al reglamento proporcionado por los SOCIOS}
+\item \reqEsencial{req:existe_juego_craps}\negrita{El sistema cuenta con juegos de tipo Craps conforme al reglamento proporcionado por los SOCIOS}
 
     El sistema proveer'a un juego de tipo Craps con las caracter'isticas del juego real y conforme a las reglas presentadas por los SOCIOS.
 
-\item \req{req:ingreso_y_salida_al_casino}\negrita{El sistema permite a los jugadores ingresar y salir del casino}
+\item \reqEsencial{req:ingreso_y_salida_al_casino}\negrita{El sistema permite a los jugadores ingresar y salir del casino}
 
     Los jugadores deben poder ingresar al casino utilizando para ello los datos de su cuenta y salir del mismo cuando as'i lo deseen.
  
-\item \req{req:creacion_ingreso_y_salida_de_mesa}\negrita{El sistema permite a los jugadores crear, ingresar y abandonar mesas de juego}
+\item \reqEsencial{req:creacion_ingreso_y_salida_de_mesa}\negrita{El sistema permite a los jugadores crear, ingresar y abandonar mesas de juego}
 
     \begin{itemize}
         \item Los jugadores que no est'en en una mesa de juego deben poder crear una nueva mesa de juego del tipo que elijan.
@@ -39,22 +39,22 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
         \item Los jugadores que est'en en una mesa de juego deben poder salir de la misma.
     \end{itemize}
 
-\item \req{req:auto_cerrar_mesas}\negrita{El sistema se encargar'a de cerrar autom'aticamente las mesas que no tengan jugadores} 
+\item \reqEsencial{req:auto_cerrar_mesas}\negrita{El sistema se encargar'a de cerrar autom'aticamente las mesas que no tengan jugadores} 
 
     Cuando una mesa de juego haya sido abandonada por el 'ultimo jugador que la utilizaba, la misma ser'a cerrada por el sistema de forma autom'atica.
 
-\item \req{req:apuesta_con_fichas}\negrita{El sistema permite configurar el conjunto de valores de fichas que estar'an disponibles a los jugadores para que interact'uen con el casino} 
+\item \reqEsencial{req:apuesta_con_fichas}\negrita{El sistema permite configurar el conjunto de valores de fichas que estar'an disponibles a los jugadores para que interact'uen con el casino} 
 
     Los jugadores solamente podr'an utilizar los valores de fichas configurados para realizar apuestas y al momento de configurar el valor de ficha de una nueva mesa de tragamonedas.
 
-\item \req{req:apuesta_a_juegos}\negrita{El sistema permite a los jugadores apostar a los juegos} 
+\item \reqEsencial{req:apuesta_a_juegos}\negrita{El sistema permite a los jugadores apostar a los juegos} 
 
     \begin{itemize}
         \item Los jugadores que se encuentren en una mesa de juego y posean el saldo suficiente deben poder apostar.
         \item Los jugadores vip que se encuentren en una mesa de juego deben poder apostar siempre, incluso si su saldo es insuficiente para realizar una apuesta (los jugadores vip pueden tener saldo negativo).
     \end{itemize}    
 
-\item \req{req:saldos_actualizados} \negrita{El sistema actualizar'a el saldo del casino, jugadores y pozos especiales cuando se realicen apuestas y resuelvan jugadas} 
+\item \reqEsencial{req:saldos_actualizados} \negrita{El sistema actualizar'a el saldo del casino, jugadores y pozos especiales cuando se realicen apuestas y resuelvan jugadas} 
 
     \begin{itemize}
         \item El sistema se encargar'a de mantener actualizado el saldo del ``pozo feliz'' cuando se realicen jugadas ``feliz'' y ``todos ponen''.
@@ -70,18 +70,18 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
 
 \begin{itemize}
 
-\item \req{req:existe_modo_dirigido}\negrita{El sistema permite a un administrador entrar y salir del ``modo dirigido''} 
+\item \reqImportante{req:existe_modo_dirigido}\negrita{El sistema permite a un administrador entrar y salir del ``modo dirigido''} 
 
     Un administrador de sistema puede activar y desactivar el ``modo dirigido'', lo que le permite controlar el azar y asegurar las ganancias del casino.
 
-\item \req{req:controlar_juegos}\negrita{El sistema permite a un administrador controlar los juegos en ``modo dirigido''}
+\item \reqImportante{req:controlar_juegos}\negrita{El sistema permite a un administrador controlar los juegos en ``modo dirigido''}
 
     \begin{itemize}
         \item Un administrador del sistema en ``modo dirigido'' puede controlar los resultados de los juegos.
         \item Un administrador del sistema en ``modo dirigido'' puede controlar el tipo de jugada (``normal'', ``feliz'' 'o ``todos ponen'') de los juegos.
     \end{itemize}
 
-\item \req{req:conf_juegos_jugadas_y_pozos}\negrita{El sistema permite la configuraci'on de los juegos, jugadas especiales y pozos especiales al inicio de una jornada}
+\item \reqImportante{req:conf_juegos_jugadas_y_pozos}\negrita{El sistema permite la configuraci'on de los juegos, jugadas especiales y pozos especiales al inicio de una jornada}
 
     Al dar inicio a una jornada el casino permitir'a a un administrador especificar las siguientes configuraciones:
     \begin{itemize}
@@ -91,19 +91,7 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
         \item La probabilidad de ocurrencia de las jugadas especiales (``feliz'' y ``todos ponen'').
     \end{itemize}
 
-% \item \req{req:conf_probabilidades_resultados}\negrita{El sistema permite la configuraci'on de las probabilidades de los resultados de los juegos} 
-% Un administrador de sistema puede configurar la probabilidad de ocurrencia de los distintos resultados de los juegos.
-
-% \item \req{req:conf_probabilidades_jugadas_especiales} \negrita{El sistema permite la configuraci'on de las probabilidades de ocurrencia de las jugadas ``feliz'' y ``todos ponen''} 
-% Un administrador de sistema puede configurar la probabilidad de ocurrencia de las jugadas especiales.
-
-% \item \req{req:conf_probabilidades_premio_progresivo}\negrita{El sistema permite la configuraci'on de la probabilidad de ganar el ``premio gordo progresivo'' de las m'aquinas tragamonedas} 
-% Un administrador de sistema puede configurar la probabilidad de ganar el ``premio gordo progresivo'' de un jugador que satisface los requisitos necesarios para intentar ganarlo.
-
-% \item \req{req:ajuste_de_pozo_progresivo}\negrita{El sistema permite la configuraci'on del valor m'inimo del pozo progresivo de las Tragamonedas} 
-% Un administrador de sistema puede ajustar el valor m'inimo posible para el pozo com'un progresivo de los juegos de m'aquinas tragamonedas.
-
-\item \req{req:reportes} \negrita{El sistema llevar'a registro detallado de apuestas y jugadas y permitir'a generar reportes con informaci'on del estado del casino y sus jugadores}
+\item \reqImportante{req:reportes} \negrita{El sistema llevar'a registro detallado de apuestas y jugadas y permitir'a generar reportes con informaci'on del estado del casino y sus jugadores}
  
     El casino registrar'a la informaci'on necesaria para generar los tipos de reportes solicitados.
     Un administrador de sistema puede pedir 3 tipos de reportes sobre el estado del casino y sus jugadores para mantener control de la rentabilidad y ajustar correctamente los juegos y pozos. A saber:
@@ -115,11 +103,11 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
         \item {\bf Detalle movimientos por jugador:} Detalle de todos los movimientos (apuestas, premios ganados, monto ganado) desde que ingresaron al casino, de manera que podr'a verse la tendencia de cada uno de los jugadores.
     \end{itemize}
 
-\item \req{req:acceso_multiple}\negrita{El sistema permite acceder al casino a m'as de un jugador a la vez desde la misma terminal} 
+\item \reqImportante{req:acceso_multiple}\negrita{El sistema permite acceder al casino a m'as de un jugador a la vez desde la misma terminal} 
 
     Dos o m'as jugadores deben poder acceder al casino desde una misma terminal.
 
-\item \req{req:agregar_juegos}\negrita{El sistema permite ser extendido mediante la incorporaci'on de nuevos juegos} 
+\item \reqImportante{req:agregar_juegos}\negrita{El sistema permite ser extendido mediante la incorporaci'on de nuevos juegos} 
 
     Cuando los SOCIOS lo deseen, podr'an agregar nuevos juegos al sistema, ampliando las opciones para sus clientes.
 
@@ -131,15 +119,15 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
 
 \begin{itemize}
 
-\item \req{req:chat} \negrita{El sistema permite la comunicaci'on v'ia chat entre jugadores de una misma mesa}
+\item \reqDeseable{req:chat} \negrita{El sistema permite la comunicaci'on v'ia chat entre jugadores de una misma mesa}
 
     Los jugadores podr'an expresar entre s'i su felicidad por estar jugando.
 
-\item \req{req:inv_ingreso_egreso_al_casino} \negrita{El sistema permite a los invitados ingresar y salir del casino}
+\item \reqDeseable{req:inv_ingreso_egreso_al_casino} \negrita{El sistema permite a los invitados ingresar y salir del casino}
 
     Los invitados deben poder entrar y salir del casino sin necesidad de poseer una cuenta de usuario.
 
-\item \req{req:inv_mirar_y_salir_mesas}\negrita{El sistema permite a los invitados mirar una mesa de juego existente}
+\item \reqDeseable{req:inv_mirar_y_salir_mesas}\negrita{El sistema permite a los invitados mirar una mesa de juego existente}
 
     \begin{itemize}
         \item Los invitados que no est'en mirando una mesa de juego deben poder ingresar a una mesa existente cuando lo deseen.
@@ -153,18 +141,68 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
 
 \begin{itemize}
 
-% \item \req{req:sistema_seguro}\negrita{El sistema es seguro respecto a las transacciones de dinero} 
-% Se necesita que las transacciones sean seguras para brindar mayor confianza a los jugadores y as'i fomentar el uso del casino.
-
-\item \req{req:suficientes_jugadores}\negrita{El sistema permite suficiente cantidad de jugadores}
+\item \reqNoFuncional{req:suficientes_jugadores}\negrita{El sistema permite suficiente cantidad de jugadores}
 
     El sistema deber'a poder adaptarse f'acilmente para permitir que el n'umero de jugadores sea el requerido para satisfacer las necesidades de rentabilidad.
 
-\item \req{req:realGames}\negrita{Los juegos que el sistema ofrece son similares a los de la realidad}
+\item \reqNoFuncional{req:realGames}\negrita{Los juegos que el sistema ofrece son similares a los de la realidad}
 
     Es necesario para que los jugadores se sientan c'omodos y les sea sencillo a los jugadores nuevos adaptarse al sistema inform'atico.
 
 \end{itemize}
+
+
+\subsubsection{Tabla de requerimientos}
+
+\begin{center}
+    \begin{tabular}{|p{1.5cm}|p{14.5cm}|}
+    \hline
+    {\bf ID} & {\bf Requerimiento}\\
+    \hline
+    \rrefEsencial{req:abrir_y_cerrar_casino} & El sistema permite abrir y cerrar el casino\\
+    \hline
+    \rrefEsencial{req:carga_clientes} & El sistema permite la carga de los clientes con sus respectivos saldos\\
+    \hline
+    \rrefEsencial{req:existe_juego_tragamoneda} & El sistema cuenta con juegos de tipo Tragamonedas conforme al reglamento proporcionado por los SOCIOS\\
+    \hline
+    \rrefEsencial{req:existe_juego_craps} & El sistema cuenta con juegos de tipo Craps conforme al reglamento proporcionado por los SOCIOS\\
+    \hline
+    \rrefEsencial{req:ingreso_y_salida_al_casino} & El sistema permite a los jugadores ingresar y salir del casino\\
+    \hline
+    \rrefEsencial{req:creacion_ingreso_y_salida_de_mesa} & El sistema permite a los jugadores crear, ingresar y abandonar mesas de juego\\
+    \hline
+    \rrefEsencial{req:auto_cerrar_mesas} & El sistema se encargar'a de cerrar autom'aticamente las mesas que no tengan jugadores\\
+    \hline
+    \rrefEsencial{req:apuesta_con_fichas} & El sistema permite configurar el conjunto de valores de fichas que estar'an disponibles a los jugadores para que interact'uen con el casino\\
+    \hline
+    \rrefEsencial{req:apuesta_a_juegos} & El sistema permite a los jugadores apostar a los juegos\\
+    \hline
+    \rrefEsencial{req:saldos_actualizados} & El sistema actualizar'a el saldo del casino, jugadores y pozos especiales cuando se realicen apuestas y resuelvan jugadas\\
+    \hline
+    \rrefImportante{req:existe_modo_dirigido} & El sistema permite a un administrador entrar y salir del ``modo dirigido''\\
+    \hline
+    \rrefImportante{req:controlar_juegos} & El sistema permite a un administrador controlar los juegos en ``modo dirigido''\\
+    \hline
+    \rrefImportante{req:conf_juegos_jugadas_y_pozos} & El sistema permite la configuraci'on de los juegos, jugadas especiales y pozos especiales al inicio de una jornada\\
+    \hline
+    \rrefImportante{req:reportes} & El sistema llevar'a registro detallado de apuestas y jugadas y permitir'a generar reportes con informaci'on del estado del casino y sus jugadores\\
+    \hline
+    \rrefImportante{req:acceso_multiple} & El sistema permite acceder al casino a m'as de un jugador a la vez desde la misma terminal\\
+    \hline
+    \rrefImportante{req:agregar_juegos} & El sistema permite ser extendido mediante la incorporaci'on de nuevos juegos\\
+    \hline
+    \rrefDeseable{req:chat} & El sistema permite la comunicaci'on v'ia chat entre jugadores de una misma mesa\\
+    \hline
+    \rrefDeseable{req:inv_ingreso_egreso_al_casino} & El sistema permite a los invitados ingresar y salir del casino\\
+    \hline
+    \rrefDeseable{req:inv_mirar_y_salir_mesas} & El sistema permite a los invitados mirar una mesa de juego existente\\
+    \hline
+    \rrefNoFuncional{req:suficientes_jugadores} & El sistema permite suficiente cantidad de jugadores\\
+    \hline
+    \rrefNoFuncional{req:realGames} & Los juegos que el sistema ofrece son similares a los de la realidad\\
+    \hline
+    \end{tabular}
+\end{center}
 
 
 \subsubsection{Compromisos por parte del grupo}

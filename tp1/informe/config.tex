@@ -75,18 +75,23 @@
 \newcommand{\negrita}[1]{{\bf #1}}
 \newcommand{\italica}[1]{{\it #1}}
 
-
+% ---------------------------
 % Comandos de requerimientos
-\newcounter{reqsCounter}
-\setcounter{reqsCounter}{1}
+% ---------------------------
+\newcounter{reqsCounterEsencial}
+\setcounter{reqsCounterEsencial}{1}
+\newcounter{reqsCounterImportante}
+\setcounter{reqsCounterImportante}{1}
+\newcounter{reqsCounterDeseable}
+\setcounter{reqsCounterDeseable}{1}
+\newcounter{reqsCounterNoFuncional}
+\setcounter{reqsCounterNoFuncional}{1}
 
 % Tipos de requerimientos: esencial, importante, deseable y no funcional (puaj! no sé escribir un condicional en LaTeX así que uso distintos comandos :S)
-\newcommand{\req}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}Req \arabic{#1} }}
-% \newcommand{\reqEsencial}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}Req \arabic{#1} }}
-% \newcommand{\reqImportante}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}Req \arabic{#1} }}
-% \newcommand{\reqDeseable}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}Req \arabic{#1} }}
-% \newcommand{\reqNoFuncional}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}Req \arabic{#1} }}
-% \newcommand{\rref}[1]{\italica{req \arabic{#1}}}
+\newcommand{\reqEsencial}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounterEsencial}}\stepcounter{reqsCounterEsencial}Req \arabic{#1} }}
+\newcommand{\reqImportante}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounterImportante}}\stepcounter{reqsCounterImportante}Req \arabic{#1} }}
+\newcommand{\reqDeseable}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounterDeseable}}\stepcounter{reqsCounterDeseable}Req \arabic{#1} }}
+\newcommand{\reqNoFuncional}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounterNoFuncional}}\stepcounter{reqsCounterNoFuncional}Req \arabic{#1} }}
 \newcommand{\rrefEsencial}[1]{\italica{RE\#\arabic{#1}}}
 \newcommand{\rrefImportante}[1]{\italica{RI\#\arabic{#1}}}
 \newcommand{\rrefDeseable}[1]{\italica{RD\#\arabic{#1}}}
