@@ -79,8 +79,18 @@
 % Comandos de requerimientos
 \newcounter{reqsCounter}
 \setcounter{reqsCounter}{1}
+
+% Tipos de requerimientos: esencial, importante, deseable y no funcional (puaj! no sé escribir un condicional en LaTeX así que uso distintos comandos :S)
 \newcommand{\req}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}Req \arabic{#1} }}
-\newcommand{\rref}[1]{ \italica{req \arabic{#1}}}
+% \newcommand{\reqEsencial}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}Req \arabic{#1} }}
+% \newcommand{\reqImportante}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}Req \arabic{#1} }}
+% \newcommand{\reqDeseable}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}Req \arabic{#1} }}
+% \newcommand{\reqNoFuncional}[1]{\italica{ \newcounter{#1}\setcounter{#1}{\arabic{reqsCounter}}\stepcounter{reqsCounter}Req \arabic{#1} }}
+% \newcommand{\rref}[1]{\italica{req \arabic{#1}}}
+\newcommand{\rrefEsencial}[1]{\italica{RE\#\arabic{#1}}}
+\newcommand{\rrefImportante}[1]{\italica{RI\#\arabic{#1}}}
+\newcommand{\rrefDeseable}[1]{\italica{RD\#\arabic{#1}}}
+\newcommand{\rrefNoFuncional}[1]{\italica{RNF\#\arabic{#1}}}
 
 % -----------------------------------------------------------------------------------------------------
 % Codigo para generar los casos de uso, basado en caratula.sty del DC-FCEN-UBA 
