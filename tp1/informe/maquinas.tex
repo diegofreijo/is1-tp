@@ -1,19 +1,18 @@
-
-\newcommand{\ronda}{ \italica{ FSM Ronda} }
-\newcommand{\crupier}{ \italica{ FSM Crupier} }
-\newcommand{\tirador}{ \italica{ FSM Tirador i} }
-\newcommand{\dados}{ \italica{ FSM Dados i} }
+\newcommand{\ronda}{\italica{FSM Ronda}}
+\newcommand{\crupier}{\italica{FSM Crupier}}
+\newcommand{\tirador}{\italica{FSM Tirador i}}
+\newcommand{\dados}{\italica{FSM Dados i}}
 \newcommand{\campo}{\italica{FSM Jugador i haciendo apuesta de Campo }}
 \newcommand{\sitio}{\italica{FSM Jugador i haciendo apuesta de sitio}}
 \newcommand{\pase}{\italica{FSM Jugador i haciendo apuesta linea de pase / Barra NoPase}}
 \newcommand{\venir}{\italica{FSM Jugador i haciendo apuesta venir novenir}}
 
-Tanto con para Craps como para el Tragamonedas, modelares como los jugadores interactuan con el sistema.
+Tanto para Craps como para Tragamonedas, modelaremos c'omo los jugadores interact'uan con el sistema.
 
 \subsubsection{Tragamonedas}
 
-En la figura \ref{fig_FSM/FSM_Jugador_tragamonedas_i.png}veremos la din'amica y qu'e opciones tiene un jugador en el juego de tragamonedas.
-Al jugador $i$ se le asigna la mesa $i$. Esto se debe a que no es posible elegir jugar en una mesa ya existente, pues 'esta est'a ocupada. Adem'as al abandonarla la misma ser'a cerrada, lo que imposibilita el poder elegirla.
+En la figura \ref{fig_FSM/FSM_Jugador_tragamonedas_i.png} veremos la din'amica del juego y qu'e opciones tiene un jugador en el juego de tragamonedas.
+Al jugador $i$ se le asigna la mesa $i$. No es posible elegir jugar en una mesa previamente creada, ya que todas las mesas de tragamonedas existentes est'an ocupadas (en una mesa de tragamonedas solo puede jugar un 'unico jugador) y al abandonar los jugadores las mesas de tragamonedas 'estas son cerradas autom'aticamente por el sistema (una mesa sin jugadores es cerrada autom'aticamente, ver \rrefEsencial{req:auto_cerrar_mesas}), lo que imposibilita el poder elegir una mesa existente.
 
 \imagen{FSM/FSM_Jugador_tragamonedas_i.png}{FSM Jugador tragamonedas i}{0.5}
 \clearpage

@@ -50,13 +50,17 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
         \item Los jugadores vip que se encuentren en una mesa de juego deben poder apostar siempre, incluso si su saldo es insuficiente para realizar una apuesta (los jugadores vip pueden tener saldo negativo).
     \end{itemize}    
 
-\item \reqEsencial{req:saldos_actualizados} \negrita{El sistema actualizar'a el saldo del casino, jugadores y pozos especiales cuando se realicen apuestas y resuelvan jugadas} 
+\item \reqEsencial{req:saldos_actualizados} \negrita{El sistema actualizar'a el saldo del casino, jugadores y pozos especiales cuando se realicen apuestas y resuelvan jugadas, acorde a las reglas y modalidades acordadas} 
 
     \begin{itemize}
         \item El sistema se encargar'a de mantener actualizado el saldo del ``pozo feliz'' cuando se realicen jugadas ``feliz'' y ``todos ponen''.
         \item El sistema se encargar'a de mantener actualizado el saldo del ``pozo progresivo'' cuando se realicen jugadas en m'aquinas tragamonedas.
         \item El sistema se encargar'a de mantener actualizados los saldos de los jugadores y del casino.
     \end{itemize}
+    
+\item \reqEsencial{req:persistir_saldos_al_cierre} \negrita{El sistema persistir'a la informaci'on referente al saldo de los clientes y del casino al momento de cerrar el casino}
+
+    La informaci'on de saldos de clientes y del casino ser'a persistida por el sistema cuando el casino cierra. Esto permite que el casino al abrir pueda recuperar esa informaci'on.
 
 \end{itemize}
 
@@ -67,17 +71,15 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
 
 \begin{itemize}
 
-\item \reqImportante{req:existe_modo_dirigido}\negrita{El sistema permite a un administrador activar y desactivar el ``modo dirigido''} 
+\item \reqImportante{req:modo_dirigido}\negrita{El sistema permite a un administrador activar y desactivar el ``modo dirigido'' y controlar los juegos}
 
     Un administrador de sistema puede activar y desactivar el ``modo dirigido'', lo que le permite controlar el azar y asegurar las ganancias del casino.
 
-\item \reqImportante{req:controlar_juegos}\negrita{El sistema permite a un administrador controlar los juegos en ``modo dirigido''}
-
+    Un administrador del sistema en ``modo dirigido'' puede:
     \begin{itemize}
-        \item Un administrador del sistema en ``modo dirigido'' puede controlar los resultados de los juegos.
-        \item Un administrador del sistema en ``modo dirigido'' puede controlar el tipo de jugada (``normal'', ``feliz'' 'o ``todos ponen'') de los juegos.
+        \item Controlar los resultados de los tipos juegos.
+        \item Controlar el tipo de jugada (``normal'', ``feliz'' 'o ``todos ponen'') de los juegos.
     \end{itemize}
-
 
 \item \reqImportante{req:conf_juegos_fichas_jugadas_y_pozos}\negrita{El sistema permite la configuraci'on de los juegos, valores de fichas, jugadas especiales y pozos especiales al inicio de una jornada}
 
@@ -178,11 +180,11 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
     \hline
     \rrefEsencial{req:apuesta_a_juegos} & El sistema permite a los jugadores apostar a los juegos\\
     \hline
-    \rrefEsencial{req:saldos_actualizados} & El sistema actualizar'a el saldo del casino, jugadores y pozos especiales cuando se realicen apuestas y resuelvan jugadas\\
+    \rrefEsencial{req:saldos_actualizados} & El sistema actualizar'a el saldo del casino, jugadores y pozos especiales cuando se realicen apuestas y resuelvan jugadas, acorde a las reglas y modalidades acordadas\\
     \hline
-    \rrefImportante{req:existe_modo_dirigido} & El sistema permite a un administrador activar y desactivar el ``modo dirigido''\\
+    \rrefEsencial{req:persistir_saldos_al_cierre} & El sistema persistir'a la informaci'on referente al saldo de los clientes y del casino al momento de cerrar el casino\\
     \hline
-    \rrefImportante{req:controlar_juegos} & El sistema permite a un administrador controlar los juegos en ``modo dirigido''\\
+    \rrefImportante{req:modo_dirigido} & El sistema permite a un administrador activar y desactivar el ``modo dirigido'' y controlar los juegos\\
     \hline
     \rrefImportante{req:conf_juegos_fichas_jugadas_y_pozos} & El sistema permite la configuraci'on de los juegos, valores de fichas, jugadas especiales y pozos especiales al inicio de una jornada\\
     \hline
