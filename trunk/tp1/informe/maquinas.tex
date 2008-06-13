@@ -1,19 +1,21 @@
 
 \newcommand{\ronda}{ \italica{ FSM Ronda} }
 \newcommand{\crupier}{ \italica{ FSM Crupier} }
-\newcommand{\tirador}{ \italica{ FSM tirador i} }
-\newcommand{\unaRonda}{\italica{FSM Jugador i haciendo apuestas de \textbf{una ronda}}}
-\newcommand{\muchasRondas}{\italica{FSM Jugador i haciendo apuestas en\textbf{ m'as de una ronda}}}
-\newcommand{\unTiro}{\italica{FSM Jugador i haciendo apuestas de \textbf{un tiro}}}
-Tanto con para Craps como para el Tragamonedas, intentamos modelar como los jugadores interactuan con el sistema.
+\newcommand{\tirador}{ \italica{ FSM Tirador i} }
+\newcommand{\dados}{ \italica{ FSM Dados i} }
+\newcommand{\campo}{\italica{FSM Jugador i haciendo apuesta de Campo }}
+\newcommand{\sitio}{\italica{FSM Jugador i haciendo apuesta de sitio}}
+\newcommand{\pase}{\italica{FSM Jugador i haciendo apuesta linea de pase / Barra NoPase}}
+\newcommand{\venir}{\italica{FSM Jugador i haciendo apuesta venir novenir}}
+
+Tanto con para Craps como para el Tragamonedas, modelares como los jugadores interactuan con el sistema.
 
 \subsubsection{Tragamonedas}
 
-En los gr'aficos veremos la din'amica y qu'e opciones tiene un jugador en el juego de tragamonedas.
+En la figura \ref{fig_FSM/FSM_Jugador_tragamonedas_i.png}veremos la din'amica y qu'e opciones tiene un jugador en el juego de tragamonedas.
+Al jugador $i$ se le asigna la mesa $i$. Esto se debe a que no es posible elegir jugar en una mesa ya existente, pues 'esta est'a ocupada. Adem'as al abandonarla la misma ser'a cerrada, lo que imposibilita el poder elegirla.
 
-Notar que si bien deber'ia de ser posible elegir en que mesa jugar a que juego, para el caso del tragamonedas al jugador $i$ se le asigna la mesa $i$. Esto se debe a que no es posible elegir jugar en una mesa ya existente, pues 'esta est'a ocupada. Adem'as al abandonarla la misma ser'a cerrada, lo que imposibilita el poder elegirla.
-
-\imagen{FSM_Jugador_tragamonedas_i.png}{FSM Jugador tragamonedas i}{0.5}
+\imagen{FSM/FSM_Jugador_tragamonedas_i.png}{FSM Jugador tragamonedas i}{0.5}
 \clearpage
 
 
@@ -21,10 +23,9 @@ Notar que si bien deber'ia de ser posible elegir en que mesa jugar a que juego, 
 \label{FSM:Craps}
 Para modelar el juego de craps usaremos varias m'aquinas, en particular:
 el tirador, el crupier (sistema) y los jugadores haciendo los varios tipos de apuestas
-posibles. Decidimos usar un nombre gen'erico para estas m'aquinas (apuestas) en pos de buscar mayor generalidad.
+posibles. 
 
-En al Glosario se encuentran las definiciones de cada etiqueda usada.
-
+En la seccion \ref{etiquetasFSMs} del Glosario se encuentran las definiciones de cada etiqueda usada.
 
  
 \begin{center}
@@ -37,43 +38,29 @@ En al Glosario se encuentran las definiciones de cada etiqueda usada.
          \hline 
          \tirador  & Modela un jugador en particular en su rol de tirador. Usamos una variable temporal para mostrar que un tirador no puede quedarse con los dados indefinidamente. Las constantes $k1$ y $k2$ son constantes de tiempo a definir en la etapa de dise\~{n}o.\\
         \hline 
-        \unTiro & Modela un jugador en particular haciendo/cancelando una o varias apuestas que duran un tiro. \\
+         & Modela un jugador en particular haciendo/cancelando una o varias apuestas que duran un tiro. \\
         \hline  
-        \unaRonda& \italica{'idem} para apuestas que duran una ronda. Analizando la traza, el jugador podr'ia apostar en una ronda y en la siguiente ronda cancelar la apuesta, 'esta es una limitacion del modelo. Entendemos que una apuesta una vez que se tiraron los dados no se puede retirar ni modificar. Lo que podr'a cancelar ser'an las n apuestas anteriores antes de que se tiren los dados, una vez tirados estos no se podr'a cancelar. \\
+        & \italica{'idem} para apuestas que duran una ronda. Analizando la traza, el jugador podr'ia apostar en una ronda y en la siguiente ronda cancelar la apuesta, 'esta es una limitacion del modelo. Entendemos que una apuesta una vez que se tiraron los dados no se puede retirar ni modificar. Lo que podr'a cancelar ser'an las n apuestas anteriores antes de que se tiren los dados, una vez tirados estos no se podr'a cancelar. \\
         \hline 
-        \muchasRondas & \italica{'idem} para apuestas para m'as de una ronda. \\
+        & \italica{'idem} para apuestas para m'as de una ronda. \\
 
 \end{tabular}
 \end{center}
 
- \begin{center}
- \begin{tabular}{p{3cm}|p{2cm}|p{3cm}|p{2cm}|p{4cm}}
-    \multicolumn{5}{c}{\negrita{Donde se modela cada apuesta}}  \\
-    \hline
-    \italica{Apuesta} & \negrita{Cuando} & \negrita{Se resuelve} & \negrita{Duraci'on } & \negrita{La modela} \\ 
-    \hline
-     \vskip0.05cm \negrita{L'inea de pase o L'inea de no pase } &\vskip0.05cm  Antes del tiro de salida &\vskip0.05cm Craps o Natural, \negrita{despues de que sale el punto}, 7 'o punto &\vskip0.05cm  una ronda & \unaRonda  \\
+ 
 
-     \hline
-     \vskip0.05cm \negrita{Venir 'o No venir}&\vskip0.05cmDespues del punto   &\vskip0.05cm Natural o Craps, \negrita{despues de que sale el punto}, 7 'o el punto   & $n$ rondas & \muchasRondas\\
-     \hline
-     \vskip0.05cm \negrita{Campo}&\vskip0.05cmAntes de cualquier tiro   &\vskip0.05cmCon los dados que salier'on   & un tiro & \unTiro \\  
-     \hline
-     \vskip0.05cm \negrita{Sitio}&\vskip0.05cmAntes de cualquier tiro   &\vskip0.05cmCon los dados que salier'on  & $n$ rondas & \muchasRondas  \\
-     
+\imagen{FSM/FSM_Ronda.png}{\ronda}{0.5}
+\imagen{FSM/FSM_Crupier.png}{\crupier}{0.5}
+\imagen{FSM/FSM_Jugador_i.png}{ \tirador }{0.5}
+\imagen{FSM/FSM_Dados.png}{\dados  }{0.5}
 
-  \end{tabular}
-\end{center}
+\imagenvertical{FSM/FSM_Jugador_i_haciendo_apuesta_de_Campo.png}{ \campo}{0.5}
+\imagenvertical{FSM/FSM_Jugador_i_haciendo_apuesta_de_sitio.png}{ \sitio }{0.5}
+\imagenvertical{FSM/FSM_Jugador_i_haciendo_apuesta_linea_se_pase_Barra_No_Pase.png}{\pase }{0.5}
+\imagenvertical{FSM/FSM_Jugador_i_haciendo_apuesta_venir_novenir.png}{\venir }{0.5}
 
 
 
-\imagen{FSM_Ronda.png}{\ronda}{0.5}
-\imagen{FSM_Crupier.png}{\crupier}{0.5}
-\imagen{FSM_Jugador_i.png}{ \tirador }{0.5}
+La FSM del juego de craps se logra componiendo en paralelo:
 
-\imagenvertical{FSM_Apuesta_mas_de_una_ronda.png}{\muchasRondas}{0.6}
-\imagenvertical{FSM_Apuesta_una_ronda.png}{\unaRonda}{0.54}
-\imagenvertical{FSM_Apuesta_un_tiro.png}{\unTiro}{0.7}
 
-La FSM del juego de craps se logra componiendo en paralelo:\\
-\crupier $||$ \tirador $||$ \muchasRondas $||$ \unaRonda $||$ \unTiro (i de 1 a n) 
