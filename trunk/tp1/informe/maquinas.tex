@@ -4,8 +4,8 @@
 \newcommand{\dados}{\italica{FSM Dados i}}
 \newcommand{\campo}{\italica{FSM Jugador i haciendo apuesta de Campo }}
 \newcommand{\sitio}{\italica{FSM Jugador i haciendo apuesta de sitio}}
-\newcommand{\pase}{\italica{FSM Jugador i haciendo apuesta linea de pase / Barra NoPase}}
-\newcommand{\venir}{\italica{FSM Jugador i haciendo apuesta venir novenir}}
+\newcommand{\pase}{\italica{FSM Jugador i haciendo apuesta linea de pase / barra No Pase}}
+\newcommand{\venir}{\italica{FSM Jugador i haciendo apuesta venir / no venir}}
 
 Tanto para Craps como para Tragamonedas, modelaremos c'omo los jugadores interact'uan con el sistema.
 
@@ -36,12 +36,20 @@ En la seccion \ref{etiquetasFSMs} del Glosario se encuentran las definiciones de
         \crupier & Esta ser'a una vista de una de las funcionalidades provista por el sistema, aqu'i se pod'a ver parte de la interacci'on de los jugadores con el sistema. \\
          \hline 
          \tirador  & Modela un jugador en particular en su rol de tirador. Usamos una variable temporal para mostrar que un tirador no puede quedarse con los dados indefinidamente. Las constantes $k1$ y $k2$ son constantes de tiempo a definir en la etapa de dise\~{n}o.\\
+ \hline
+        \campo  & el jugador i haciendo apuesta de campo \\
+\hline 
+       \sitio& el jugador i haciendo apuestas de sitio \\
+\hline
+        \pase& el jugador i haciendo apuestas de pase o no pase \\
+\hline        
+        \venir& el jugador i haciendo apuestas de venir o no venir
 \end{tabular}
 \end{center}
 
 \begin{center}
-    \begin{tabular}{p{4cm}|p{4cm}|p{12cm}}        
-        \multicolumn{2}{c}{Variables}\\
+    \begin{tabular}{p{4cm}|p{1cm}|p{6cm}}        
+        \multicolumn{3}{c}{Variables}\\
         \hline
         dados & 2...12 & el valor de los dados\\
         \hline
