@@ -25,51 +25,176 @@ La clase \negrita{jugada}: una jugada realizada por alg'un jugador en alguna mes
 
 \subsubsection{Restricciones OCL al modelo conceptual}
 \begin{itemize}
- \item \textit{Solo hay una jugada feliz como m'aximo \\}
-  \textbf{context} Jugada 
-  \\ \textbf{inv:}
-  Jugada.allInstances()$\rightarrow$select(tipo = TipoJugada::feliz)$\rightarrow$size() $\leq$ 1)
 
 
-\item \textit{ Para cada mesa de Craps hay exactamente un tirador \\}
-\textbf{context}  MesaDeCraps \\ \textbf{inv:} 
-  self.Jugada$\rightarrow$select(j $|$ j.oclAsType(JugadaCrap).tirador = true)$\rightarrow$size() = 1)
+
+\item \textit{Solo hay una jugada feliz como m'aximo}
+
+\textbf{context} Jugada \\ \textbf{inv:}
+    Jugada.allInstances()$\rightarrow$select(j $|$ j.tipo = TipoJugada::feliz \textbf{and} j.result'oEn$\rightarrow$isEmpty())$\rightarrow$size() $\leq$ 1)
+
+
+
+\item \textit{Para cada mesa de Craps hay exactamente un tirador}
+
+% self.jugadas->select(j | j.result'oEn->isEmpty() and j.oclAsType(JugadaCraps).tirador = true)->size() = 1)
+\textbf{context}  MesaCraps \\ \textbf{inv:} 
+    self.jugadas$\rightarrow$select(j $|$ j.result'oEn$\rightarrow$isEmpty() \textbf{and} j.oclAsType(JugadaCraps).tirador = true)$\rightarrow$size() = 1)
+
 
 
 \item \textit{En las mesas de Craps s'olo se realizan apuestas de tipo Crap} 
 
-\textbf{context}  MesaDeCraps \\ \textbf{inv:} 
-  self.Jugada$\rightarrow$forAll(j $|$ j.oclIsTypeOf(JugadaCrap))
+% self.jugadas->forAll(j | j.oclIsTypeOf(JugadaCraps))
+\textbf{context}  MesaCraps \\ \textbf{inv:} 
+    self.jugadas$\rightarrow$forAll(j $|$ j.oclIsTypeOf(JugadaCraps))
+
 
 
 \item \textit{En las mesas de Tragamonedas s'olo se realizan apuestas de tipo Tragamoneda}
 
-\textbf{context}  MesaDeTragamonedas \\ \textbf{inv:} 
-  self.Jugada$\rightarrow$forAll(j $|$ j.oclIsTypeOf(JugadaTragamoneda))
+% self.jugadas->forAll(j | j.oclIsTypeOf(JugadaTragamonedas))
+\textbf{context}  MesaTragamonedas \\ \textbf{inv:} 
+    self.jugadas$\rightarrow$forAll(j $|$ j.oclIsTypeOf(JugadaTragamonedas))
+
+
 
 \item \textit{Los jugadores comunes no tienen saldo negativo}
 
-\textbf{context}  JugadorComun \\ \textbf{inv:} 
-  self.saldo $\geq$ 0
-
-\item \textit{ No hay jugadores con el mismo dni}
-
-\textbf{context}  Jugador \\ \textbf{inv:} 
-  Jugador.allInstances()$\rightarrow$forAll($j_{1}$, $j_{2}$ : Jugador $|$ $j_{1} < > j_{2}$ \textbf{implies} $j_{1}.dni < > j_{2}.dni$)
-
-
-\item\textit{ El tipo de jugada (normal, feliz o todosPonen) tiene que ser el mismo para las jugadas de una misma mesa}
-
-\textbf{context}  Mesa \\ \textbf{inv:} 
-  self.Jugada$\rightarrow$forAll($j_{1}$, $j_{2}$ : Jugada $|$ $j_{1}$.tipo = $j_{2}$.tipo)
-
+% self.saldo >= 0
+\textbf{context} JugadorNormal \\ \textbf{inv:}
+    self.saldo $\geq$ 0
   
-\item\textit{El resultado de una jugada debe ser del mismo tipo que la jugada}
-FALTA!!!!!
+  
+
+\item \textit{No hay jugadores con el mismo dni}
+
+% Jugador.allInstances()->forAll(j1, j2 : Jugador | j1 != j2 ---> j1.dni != j2.dni)
+\textbf{context}  Jugador \\ \textbf{inv:}
+    Jugador.allInstances()$\rightarrow$forAll($j_{1}$, $j_{2}$ : Jugador $|$ $j_{1} < > j_{2}$ \textbf{implies} $j_{1}.dni < > j_{2}.dni$)
 
 
-\item\textit{El numero salido en un resultado de craps debe ser entre 2 y 12}
-FALTA!!!!!
+
+\item \textit{El tipo de jugada (normal, feliz o todosPonen) tiene que ser el mismo para las jugadas de una misma mesa}
+
+% self.jugadas->select(j | j.result'oEn->isEmpty())->forAll(j1, j2 : Jugada | j1.tipo = j2.tipo)
+\textbf{context} Mesa \\ \textbf{inv:}
+    self.jugadas$\rightarrow$select(j $|$ j.result'oEn$\rightarrow$isEmpty())$\rightarrow$forAll($j_{1}$, $j_{2}$ : Jugada $|$ $j_{1}$.tipo = $j_{2}$.tipo)
+  
+  
+
+\item \textit{El resultado de una jugada de Craps debe ser del mismo tipo que la jugada}
+
+% self.result'oEn->notEmpty ---> self.result'oEn.oclIsTypeOf(ResultadoCraps)
+\textbf{context} JugadaCraps \\ \textbf{inv:}
+    self.result'oEn$\rightarrow$notEmpty() \textbf{implies} self.result'oEn.oclIsTypeOf(ResultadoCraps)
+
+
+
+\item \textit{El resultado de una jugada de Tragamonedas debe ser del mismo tipo que la jugada}
+
+% self.result'oEn->notEmpty ---> self.result'oEn.oclIsTypeOf(ResultadoTragamonedas)
+\textbf{context} JugadaTragamonedas \\ \textbf{inv:}
+    self.result'oEn$\rightarrow$notEmpty() \textbf{implies} self.result'oEn.oclIsTypeOf(ResultadoTragamonedas)
+
+
+
+\item \textit{El n'umero salido en un resultado de craps debe ser entre 2 y 12}
+
+% 2 <= self.n'umeroSalido <= 12
+\textbf{context} ResultadoCraps \\ \textbf{inv:}
+    2 $\leq$ self.n'umeroSalido $\leq$ 12
+
+
+
+\item \textit{Definici'on del atributo derivado Jugada::pago para una JugadaTragamonedas}
+
+\textbf{context} JugadaTragamonedas::pago : Cr'edito \\ \textbf{derive:}
+    \textbf{let} result : ResultadoTragamonedas = self.result'oEn.oclAsType(ResultadoTragamonedas)
+
+    \textbf{let} esBar(figura : FiguraRodillo) : Boolean = figura = FiguraRodillo::barSimple \textbf{or} figura = FiguraRodillo::barDoble \textbf{or} figura = FiguraRodillo::barTriple
+
+    \textbf{let} correspondePremioDinosaurio : Boolean = result.rodillo1 = FiguraRodillo::dinosaurio and result.rodillo2 = FiguraRodillo::dinosaurio and result.rodillo3 = FiguraRodillo::dinosaurio
+    
+    \textbf{let} correspondePremioTresCerezas : Boolean = result.rodillo1 = FiguraRodillo::cereza and result.rodillo2 = FiguraRodillo::cereza and result.rodillo3 = FiguraRodillo::cereza
+    
+    \textbf{let} correspondePremioBarTriple : Boolean = result.rodillo1 = FiguraRodillo::barTriple and result.rodillo2 = FiguraRodillo::barTriple and result.rodillo3 = FiguraRodillo::barTriple
+    
+    \textbf{let} correspondePremioBarDoble : Boolean = result.rodillo1 = FiguraRodillo::barDoble and result.rodillo2 = FiguraRodillo::barDoble and result.rodillo3 = FiguraRodillo::barDoble
+    
+    \textbf{let} correspondePremioBarSimple : Boolean = result.rodillo1 = FiguraRodillo::barSimple and result.rodillo2 = FiguraRodillo::barSimple and result.rodillo3 = FiguraRodillo::barSimple
+    
+    \textbf{let} correspondePremioTresBares : Boolean = esBar(result.rodillo1) and esBar(result.rodillo2) and esBar(result.rodillo3)
+    
+    \textbf{let} correspondePremioDosCerezas : Boolean = Bag{}->including(result.rodillo1)$\rightarrow$including(result.rodillo2)$\rightarrow$including(result.rodillo3)$\rightarrow$count(FiguraRodillo::cereza) = 2
+    
+    \textbf{let} correspondePremioUnaCereza : Boolean = result.rodillo1 = FiguraRodillo::cereza \textbf{or} result.rodillo2 = FiguraRodillo::cereza \textbf{or} result.rodillo3 = FiguraRodillo::cereza
+
+    \textbf{let} premioDinosaurio(fichas : FichasApostadas) : Cr'edito =\\
+        \textbf{if} fichas = FichasApostadas::unaFicha \textbf{then} 1000\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::dosFichas \textbf{then} 2000\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::tresFichas \textbf{then} 5000\\
+        \textbf{endif}
+
+    \textbf{let} premioTresCerezas(fichas : FichasApostadas) : Cr'edito =\\
+        \textbf{if} fichas = FichasApostadas::unaFicha \textbf{then} 160\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::dosFichas \textbf{then} 320\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::tresFichas \textbf{then} 480\\
+        \textbf{endif}
+
+    \textbf{let} premioBarTriple(fichas : FichasApostadas) : Cr'edito =\\
+        \textbf{if} fichas = FichasApostadas::unaFicha \textbf{then} 80\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::dosFichas \textbf{then} 160\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::tresFichas \textbf{then} 240\\
+        \textbf{endif}
+
+    \textbf{let} premioBarDoble(fichas : FichasApostadas) : Cr'edito =\\
+        \textbf{if} fichas = FichasApostadas::unaFicha \textbf{then} 40\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::dosFichas \textbf{then} 80\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::tresFichas \textbf{then} 120\\
+        \textbf{endif}
+
+    \textbf{let} premioBarSimple(fichas : FichasApostadas) : Cr'edito =\\
+        \textbf{if} fichas = FichasApostadas::unaFicha \textbf{then} 20\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::dosFichas \textbf{then} 40\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::tresFichas \textbf{then} 60\\
+        \textbf{endif}
+
+    \textbf{let} premioTresBares(fichas : FichasApostadas) : Cr'edito =\\
+        \textbf{if} fichas = FichasApostadas::unaFicha \textbf{then} 10\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::dosFichas \textbf{then} 20\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::tresFichas \textbf{then} 30\\
+        \textbf{endif}
+
+    \textbf{let} premioDosCerezas(fichas : FichasApostadas) : Cr'edito =\\
+        \textbf{if} fichas = FichasApostadas::unaFicha \textbf{then} 5\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::dosFichas \textbf{then} 10\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::tresFichas \textbf{then} 15\\
+        \textbf{endif}
+
+    \textbf{let} premioUnaCereza(fichas : FichasApostadas) : Cr'edito =\\
+        \textbf{if} fichas = FichasApostadas::unaFicha \textbf{then} 2\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::dosFichas \textbf{then} 4\\
+        \textbf{else} \textbf{if} fichas = FichasApostadas::tresFichas \textbf{then} 6\\
+        \textbf{endif}
+
+    \textbf{if} self.result'oEn$\rightarrow$isEmpty() \textbf{then}\\
+        0\\
+    \textbf{else}\\
+        \textbf{if} correspondePremioDinosaurio \textbf{then} premioDinosaurio(self.apuesta)\\
+        \textbf{else} \textbf{if} correspondePremioTresCerezas \textbf{then} premioTresCerezas(self.apuesta)\\
+        \textbf{else} \textbf{if} correspondePremioBarTriple \textbf{then} premioBarTriple(self.apuesta)\\
+        \textbf{else} \textbf{if} correspondePremioBarDoble \textbf{then} premioBarDoble(self.apuesta)\\
+        \textbf{else} \textbf{if} correspondePremioBarSimple \textbf{then} premioBarSimple(self.apuesta)\\
+        \textbf{else} \textbf{if} correspondePremioTresBares \textbf{then} premioTresBares(self.apuesta)\\
+        \textbf{else} \textbf{if} correspondePremioDosCerezas \textbf{then} premioDosCerezas(self.apuesta)\\
+        \textbf{else} \textbf{if} correspondePremioUnaCereza \textbf{then} premioUnaCereza(self.apuesta)\\
+        \textbf{else} 0\\
+        \textbf{endif}\\
+    \textbf{endif}
+
+\clearpage
+
 
 
 \item\textit{Definir Jugada.pago}
