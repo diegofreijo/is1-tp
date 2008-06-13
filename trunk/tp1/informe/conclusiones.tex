@@ -1,27 +1,10 @@
-\subsection{Comentarios al corrector}
+\subsection{Conclusiones}
 
-Como conclusi'on podemos decir que vimos la utilidad de 
-iterar, sobre el documento, como ejemplo podemos citar
-el caso de uso ``Dejando de jugar en mesa'', caso de uso 
-que inicialmente nos parec'ia innecesario con el correr
-de la iteraciones pudimos convencernos de la necesidad de su existencia
-tanto para cumplir con el requerimiento (\rrefEsencial{req:creacion_ingreso_y_salida_de_mesa}) como para 
-que el jugador pueda ir al lobby y así elegir el otro/otros juegos.
+\subsubsection{Distinguir la bondad de cada herramienta}
+En la primer entrega realizamos en las FSMs, entre varias acciones, como se realizan y se pagan las apuestas; incluyendo el saldo de cada jugador. Adem'as, en su momento hasta pensamos en modelar todo el casino como una composici'on de m'aquinas en paralelo. Nos dimos cuenta (en parte nosotros mismos y en parte por las correcciones) que 'este acercamiento no era viable con la herramienta elegida. Las m'aquinas de estado son mejores para detallar en gran nivel estados y transiciones, por lo que no tiene sentido lograr realizar una m'aquina v'alida y correcta que detalle todo el funcionamiento del casino. Tampoco que detalle entidades como los saldos, ya que 'esto pod'ia (y en efecto se termin'o realizando en 'esta entrega) ser modelado con diagramas de actividad y operaciones en OCL.
 
-Tambi'en tuvimos problemas con las M'aquinas, inicialmente model'abamos las
-apuestas, entendimos que la granularidad no era la adecuada, 
-complicaba de sobremanera el modelo.
+\subsubsection{La creaci'on del documento es un proceso iterativo.}
+Un ejemplo de la utilidad de iterar varias veces sobre todo el documento fue con el caso de uso ``Dejando de jugar en mesa''. Incialmente nos parecia innecesario agregarlo, total si un jugador necesitaba cambiar de mesa solamente deber'ia ejecutar el caso de uso ''Eligiendo mesa'' o ''Creando mesa''. Pero luego de revisar varias veces el documento completamente vimos que exist'ia un requerimiento que afirmaba la posibilidad de abandonar una mesa \negrita{y regresar al lobby}. De ah'i es que nos dimos cuenta de la necesidad de agregar el susodicho caso de uso.
 
-
-
-
-
-
-
-
-% \subsubsection{La ficci'on supera a la realidad}
-% Docente de IS1, en la seccion de requerimientos del sistema nos comprometimos, entre otros, a que nuestro sistema sea escalable y seguro. Lo hicimos porque son requerimientos importantes y como tales deberemos cumplir para que los stakeholders est'en satisfechos con la soluci'on que les ofreceremos. Pero en el contexto del TP, no obtuvimos ninguna m'etrica acerca de que tan escalable y qu'e tan seguro deber'ia ser (a'un as'i, no son variables que deber'ian obviarse por las caracter'isticas del producto). Es por eso que en realidad, en el TP, no nos comprometemos a cumplir estos requerimientos. 
-% 
-% De forma similar ocurre con el requerimiento de ser r'apido. En realidad nos comprometemos a qu'e el sistema sea ``utilizable'' pero no ofrecemos ninguna garant'ia real, principalmente por que no se nos ofrecieron m'etricas a cumplir.
-% 
-% 
+\subsubsection{Los requerimientos deben corresponder con las herramientas utilizadas}
+Fue una caracter'istica necesaria del informe que en la primer entrega no respetamos. Los requerimientos definen el producto que debemos brindar, a la vez que marca los l'imites de las obligaciones correspondientes al grupo y los stackeholders. Por eso es que se debe mostrar fuertemente donde se modela cada requerimiento, para aclarar el porqu'e de cada situaci'on.
