@@ -102,9 +102,9 @@ Se modelaron cuatro actores en los casos de uso del sistema
 
 % --------------- Cerrando casino ---------------------
 \op{1. El sistema verifica que no hayan mesas abiertas.}{}
-\op{2. El sistema cierra el casino, persiste la informaci'on de todas las jugadas realizadas por cada jugador y le informa al administrador que las acciones fueron realizadas.}{2.1. Si hay mesas abiertas, el sistema le advierte al administrador que la operaci'on no puede ser realizada. Ir a PASO 3.}
+\op{2. El sistema persiste la informaci'on de los saldos de cada jugador y del casino, le informa al administrador que las acciones fueron realizadas y cierra el casino.}{2.1. Si hay mesas abiertas, el sistema le advierte al administrador que la operaci'on no puede ser realizada. Ir a PASO 3.}
 \op{3. Fin CU.}{}
-\cu{Cerrando casino}{Administrador}{-}{El casino est'a abierto.}{El casino est'a cerrado.}{}{\rrefEsencial{req:abrir_y_cerrar_casino}}
+\cu{Cerrando casino}{Administrador}{-}{El casino est'a abierto.}{El casino est'a cerrado.}{}{\rrefEsencial{req:abrir_y_cerrar_casino}, \rrefEsencial{req:persistir_saldos_al_cierre}}
 
 
 
