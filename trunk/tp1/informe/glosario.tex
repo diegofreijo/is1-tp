@@ -8,7 +8,8 @@
 \subsubsection{Craps}
 \begin{center}
     \begin{tabular}{p{5cm}|p{8cm}}
- 
+
+%%%%%%%%%%% TIRADOR %%%%%%%%%%%% 
 %      \multicolumn{2}{c}{Referencias de las etiquetas y Variable de la \negrita{ \tirador{} } \\
     \hline
     \negrita{Etiqueta de la transici'on} & \negrita{Acci'on} \\
@@ -34,7 +35,8 @@
     \label{glosarioFSMjugadori}
     \end{tabular}
 \end{center}
- 
+
+%%%%%%%%%%% CRUPIER %%%%%%%%%%%% 
  \begin{center}
     \begin{tabular}{p{5cm}|p{8cm}}
            \multicolumn{2}{c}{Referencias de las etiquetas de la \crupier } \\
@@ -44,33 +46,70 @@
             darleDadosAl ProximoTirador & los dados pasan al pr'oximo jugador  \\
         \hline
             \italica{Variable} tirador & almancena el n'umero de tirador actual o candidato a tirador si decidiera dejar los dados\\
+        \hline
+            \italica{Variable} punto & almancena el valor del punto en la ronda.\\
  \end{tabular}
  \end{center}
 
+%%%%%%%%%%% APUESTA LINEA DE PASE / BARRA NO PASE %%%%%%%%%%%% 
 \begin{center}
   \begin{tabular}{p{5cm}|p{8cm}}
-      \multicolumn{2}{c}{Referencias de las etiquetas de la \textbf{FSM Apuesta m'as de una ronda i } } \\
+      \multicolumn{2}{c}{Referencias de las etiquetas de la \textbf{FSM Jugador haciendo apuesta linea de pase / no pase i } } \\
       \hline
       \negrita{Etiqueta de la transici'on} & \negrita{Acci'on} \\
-      apuestaDeMasDeUna Ronda i & el jugador i hace una apuesta  \\
+      apuestaDeMasDeUnaRonda i & el jugador i hace una apuesta del tipo linea de pase / barra no pase \\
       \hline
-      perdi'oApuestaDeUna Ronda i & el jugador i gano su apuesta \\
+      ganoApuestaDeUnaRonda i & el jugador i gan'o su apuesta del tipo linea de pase / barra no pase.\\
       \hline
-      perdi'oApuestaDeUna Ronda i & el jugador i perdió su apuesta    \\  
+      perdi'oApuestaDeUna Ronda i & el jugador i perdi'o su apuesta del tipo linea de pase / barra no pase.\\  
   \end{tabular}
 \end{center}
 
-
+%%%%%%%%%%% APUESTA DE CAMPO %%%%%%%%%%%%
 \begin{center}
     \begin{tabular}{p{5cm}|p{8cm}}
-    \multicolumn{2}{c}{Referencias de las etiquetas de la \textbf{FSM Apuesta de un tiro i } } \\
+    \multicolumn{2}{c}{Referencias de las etiquetas de la \textbf{FSM Jugador i haciendo apuesta de campo } } \\
     \hline
     \negrita{Etiqueta de la transici'on} & \negrita{Acci'on} \\
-    apuestaDeMasDeUna Ronda i & el jugador i hace una apuesta  \\
+    apuestaUnTiro i & el jugador i hace una apuesta de campo  \\
     \hline
-    perdi'oApuestaDeUna Ronda i & el jugador i gano su apuesta \\
+    ganoApuestaDeUnTiro i & el jugador i gano su apuesta \\
     \hline
-    perdi'oApuestaDeUna Ronda i & el jugador i perdió su apuesta    \\  
+    perdi'oApuestaDeUnTiro i & el jugador i perdió su apuesta    \\  
+    \end{tabular}
+\end{center}
+
+%%%%%%%%%%% APUESTA DE SITIO %%%%%%%%%%%
+\begin{center}
+    \begin{tabular}{p{5cm}|p{8cm}}
+    \multicolumn{2}{c}{Referencias de las etiquetas de la \textbf{FSM Jugador i haciendo apuesta de sitio } } \\
+    \hline
+    \negrita{Etiqueta de la transici'on} & \negrita{Acci'on} \\
+    apuestaDeSitio i 2..12 & el jugador i hace una apuesta de sitio, se setea a que n'umero apost'o (a ganar o perder) \\
+    \hline
+    salioNroApostadoAntesQue7 i & la apuesta se resolvi'o debido a que el n'umero sobre el cual se realiz'o la apuesta sali'o antes que salga un siete. \\
+    \hline
+    salio7AntesQueNro i & la apuesta se resolvi'o debido a que sali'o un siete antes que saliera el n'umero sobre el cual se realiz'o la apuesta. \\
+    \end{tabular}
+\end{center}
+
+%%%%%%%%%%% APUESTA VENIR NO VENIR %%%%%%%%%%%%
+\begin{center}
+    \begin{tabular}{p{5cm}|p{8cm}}
+    \multicolumn{2}{c}{Referencias de las etiquetas de la \textbf{FSM Jugador i haciendo apuesta venir/no venir } } \\
+    \hline
+    \negrita{Etiqueta de la transici'on} & \negrita{Acci'on} \\
+    apuestaVenir/NoVenir i & el jugador i hace una apuesta del tipo venir o del tipo no venir \\
+    \hline
+    puntoVenirNoVenir i & se fija el valor del punto venir o el valor del punto no venir \\
+    \hline
+    puntoOtraVez i & se define la apuesta del jugador i debido a que se repiti'o el valor del puntoVenirNoVenir antes de la ocurrencia de un siete \\
+    \hline
+    sieteAntesDePuntoVenirNoVenir i & se define la apuesta del jugador i debido a que sali'o un siete antes que el valor del puntoVenirNoVenir.\\
+    \hline
+    ganoVenirNoVenir i & el jugador i gan'o su apuesta venir/ no venir. \\
+    \hline
+    perdioVenirNoVenir i & el jugador i perdi'o su apuesta venir/ no venir. \\
     \end{tabular}
 \end{center}
 
