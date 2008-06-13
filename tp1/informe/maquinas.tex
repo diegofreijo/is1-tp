@@ -37,12 +37,24 @@ En la seccion \ref{etiquetasFSMs} del Glosario se encuentran las definiciones de
         \crupier & Esta ser'a una vista de una de las funcionalidades provista por el sistema, aqu'i se pod'a ver parte de la interacci'on de los jugadores con el sistema. \\
          \hline 
          \tirador  & Modela un jugador en particular en su rol de tirador. Usamos una variable temporal para mostrar que un tirador no puede quedarse con los dados indefinidamente. Las constantes $k1$ y $k2$ son constantes de tiempo a definir en la etapa de dise\~{n}o.\\
-        \hline 
-         & Modela un jugador en particular haciendo/cancelando una o varias apuestas que duran un tiro. \\
-        \hline  
-        & \italica{'idem} para apuestas que duran una ronda. Analizando la traza, el jugador podr'ia apostar en una ronda y en la siguiente ronda cancelar la apuesta, 'esta es una limitacion del modelo. Entendemos que una apuesta una vez que se tiraron los dados no se puede retirar ni modificar. Lo que podr'a cancelar ser'an las n apuestas anteriores antes de que se tiren los dados, una vez tirados estos no se podr'a cancelar. \\
-        \hline 
-        & \italica{'idem} para apuestas para m'as de una ronda. \\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{p{4cm}|p{4cm}|p{12cm}}        
+\multicolumn{2}{c}{Variables}     \\
+\hline
+   dados & 2...12 & el valor de los dados
+\hline
+   nroAS & 2...12 & el valor de los dados vinculado a la apuesta de Sitio
+\hline
+  tirador & 1...n & el tirador actual
+\hline
+  punto & 2...12 & el valor del punto 
+\hline
+  puntoVenirNoVenir i & 2...12 & el valor de los dados vinculado al punto de la apuesta venir / noVenir 
+\hline
+
 
 \end{tabular}
 \end{center}
