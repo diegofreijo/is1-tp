@@ -20,6 +20,9 @@ En la Fig. \ref{fig_DA_JugadaTragamonedas} se diagrama el desarrollo a gran esca
 
 \imagen{DA_JugadaTragamonedas}{Desarrollo de una jugada de tragamonedas}{0.45}
 
+Notemos aqu'i que un jugador apuesta insertando fichas en la m'aquina tragamonedas y accionando los rodillos (\rrefEsencial{req:apuesta_a_juegos}).
+Tambi'en puede verse la alteraci'on del flujo normal de resultados provocada por la activaci'on y uso del ``modo dirigido'' por parte del jefe de contabilidad (\rrefImportante{req:controlar_juegos}).
+
 \clearpage
 
 
@@ -30,6 +33,9 @@ En la Fig. \ref{fig_DA_JugadaTragamonedas} se diagrama el desarrollo a gran esca
 Al igual que para el juego de tragamonedas, en la Fig. \ref{fig_DA_JugadaCraps} se explica el desarrollo de un juego de craps junto a los pagos que se efect'uan en su desarrollo. Y de igual manera se explica la interacci'on con el pozo feliz y el modo dirigido.
 
 \imagenvertical{DA_JugadaCraps}{Desarrollo de una jugada de craps}{0.33}
+
+Puede observarse a un jugador realizando las primeras y segundas apuestas en una mesa de Craps (\rrefEsencial{req:apuesta_a_juegos}).
+De la misma forma que en el diagrama anterior, aqu'i puede verse la alteraci'on del flujo provocada por el ``modo dirigido'' (\rrefImportante{req:controlar_juegos}).
 
 \clearpage
 
@@ -46,7 +52,7 @@ Este es el proceso en donde se efect'ua la decisi'on del tipo de cierta jugada, 
   \item \italica{normal} (ninguna de las anteriores)
 \end{itemize}
 
-Notar que esta decisi'on es tomada o bien por el modo dirigido o por el azar propio asociado a cada juego si es que el anterior est'a desactivado. Tambi'en se detallan las acciones tomadas referentes a los pozos y los correspondientes pagos y cobros en el caso que la jugada no sea normal.
+Notar que esta decisi'on es tomada o bien por el modo dirigido (\rrefImportante{req:controlar_juegos}) o por el azar propio asociado a cada juego si es que el anterior est'a desactivado. Tambi'en se detallan las acciones tomadas referentes a los pozos y los correspondientes pagos y cobros en el caso que la jugada no sea normal.
 
 \imagen{DA_TipoDeJugada}{Decisiones y acciones efectuadas en la consulta de un tipo de jugada}{0.43}
 
