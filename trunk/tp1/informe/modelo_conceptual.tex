@@ -13,15 +13,17 @@ A continuaci'on se comenta el significado y raz'on de ser de las clases principa
 \item \italica{Detalle de movimientos por jugador} 
 \end{itemize}
  es necesario guardar el historial de jugadas realizadas por cada jugador en la jornada. 
-La clase \negrita{jugada}: una jugada realizada por alg'un jugador en alguna mesa en alg'un momento de la jornada del casino. Puede ser de tipo Tragamonedas o Craps; reflejando en el primer caso una apuesta de fichas y la posibilidad de haber girado los rodillos y en el segundo a las apuestas de los jugadores con la posibilidad de haber realizado un tiro (notar que una jugada de Craps \negrita{no} es una ronda sino un tiro de dados). Puede estar asociada a su resultado si es que ya se jug'o, o no tenerlo si es que todav'ia no se tiraron los dados en el caso de Craps o no se giraron los rodillos en el caso de Tragamonedas. 
+La clase \negrita{jugada}: una jugada realizada por alg'un jugador en alguna mesa en alg'un momento de la jornada del casino. Puede ser de tipo Tragamonedas o Craps; reflejando en el primer caso una apuesta de fichas y la posibilidad de haber girado los rodillos y en el segundo a las apuestas de los jugadores con la posibilidad de haber realizado un tiro (notar que una jugada de Craps \negrita{no} es una ronda sino un tiro de dados). Puede estar asociada a su resultado si es que ya se jug'o, o no tenerlo si es que todav'ia no se tiraron los dados en el caso de Craps o no se giraron los rodillos en el caso de Tragamonedas.
+El atributo derivado \italica{pago} refleja el monto otorgado al jugador por parte del casino al resolverse la jugada, incluyendo todas las alteraciones por jugadas y pozos especiales de los distintos tipos de juegos.
 
 \item [Invitado] Es un visitante del casino. Puede mirar las mesas para ver jugar a sus jugadores.
 
 \item [Jugador] Es aquel capaz de realizar jugadas en una mesa. Un jugador \italica{es} a la vez un invitado. Es decir, puede mirar una mesa sin necesidad de jugar.
-\item [Jornada] Representa una jornada del casino, desde que abre hasta que cierra.
+\item [Jornada] Representa una jornada del casino, desde que abre hasta que cierra. El factorTodosPonen es el factor por el que se multiplican los premios de los jugadores en una jugada todosPonen para descontar dicha cantidad del premio y destinarla al pozo feliz.
 \item [Mesa] Es en donde se realizan las jugadas. Puede ser de Tragamonedas o Craps y en una jornada puede recibir cualquier cantidad de jugadas.
 \item [Pozo Progresivo] Modela el pozo progresivo de las m'aquinas tragamonedas. Su asociaci'on con JugadaTragamonedas permite conocer, por medio del atributo monto, el valor del pozo al momento de realizarse la jugada (para las jugadas resueltas indica cu'al era el valor del pozo un instante antes de la resoluci'on de la jugada).
 \item [Pozo Feliz] Modela el pozo feliz del casino. Su asociaci'on con Jugada permite conocer, por medio del atributo monto, el valor del pozo al momento de realizarse la jugada (al igual que el caso anterior, un instante antes de la resoluci'on de la jugada).
+
 \end{description}
 
 
@@ -40,7 +42,7 @@ La clase \negrita{jugada}: una jugada realizada por alg'un jugador en alguna mes
 \item \textit{Para todas las jugadas no resueltas el pozo feliz tiene el mismo monto}
 
 \textbf{context} Jugada \\ \textbf{inv:}
-    Jugada.allInstances()$\rightarrow$select(j $|$ j.result'oEn$\rightarrow$isEmpty())$\rightarrow$forAll($j_{1}$, $j_{2}$ : Jugada $|$ $j_{1}$.pozoFeliz.monto\\ = $j_{2}$.pozoFeliz.monto))
+    Jugada.allInstances()$\rightarrow$select(j $|$ j.result'oEn$\rightarrow$isEmpty())$\rightarrow$forAll($j_{1}$, $j_{2}$ : Jugada $|$ $j_{1}$.pozoFeliz.monto\\ = $j_{2}$.pozoFeliz.monto)
 
 
 
@@ -138,6 +140,12 @@ La clase \negrita{jugada}: una jugada realizada por alg'un jugador en alguna mes
     \textbf{let} correspondePremioDosCerezas : Boolean = Bag{}->including(result.rodillo1)$\rightarrow$including(result.rodillo2)$\rightarrow$including(result.rodillo3)$\rightarrow$count(FiguraRodillo::cereza) = 2
     
     \textbf{let} correspondePremioUnaCereza : Boolean = result.rodillo1 = FiguraRodillo::cereza \textbf{or} result.rodillo2 = FiguraRodillo::cereza \textbf{or} result.rodillo3 = FiguraRodillo::cereza
+    
+    \textbf{let} correspondePremioFeliz : Boolean = self.tipo = TipoJugada::feliz
+    
+    \textbf{let} correspondePremioProgresivo : Boolean = self.tipo = TipoJugada::feliz
+    
+    \textbf{let} factorTodosPonen : Boolean = \textbf{if} self.tipo = TipoJugada::todosPonen \textbf{then} 1 $-$ self.esJugadaEn.seUtiliz'oEn.factorTodosPonen\\ \textbf{else} 1 \textbf{endif}
 
     \textbf{let} premioDinosaurio(fichas : FichasApostadas) : Cr'edito =\\
         \textbf{if} fichas = FichasApostadas::unaFicha \textbf{then} 1000\\
@@ -187,6 +195,7 @@ La clase \negrita{jugada}: una jugada realizada por alg'un jugador en alguna mes
         \textbf{else} \textbf{if} fichas = FichasApostadas::tresFichas \textbf{then} 6\\
         \textbf{endif}
 
+(
     \textbf{if} self.result'oEn$\rightarrow$isEmpty() \textbf{then}\\
         0\\
     \textbf{else}\\
@@ -201,17 +210,11 @@ La clase \negrita{jugada}: una jugada realizada por alg'un jugador en alguna mes
         \textbf{else} 0\\
         \textbf{endif}\\
     \textbf{endif}
+    + \textbf{if} correspondePremioFeliz \textbf{then} self.pozoFeliz.monto\\ \textbf{else} 0 \textbf{endif}\\
+    + \textbf{if} correspondePremioProgresivo \textbf{then} self.pozoProgresivo.monto\\ \textbf{else} 0 \textbf{endif}\\
+) * factorTodosPonen
 
 \clearpage
-
-
-
-\item\textit{Definir Jugada.pago}
-FALTA!!!!
-
-
-\item\textit{QUE ONDA CON LAS APUESTAS DE CRAPS QUE DURAN MAS DE 1 TIRO}
-FALTA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 \item\textit{ En una jugada Crap las apuestas en sitio a ganar de un jugador son a distintos n'umeros}
@@ -224,5 +227,14 @@ FALTA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 \textbf{context}  JugadaCrap \\ \textbf{inv:} 
   self.ApuestaEnSitioAPerder$\rightarrow$forAll($a_{1}$, $a_{2}$ : ApuestaEnSitioAPerder  $ | $ $a_{1} <> a_{2} $ \textbf{implies} $a_{1}$.valor $<>$ $a_{2}$.valor)
+
+
+\item\textit{El factor todos ponen de una jornada va de 0 a 1}
+
+\item\textit{Operaci'on reporte \italica{Ranking de jugadores}: }
+
+\item\textit{Operaci'on reporte \italica{Estado actual}: }
+
+\item\textit{Operaci'on reporte \italica{Detalle movimientos por jugador}: }
 
 \end{itemize}
