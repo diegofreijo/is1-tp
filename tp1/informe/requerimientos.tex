@@ -11,17 +11,19 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
 \item \reqEsencial{req:abrir_y_cerrar_casino} \negrita{El sistema permite abrir y cerrar el casino}
 
     \begin{itemize}
-        \item El casino podr'a ser abierto cuando se lo desee por un administrador del sistema. 
-        \item El casino podr'a ser cerrado cuando se lo desee por un administrador del sistema, con la condici'on de que no existan jugadores dentro al momento de hacerlo.
+        \item El casino podr'a ser abierto por un administrador del sistema cuando este lo desee. 
+        \item El casino podr'a ser cerrado por un administrador del sistema cuando este lo desee , con la condici'on de que no existan jugadores dentro al momento de hacerlo.
     \end{itemize}
-
+ 
 \item \reqEsencial{req:carga_clientes} \negrita{El sistema permite la carga de los clientes con sus respectivos saldos}
-
-    Los administradores podr'an ingresar al sistema la lista de usuarios y sus saldos (permitiendo especificar qui'enes son vip).
+    Los administradores podr'an ingresar al sistema la lista de usuarios y sus saldos (permitiendo especificar qui'enes son V.I.P.).
+    Casos de Uso \ref{CU}.
 
 \item \reqEsencial{req:existe_juego_tragamoneda} \negrita{El sistema cuenta con juegos de tipo Tragamonedas conforme al reglamento proporcionado por los SOCIOS}
 
     El sistema proveer'a un juego de tipo Tragamonedas con las caracter'isticas del juego real y conforme a las reglas presentadas por los SOCIOS.
+    
+
 
 \item \reqEsencial{req:existe_juego_craps}\negrita{El sistema cuenta con juegos de tipo Craps conforme al reglamento proporcionado por los SOCIOS}
 
@@ -160,49 +162,49 @@ A continuaci'on se detallan los requerimientos del sistema a construir. Se ha id
 \subsubsection{Tabla de requerimientos}
 
 \begin{center}
-    \begin{tabular}{|p{1.5cm}|p{14.5cm}|}
+    \begin{tabular}{|p{1.5cm}|p{10.5cm}|p{4cm}|}
     \hline
-    {\bf ID} & {\bf Requerimiento}\\
+    \negrita{ID} & \textbf{Requerimiento} & \textbf{Secci'on} \\
     \hline
-    \rrefEsencial{req:abrir_y_cerrar_casino} & El sistema permite abrir y cerrar el casino\\
+    \rrefEsencial{req:abrir_y_cerrar_casino} & El sistema permite abrir y cerrar el casino &   Casos de Uso \ref{CU} \\
     \hline
-    \rrefEsencial{req:carga_clientes} & El sistema permite la carga de los clientes con sus respectivos saldos\\
+    \rrefEsencial{req:carga_clientes} & El sistema permite la carga de los clientes con sus respectivos saldos &   Casos de Uso \ref{CU} \\
     \hline
-    \rrefEsencial{req:existe_juego_tragamoneda} & El sistema cuenta con juegos de tipo Tragamonedas conforme al reglamento proporcionado por los SOCIOS\\
+    \rrefEsencial{req:existe_juego_tragamoneda} & El sistema cuenta con juegos de tipo Tragamonedas conforme al reglamento proporcionado por los SOCIOS    &  Diagrama de Actividad  \ref{DA},  M'aquinas de estado \ref{FSM}\\
     \hline
-    \rrefEsencial{req:existe_juego_craps} & El sistema cuenta con juegos de tipo Craps conforme al reglamento proporcionado por los SOCIOS\\
+    \rrefEsencial{req:existe_juego_craps} & El sistema cuenta con juegos de tipo Craps conforme al reglamento proporcionado por los SOCIOS  &  Diagramas de Actividad \ref{DA}, M'aquinas de estado \ref{FSM} \\
     \hline
-    \rrefEsencial{req:ingreso_y_salida_al_casino} & El sistema permite a los jugadores ingresar y salir del casino\\
+    \rrefEsencial{req:ingreso_y_salida_al_casino} & El sistema permite a los jugadores ingresar y salir del casino & Prototipos de pantalla \ref{PROTO} \\
     \hline
-    \rrefEsencial{req:creacion_ingreso_y_salida_de_mesa} & El sistema permite a los jugadores crear, ingresar y abandonar mesas de juego\\
+    \rrefEsencial{req:creacion_ingreso_y_salida_de_mesa} & El sistema permite a los jugadores crear, ingresar y abandonar mesas de juego& Casos de Uso \ref{CU} \\
     \hline
-    \rrefEsencial{req:auto_cerrar_mesas} & El sistema se encargar'a de cerrar autom'aticamente las mesas que no tengan jugadores\\
+    \rrefEsencial{req:auto_cerrar_mesas} & El sistema se encargar'a de cerrar autom'aticamente las mesas que no tengan jugadores & Casos de Uso \ref{CU}, M'aquinas de estado \ref{FSM} \\
     \hline
-    \rrefEsencial{req:apuesta_a_juegos} & El sistema permite a los jugadores apostar a los juegos\\
+    \rrefEsencial{req:apuesta_a_juegos} & El sistema permite a los jugadores apostar a los juegos & Casos de Uso \ref{CU}, Diagramas de Actividad \ref{DA} \\
     \hline
-    \rrefEsencial{req:saldos_actualizados} & El sistema actualizar'a el saldo del casino, jugadores y pozos especiales cuando se realicen apuestas y resuelvan jugadas, acorde a las reglas y modalidades acordadas\\
+    \rrefEsencial{req:saldos_actualizados} & El sistema actualizar'a el saldo del casino, jugadores y pozos especiales cuando se realicen apuestas y resuelvan jugadas, acorde a las reglas y modalidades acordadas &  Diagramas de Actividad \ref{DA} \\
     \hline
-    \rrefEsencial{req:persistir_saldos_al_cierre} & El sistema persistir'a la informaci'on referente al saldo de los clientes y del casino al momento de cerrar el casino\\
+    \rrefEsencial{req:persistir_saldos_al_cierre} & El sistema persistir'a la informaci'on referente al saldo de los clientes y del casino al momento de cerrar el casino &  Casos de Uso \ref{CU}  \\
     \hline
-    \rrefImportante{req:modo_dirigido} & El sistema permite a un administrador activar y desactivar el ``modo dirigido'' y controlar los juegos\\
+    \rrefImportante{req:modo_dirigido} & El sistema permite a un administrador activar y desactivar el ``modo dirigido'' y controlar los juegos&  Casos de Uso \ref{CU}, Diagramas de Actividad \ref{DA} \\
     \hline
-    \rrefImportante{req:conf_juegos_fichas_jugadas_y_pozos} & El sistema permite la configuraci'on de los juegos, valores de fichas, jugadas especiales y pozos especiales al inicio de una jornada\\
+    \rrefImportante{req:conf_juegos_fichas_jugadas_y_pozos} & El sistema permite la configuraci'on de los juegos, valores de fichas, jugadas especiales y pozos especiales al inicio de una jornada&   Casos de Uso \ref{CU} \\
     \hline
-    \rrefImportante{req:reportes} & El sistema llevar'a registro detallado de apuestas y jugadas y permitir'a generar reportes con informaci'on del estado del casino y sus jugadores\\
+    \rrefImportante{req:reportes} & El sistema llevar'a registro detallado de apuestas y jugadas y permitir'a generar reportes con informaci'on del estado del casino y sus jugadores& Casos de Uso \ref{CU} \\
     \hline
-    \rrefImportante{req:acceso_multiple} & El sistema permite acceder al casino a m'as de un jugador a la vez desde la misma terminal\\
+    \rrefImportante{req:acceso_multiple} & El sistema permite acceder al casino a m'as de un jugador a la vez desde la misma terminal&  Requerimientos no alcanzados por ning'un modelo \ref{RND})\\
     \hline
-    \rrefImportante{req:agregar_juegos} & El sistema permite ser extendido mediante la incorporaci'on de nuevos juegos\\
+    \rrefImportante{req:agregar_juegos} & El sistema permite ser extendido mediante la incorporaci'on de nuevos juegos&  Prototipos de pantalla \ref{PROTO}, Requerimientos no alcanzados por ning'un modelo \ref{RND} \\
     \hline
-    \rrefDeseable{req:chat} & El sistema permite la comunicaci'on v'ia chat entre jugadores de una misma mesa\\
+    \rrefDeseable{req:chat} & El sistema permite la comunicaci'on v'ia chat entre jugadores de una misma mesa& no ser'a cumplido \\
     \hline
-    \rrefDeseable{req:inv_ingreso_egreso_al_casino} & El sistema permite a los invitados ingresar y salir del casino\\
+    \rrefDeseable{req:inv_ingreso_egreso_al_casino} & El sistema permite a los invitados ingresar y salir del casino&  Prototipos de pantalla \ref{PROTO} Vale aclara que para salir simplemente debe cerrar su temminal \\
     \hline
-    \rrefDeseable{req:inv_mirar_y_salir_mesas} & El sistema permite a los invitados mirar una mesa de juego existente\\
+    \rrefDeseable{req:inv_mirar_y_salir_mesas} & El sistema permite a los invitados mirar una mesa de juego existente&  Casos de Uso \ref{CU} \\
     \hline
-    \rrefNoFuncional{req:suficientes_jugadores} & El sistema permite suficiente cantidad de jugadores\\
+    \rrefNoFuncional{req:suficientes_jugadores} & El sistema permite suficiente cantidad de jugadores& Prototipos de pantalla \ref{PROTO} \\
     \hline
-    \rrefNoFuncional{req:realGames} & Los juegos que el sistema ofrece son similares a los de la realidad\\
+    \rrefNoFuncional{req:realGames} & Los juegos que el sistema ofrece son similares a los de la realidad&  Prototipos de pantalla \ref{PROTO} \\
     \hline
     \end{tabular}
 \end{center}
