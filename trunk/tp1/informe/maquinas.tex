@@ -11,7 +11,7 @@ Tanto para Craps como para Tragamonedas, modelaremos c'omo los jugadores interac
 
 \subsubsection{Tragamonedas}
 
-En la figura \ref{fig_FSM/FSM_Jugador_tragamonedas_i.png} veremos la din'amica del juego y qu'e opciones tiene un jugador en el juego de tragamonedas.
+En la figura \ref{fig_FSM/FSM_Jugador_tragamonedas_i.png} vemos la din'amica del juego de tragamonedas (\rrefEsencial{req:existe_juego_tragamoneda}) y qu'e opciones tiene un jugador.
 Al jugador $i$ se le asigna la mesa $i$. No es posible elegir jugar en una mesa previamente creada, ya que todas las mesas de tragamonedas existentes est'an ocupadas (en una mesa de tragamonedas solo puede jugar un 'unico jugador) y al abandonar los jugadores las mesas de tragamonedas 'estas son cerradas autom'aticamente por el sistema (una mesa sin jugadores es cerrada autom'aticamente, ver \rrefEsencial{req:auto_cerrar_mesas}), lo que imposibilita el poder elegir una mesa existente.
 
 \imagen{FSM/FSM_Jugador_tragamonedas_i.png}{FSM Jugador tragamonedas i}{0.5}
@@ -20,9 +20,7 @@ Al jugador $i$ se le asigna la mesa $i$. No es posible elegir jugar en una mesa 
 
 \subsubsection{Craps}
 \label{FSM:Craps}
-Para modelar el juego de craps usaremos varias m'aquinas, en particular:
-el tirador, el crupier (sistema) y los jugadores haciendo los varios tipos de apuestas
-posibles. 
+Para modelar el juego de craps (\rrefEsencial{req:existe_juego_craps}) usaremos varias m'aquinas, en particular: el tirador, el crupier (sistema) y los jugadores haciendo los varios tipos de apuestas posibles. 
 
 En la seccion \ref{etiquetasFSMs} del Glosario se encuentran las definiciones de cada etiqueda usada.
 
