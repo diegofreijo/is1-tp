@@ -137,15 +137,9 @@ es necesario guardar el historial de jugadas realizadas por cada jugador en la j
     
     \textbf{let} correspondePremioTresBares : Boolean = esBar(result.rodillo1) and esBar(result.rodillo2) and esBar(result.rodillo3)
     
-    \textbf{let} correspondePremioDosCerezas : Boolean = Bag\{\}$\rightarrow$including(result.rodillo1)$\rightarrow$\\including(result.rodillo2)$\rightarrow$including(result.rodillo3)$\rightarrow$count(FiguraRodillo::cereza) = 2
+    \textbf{let} correspondePremioDosCerezas : Boolean = Bag{}->including(result.rodillo1)$\rightarrow$including(result.rodillo2)$\rightarrow$including(result.rodillo3)$\rightarrow$count(FiguraRodillo::cereza) = 2
     
     \textbf{let} correspondePremioUnaCereza : Boolean = result.rodillo1 = FiguraRodillo::cereza \textbf{or} result.rodillo2 = FiguraRodillo::cereza \textbf{or} result.rodillo3 = FiguraRodillo::cereza
-    
-    \textbf{let} correspondePremioFeliz : Boolean = self.tipo = TipoJugada::feliz
-    
-    \textbf{let} correspondePremioProgresivo : Boolean = self.tipo = TipoJugada::feliz
-    
-    \textbf{let} factorTodosPonen : Boolean = \textbf{if} self.tipo = TipoJugada::todosPonen \textbf{then}\\ 1 $-$ self.esJugadaEn.seUtiliz'oEn.factorTodosPonen \textbf{else} 1 \textbf{endif}
 
     \textbf{let} premioDinosaurio(fichas : FichasApostadas) : Cr'edito =\\
         \textbf{if} fichas = FichasApostadas::unaFicha \textbf{then} 1000\\
@@ -195,7 +189,6 @@ es necesario guardar el historial de jugadas realizadas por cada jugador en la j
         \textbf{else} \textbf{if} fichas = FichasApostadas::tresFichas \textbf{then} 6\\
         \textbf{endif}
 
-(
     \textbf{if} self.result'oEn$\rightarrow$isEmpty() \textbf{then}\\
         0\\
     \textbf{else}\\
@@ -210,9 +203,59 @@ es necesario guardar el historial de jugadas realizadas por cada jugador en la j
         \textbf{else} 0\\
         \textbf{endif}\\
     \textbf{endif}
-    + \textbf{if} correspondePremioFeliz \textbf{then} self.pozoFeliz.monto\\ \textbf{else} 0 \textbf{endif}\\
-    + \textbf{if} correspondePremioProgresivo \textbf{then} self.pozoProgresivo.monto\\ \textbf{else} 0 \textbf{endif}\\
-) * factorTodosPonen
+
+\clearpage
+
+\item \textit{Definici'on del atributo derivado Jugada::pago para una JugadaCraps}
+
+\textbf{context} JugadaCraps::pago : Cr'edito \\ \textbf{derive:}
+
+Describimos como se modifica el saldo de un jugador seg'un que apuesta haya ganado. 
+(cuando el jugador apuesta se le descuenta de saldo el importe)
+
+\begin{verbatim}
+  [Linea de pase]
+      jugador.saldo += apuestaCraps.valor * 2  (1 a 1)
+
+   [Barra no pase]
+      jugador.saldo += apuestaCraps.valor * 2  (1 a 1)
+
+   [Venir]
+      jugador.saldo += apuestaCraps.valor * 2  (1 a 1)
+
+   [No venir] 
+      jugador.saldo += apuestaCraps.valor * 2  (1 a 1)
+
+   [De Campo]
+      if (resultoEn.numeroSalido = 4, 9, 10 u 11) 
+         jugador.saldo += apuestaCraps.valor * 2  (1 a 1)
+      elseif (resultoEn.numeroSalido = 2 o 12)}
+         jugador.saldo += apuestaCraps.valor * 3  (2 a 1)
+          endif
+      endif
+
+   [De Sitio] (gana si sale el numero del la primer columna, 
+    para la segunda columna y devuelve la apuesta realizada)
+      a ganar 
+              4      5:11  
+              5      5:8  
+              6      4:5  
+              8      4:5  
+              9      5:8  
+              10     5:11 
+
+
+      [a perder]
+
+            4        9:5  
+            5        7:5  
+            6        7:6  
+            8        7:6  
+            9        7:5  
+            10       9:5  
+      
+\end{verbatim}
+
 
 \clearpage
 
