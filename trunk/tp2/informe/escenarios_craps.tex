@@ -1,23 +1,43 @@
-\escenario{
-El invitado entra al casino, decide ver el juego de craps, de una mesa cualquiera de las abiertas, donde hay 1 jugador
-Mira la ronda y luego sale. El jugador es el tirador, este decide no realizar apuestas.
+
+
+\escenario{ \textbf{Jugador de Craps entrando a una mesa}
+\begin{itemize}
+  \item El usuario decide entra a una mesa de craps
+  \item  verifica que no este jugando y que sea un jugador del casino
+  \item el sitema crea la mesa en caso de que no especifique una
+  \item lo ingresa
+  \item lo notifica
+\end{itemize}
+}
+
+\imagenvertical{DS_Craps_1.png}{Jugador de Craps entrando a una mesa}{0.6}
+
+
+
+
+
+\escenario{ \textbf{ Invitado mirando una ronda }
+\begin{itemize}
+  \item El invitado esta en el casino
+  \item decide ver el juego de craps de una mesa cualquiera de las abiertas
+  \item Mira la ronda y luego sale
+\end{itemize}
 }
 
 \escenario{
-El invitado entra al casino, decide ver el juego de craps donde hay 1 jugador
-Mira la ronda y luego sale. El jugador es el tirador, este decide no realizar apuestas.
+\textbf{Jugador que se hace tirador} 
+\begin{itemize}    
+  \item el jugador está en el juego de craps
+  \item espera n rondas, hasta que le toca tirar, se convierte en tirador.
+  \item Tira los dados. 
+  \item No se hacen apuestas.
+  \item Saca un seven out por lo que deja de ser tirador.
+\end{itemize}
 }
 
-
-\escenario{
-Un jugador ingresa al juego de craps, espera n rondas, hasta que le toca tirar, se convierte en tirador.
-Tira los dados. No se hacen apuestas. Saca un seven out por lo que deja de ser tirador.
-}
-
-\escenario{
+\escenario{ \textbf{Jugador haciendo apuesta de craps}
     \begin{itemize}
-        \item Un jugador ingresa al juego de craps.
-        \item elige una mesa
+        \item Un jugador esta en una mesa
         \item Decide hacer una apuesta de \textit{campo} por una ficha de menor valor.
         \item Se hace el tiro, sale 7, pierde. 
         \item En la siguiente jugada le toca tirar.
