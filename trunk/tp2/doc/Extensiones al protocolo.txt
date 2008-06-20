@@ -1,4 +1,4 @@
-Reportes
+AccesoYManejoAdministrador
 ===========================
 
 PedidoReporteRankingDeJugadores
@@ -126,6 +126,97 @@ Nombre del archivo: respuestaReporteDetalleMovimientosPorJugadorXXYYYY.xml
 Descripción del xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <respuestaReporteDetalleMovimientosPorJugador vTerm="id terminal virtual">
-
+	<jugador nombre="nombre del jugador">
+		<jugadasTragamonedas>
+			<jugadaTragamonedas tipo="normal | todos ponen | feliz | gordo progresivo | feliz y gordo progresivo">
+				<mesa id="id de mesa" valorFicha="valor de ficha en la mesa" />
+				<apuesta fichas="cantidad de fichas apostadas" />
+				<resultado>
+					<rodillo figura="figura del rodillo" />
+					...
+				</resultado>
+				<pozoFeliz monto="monto del pozo">
+				<pozoProgesivo monto="monto del pozo">
+			</jugadaTragamonedas>
+			...
+		</jugadasTragamonedas>
+		<jugadasCraps tiroSalida="si | no" punto="valor de punto" tipo="normal | todos ponen | feliz | gordo progresivo | feliz y gordo progresivo">
+			<jugadaCraps>
+				<mesa id="id de mesa" />
+				<apuesta monto="creditos apostados" tipo="en sitio a perder | en sitio a ganar | de campo | venir | no venir | barra no pase | linea de pase" />
+				<resultado>
+					<dado numero="numero del dado">
+					...
+				</resultado>
+				<pozoFeliz monto="monto del pozo">
+			</jugadaCraps>
+			...
+		</jugadasCraps>
+		...
+	</jugador>
+	...
 </respuestaReporteDetalleMovimientosPorJugador>
 
+
+
+
+EstablecerModoDirigidoTragamonedas
+----------------------------------------
+Nombre del archivo: establecerModoDirigidoTragamonedasXXYYYY.xml
+	XX: número de grupo
+	YYYY: número de terminal virtual
+Descripción del xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<establecerModoDirigidoTragamonedas vTerm="id terminal virtual">
+	<modoDirgido gordoProgresivo="sale | no sale | azar" jugadaFeliz="sale | no sale | azar" jugadaTodosPonen="sale | no sale | azar" >
+		[<resultado>
+			<rodillo figura="figura que debe salir">
+			...
+		</resultado> | vacio si no se especifica un resultado]
+	</modoDirgido>
+</establecerModoDirigidoTragamonedas>
+
+
+RespuestaEstablecerModoDirigidoTragamonedas
+----------------------------------------
+Nombre del archivo: establecerModoDirigidoTragamonedasXXYYYY.xml
+	XX: número de grupo
+	YYYY: número de terminal virtual
+Descripción del xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<respuestaEstablecerModoDirigidoTragamonedas vTerm="id terminal virtual">
+	<aceptado fueAceptado="si | no" />
+	<descripcion>"descripcion adicional, de porque no fue aceptado por ejemplo u otra informacion relevante"</descripcion>
+</respuestaEstablecerModoDirigidoTragamonedas>
+
+
+
+	
+EstablecerModoDirigidoCraps
+----------------------------------------
+Nombre del archivo: establecerModoDirigidoCrapsXXYYYY.xml
+	XX: número de grupo
+	YYYY: número de terminal virtual
+Descripción del xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<establecerModoDirigidoCraps vTerm="id terminal virtual">
+	<modoDirgido jugadaFeliz="sale | no sale | azar" jugadaTodosPonen="sale | no sale | azar" >
+		[<resultado>
+			<dado numero="numero que debe salir en el dado">
+			...
+		</resultado> | vacio si no se especifica un resultado]
+	</modoDirgido>
+</establecerModoDirigidoCraps>
+
+
+RespuestaEstablecerModoDirigidoCraps
+----------------------------------------
+Nombre del archivo: establecerModoDirigidoCrapsXXYYYY.xml
+	XX: número de grupo
+	YYYY: número de terminal virtual
+Descripción del xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<respuestaEstablecerModoDirigidoCraps vTerm="id terminal virtual">
+	<aceptado fueAceptado="si | no" />
+	<descripcion>"descripcion adicional, de porque no fue aceptado por ejemplo u otra informacion relevante"</descripcion>
+</respuestaEstablecerModoDirigidoCraps>
