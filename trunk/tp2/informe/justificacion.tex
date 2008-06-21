@@ -1,0 +1,24 @@
+Se model'o basandonos en el patr'on de diseño MVC. Con lo cual tenemos tres grandes paquetes:
+
+\begin{itemize}
+ \item Modelo
+ \item Controlador
+ \item Vista
+\end{itemize}
+
+La recepci'on de los pedidos se hace con la Clase ReceptorPedidos, que est'a dentro del paquete Vista. Esta clase ser'a especializada de la manera que sea necesaria. Esto brinda una mayor flexibilidad a la hora de tomar los pedidos y nos liga menos al tipo en el que llega el pedido.
+
+Al levantarse los datos son guardados en una clase Pedido la cual tiene un diccionario en el cual las las claves son del tipo texto y el resultado es un objeto. Esto es bueno, ya que permite flexiblidad ante los cambios de par'ametros de entrada. Tanto de tipo como de cantidad.
+
+La Clase DespachadorPedidos (paquete controlador) toma los par'ametros de entrada y multiplexa seg'un corresponda. Esta clase es singleton debido a que solo es necesaria una sola instancia para no tener problemas de concurrencia.
+
+Las clases JuegoCraps, AccesoYVistaCraps, AccesoYVistaTragamonedas y AccesoYVistaCasino procesan los datos seg'un corresponda. Los datos son obtenidos de los administradores que est'an en el paquete Modelo. Esto crea acoplamiento sobre dichas clases, pero no las crea sobre el resto del paquete modelo. Si bien el acoplamiento est'a, 'este es entre paquetes que es menor que entre clases de distintos paquetes. 'Estas clases son singleton.
+
+Tenemos las Clases Singleton para la emisi'on de la respuesta: JuegoCraps, AccesoYVistaCraps, AccesoYVistaTragamonedas y AccesoYVistaCasino.
+
+Estas clases se corresponden uno a uno con las del controlador, brindando las respuestas a los pedidos. En el caso de necesitar datos, que no fueron brindados por el controlador, tambi'en le hacen el pedido a las clases administrador del paquete Modelo.
+
+Como son para emitir la respuesta ent'an dentro del paquete Vista.
+
+Para emitir la respuesta utilizar'an un tipo llamado Respuesta. Esto permite desacoplar del tipo de respuesta y dejar a la clase especializada del Despachador de respuestas, la responsabilidad del formato de respuesta. Como es especializaci'on en caso en que se modifique el modo en que se envia la respuesta se hereda una clase nueva. Favoreciendo el open-close.
+

@@ -1,2 +1,235 @@
-
-% % \input{../doc/Extensiones\ al\ protocolo.txt}
+Las extensiones del protocolo est'an en un documento adjunto.
+% \begin{verbatim}
+%  
+% AccesoYManejoAdministrador
+% ===========================
+% 
+% PedidoReporteRankingDeJugadores
+% ------------------------------
+% Nombre del archivo: pedidoReporteRankingDeJugadoresXXYYYY.xml
+% 	XX: número de grupo
+% 	YYYY: número de terminal virtual
+% Descripción del xml
+% <?xml version="1.0" encoding="UTF-8" ?>
+% <pedidoReporteRankingDeJugadores vTerm="id terminal virtual"></pedidoReporteRankingDeJugadores>
+% 
+% 
+% RespuestaReporteRankingDeJugadores
+% ------------------------------
+% Nombre del archivo: respuestaReporteRankingDeJugadoresXXYYYY.xml
+% 	XX: número de grupo
+% 	YYYY: número de terminal virtual
+% Descripción del xml
+% <?xml version="1.0" encoding="UTF-8" ?>
+% <respuestaReporteRankingDeJugadores vTerm="id terminal virtual">
+% 	<jugadoresMasGanadores>
+% 		<jugador ranking="posicion" nombre="nombre del jugador" />
+% 		...
+% 	</jugadoresMasGanadores>
+% 	<jugadoresMasPerdedores>
+% 		<jugador ranking="posicion" nombre="nombre del jugador" />
+% 		...
+% 	</jugadoresMasPerdedores>
+% </respuestaReporteRankingDeJugadores>
+% 
+% 
+% 
+% 
+% 
+% PedidoReporteEstadoActual
+% ------------------------------
+% Nombre del archivo: pedidoReporteEstadoActualXXYYYY.xml
+% 	XX: número de grupo
+% 	YYYY: número de terminal virtual
+% Descripción del xml
+% <?xml version="1.0" encoding="UTF-8" ?>
+% <pedidoReporteEstadoActual vTerm="id terminal virtual"></pedidoReporteEstadoActual>
+% 
+% 
+% RespuestaReporteEstadoActual
+% ------------------------------
+% Nombre del archivo: respuestaReporteEstadoActualXXYYYY.xml
+% 	XX: número de grupo
+% 	YYYY: número de terminal virtual
+% Descripción del xml
+% <?xml version="1.0" encoding="UTF-8" ?>
+% <respuestaReporteEstadoActual vTerm="id terminal virtual">
+% 	<jugadores>
+% 		<jugador nombre="nombre del usuario jugador" />
+% 		... 
+% 	</jugadores>
+% 	<observadores>
+% 		<observador nombre="nombre del usuario observador" />
+% 		...
+% 	</observadores>
+% 	<juegos>
+% 		<tragamonedas>
+% 			<pozoProgresivo>"monto del pozo progresivo de las tragamonedas"</pozoProgresivo>
+% 			<mesasTragamonedas>
+% 				<mesaTragamonedas id="id del tragamonedas">
+% 					<jugador>"nombre del jugador en la mesa"</jugador>
+% 					<ultimoTiro>
+% 						<tirador>"nombre del jugador que efectuó el ultimo tiro"</tirador>
+% 						<resultado>
+% 							<rueda1>"cereza" o "bar simple" o "bar doble" o "bar triple" o "dinosaurio"</rueda1>
+% 							<rueda2>"cereza" o "bar simple" o "bar doble" o "bar triple" o "dinosaurio"</rueda2>
+% 							<rueda3>"cereza" o "bar simple" o "bar doble" o "bar triple" o "dinosaurio"</rueda3>
+% 						</resultado>
+% 					</ultimoTiro>
+% 				</mesaTragamonedas>
+% 				...
+% 			</mesasTragamonedas>
+% 		</tragamonedas>
+% 		<craps>
+% 			<mesasCraps>
+% 				<mesaCraps id="id de mesa craps">
+% 					<jugadores>
+% 						<jugador>"nombre de un jugador en la mesa"</jugador>
+% 						...
+% 					</jugadores>
+% 					<proximoTiro>
+% 						<tirador>"nombre del jugador con el turno" (si no ningún próximo tirador,
+%                                                    el tag estará vacío) </tirador>
+% 						<tiroSalida>"Si" o No, según sea o no tiro de salida (si no hay 
+%                                                           próximo tirador, el tag estará vacío) </tiroSalida>
+% 						<punto>"valor del punto establecido en el tiro de salida" (si es
+%                                                        punto de salida o no hay próximo tirador,el tag estará vacío) </punto>
+% 					</proximoTiro>
+% 					<ultimoTiro>
+% 						<tirador>"nombre del jugador que efectuó el ultimo tiro"</tirador>
+% 						<resultado></resultado>
+% 					</ultimoTiro>
+% 				</mesaCraps>
+% 				...
+% 			</mesasCraps>
+% 		</craps>
+% 	</juegos>
+% 	<pozosCasino>
+% 		<pozoFeliz>"monto del pozo feliz"</pozoFeliz>
+% 	</pozosCasino>
+% 	<saldoCasino>"saldo del casino"</saldoCasino>
+% </respuestaReporteEstadoActual>
+% 
+% 
+% 
+% 
+% 
+% PedidoReporteDetalleMovimientosPorJugador
+% ------------------------------
+% Nombre del archivo: pedidoReporteDetalleMovimientosPorJugadorXXYYYY.xml
+% 	XX: número de grupo
+% 	YYYY: número de terminal virtual
+% Descripción del xml
+% <?xml version="1.0" encoding="UTF-8" ?>
+% <pedidoReporteDetalleMovimientosPorJugador vTerm="id terminal virtual"></pedidoReporteDetalleMovimientosPorJugador>
+% 
+% 
+% RespuestaReporteDetalleMovimientosPorJugador
+% ------------------------------
+% Nombre del archivo: respuestaReporteDetalleMovimientosPorJugadorXXYYYY.xml
+% 	XX: número de grupo
+% 	YYYY: número de terminal virtual
+% Descripción del xml
+% <?xml version="1.0" encoding="UTF-8" ?>
+% <respuestaReporteDetalleMovimientosPorJugador vTerm="id terminal virtual">
+% 	<jugador nombre="nombre del jugador">
+% 		<jugadasTragamonedas>
+% 			<jugadaTragamonedas tipo="normal | todos ponen | feliz |
+%                                  gordo progresivo | feliz y gordo progresivo">
+% 				<mesa id="id de mesa" valorFicha="valor de ficha en la mesa" />
+% 				<apuesta fichas="cantidad de fichas apostadas" />
+% 				<resultado>
+% 					<rodillo figura="figura del rodillo" />
+% 					...
+% 				</resultado>
+% 				<pozoFeliz monto="monto del pozo">
+% 				<pozoProgesivo monto="monto del pozo">
+% 			</jugadaTragamonedas>
+% 			...
+% 		</jugadasTragamonedas>
+% 		<jugadasCraps tiroSalida="si | no" punto="valor de punto" tipo="normal
+%                      | todos ponen | feliz | gordo progresivo | feliz y gordo progresivo">
+% 			<jugadaCraps>
+% 				<mesa id="id de mesa" />
+% 				<apuesta monto="creditos apostados" tipo="en sitio a perder
+%                                | en sitio a ganar | de campo | venir | no venir | barra no pase | linea de pase" />
+% 				<resultado>
+% 					<dado numero="numero del dado">
+% 					...
+% 				</resultado>
+% 				<pozoFeliz monto="monto del pozo">
+% 			</jugadaCraps>
+% 			...
+% 		</jugadasCraps>
+% 		...
+% 	</jugador>
+% 	...
+% </respuestaReporteDetalleMovimientosPorJugador>
+% 
+% 
+% 
+% 
+% EstablecerModoDirigidoTragamonedas
+% ----------------------------------------
+% Nombre del archivo: establecerModoDirigidoTragamonedasXXYYYY.xml
+% 	XX: número de grupo
+% 	YYYY: número de terminal virtual
+% Descripción del xml
+% <?xml version="1.0" encoding="UTF-8" ?>
+% <establecerModoDirigidoTragamonedas vTerm="id terminal virtual">
+% 	<modoDirgido gordoProgresivo="sale | no sale | azar" jugadaFeliz="sale 
+%           | no sale | azar" jugadaTodosPonen="sale | no sale | azar" >
+% 		[<resultado>
+% 			<rodillo figura="figura que debe salir">
+% 			...
+% 		</resultado> | vacio si no se especifica un resultado]
+% 	</modoDirgido>
+% </establecerModoDirigidoTragamonedas>
+% 
+% 
+% RespuestaEstablecerModoDirigidoTragamonedas
+% ----------------------------------------
+% Nombre del archivo: establecerModoDirigidoTragamonedasXXYYYY.xml
+% 	XX: número de grupo
+% 	YYYY: número de terminal virtual
+% Descripción del xml
+% <?xml version="1.0" encoding="UTF-8" ?>
+% <respuestaEstablecerModoDirigidoTragamonedas vTerm="id terminal virtual">
+% 	<aceptado fueAceptado="si | no" />
+% 	<descripcion>"descripcion adicional, de porque no fue aceptado 
+% por ejemplo u otra informacion relevante"</descripcion>
+% </respuestaEstablecerModoDirigidoTragamonedas>
+% 
+% 
+% 
+% 	
+% EstablecerModoDirigidoCraps
+% ----------------------------------------
+% Nombre del archivo: establecerModoDirigidoCrapsXXYYYY.xml
+% 	XX: número de grupo
+% 	YYYY: número de terminal virtual
+% Descripción del xml
+% <?xml version="1.0" encoding="UTF-8" ?>
+% <establecerModoDirigidoCraps vTerm="id terminal virtual">
+% 	<modoDirgido jugadaFeliz="sale | no sale | azar" jugadaTodosPonen="sale | no sale | azar" >
+% 		[<resultado>
+% 			<dado numero="numero que debe salir en el dado">
+% 			...
+% 		</resultado> | vacio si no se especifica un resultado]
+% 	</modoDirgido>
+% </establecerModoDirigidoCraps>
+% 
+% 
+% RespuestaEstablecerModoDirigidoCraps
+% ----------------------------------------
+% Nombre del archivo: establecerModoDirigidoCrapsXXYYYY.xml
+% 	XX: número de grupo
+% 	YYYY: número de terminal virtual
+% Descripción del xml
+% <?xml version="1.0" encoding="UTF-8" ?>
+% <respuestaEstablecerModoDirigidoCraps vTerm="id terminal virtual">
+% 	<aceptado fueAceptado="si | no" />
+% 	<descripcion>"descripcion adicional, de porque no fue aceptado por ejemplo 
+% u otra informacion relevante"</descripcion>
+% </respuestaEstablecerModoDirigidoCraps>
+% \end{verbatim}
