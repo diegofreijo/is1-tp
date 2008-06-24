@@ -8,11 +8,10 @@ namespace CasinoOnline.Servidor.Vista
 {
     class Pedido
     {
-		private Dictionary<string, object> parametros = new Dictionary<string, object>();
-		//private XElement raiz;
-		//private XElement seleccion_actual;
+		private ParametrosPedido parametros = new ParametrosPedido();
 
-		public Dictionary<string, object> Parametros
+
+		public ParametrosPedido Parametros
 		{
 			get { return parametros; }
 			set { parametros = value; }
@@ -31,43 +30,9 @@ namespace CasinoOnline.Servidor.Vista
 			{
 				ret += "(" + parametro + "," + parametros[parametro] + ") ";
 			}
-			ret += "}\n";
+			ret += "}";
 
 			return ret;
 		}
-
-		/*public Pedido()
-		{
-			//raiz = new XElement();
-			seleccion_actual = raiz;
-		}
-
-		public void ImportarXml(XElement xml)
-		{
-			raiz = xml;
-		}
-
-		public XElement ExportarXml()
-		{
-			return raiz;
-		}
-
-		/*public void EntrarNodo()
-		{
-		}
-
-		public void SalirNodo()
-		{
-		}
-
-		public void EscribirAtributo(string nombre, string valor)
-		{
-		}
-
-		public void EscribirAtributo(string nombre, string valor)
-		{
-		}*/
-
-
     }
 }
