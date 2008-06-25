@@ -11,89 +11,35 @@ namespace CasinoOnline.Servidor.Vista
     {
         #region Miembros
 		private const string ruta_buffer_entrada = "..\\buffer_entrada\\";
-		private const int intervalo_pooleo = 1000;
-		private bool encendido = true;
         #endregion
 
 
-        #region Metodos Publicos
-        /// <summary>
-        /// Comienza la recepcion de pedidos en forma de archivos XML
-        /// </summary>
-        public override void ComenzarRecepcion()
-        {
-			XElement nuevo_archivo = null;
-			while(encendido)
-			{
-				// Veo si hay un nuevo archivo
-				if(ObtenerNuevoArchivo(ref nuevo_archivo))
-				{
-					// Hay un nuevo archivo, asi que genero el Pedido asociado
-					Pedido nuevo_pedido = Desempaquetar(nuevo_archivo);
-
-					// Proceso el nuevo pedido
-					Log.Mensaje("NUEVO PEDIDO: " + nuevo_pedido.ToString());
-				}
-				else
-				{
-					// Si no habia archivo nuevo, espero
-					Thread.Sleep(intervalo_pooleo);
-				}
-			}
-        }
-		#endregion
-
-
-		#region Metodos Privados
+		#region Metodos Protegidos
         /// <summary>
         /// Transforma un archivo XML en un Pedido
         /// </summary>
-        private Pedido Desempaquetar(XElement xml)
+		protected override Pedido Desempaquetar(object xml)
         {
+			// Se que lo que me entra es un XML
+			xml = (XElement)xml;
+		
 			// Genero el tipo de pedido correspondiente
 			Pedido ret = new Pedido();
 
 			// Levanto los parametros
-			ret.Parametros = DesempaquetarElemento(xml);
+			ret.Parametros = DesempaquetarElemento((XElement)xml);
 
 			return ret;
         }
 
-		/// <summary>
-		/// Desempaqueta un elemento XML generico
-		/// </summary>
-		private ParametrosPedido DesempaquetarElemento(XElement elemento)
-		{
-			// Agrego los atributos
-			ParametrosPedido ret = new ParametrosPedido();
-			foreach (XAttribute at in elemento.Attributes())
-			{
-				ret.Add(at.Name.ToString(), at.Value);
-			}
-
-			// Repito lo mismo para los elementos que tenga este nodo.
-			foreach (XElement elem in elemento.Elements())
-			{
-				// Si es un elemento con solamente algun valor, lo agrego como si fuese un atributo. 
-				// Si no, agrego una lista de objetos.
-				if (!String.IsNullOrEmpty(elem.Value))
-				{
-					ret.Add(elem.Name.ToString(), elem.Value);
-				}
-				else
-				{
-					ret.Add(elem.Name.ToString(), DesempaquetarElemento(elem));
-				}
-			}
-
-			return ret;
-		}
-
         /// <summary>
         /// Obtiene el siguiente XML a procesar
         /// </summary>
-		private bool ObtenerNuevoArchivo(ref XElement nuevo_archivo)
+		protected override bool ObtenerNuevoPedido(ref object nuevo_archivo)
         {
+			// Se que lo que me entra es un XML
+			nuevo_archivo = (XElement)nuevo_archivo;
+
 			// Reviso en la lista de archivos en el buffer si alguno es valido como pedido
 			string ruta_archivo = "";
 			string nombre_archivo = "";
@@ -126,6 +72,39 @@ namespace CasinoOnline.Servidor.Vista
 
         	return true;
         }
+		#endregion
+
+
+		#region Metdos Privados
+		/// <summary>
+		/// Desempaqueta un elemento XML generico
+		/// </summary>
+		private ParametrosPedido DesempaquetarElemento(XElement elemento)
+		{
+			// Agrego los atributos
+			ParametrosPedido ret = new ParametrosPedido();
+			foreach (XAttribute at in elemento.Attributes())
+			{
+				ret.Add(at.Name.ToString(), at.Value);
+			}
+
+			// Repito lo mismo para los elementos que tenga este nodo.
+			foreach (XElement elem in elemento.Elements())
+			{
+				// Si es un elemento con solamente algun valor, lo agrego como si fuese un atributo. 
+				// Si no, agrego una lista de objetos.
+				if (!String.IsNullOrEmpty(elem.Value))
+				{
+					ret.Add(elem.Name.ToString(), elem.Value);
+				}
+				else
+				{
+					ret.Add(elem.Name.ToString(), DesempaquetarElemento(elem));
+				}
+			}
+
+			return ret;
+		}
 
 		/// <summary>
 		/// Informa si la ruta del archivo es un archivo de pedido
@@ -136,7 +115,6 @@ namespace CasinoOnline.Servidor.Vista
 				!Path.GetFileName(ruta_archivo).StartsWith("_") &&
 				Path.GetExtension(ruta_archivo) == ".xml";
 		}
-
-        #endregion
-    }
+		#endregion
+	}
 }
