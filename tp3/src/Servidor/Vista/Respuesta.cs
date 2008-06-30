@@ -6,14 +6,14 @@ using System.Xml.Linq;
 
 namespace CasinoOnline.Servidor.Vista
 {
-    class Pedido
-    {
+	class Respuesta
+	{
 		private XElement parametros = null;
 		private String tipo = "";
 
 
 		/// <summary>
-		/// Tipo de pedido
+		/// El tipo de respuesta
 		/// </summary>
 		public String Tipo
 		{
@@ -22,25 +22,26 @@ namespace CasinoOnline.Servidor.Vista
 		}
 
 		/// <summary>
-		/// Informacion detallada del pedido
+		/// Informacion detallada de la respuesta
 		/// </summary>
-		public XElement Parametros
+		internal XElement Parametros
 		{
 			get { return parametros; }
 			set { parametros = value; }
 		}
 
 		/// <summary>
-		/// Muestra al pedido en forma bonita
+		/// Muestra la respuesta en forma bonita
 		/// </summary>
 		public override string ToString()
 		{
 			string ret;
 
 			// Muestro el tipo
-			ret = this.Tipo + " - " + parametros.ToString();
+			ret = this.tipo + " - " + parametros.ToString();
 
 			return ret;
 		}
-    }
+
+	}
 }

@@ -64,17 +64,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\Controladores\AccesoYVistaCasino.cs" />
     <Compile Include="Controlador\DespachadorPedidos.cs" />
-    <Compile Include="Controlador\Manejadores\EntrarCasino.cs" />
-    <Compile Include="Controlador\Manejador.cs" />
     <Compile Include="Logueo\Log.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vista\ParametrosPedido.cs" />
+    <Compile Include="Vista\DespachadorRespuestas.cs" />
+    <Compile Include="Vista\DespachadorRespuestasArchivo.cs" />
     <Compile Include="Vista\Pedido.cs" />
-    <Compile Include="Vista\Pedidos\EntrarCasino.cs" />
     <Compile Include="Vista\ReceptorPedidos.cs" />
-    <Compile Include="Vista\ReceptorPedidosXml.cs" />
+    <Compile Include="Vista\ReceptorPedidosArchivo.cs" />
+    <Compile Include="Vista\Respuesta.cs" />
+    <Compile Include="Vista\Vistas\AccesoYVistaCasino.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">

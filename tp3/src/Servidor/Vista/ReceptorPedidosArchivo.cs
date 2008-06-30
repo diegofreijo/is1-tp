@@ -4,42 +4,25 @@ using System.IO;
 using System.Threading;
 using System.Xml.Linq;
 using CasinoOnline.Servidor.Logueo;
+using System.Reflection.Emit;
 
 namespace CasinoOnline.Servidor.Vista
 {
-    class ReceptorPedidosXml : ReceptorPedidos
+	/// <summary>
+	/// Receptor de pedidos XML desde archivos
+	/// </summary>
+    class ReceptorPedidosArchivo : ReceptorPedidos
     {
         #region Miembros
 		private const string ruta_buffer_entrada = "..\\buffer_entrada\\";
         #endregion
 
-
 		#region Metodos Protegidos
-        /// <summary>
-        /// Transforma un archivo XML en un Pedido
-        /// </summary>
-		protected override Pedido Desempaquetar(object xml)
-        {
-			// Se que lo que me entra es un XML
-			xml = (XElement)xml;
-		
-			// Genero el tipo de pedido correspondiente
-			Pedido ret = new Pedido();
-
-			// Levanto los parametros
-			ret.Parametros = DesempaquetarElemento((XElement)xml);
-
-			return ret;
-        }
-
         /// <summary>
         /// Obtiene el siguiente XML a procesar
         /// </summary>
-		protected override bool ObtenerNuevoPedido(ref object nuevo_archivo)
+		protected override bool ObtenerNuevoPedido(ref XElement nuevo_xml)
         {
-			// Se que lo que me entra es un XML
-			nuevo_archivo = (XElement)nuevo_archivo;
-
 			// Reviso en la lista de archivos en el buffer si alguno es valido como pedido
 			string ruta_archivo = "";
 			string nombre_archivo = "";
@@ -60,7 +43,7 @@ namespace CasinoOnline.Servidor.Vista
 			// Lo levanto
 			try
 			{
-				nuevo_archivo = XElement.Load(ruta_archivo);
+				nuevo_xml = XElement.Load(ruta_archivo);
 			}
 			catch(Exception ex)
 			{
@@ -74,38 +57,7 @@ namespace CasinoOnline.Servidor.Vista
         }
 		#endregion
 
-
 		#region Metdos Privados
-		/// <summary>
-		/// Desempaqueta un elemento XML generico
-		/// </summary>
-		private ParametrosPedido DesempaquetarElemento(XElement elemento)
-		{
-			// Agrego los atributos
-			ParametrosPedido ret = new ParametrosPedido();
-			foreach (XAttribute at in elemento.Attributes())
-			{
-				ret.Add(at.Name.ToString(), at.Value);
-			}
-
-			// Repito lo mismo para los elementos que tenga este nodo.
-			foreach (XElement elem in elemento.Elements())
-			{
-				// Si es un elemento con solamente algun valor, lo agrego como si fuese un atributo. 
-				// Si no, agrego una lista de objetos.
-				if (!String.IsNullOrEmpty(elem.Value))
-				{
-					ret.Add(elem.Name.ToString(), elem.Value);
-				}
-				else
-				{
-					ret.Add(elem.Name.ToString(), DesempaquetarElemento(elem));
-				}
-			}
-
-			return ret;
-		}
-
 		/// <summary>
 		/// Informa si la ruta del archivo es un archivo de pedido
 		/// </summary>
