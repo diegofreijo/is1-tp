@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using System.Xml.Linq;
 using CasinoOnline.Servidor.Logueo;
 
 namespace CasinoOnline.Servidor.Vista
 {
+	/// <summary>
+	/// Receptor generico de pedidos XML
+	/// </summary>
     abstract class ReceptorPedidos
 	{
 		#region Miembros
@@ -20,17 +24,20 @@ namespace CasinoOnline.Servidor.Vista
         /// </summary>
 		public void ComenzarRecepcion()
 		{
-			object nuevo_pedido_crudo = null;
+			XElement nuevo_xml = null;
 			while (encendido)
 			{
-				// Veo si hay un nuevo archivo
-				if (ObtenerNuevoPedido(ref nuevo_pedido_crudo))
+				// Veo si hay un nuevo pedido
+				if (ObtenerNuevoPedido(ref nuevo_xml))
 				{
 					// Hay un nuevo archivo, asi que genero el Pedido asociado
-					Pedido nuevo_pedido = Desempaquetar(nuevo_pedido_crudo);
+					Pedido nuevo_pedido = new Pedido();
+					nuevo_pedido.Parametros = nuevo_xml;
+					nuevo_pedido.Tipo = nuevo_xml.Name.ToString();
 
 					// Proceso el nuevo pedido
-					Log.Mensaje("NUEVO PEDIDO: " + Environment.NewLine + "		" + nuevo_pedido.ToString());
+					Log.Mensaje("Llego un nuevo pedido de tipo " + nuevo_pedido.Tipo);
+					Controlador.DespachadorPedidos.ObtenerInstancia().DespacharPedido(nuevo_pedido);
 				}
 				else
 				{
@@ -40,19 +47,13 @@ namespace CasinoOnline.Servidor.Vista
 			}
 		}
 		#endregion
-
+		
 
 		#region Metodos Protegidos
 		/// <summary>
-		/// Desempaqueta un pedido en crudo
-		/// </summary>
-		protected abstract Pedido Desempaquetar(object pedido_crudo);
-
-		/// <summary>
-        /// Obtiene el siguiente pedido a procesar
+        /// Obtiene el siguiente pedido a procesar si es que habia.
         /// </summary>
-		protected abstract bool ObtenerNuevoPedido(ref object nuevo_pedido_crudo);
-
+		protected abstract bool ObtenerNuevoPedido(ref XElement nuevo_xml);
 		#endregion
 	}
 }

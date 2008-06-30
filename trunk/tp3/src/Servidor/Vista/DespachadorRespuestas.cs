@@ -5,7 +5,8 @@ using System.Text;
 
 namespace CasinoOnline.Servidor.Vista
 {
-	class ParametrosPedido : Dictionary<string, object>
+	abstract class DespachadorRespuestas
 	{
+		public abstract void DespacharRespuesta(Respuesta respuesta);
 	}
 }

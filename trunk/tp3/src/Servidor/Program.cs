@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using CasinoOnline.Servidor.Vista;
 using CasinoOnline.Servidor.Controlador;
+using CasinoOnline.Servidor.Logueo;
 
 namespace CasinoOnline.Servidor
 {
@@ -16,17 +17,13 @@ namespace CasinoOnline.Servidor
 
 		private static void EncenderServidor()
 		{
-			// Pido que se inicialicen todos los manejadores
-			InicializarManejadores();
+			Log.Mensaje("Servidor de CasinoOnline iniciado" + 
+				Environment.NewLine + "=============================================");
 
 			// Comienzo la recepcion de pedidos
-			ReceptorPedidos receptor = new ReceptorPedidosXml();
+			Log.Mensaje("Comenzando recepcion de pedidos" + Environment.NewLine);
+			ReceptorPedidos receptor = new ReceptorPedidosArchivo();
 			receptor.ComenzarRecepcion();
-		}
-
-		private static void InicializarManejadores()
-		{
-			CasinoOnline.Servidor.Controlador.Manejadores.EntrarCasino.ObtenerInstancia();
 		}
     }
 }
