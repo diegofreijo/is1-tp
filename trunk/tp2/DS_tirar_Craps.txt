@@ -35,6 +35,11 @@ Pasos
 		NotificarEstadoCraps(usuario_k.IdTerminalVirtual, usuario_k.nombre, mesa_i )
 
 
+la l'ogica que tiene que ver con mostrar el estado del modelo
+esta en este 'ultimo, y no en cada controlador que lo modifica
+lo que hace qeu si agremaos nuevos controladores, 
+
+
 
 MOSTRAR QUE ESTAMOS POOLEANDO LA PUTA CARPETA
 
