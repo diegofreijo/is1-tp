@@ -1,0 +1,27 @@
+Diagramas de punta a punta:
+ ¿ Cuantos ? 
+ ¿ Cuáles ?
+ ¿ Hace falta mostrar todo el modelo?
+ ¿ Todo en un diagrama?
+ ¿ Hace falta duplicar todas las etapas de 
+  una acción en un cliente para distintos 
+  escenarios? ¿ Cuales ?
+
+Threads:
+    cliente: uno o dos o un pool?
+    servidor: uno solo!
+
+Del tp en general:
+-condiciones minimas de aprobación
+  tenemos:
+    -varios DS de punta a punta
+    -DC del cliente
+    -grafos de nuestro protocolo
+    -que cambio del diseño
+
+¿ Realmente tienen que comunicarse cada terminal virtual con su controlador ?
+¿ Realmente tienen que actuar en paralelo / concurrentemente el pooleo de nuevos pedidos en el servidor ?
+¿ Está bueno hardcoderar el despachador de pedidos ?
+¿ Está bueno tener muchas claese ? 
+¿ Está bueno hardcodear la actualización del Event-Hadler ?
+
