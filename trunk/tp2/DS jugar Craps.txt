@@ -25,7 +25,7 @@ Pasos
 	retorna void
 	
 
-/* zoom en tirarCraps()	*/	
+/* zoom en tirarCraps(parametrosPedido)	*/	
 
 	VERIFICAR QUE El usuario_j esta en esa mesa_i  (iterar sobre AdministradorMesaCraps.JugadoresEnMesa(mesa_i))
 	VERIFICAR QUE El usuario_j es el tirador de la mesa_i (comparo usuario_j con AdministradorMesaCraps.JugadorProximoTiro(mesa_i))
