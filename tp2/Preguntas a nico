@@ -25,3 +25,10 @@ Del tp en general:
 ¿ Está bueno tener muchas claese ? 
 ¿ Está bueno hardcodear la actualización del Event-Hadler ?
 
+Dentro del cliente.
+En el controlador, tenemos clases con 2 responsabilidades, enviar y recibir mensajes de y a la  capa presentación
+o una que es controlar?
+
+¿ Hace falta mostrar los "obtener instancia" de los singletones de los DS ?
+
+¿ Cuando me entero si el cliente es VIP en la terminal del cliente ? ¿ Como actualizamos el saldo del lado del cliente ? ¿ Esperamos la respuesta del casino guardando el estado previo para poder restar ? ¿ Hay que guardar el estado ?
