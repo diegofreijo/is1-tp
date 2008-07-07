@@ -30,6 +30,17 @@ namespace CasinoOnline.Servidor.Vista
 			set { parametros = value; }
 		}
 
+
+		/// <summary>
+		/// Constructor completo
+		/// </summary>
+		public Pedido(String tipo, XElement parametros)
+		{
+			this.tipo = tipo;
+			this.parametros = parametros;
+		}
+
+
 		/// <summary>
 		/// Muestra al pedido en forma bonita
 		/// </summary>

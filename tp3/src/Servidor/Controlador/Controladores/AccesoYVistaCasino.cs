@@ -32,7 +32,6 @@ namespace CasinoOnline.Servidor.Controlador.Controladores
 		}
 		#endregion
 
-		#region Pedidos del controlador
 		public void EntrarCasino(XElement parametros)
 		{
 			Vista.Vistas.AccesoYVistaCasino.ObtenerInstancia().ResponderEntrada(9999, "pepe", "como te va", true);
@@ -47,6 +46,5 @@ namespace CasinoOnline.Servidor.Controlador.Controladores
 		{
 
 		}
-		#endregion
 	}
 }

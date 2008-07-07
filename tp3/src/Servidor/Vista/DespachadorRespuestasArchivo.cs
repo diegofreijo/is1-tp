@@ -43,10 +43,11 @@ namespace CasinoOnline.Servidor.Vista
 			// Escribo un nuevo archivo XML al buffer de salida
 			try
 			{
-				FileStream archivo = File.Create(buffer_salida + respuesta.Tipo + numero_grupo + respuesta.Parametros.Attribute("vTerm").Value + ".xml");
-				byte[] salida = Encoding.UTF8.GetBytes(respuesta.Parametros.ToString());
-				archivo.Write(salida, 0, salida.Length);
-				archivo.Close();
+				// Genero el nombre del archivo
+				string ruta_archivo = buffer_salida + respuesta.Tipo + numero_grupo + respuesta.IdTerminal + ".xml";
+
+				// Guardo el Xml
+				respuesta.Parametros.Save(ruta_archivo);
 			}
 			catch (Exception ex)
 			{
@@ -54,7 +55,7 @@ namespace CasinoOnline.Servidor.Vista
 			}
 
 			// Informo que se envio una nueva respuesta
-			Log.Mensaje("Respuesta de tipo " + respuesta.Tipo + " enviada");
+			Log.Mensaje("Envie una respuesta de tipo " + respuesta.Tipo);
 		}
 	}
 }

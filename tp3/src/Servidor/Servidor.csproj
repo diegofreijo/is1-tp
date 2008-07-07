@@ -65,8 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador\Controladores\AccesoYVistaCasino.cs" />
+    <Compile Include="Controlador\Controladores\AccesoYVistaCraps.cs" />
+    <Compile Include="Controlador\Controladores\JuegoCraps.cs" />
     <Compile Include="Controlador\DespachadorPedidos.cs" />
     <Compile Include="Logueo\Log.cs" />
+    <Compile Include="Modelo\Administradores\AdministradorJugador.cs" />
+    <Compile Include="Modelo\Administradores\AdministradorMesaCraps.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\DespachadorRespuestas.cs" />
@@ -76,6 +80,8 @@
     <Compile Include="Vista\ReceptorPedidosArchivo.cs" />
     <Compile Include="Vista\Respuesta.cs" />
     <Compile Include="Vista\Vistas\AccesoYVistaCasino.cs" />
+    <Compile Include="Vista\Vistas\AccesoYVistaCraps.cs" />
+    <Compile Include="Vista\Vistas\JuegoCraps.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
@@ -98,9 +104,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modelo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

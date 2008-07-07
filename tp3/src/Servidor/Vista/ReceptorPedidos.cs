@@ -31,9 +31,7 @@ namespace CasinoOnline.Servidor.Vista
 				if (ObtenerNuevoPedido(ref nuevo_xml))
 				{
 					// Hay un nuevo archivo, asi que genero el Pedido asociado
-					Pedido nuevo_pedido = new Pedido();
-					nuevo_pedido.Parametros = nuevo_xml;
-					nuevo_pedido.Tipo = nuevo_xml.Name.ToString();
+					Pedido nuevo_pedido = new Pedido(nuevo_xml.Name.ToString(), nuevo_xml);
 
 					// Proceso el nuevo pedido
 					Log.Mensaje("Llego un nuevo pedido de tipo " + nuevo_pedido.Tipo);

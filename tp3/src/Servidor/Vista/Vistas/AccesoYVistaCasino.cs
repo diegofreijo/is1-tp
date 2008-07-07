@@ -35,23 +35,22 @@ namespace CasinoOnline.Servidor.Vista.Vistas
 		}
 		#endregion
 
-		#region Respuestas de la vista
 		public void ResponderEntrada(int id_terminal, string usuario, string descripcion, bool aceptado)
 		{
 			try
 			{
-				XElement info = new XElement("entradaCasino");
-				info.Add(new XAttribute("vTerm", id_terminal));
-				info.Add(new XAttribute("usuario", usuario));
-				info.Add(new XElement("aceptado", (aceptado ? "si" : "no")));
-				info.Add(new XElement("modoAcceso", "jugador"));
-				info.Add(new XElement("saldo", 200));
-				info.Add(new XElement("descripcion", descripcion));
+				// Genero la respuesta
+				XElement parametros = new XElement("entradaCasino", new object[] {
+					new XAttribute("vTerm", id_terminal),
+					new XAttribute("usuario", usuario),
+					new XElement("aceptado", (aceptado ? "si" : "no")),
+					new XElement("modoAcceso", "jugador"),
+					new XElement("saldo", 200),
+					new XElement("descripcion", descripcion),
+				});
 
-				Respuesta respuesta = new Respuesta();
-				respuesta.Parametros = info;
-				respuesta.Tipo = "responderEntrada";
-
+				// Despacho la respuesta
+				Respuesta respuesta = new Respuesta("responderEntrada", id_terminal, parametros);
 				DespachadorRespuestasArchivo.ObtenerInstancia().DespacharRespuesta(respuesta);
 			}
 			catch(Exception ex)
@@ -59,7 +58,8 @@ namespace CasinoOnline.Servidor.Vista.Vistas
 				Log.Error("Ocurrio un error generando la vista ResponderEntrada: " + ex.ToString());
 			}
 		}
-		#endregion
+
+
 
 	}
 }

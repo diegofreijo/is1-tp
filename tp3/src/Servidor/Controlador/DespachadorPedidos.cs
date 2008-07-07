@@ -43,10 +43,15 @@ namespace CasinoOnline.Servidor.Controlador
 		{
 			try
 			{
+				// El switch!!!!!
 				switch (pedido.Tipo)
 				{
 					case "entradaCasino":
 						Controladores.AccesoYVistaCasino.ObtenerInstancia().EntrarCasino(pedido.Parametros);
+						break;
+
+					case "apuestaCraps":
+						Controladores.JuegoCraps.ObtenerInstancia().ApostarCraps(pedido.Parametros);
 						break;
 
 					default:
