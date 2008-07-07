@@ -1,6 +1,0 @@
-
-    -varios DS de punta a punta
-    -Diseño y DC del cliente 			esta mas o menos
-    -grafos de nuestro protocolo
-    -que cambio de la especificacion
-	
