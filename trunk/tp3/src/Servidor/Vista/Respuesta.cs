@@ -10,7 +10,17 @@ namespace CasinoOnline.Servidor.Vista
 	{
 		private XElement parametros = null;
 		private String tipo = "";
+		private int id_terminal = -1;
 
+
+		/// <summary>
+		/// El id de la terminal virtual a la cual esta dirigida la respuesta
+		/// </summary>
+		public int IdTerminal
+		{
+			get { return id_terminal; }
+			set { id_terminal = value; }
+		}
 
 		/// <summary>
 		/// El tipo de respuesta
@@ -28,6 +38,16 @@ namespace CasinoOnline.Servidor.Vista
 		{
 			get { return parametros; }
 			set { parametros = value; }
+		}
+
+		/// <summary>
+		/// Constructor completo
+		/// </summary>
+		public Respuesta(String tipo, int id_terminal, XElement parametros)
+		{
+			this.tipo = tipo;
+			this.id_terminal = id_terminal;
+			this.parametros = parametros;
 		}
 
 		/// <summary>
