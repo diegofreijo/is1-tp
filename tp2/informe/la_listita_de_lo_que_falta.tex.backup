@@ -1,0 +1,27 @@
+\documentclass[spanish, a4paper, 10pt, titlepage]{article}
+\begin{document}
+\begin{itemize}
+    \item varios DS de punta a punta
+    \item Diseño y DC del cliente 			esta mas o menos
+    \item grafos de nuestro protocolo
+    \item  que cambio de la especificacion
+    \item  Escenarios  
+   \begin{itemize}
+        \item       abrir casino
+        \item          configurar
+        \item        modo dirigido
+    \end{itemize}
+DC de servidor
+\begin{itemize}
+ \item modelo
+\end{itemize}
+          
+        
+          
+    
+    \item mejorar la explicacion y justificaci'on de los diagramas
+    \item factorizar el DC
+    \item revisar extensiones al protocolo?
+
+\end{itemize}
+\end{document}
