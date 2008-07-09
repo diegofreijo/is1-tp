@@ -59,10 +59,9 @@ namespace CasinoOnline.Servidor.Controlador.Controladores
 				Log.Mensaje("Procesando ApuestaCraps: " + id_terminal + ", " + usuario + ", " + id_mesa);
 
 
+				// ---------------------------------------
 				// Validaciones:
-				// El usuario es un jugador???????
-
-
+				// ---------------------------------------
 				// El jugador esta en la mesa?
 				if (!Modelo.Administradores.AdministradorMesaCraps.ObtenerInstancia().JugadoresEnMesa(id_mesa).Exists(delegate(String n) { return n == usuario; }))
 				{
@@ -79,10 +78,17 @@ namespace CasinoOnline.Servidor.Controlador.Controladores
 					return;
 				}
 
-				// Las fichas son validas?????
+				// Las fichas son validas?
 
 
+				// ---------------------------------------
 				// Logica de negocio
+				// ---------------------------------------
+				// Registro la nueva apuesta en el modelo
+
+				// 
+
+
 
 
 				// Envio la respuesta satisfactoria
