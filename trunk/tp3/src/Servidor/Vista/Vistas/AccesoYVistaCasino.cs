@@ -35,31 +35,93 @@ namespace CasinoOnline.Servidor.Vista.Vistas
 		}
 		#endregion
 
-		public void ResponderEntrada(int id_terminal, string usuario, string descripcion, bool aceptado)
+		public void ResponderEntradaCasino(int id_terminal, string usuario, string descripcion, bool aceptado)
 		{
 			try
 			{
 				// Genero la respuesta
 				XElement parametros = new XElement("entradaCasino", new object[] {
-					new XAttribute("vTerm", id_terminal),
-					new XAttribute("usuario", usuario),
-					new XElement("aceptado", (aceptado ? "si" : "no")),
-					new XElement("modoAcceso", "jugador"),
-					new XElement("saldo", 200),
-					new XElement("descripcion", descripcion),
+						new XAttribute("vTerm", id_terminal),
+						new XAttribute("usuario", usuario)
 				});
+				if (aceptado)
+				{
+					throw new NotImplementedException();
+				}
+				else
+				{
+					parametros.Add(new object[] {
+						new XElement("aceptado", "no"),
+						new XElement("modoAcceso"),
+						new XElement("saldo"),
+						new XElement("descripcion", descripcion)
+					});
+				}
 
 				// Despacho la respuesta
-				Respuesta respuesta = new Respuesta("responderEntrada", id_terminal, parametros);
+				Respuesta respuesta = new Respuesta("respuestaEntradaCasino", id_terminal, parametros);
 				DespachadorRespuestasArchivo.ObtenerInstancia().DespacharRespuesta(respuesta);
 			}
 			catch(Exception ex)
 			{
-				Log.Error("Ocurrio un error generando la vista ResponderEntrada: " + ex.ToString());
+				Log.Error("Ocurrio un error generando la vista ResponderEntradaCasino: " + ex.ToString());
 			}
 		}
 
+		public void ResponderSalidaCasino(int id_terminal, string usuario, string descripcion, bool aceptado)
+		{
+			try
+			{
+				// Genero la respuesta
+				XElement parametros = new XElement("entradaCasino", new object[] {
+						new XAttribute("vTerm", id_terminal),
+						new XAttribute("usuario", usuario)
+				});
+				if (aceptado)
+				{
+					throw new NotImplementedException();
+				}
+				else
+				{
+					parametros.Add(new object[] {
+						new XElement("aceptado", "no"),
+						new XElement("modoAcceso"),
+						new XElement("saldo"),
+						new XElement("descripcion", descripcion)
+					});
+				}
 
+				// Despacho la respuesta
+				Respuesta respuesta = new Respuesta("respuestaEntradaCasino", id_terminal, parametros);
+				DespachadorRespuestasArchivo.ObtenerInstancia().DespacharRespuesta(respuesta);
+			}
+			catch (Exception ex)
+			{
+				Log.Error("Ocurrio un error generando la vista ResponderEntradaCasino: " + ex.ToString());
+			}
+		}
 
+		public void ResponderEstadoCasino(int id_terminal, string usuario)
+		{
+			try
+			{
+				// Genero la respuesta
+				XElement parametros = new XElement("estadoCasino", new object[] {
+						new XAttribute("vTerm", id_terminal),
+						new XAttribute("usuario", usuario)
+				});
+				
+				// Logica de negocio
+				throw new NotImplementedException();
+
+				// Despacho la respuesta
+				Respuesta respuesta = new Respuesta("respuestaEstadoCasino", id_terminal, parametros);
+				DespachadorRespuestasArchivo.ObtenerInstancia().DespacharRespuesta(respuesta);
+			}
+			catch (Exception ex)
+			{
+				Log.Error("Ocurrio un error generando la vista ResponderEstadoCasino: " + ex.ToString());
+			}
+		}
 	}
 }

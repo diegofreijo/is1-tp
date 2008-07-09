@@ -6,6 +6,8 @@ using System.Xml.Linq;
 
 namespace CasinoOnline.Servidor.Controlador.Controladores
 {
+	using Nombre = String;
+
 	class AccesoYVistaCraps
 	{
 		#region Singleton
