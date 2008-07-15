@@ -1,0 +1,48 @@
+NOTAS
+
++ Decidimos no poner una capa de traduccion entre la de comunicacion y mensajeria porque deberiamos asi, para modificar o agregar un nuevo pedido, en dos lugares diferentes (no solo para agregar la traduccion sino ademas para decirle al mensajero correspondiente que leer del objeto pedido nuestro y como llamar al modelo con ellos). Preferimos centralizar todo esto en cada mensajero. Ademas si hay que tirar el xml para usar otra estructura, en ambos casos tenemos que tirar 1 capa (la de traduccion en el primer caso y la de mensajeria en el segundo).
+
++ Las fachadas necesitan responder mucha mas info a los mensajeros que solamente "lo pude o no pude hacer". Es por eso que se nos ocurrio:
+	- Que devuelva un objeto RespuestaDelModelo: deberia ser algo asi como un diccionario para que sea extensible a futuras fachadas y/o pedidos. Hace falta downcastear para usar cada valor devuelto.
+	- Que se guarde toda esa info y sea accedida atravez de metodos de consulta. Esto baja la cohesion de la fachada.
+
++ El observer se implementa con el modelo como observado y el mensajero como el observador. La suscripcion es solo una: cuando se notifica un cambio de estado (en el notify viaja el numero de mesa) el mensajero va a recuperar del modelo la info que necesita de la mesa para armar el xml. Despues revisa que jugadores hay en esa mesa y para cada uno busca en una tabla suya en que terminal virtual esta. En esta taba es donde los jugadores realizan la suscripcion, porque contra el modelo no lo deben hacer (este no deberia conocer que existen terminales virtuales). Ojo que de esta forma, la logica de negocio que dice "todos los jugadores en una mesa deben enterarse de los cambios en esa mesa" se la esta definiendo en el mensajero y no el modelo (cuando deberia estar en el modelo), pero de no ser asi hace falta que el modelo haga la suscripcion y conozca las terminales virtuales. Y es menos feliz. 
+Notar que no se puede hacer una suscripcion por terminal a cada mesa porque el protocolo no banca el pedido de estado. 
+Notar que cuando alguien entra, el mensajero de entrada debe hacer un NotificarEstadoCraps con el que recien entro para que le llegue el estado de la mesa en el momento en que entro (notar que el observer no lo va a incluir en la actualizacion generadoa por "entro alguien a la mesa" porque en ese entonces todavia no estaba suscripto). Esto puede ser considerado logica de negocio pero es la opcion mas feliz que hay (tambien se puede poner un nuevo metodo que me diga si se puede o no hacer la entrada pero no la haga y otro metodo que haga la entrada (y ahi hace la notificacio del cambio)). Con la salida esto no pasa porque el cambio en la mesa es justamente que el tipo que sale no esta mas, entonces cuando el observer quiera notificar no va a encontrar al que esta saliendo de la mesa.
+
++ En entrarCraps, es HORRIBLE que me manden un string vacio como IdMesa si quieren que se cree la mesa. Aca podriamos:
+	- Hacer que el mensajero haga un if verificando si primero llama a crear mesa o no segun si este string es nulo o no. Esto haria que haya logica de negocio en el mensajero.
+	- Hacer que haya una sobrecarga de EntrarJugadorMesaCraps que una no reciba el id de mesa y asi se asuma que hay que crear la mesa. Es mas feo todavia porque igualmente el mensajero debe saber a cual llamar y sigue teniendo logica de negocio dentro.
+	- Que la fachada haga la verificacion. Esto genera que no se entienda del todo bien la logica porque no es intuitivo que si el id de mesa es nulo hay que crear una mesa nueva, pero es la mejor opcion en comparacion con las otras 3 porque mantiene la logica de negocio en el modelo. Ademas, es una fachada, por lo que tener logica de control de flujo no esta mal.
+
++ Las fachadas muestran un comportamiento "plug and play" desde afuera, como que es re feliz poner y sacar juegos, por ej. Pero en el fondo no es tan asi. Por ejemplo, las fachadas van a ejecutar logica de validacion, y esta logica muchas veces va a necesitar cosas que no son tan dependientes del juego en si (por ej, el lobby del casino).
+
++ NO vamos a poner los ObtenerInstancia de los singleton en los DS por simpleza.
+
++ Hacemos algunas verificaciones de si existe o no algo comparando con null para simplificar. Podriamos tambien agregar mas metodos que me respondan un booleano con si existe o no alguien o algo, pero deberiamos agregar varios metodos mas.
+
++ Estamos asumiendo que el nombre de un jugador lo identifica univocamente.
+
++ Hacemos que el tipo de jugada se acople a la idea de que hay un singleton con el pozo que necesita para dejarle a el solo la responsabilidad de saber que pozo necesita clonar. Si se le pasase por parametro, el que lo haga va a necesitar saber que pozo pasarle y va a necesitar un switch o algo asi, ademas de tener que saber la existencia de varios tipo de jugdada con varios tipo de pozos. Y no es feliz.
+
+
+
+
+
+
+
+Version vieja
+--------------------------------------------------------------------------
++ El jugador resuelve en cada especializacion si puede pagar o no para preservar OPC y sin caer en violar Liskov preguntando por el tipo de jugador que sos y acutar en funcion a eso. Pero es logica de negocio. Y si lo usamos aca lo usamos tambien en el resolvedor de las apuestas.
++ Decidimos agregar la interfaz violeta para disminuir el acoplamiento innato del MVC.
++ Nos basamos en el MVC de Java.
++ Para preservar OPC, aumentar un poco la cohesion y disminuir el acoplamiento, expusimos algunas factories en la interfaz violeta que pueda utilizar el controlador y asi y todo mantener un nivel de generalidad deseable en la comunicacion entre el controlador (y vista) contra los administradores. Ademas centralizamos mas la logia en el controlador. Otra posibilidad era que aplique un poco mas de logica de negocio el administrador, pero el dinamic cast tambien lo iba a tenre que hacer ahi (ademas del del controlador) consultando su diccionario para ver que factory usar. Estoy hablando mas que nada del caso de la creacion de una apuesta de craps.
++ 
+
+
+
+
+
+
+
+
