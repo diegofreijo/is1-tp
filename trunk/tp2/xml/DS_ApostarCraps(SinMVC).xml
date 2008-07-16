@@ -15,6 +15,7 @@
 						<covered xmi:idref="EAID_46C267F4_5043_11dd_4194_001D60B44DDE"/>
 						<covered xmi:idref="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE"/>
 						<covered xmi:idref="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
+						<covered xmi:idref="EAID_ADFE15B6_5387_11dd_4194_001D60B44DDE"/>
 						<operand xmi:type="uml:InteractionOperand" xmi:id="EAID_OP000001_5046_11dd_4194_001D60B44DDE">
 							<guard xmi:type="uml:InteractionConstraint" xmi:id="EAID_IC000001_5046_11dd_4194_001D60B44DDE">
 								<specification xmi:type="uml:OpaqueExpression" xmi:id="EAID_OE000001_5046_11dd_4194_001D60B44DDE" body="puede==Falso"/>
@@ -36,6 +37,7 @@
 						<covered xmi:idref="EAID_46C267F4_5043_11dd_4194_001D60B44DDE"/>
 						<covered xmi:idref="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE"/>
 						<covered xmi:idref="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
+						<covered xmi:idref="EAID_ADFE15B6_5387_11dd_4194_001D60B44DDE"/>
 						<operand xmi:type="uml:InteractionOperand" xmi:id="EAID_OP000001_5044_11dd_4194_001D60B44DDE">
 							<guard xmi:type="uml:InteractionConstraint" xmi:id="EAID_IC000001_5044_11dd_4194_001D60B44DDE">
 								<specification xmi:type="uml:OpaqueExpression" xmi:id="EAID_OE000001_5044_11dd_4194_001D60B44DDE" body="esValido20 AND esValido10 == Falso"/>
@@ -57,6 +59,7 @@
 						<covered xmi:idref="EAID_46C267F4_5043_11dd_4194_001D60B44DDE"/>
 						<covered xmi:idref="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE"/>
 						<covered xmi:idref="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
+						<covered xmi:idref="EAID_ADFE15B6_5387_11dd_4194_001D60B44DDE"/>
 						<operand xmi:type="uml:InteractionOperand" xmi:id="EAID_OP000001_5041_11dd_4194_001D60B44DDE">
 							<guard xmi:type="uml:InteractionConstraint" xmi:id="EAID_IC000001_5041_11dd_4194_001D60B44DDE">
 								<specification xmi:type="uml:OpaqueExpression" xmi:id="EAID_OE000001_5041_11dd_4194_001D60B44DDE" body="estaEnLaColeccion==Falso"/>
@@ -74,89 +77,104 @@
 					<message xmi:type="uml:Message" xmi:id="EAID_9175D75E_5043_11dd_4194_001D60B44DDE" name="unaCFichas" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000000_5043_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000001_5039_11dd_4194_001D60B44DDE"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" name="JuegoCraps" visibility="public" represents="EAID_AT000000_AAA_5039_11dd_4194_001D60B44DD"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000002_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_503F_11dd_4194_001D60B44DDE" covered="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_01FF9F0E_5388_11dd_4194_001D60B44DDE" name="getApuestas()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000002_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_503F_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000003_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_5041_11dd_4194_001D60B44DDE" covered="EAID_182D78B8_5041_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_31E7621E_5041_11dd_4194_001D60B44DDE" name="ObtenerJugador" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000002_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_5041_11dd_4194_001D60B44DDE">
+					<message xmi:type="uml:Message" xmi:id="EAID_31E7621E_5041_11dd_4194_001D60B44DDE" name="ObtenerJugador" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000003_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_5041_11dd_4194_001D60B44DDE">
 						<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000017_5041_11dd_4194_001D60B44DDE" name="&quot;Cosme Fulanito&quot;"/>
 					</message>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000003_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000004_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_5043_11dd_4194_001D60B44DDE" covered="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_35C2E6DA_5044_11dd_4194_001D60B44DDE" name="pertenece" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000003_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_5043_11dd_4194_001D60B44DDE">
+					<message xmi:type="uml:Message" xmi:id="EAID_35C2E6DA_5044_11dd_4194_001D60B44DDE" name="pertenece" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000004_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_5043_11dd_4194_001D60B44DDE">
 						<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000003_5044_11dd_4194_001D60B44DDE" name="20"/>
 					</message>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000004_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000005_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_5387_11dd_4194_001D60B44DDE" covered="EAID_ADFE15B6_5387_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_3D0C7F68_5388_11dd_4194_001D60B44DDE" name="Agregar" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000005_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_5387_11dd_4194_001D60B44DDE">
+						<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000011_5388_11dd_4194_001D60B44DDE" name="unaApuesta"/>
+					</message>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000006_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_5043_11dd_4194_001D60B44DDE" covered="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_59ED96CC_5044_11dd_4194_001D60B44DDE" name="pertenece" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000004_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000001_5043_11dd_4194_001D60B44DDE">
+					<message xmi:type="uml:Message" xmi:id="EAID_59ED96CC_5044_11dd_4194_001D60B44DDE" name="pertenece" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000006_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000001_5043_11dd_4194_001D60B44DDE">
 						<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000003_5044_11dd_4194_001D60B44DDE" name="10"/>
 					</message>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000005_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000007_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_5043_11dd_4194_001D60B44DDE" covered="EAID_46C267F4_5043_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_5D2F2BEE_5043_11dd_4194_001D60B44DDE" name="FichasValidas()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000005_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000001_5043_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000006_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_5D2F2BEE_5043_11dd_4194_001D60B44DDE" name="FichasValidas()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000007_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000001_5043_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000008_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_5045_11dd_4194_001D60B44DDE" covered="EAID_A9C79700_5045_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_62EDE64E_5046_11dd_4194_001D60B44DDE" name="PuedePagar" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000006_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_5045_11dd_4194_001D60B44DDE">
+					<message xmi:type="uml:Message" xmi:id="EAID_62EDE64E_5046_11dd_4194_001D60B44DDE" name="PuedePagar" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000008_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_5045_11dd_4194_001D60B44DDE">
 						<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000003_5046_11dd_4194_001D60B44DDE" name="50"/>
 					</message>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000007_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000009_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000010_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_76FFD904_5388_11dd_4194_001D60B44DDE" name="ValorDeRetorno:=Verdadero" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000009_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000010_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000011_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_5048_11dd_4194_001D60B44DDE" covered="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_7FB90DD8_5048_11dd_4194_001D60B44DDE" name="new()" messageKind="complete" messageSort="createMessage" sendEvent="EAID_FR000007_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_5048_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000008_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_7FB90DD8_5048_11dd_4194_001D60B44DDE" name="new" messageKind="complete" messageSort="createMessage" sendEvent="EAID_FR000011_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_5048_11dd_4194_001D60B44DDE">
+						<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000003_5048_11dd_4194_001D60B44DDE" name="50"/>
+						<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000014_5048_11dd_4194_001D60B44DDE" name=" unJugador"/>
+						<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000017_5048_11dd_4194_001D60B44DDE" name=" 5"/>
+					</message>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000012_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_503F_11dd_4194_001D60B44DDE" covered="EAID_7E340F7A_503F_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_8905A224_503F_11dd_4194_001D60B44DDE" name="ObtenerMesaCraps" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000008_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_503F_11dd_4194_001D60B44DDE">
+					<message xmi:type="uml:Message" xmi:id="EAID_8905A224_503F_11dd_4194_001D60B44DDE" name="ObtenerMesaCraps" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000012_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_503F_11dd_4194_001D60B44DDE">
 						<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000003_503F_11dd_4194_001D60B44DDE" name="25"/>
 					</message>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000009_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000013_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_5040_11dd_4194_001D60B44DDE" covered="EAID_51504310_5040_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_9821359C_5040_11dd_4194_001D60B44DDE" name="Pertenece" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000009_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_5040_11dd_4194_001D60B44DDE">
+					<message xmi:type="uml:Message" xmi:id="EAID_9821359C_5040_11dd_4194_001D60B44DDE" name="Pertenece" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000013_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_5040_11dd_4194_001D60B44DDE">
 						<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000010_5040_11dd_4194_001D60B44DDE" name="unJugador"/>
 					</message>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000010_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000011_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_AAABD630_5041_11dd_4194_001D60B44DDE" name="ValorDeRetorno:=False" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000010_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000011_5039_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000012_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_503F_11dd_4194_001D60B44DDE" covered="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_B88AB7D2_503F_11dd_4194_001D60B44DDE" name="JugadoresEnMesa()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000012_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000000_503F_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000013_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_5048_11dd_4194_001D60B44DDE" covered="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_C661461A_5048_11dd_4194_001D60B44DDE" name="Puntaje:=5" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000013_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000001_5048_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000014_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000015_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_C888C85C_5046_11dd_4194_001D60B44DDE" name="ValorDeRetorno:=Falso" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000014_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000015_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_AAABD630_5041_11dd_4194_001D60B44DDE" name="ValorDeRetorno:=False" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000014_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000015_5039_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000016_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000002_5048_11dd_4194_001D60B44DDE" covered="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_E9989520_5048_11dd_4194_001D60B44DDE" name="Apostador:=unJugador" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000016_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000002_5048_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_503F_11dd_4194_001D60B44DDE" covered="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_B88AB7D2_503F_11dd_4194_001D60B44DDE" name="JugadoresEnMesa()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000016_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000001_503F_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000017_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_BC106E8C_5388_11dd_4194_001D60B44DDE" name="ValorDeRetorno" messageKind="lost" messageSort="reply" sendEvent="EAID_FR000017_5039_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000018_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_F50587A0_5044_11dd_4194_001D60B44DDE" name="ValorDeRetorno:=Falso" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000017_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000018_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000019_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_C888C85C_5046_11dd_4194_001D60B44DDE" name="ValorDeRetorno:=Falso" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000018_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000019_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000020_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000021_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_F50587A0_5044_11dd_4194_001D60B44DDE" name="ValorDeRetorno:=Falso" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000020_5039_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000021_5039_11dd_4194_001D60B44DDE"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_7E340F7A_503F_11dd_4194_001D60B44DDE" name="MesasAbiertas" visibility="public" represents="EAID_AT000000_F7A_503F_11dd_4194_001D60B44DD"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_503F_11dd_4194_001D60B44DDE" covered="EAID_7E340F7A_503F_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000019_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_9FCD8D00_503F_11dd_4194_001D60B44DDE" name="unaMesaCraps" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000001_503F_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000019_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000022_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_9FCD8D00_503F_11dd_4194_001D60B44DDE" name="unaMesaCraps" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000001_503F_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000022_5039_11dd_4194_001D60B44DDE"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_E1B48EB2_503F_11dd_4194_001D60B44DDE" name="Object1" visibility="public" represents="EAID_AT000000_EB2_503F_11dd_4194_001D60B44DD"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_182D78B8_5041_11dd_4194_001D60B44DDE" name="UsuariosEnCasino" visibility="public" represents="EAID_AT000000_8B8_5041_11dd_4194_001D60B44DD"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_5041_11dd_4194_001D60B44DDE" covered="EAID_182D78B8_5041_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000020_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_4B4BCB64_5041_11dd_4194_001D60B44DDE" name="unJugador" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000001_5041_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000020_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000023_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_4B4BCB64_5041_11dd_4194_001D60B44DDE" name="unJugador" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000001_5041_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000023_5039_11dd_4194_001D60B44DDE"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_B20674AE_5040_11dd_4194_001D60B44DDE" name="unJugador" visibility="public" represents="EAID_AT000000_4AE_5040_11dd_4194_001D60B44DD"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_A9C79700_5045_11dd_4194_001D60B44DDE" name="unJugador:Jugador" visibility="public" represents="EAID_AT000000_700_5045_11dd_4194_001D60B44DD"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_5045_11dd_4194_001D60B44DDE" covered="EAID_A9C79700_5045_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000021_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_81D86502_5046_11dd_4194_001D60B44DDE" name="puede" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000001_5045_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000021_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000024_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_81D86502_5046_11dd_4194_001D60B44DDE" name="puede" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000001_5045_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000024_5039_11dd_4194_001D60B44DDE"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE" name="unaApuesta:EnSitioAGanar" visibility="public" represents="EAID_AT000000_CD6_5048_11dd_4194_001D60B44DD"/>
+					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_ADFE15B6_5387_11dd_4194_001D60B44DDE" name="unaCApuestas:Coleccion&lt;ApuestaCraps&gt;" visibility="public" represents="EAID_AT000000_5B6_5387_11dd_4194_001D60B44DD"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE" name="unaCFichas:Coleccion&lt;Creditos&gt;" visibility="public" represents="EAID_AT000000_2A4_5043_11dd_4194_001D60B44DD"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000002_5043_11dd_4194_001D60B44DDE" covered="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000022_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_4807D238_5044_11dd_4194_001D60B44DDE" name="esValido20" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000002_5043_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000022_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000025_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_4807D238_5044_11dd_4194_001D60B44DDE" name="esValido20" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000002_5043_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000025_5039_11dd_4194_001D60B44DDE"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000003_5043_11dd_4194_001D60B44DDE" covered="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000023_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_6B16C360_5044_11dd_4194_001D60B44DDE" name="esValido10" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000003_5043_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000023_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000026_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_6B16C360_5044_11dd_4194_001D60B44DDE" name="esValido10" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000003_5043_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000026_5039_11dd_4194_001D60B44DDE"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_51504310_5040_11dd_4194_001D60B44DDE" name="unaCJugadores:Coleccion&lt;Jugadores&gt;" visibility="public" represents="EAID_AT000000_310_5040_11dd_4194_001D60B44DD"/>
 					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_5040_11dd_4194_001D60B44DDE" covered="EAID_51504310_5040_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000024_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_AB776B98_5040_11dd_4194_001D60B44DDE" name="estaEnLaColeccion" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000001_5040_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000024_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000027_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_AB776B98_5040_11dd_4194_001D60B44DDE" name="estaEnLaColeccion" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000001_5040_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000027_5039_11dd_4194_001D60B44DDE"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE" name="unaMesa:Mesa" visibility="public" represents="EAID_AT000000_578_503F_11dd_4194_001D60B44DD"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_503F_11dd_4194_001D60B44DDE" covered="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE"/>
-					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000025_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_CCF4A106_503F_11dd_4194_001D60B44DDE" name="unaCJugadores" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000001_503F_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000025_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000002_503F_11dd_4194_001D60B44DDE" covered="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000028_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_15C43D74_5388_11dd_4194_001D60B44DDE" name="unaCApuestas" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000002_503F_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000028_5039_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000003_503F_11dd_4194_001D60B44DDE" covered="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE"/>
+					<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000029_5039_11dd_4194_001D60B44DDE" covered="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_CCF4A106_503F_11dd_4194_001D60B44DDE" name="unaCJugadores" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000003_503F_11dd_4194_001D60B44DDE" receiveEvent="EAID_FR000029_5039_11dd_4194_001D60B44DDE"/>
 				</ownedBehavior>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_7F4_5043_11dd_4194_001D60B44DD"/>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_AAA_5039_11dd_4194_001D60B44DD"/>
@@ -166,10 +184,12 @@
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_4AE_5040_11dd_4194_001D60B44DD"/>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_700_5045_11dd_4194_001D60B44DD"/>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_CD6_5048_11dd_4194_001D60B44DD"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_5B6_5387_11dd_4194_001D60B44DD"/>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_2A4_5043_11dd_4194_001D60B44DD"/>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_310_5040_11dd_4194_001D60B44DD"/>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_578_503F_11dd_4194_001D60B44DD"/>
 			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_B4A6AD32_5388_11dd_4194_001D60B44DDE" visibility="public"/>
 			<packagedElement xmi:type="uml:Class" xmi:id="EAID_19B4285A_503A_11dd_4194_001D60B44DDE" visibility="public"/>
 		</packagedElement>
 		<thecustomprofile:Modelo base_Sequence="EAID_46C267F4_5043_11dd_4194_001D60B44DDE"/>
@@ -179,6 +199,7 @@
 		<thecustomprofile:Modelo base_Sequence="EAID_B20674AE_5040_11dd_4194_001D60B44DDE"/>
 		<thecustomprofile:Modelo base_Sequence="EAID_A9C79700_5045_11dd_4194_001D60B44DDE"/>
 		<thecustomprofile:Modelo base_Sequence="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
+		<thecustomprofile:Modelo base_Sequence="EAID_ADFE15B6_5387_11dd_4194_001D60B44DDE"/>
 		<thecustomprofile:Modelo base_Sequence="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE"/>
 		<thecustomprofile:Modelo base_Sequence="EAID_51504310_5040_11dd_4194_001D60B44DDE"/>
 		<thecustomprofile:Modelo base_Sequence="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE"/>
@@ -216,6 +237,20 @@
 				<times created="2008-07-12 00:00:00" modified="2008-07-12 00:00:00"/>
 				<flags iscontrolled="FALSE" isprotected="FALSE" usedtd="FALSE" logxml="FALSE"/>
 			</element>
+			<element xmi:idref="EAID_B4A6AD32_5388_11dd_4194_001D60B44DDE" xmi:type="uml:MessageEndpoint" scope="public">
+				<model package="EAPK_CE9DA9F4_5039_11dd_4194_001D60B44DDE" tpos="0" ea_localid="202" ea_eleType="element"/>
+				<properties isSpecification="false" sType="MessageEndpoint" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project version="1.0" phase="1.0" created="2008-07-16 19:44:10" modified="2008-07-16 19:44:10" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=3;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="SinMVC"/>
+				<links>
+					<Sequence xmi:id="EAID_BC106E8C_5388_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_B4A6AD32_5388_11dd_4194_001D60B44DDE"/>
+				</links>
+			</element>
 			<element xmi:idref="EAID_19B4285A_503A_11dd_4194_001D60B44DDE" xmi:type="uml:MessageEndpoint" scope="public">
 				<model package="EAPK_CE9DA9F4_5039_11dd_4194_001D60B44DDE" tpos="0" ea_localid="187" ea_eleType="element"/>
 				<properties isSpecification="false" sType="MessageEndpoint" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
@@ -238,7 +273,7 @@
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=3;"/>
 				<modelDocument/>
 				<tags/>
-				<xrefs value="$XREFPROP=$XID={B1D34D4E-5046-11dd-4194-001D60B44DDE}$XID;$NAM=Partitions$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PAR;Name=puede==Verdadero;Size=180;@ENDPAR;@PAR;Name=puede==Falso;Size=52;@ENDPAR;$DES;$CLT={A65DE884-5046-11dd-4194-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<xrefs value="$XREFPROP=$XID={B1D34D4E-5046-11dd-4194-001D60B44DDE}$XID;$NAM=Partitions$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PAR;Name=puede==Verdadero;Size=154;@ENDPAR;@PAR;Name=puede==Falso;Size=52;@ENDPAR;$DES;$CLT={A65DE884-5046-11dd-4194-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 				<extendedProperties tagged="0" package_name="SinMVC" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE"/>
 			</element>
 			<element xmi:idref="EAID_A1C826EC_5044_11dd_4194_001D60B44DDE" xmi:type="uml:InteractionFragment" scope="public">
@@ -249,7 +284,7 @@
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=3;"/>
 				<modelDocument/>
 				<tags/>
-				<xrefs value="$XREFPROP=$XID={BD45CD98-5044-11dd-4194-001D60B44DDE}$XID;$NAM=Partitions$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PAR;Name=esValido20 AND esValido10 == Verdadero;Size=308;@ENDPAR;@PAR;Name=esValido20 AND esValido10 == Falso;Size=55;@ENDPAR;$DES;$CLT={A1C826EC-5044-11dd-4194-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<xrefs value="$XREFPROP=$XID={BD45CD98-5044-11dd-4194-001D60B44DDE}$XID;$NAM=Partitions$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PAR;Name=esValido20 AND esValido10 == Verdadero;Size=274;@ENDPAR;@PAR;Name=esValido20 AND esValido10 == Falso;Size=55;@ENDPAR;$DES;$CLT={A1C826EC-5044-11dd-4194-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 				<extendedProperties tagged="0" package_name="SinMVC" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE"/>
 			</element>
 			<element xmi:idref="EAID_710843DC_5041_11dd_4194_001D60B44DDE" xmi:type="uml:InteractionFragment" scope="public">
@@ -260,7 +295,7 @@
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=3;"/>
 				<modelDocument/>
 				<tags/>
-				<xrefs value="$XREFPROP=$XID={814D7E10-5041-11dd-4194-001D60B44DDE}$XID;$NAM=Partitions$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PAR;Name=estaEnLaColeccion==Verdadero;Size=536;@ENDPAR;@PAR;Name=estaEnLaColeccion==Falso;Size=51;@ENDPAR;$DES;$CLT={710843DC-5041-11dd-4194-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<xrefs value="$XREFPROP=$XID={814D7E10-5041-11dd-4194-001D60B44DDE}$XID;$NAM=Partitions$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PAR;Name=estaEnLaColeccion==Verdadero;Size=496;@ENDPAR;@PAR;Name=estaEnLaColeccion==Falso;Size=51;@ENDPAR;$DES;$CLT={710843DC-5041-11dd-4194-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 				<extendedProperties tagged="0" package_name="SinMVC" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE"/>
 			</element>
 			<element xmi:idref="EAID_46C267F4_5043_11dd_4194_001D60B44DDE" xmi:type="uml:Sequence" name="ConfiguracionCasino" scope="public">
@@ -289,24 +324,28 @@
 				<xrefs value="$XREFPROP=$XID={17801882-503A-11dd-4194-001D60B44DDE}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=Modelo;GUID={C23FA078-4DC2-11dd-4194-0008A19DD2C6};@ENDSTEREO;$DES;$CLT={EAF52AAA-5039-11dd-4194-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 				<extendedProperties tagged="0" package_name="SinMVC"/>
 				<links>
+					<Sequence xmi:id="EAID_01FF9F0E_5388_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_31E7621E_5041_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_182D78B8_5041_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_35C2E6DA_5044_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE"/>
+					<Sequence xmi:id="EAID_3D0C7F68_5388_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_ADFE15B6_5387_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_59ED96CC_5044_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_5D2F2BEE_5043_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_46C267F4_5043_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_62EDE64E_5046_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_A9C79700_5045_11dd_4194_001D60B44DDE"/>
+					<Sequence xmi:id="EAID_76FFD904_5388_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_7FB90DD8_5048_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_8905A224_503F_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_7E340F7A_503F_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_9821359C_5040_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_51504310_5040_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_AAABD630_5041_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_B88AB7D2_503F_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE"/>
-					<Sequence xmi:id="EAID_C661461A_5048_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
+					<Sequence xmi:id="EAID_BC106E8C_5388_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_B4A6AD32_5388_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_C888C85C_5046_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
-					<Sequence xmi:id="EAID_E9989520_5048_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_F50587A0_5044_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<Sequence xmi:id="EAID_15C43D74_5388_11dd_4194_001D60B44DDE" start="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_1E444A3A_503A_11dd_4194_001D60B44DDE" start="EAID_19B4285A_503A_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_4807D238_5044_11dd_4194_001D60B44DDE" start="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_4B4BCB64_5041_11dd_4194_001D60B44DDE" start="EAID_182D78B8_5041_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_6B16C360_5044_11dd_4194_001D60B44DDE" start="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<Sequence xmi:id="EAID_76FFD904_5388_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_81D86502_5046_11dd_4194_001D60B44DDE" start="EAID_A9C79700_5045_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_9175D75E_5043_11dd_4194_001D60B44DDE" start="EAID_46C267F4_5043_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_9FCD8D00_503F_11dd_4194_001D60B44DDE" start="EAID_7E340F7A_503F_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
@@ -396,8 +435,20 @@
 				<extendedProperties tagged="0" package_name="SinMVC"/>
 				<links>
 					<Sequence xmi:id="EAID_7FB90DD8_5048_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
-					<Sequence xmi:id="EAID_C661461A_5048_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
-					<Sequence xmi:id="EAID_E9989520_5048_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_ADFE15B6_5387_11dd_4194_001D60B44DDE" xmi:type="uml:Sequence" name="unaCApuestas:Coleccion&lt;ApuestaCraps&gt;" scope="public">
+				<model package="EAPK_CE9DA9F4_5039_11dd_4194_001D60B44DDE" tpos="0" ea_localid="201" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Sequence" nType="0" scope="public" stereotype="Modelo"/>
+				<project version="1.0" phase="1.0" created="2008-07-16 19:36:49" modified="2008-07-16 19:38:21" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={CCA0443A-5387-11dd-4194-001D60B44DDE}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=Modelo;GUID={C23FA078-4DC2-11dd-4194-0008A19DD2C6};@ENDSTEREO;$DES;$CLT={ADFE15B6-5387-11dd-4194-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="SinMVC"/>
+				<links>
+					<Sequence xmi:id="EAID_3D0C7F68_5388_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_ADFE15B6_5387_11dd_4194_001D60B44DDE"/>
 				</links>
 			</element>
 			<element xmi:idref="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE" xmi:type="uml:Sequence" name="unaCFichas:Coleccion&lt;Creditos&gt;" scope="public">
@@ -443,12 +494,47 @@
 				<xrefs value="$XREFPROP=$XID={B37070FC-503F-11dd-4194-001D60B44DDE}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=Modelo;GUID={C23FA078-4DC2-11dd-4194-0008A19DD2C6};@ENDSTEREO;$DES;$CLT={ABBBC578-503F-11dd-4194-001D60B44DDE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 				<extendedProperties tagged="0" package_name="SinMVC"/>
 				<links>
+					<Sequence xmi:id="EAID_15C43D74_5388_11dd_4194_001D60B44DDE" start="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_CCF4A106_503F_11dd_4194_001D60B44DDE" start="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE" end="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE"/>
+					<Sequence xmi:id="EAID_01FF9F0E_5388_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE"/>
 					<Sequence xmi:id="EAID_B88AB7D2_503F_11dd_4194_001D60B44DDE" start="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" end="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE"/>
 				</links>
 			</element>
 		</elements>
 		<connectors>
+			<connector xmi:idref="EAID_BC106E8C_5388_11dd_4194_001D60B44DDE">
+				<source xmi:idref="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE">
+					<model ea_localid="186" type="Sequence" name="JuegoCraps"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_B4A6AD32_5388_11dd_4194_001D60B44DDE">
+					<model ea_localid="202" type="MessageEndpoint"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="215"/>
+				<properties name="ValorDeRetorno" ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="26" headStyle="0" lineStyle="0"/>
+				<labels mt="ValorDeRetorno"/>
+				<extendedProperties virtualInheritance="0" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=-33;EX=0;EY=0;$LLB=;LLT=;LMT=CX=71:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
 			<connector xmi:idref="EAID_1E444A3A_503A_11dd_4194_001D60B44DDE">
 				<source xmi:idref="EAID_19B4285A_503A_11dd_4194_001D60B44DDE">
 					<model ea_localid="187" type="MessageEndpoint"/>
@@ -548,6 +634,39 @@
 				<xrefs/>
 				<tags/>
 			</connector>
+			<connector xmi:idref="EAID_01FF9F0E_5388_11dd_4194_001D60B44DDE">
+				<source xmi:idref="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE">
+					<model ea_localid="186" type="Sequence" name="JuegoCraps"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE">
+					<model ea_localid="189" type="Sequence" name="unaMesa:Mesa"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="211"/>
+				<properties name="getApuestas()" ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="22" headStyle="0" lineStyle="0"/>
+				<labels mt="getApuestas()"/>
+				<extendedProperties virtualInheritance="0" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=13;EX=0;EY=0;$LLB=;LLT=;LMT=CX=64:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
 			<connector xmi:idref="EAID_31E7621E_5041_11dd_4194_001D60B44DDE">
 				<source xmi:idref="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE">
 					<model ea_localid="186" type="Sequence" name="JuegoCraps"/>
@@ -610,6 +729,39 @@
 				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="13" headStyle="0" lineStyle="0"/>
 				<labels mt="pertenece(20) :boolean"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE" privatedata1="Synchronous" privatedata2="retval=boolean;params=20;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=106:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_3D0C7F68_5388_11dd_4194_001D60B44DDE">
+				<source xmi:idref="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE">
+					<model ea_localid="186" type="Sequence" name="JuegoCraps"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_ADFE15B6_5387_11dd_4194_001D60B44DDE">
+					<model ea_localid="201" type="Sequence" name="unaCApuestas:Coleccion&lt;ApuestaCraps&gt;"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="213"/>
+				<properties name="Agregar" ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="24" headStyle="0" lineStyle="0"/>
+				<labels mt="Agregar(unaApuesta)"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE" privatedata1="Synchronous" privatedata2="retval=void;params=unaApuesta;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=8;EX=0;EY=0;$LLB=;LLT=;LMT=CX=97:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -680,6 +832,39 @@
 				<xrefs/>
 				<tags/>
 			</connector>
+			<connector xmi:idref="EAID_76FFD904_5388_11dd_4194_001D60B44DDE">
+				<source xmi:idref="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE">
+					<model ea_localid="186" type="Sequence" name="JuegoCraps"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE">
+					<model ea_localid="186" type="Sequence" name="JuegoCraps"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="214"/>
+				<properties name="ValorDeRetorno:=Verdadero" ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="25" headStyle="0" lineStyle="0"/>
+				<labels mt="ValorDeRetorno:=Verdadero"/>
+				<extendedProperties virtualInheritance="0" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=13;EX=0;EY=0;$LLB=;LLT=;LMT=CX=128:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
 			<connector xmi:idref="EAID_7FB90DD8_5048_11dd_4194_001D60B44DDE">
 				<source xmi:idref="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE">
 					<model ea_localid="186" type="Sequence" name="JuegoCraps"/>
@@ -704,11 +889,11 @@
 					<tags/>
 				</target>
 				<model ea_localid="208"/>
-				<properties name="new()" ea_type="Sequence" subtype="New" direction="Source -&gt; Destination"/>
+				<properties name="new" ea_type="Sequence" subtype="New" direction="Source -&gt; Destination"/>
 				<documentation/>
 				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="21" headStyle="0" lineStyle="0"/>
-				<labels mt="new()"/>
-				<extendedProperties virtualInheritance="0" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-34;EX=0;EY=0;$LLB=;LLT=;LMT=CX=27:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<labels mt="new(50, unJugador, 5)"/>
+				<extendedProperties virtualInheritance="0" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE" privatedata1="Synchronous" privatedata2="retval=void;params=50, unJugador, 5;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-34;EX=0;EY=0;$LLB=;LLT=;LMT=CX=103:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -845,39 +1030,6 @@
 				<xrefs/>
 				<tags/>
 			</connector>
-			<connector xmi:idref="EAID_C661461A_5048_11dd_4194_001D60B44DDE">
-				<source xmi:idref="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE">
-					<model ea_localid="186" type="Sequence" name="JuegoCraps"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</source>
-				<target xmi:idref="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE">
-					<model ea_localid="200" type="Sequence" name="unaApuesta:EnSitioAGanar"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type aggregation="none" containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</target>
-				<model ea_localid="209"/>
-				<properties name="Puntaje:=5" ea_type="Sequence" direction="Source -&gt; Destination"/>
-				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="22" headStyle="0" lineStyle="0"/>
-				<labels mt="Puntaje:=5"/>
-				<extendedProperties virtualInheritance="0" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=51:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
-				<style/>
-				<xrefs/>
-				<tags/>
-			</connector>
 			<connector xmi:idref="EAID_C888C85C_5046_11dd_4194_001D60B44DDE">
 				<source xmi:idref="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE">
 					<model ea_localid="186" type="Sequence" name="JuegoCraps"/>
@@ -911,39 +1063,6 @@
 				<xrefs/>
 				<tags/>
 			</connector>
-			<connector xmi:idref="EAID_E9989520_5048_11dd_4194_001D60B44DDE">
-				<source xmi:idref="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE">
-					<model ea_localid="186" type="Sequence" name="JuegoCraps"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</source>
-				<target xmi:idref="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE">
-					<model ea_localid="200" type="Sequence" name="unaApuesta:EnSitioAGanar"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type aggregation="none" containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</target>
-				<model ea_localid="210"/>
-				<properties name="Apostador:=unJugador" ea_type="Sequence" direction="Source -&gt; Destination"/>
-				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="23" headStyle="0" lineStyle="0"/>
-				<labels mt="Apostador:=unJugador"/>
-				<extendedProperties virtualInheritance="0" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=6;EX=0;EY=0;$LLB=;LLT=;LMT=CX=105:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
-				<style/>
-				<xrefs/>
-				<tags/>
-			</connector>
 			<connector xmi:idref="EAID_F50587A0_5044_11dd_4194_001D60B44DDE">
 				<source xmi:idref="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE">
 					<model ea_localid="186" type="Sequence" name="JuegoCraps"/>
@@ -973,6 +1092,39 @@
 				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="17" headStyle="0" lineStyle="0"/>
 				<labels mt="ValorDeRetorno:=Falso"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=2;EX=0;EY=0;$LLB=;LLT=;LMT=CX=105:CY=13:OX=-2:OY=-3:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_15C43D74_5388_11dd_4194_001D60B44DDE">
+				<source xmi:idref="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE">
+					<model ea_localid="189" type="Sequence" name="unaMesa:Mesa"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE">
+					<model ea_localid="186" type="Sequence" name="JuegoCraps"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="212"/>
+				<properties name="unaCApuestas" ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="23" headStyle="0" lineStyle="0"/>
+				<labels mt="unaCApuestas"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_D3847D94_5039_11dd_4194_001D60B44DDE" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=13;EX=0;EY=0;$LLB=;LLT=;LMT=CX=65:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -1213,24 +1365,26 @@
 			<diagram xmi:id="EAID_D3847D94_5039_11dd_4194_001D60B44DDE">
 				<model package="EAPK_CE9DA9F4_5039_11dd_4194_001D60B44DDE" localID="14" owner="EAPK_CE9DA9F4_5039_11dd_4194_001D60B44DDE"/>
 				<properties name="DS ApostarCraps" type="Sequence"/>
-				<project version="1.0" created="2008-07-12 14:41:58" modified="2008-07-12 16:30:20"/>
+				<project version="1.0" created="2008-07-12 14:41:58" modified="2008-07-16 19:51:59"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=823;DocSize.cy=1169;ShowDetails=0;Orientation=P;Zoom=105;ShowTags=0;OpParams=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;"/>
 				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=0;TDurLow=0;TDurHigh=100;TDurUnit=;TDurHide=0;INT_ARGS=;INT_RET=;INT_ATT=;SeqTopMargin=50;TConnectorNotation=;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;ShowNotes=0;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
 				<elements>
-					<element geometry="Left=69;Top=763;Right=1514;Bottom=995;" subject="EAID_A65DE884_5046_11dd_4194_001D60B44DDE" seqno="1" style="DUID=A65D9744;ImageID=0;"/>
-					<element geometry="Left=48;Top=645;Right=1530;Bottom=1008;" subject="EAID_A1C826EC_5044_11dd_4194_001D60B44DDE" seqno="2" style="DUID=A1C7D5CA;"/>
-					<element geometry="Left=29;Top=434;Right=1546;Bottom=1021;" subject="EAID_710843DC_5041_11dd_4194_001D60B44DDE" seqno="3" style="DUID=7107F116;"/>
-					<element geometry="Left=20;Top=128;Right=34;Bottom=142;" subject="EAID_19B4285A_503A_11dd_4194_001D60B44DDE" seqno="4" style="DUID=19B3D17A;"/>
-					<element geometry="Left=1344;Top=50;Right=1467;Bottom=996;" subject="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE" seqno="5" style="DUID=27E0CDC6;"/>
-					<element geometry="Left=1092;Top=50;Right=1243;Bottom=996;" subject="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE" seqno="6" style="DUID=FD3A91BE;"/>
-					<element geometry="Left=996;Top=50;Right=1086;Bottom=996;" subject="EAID_46C267F4_5043_11dd_4194_001D60B44DDE" seqno="7" style="DUID=46C2159C;"/>
-					<element geometry="Left=595;Top=50;Right=685;Bottom=996;" subject="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE" seqno="8" style="DUID=ABBB769A;"/>
-					<element geometry="Left=499;Top=50;Right=589;Bottom=996;" subject="EAID_7E340F7A_503F_11dd_4194_001D60B44DDE" seqno="9" style="DUID=7E33E860;"/>
-					<element geometry="Left=809;Top=50;Right=989;Bottom=996;" subject="EAID_51504310_5040_11dd_4194_001D60B44DDE" seqno="10" style="DUID=514FF2D4;"/>
-					<element geometry="Left=714;Top=50;Right=804;Bottom=996;" subject="EAID_182D78B8_5041_11dd_4194_001D60B44DDE" seqno="11" style="DUID=182D2976;"/>
-					<element geometry="Left=1251;Top=50;Right=1341;Bottom=996;" subject="EAID_A9C79700_5045_11dd_4194_001D60B44DDE" seqno="12" style="DUID=A9C746A6;"/>
-					<element geometry="Left=323;Top=50;Right=413;Bottom=996;" subject="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" seqno="13" style="DUID=EAF4D456;"/>
+					<element geometry="Left=76;Top=1000;Right=90;Bottom=1014;" subject="EAID_B4A6AD32_5388_11dd_4194_001D60B44DDE" seqno="1" style="DUID=B4A6544A;"/>
+					<element geometry="Left=69;Top=763;Right=1545;Bottom=969;" subject="EAID_A65DE884_5046_11dd_4194_001D60B44DDE" seqno="2" style="DUID=A65D9744;ImageID=0;"/>
+					<element geometry="Left=48;Top=645;Right=1558;Bottom=974;" subject="EAID_A1C826EC_5044_11dd_4194_001D60B44DDE" seqno="3" style="DUID=A1C7D5CA;"/>
+					<element geometry="Left=29;Top=434;Right=1573;Bottom=981;" subject="EAID_710843DC_5041_11dd_4194_001D60B44DDE" seqno="4" style="DUID=7107F116;"/>
+					<element geometry="Left=20;Top=128;Right=34;Bottom=142;" subject="EAID_19B4285A_503A_11dd_4194_001D60B44DDE" seqno="5" style="DUID=19B3D17A;"/>
+					<element geometry="Left=1251;Top=50;Right=1341;Bottom=1037;" subject="EAID_A9C79700_5045_11dd_4194_001D60B44DDE" seqno="6" style="DUID=A9C746A6;"/>
+					<element geometry="Left=714;Top=50;Right=804;Bottom=1037;" subject="EAID_182D78B8_5041_11dd_4194_001D60B44DDE" seqno="7" style="DUID=182D2976;"/>
+					<element geometry="Left=809;Top=50;Right=989;Bottom=1037;" subject="EAID_51504310_5040_11dd_4194_001D60B44DDE" seqno="8" style="DUID=514FF2D4;"/>
+					<element geometry="Left=499;Top=50;Right=589;Bottom=1037;" subject="EAID_7E340F7A_503F_11dd_4194_001D60B44DDE" seqno="9" style="DUID=7E33E860;"/>
+					<element geometry="Left=595;Top=50;Right=685;Bottom=1037;" subject="EAID_ABBBC578_503F_11dd_4194_001D60B44DDE" seqno="10" style="DUID=ABBB769A;"/>
+					<element geometry="Left=996;Top=50;Right=1086;Bottom=1037;" subject="EAID_46C267F4_5043_11dd_4194_001D60B44DDE" seqno="11" style="DUID=46C2159C;"/>
+					<element geometry="Left=1092;Top=50;Right=1243;Bottom=1037;" subject="EAID_FD3AE2A4_5043_11dd_4194_001D60B44DDE" seqno="12" style="DUID=FD3A91BE;"/>
+					<element geometry="Left=1344;Top=50;Right=1467;Bottom=1037;" subject="EAID_27E11CD6_5048_11dd_4194_001D60B44DDE" seqno="13" style="DUID=27E0CDC6;"/>
+					<element geometry="Left=1394;Top=50;Right=1584;Bottom=1037;" subject="EAID_ADFE15B6_5387_11dd_4194_001D60B44DDE" seqno="14" style="DUID=ADFDBE72;"/>
+					<element geometry="Left=323;Top=50;Right=413;Bottom=1037;" subject="EAID_EAF52AAA_5039_11dd_4194_001D60B44DDE" seqno="15" style="DUID=EAF4D456;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_1E444A3A_503A_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_8905A224_503F_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_9FCD8D00_503F_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
@@ -1252,8 +1406,11 @@
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_81D86502_5046_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_C888C85C_5046_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_7FB90DD8_5048_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_C661461A_5048_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_E9989520_5048_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_01FF9F0E_5388_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_15C43D74_5388_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_3D0C7F68_5388_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_76FFD904_5388_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_BC106E8C_5388_11dd_4194_001D60B44DDE" style=";Hidden=0;"/>
 				</elements>
 			</diagram>
 		</diagrams>
