@@ -47,7 +47,7 @@ namespace CasinoOnline.Servidor.Vista
 			}
 			catch(Exception ex)
 			{
-				Log.Error("Exepcion levantando el nuevo XML.\n	Ruta: " + ruta_archivo + ".\n	Excepcion: " + ex.ToString());
+				Log.Error("Excepcion levantando el nuevo XML.\n	Ruta: " + ruta_archivo + ".\n	Excepcion: " + ex.ToString());
 			}
 
 			// Borro el archivo del buffer de entrada
