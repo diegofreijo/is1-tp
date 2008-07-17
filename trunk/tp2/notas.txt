@@ -25,6 +25,8 @@ Notar que cuando alguien entra, el mensajero de entrada debe hacer un NotificarE
 
 + Hacemos que el tipo de jugada se acople a la idea de que hay un singleton con el pozo que necesita para dejarle a el solo la responsabilidad de saber que pozo necesita clonar. Si se le pasase por parametro, el que lo haga va a necesitar saber que pozo pasarle y va a necesitar un switch o algo asi, ademas de tener que saber la existencia de varios tipo de jugdada con varios tipo de pozos. Y no es feliz.
 
++ Perro de 3 patas!
+
 
 
 
