@@ -1,12 +1,72 @@
 AccesoYManejoAdministrador
 ===========================
 
+///////////////////
+// Autenticación //
+///////////////////
+
+Login
+-----
+
+Nombre del archivo: loginXXYYYY.xml
+	XX: número de grupo
+	YYYY: número de terminal virtual
+    
+Descripción del xml:
+<?xml version="1.0" encoding="UTF-8" ?>
+<login vTerm="id terminal virtual" password="password de administrador"/>
+
+
+RespuestaLogin (aceptar/denegar Login)
+--------------
+
+Nombre del archivo: respuestaLoginXXYYYY.xml
+	XX: número de grupo
+	YYYY: número de terminal virtual
+    
+Descripción del xml:
+<?xml version="1.0" encoding="UTF-8" ?>
+<respuestaLogin vTerm="id terminal virtual">
+    <aceptado fueAceptado="si | no" />
+    <descripcion>"información adicional, de por qué no fue aceptado por ejemplo u otra informacion relevante"</descripcion>
+</respuestaLogin>
+
+
+Logout
+------
+
+Nombre del archivo: logoutXXYYYY.xml
+	XX: número de grupo
+	YYYY: número de terminal virtual
+    
+Descripción del xml:
+<?xml version="1.0" encoding="UTF-8" ?>
+<logout vTerm="id terminal virtual" />
+
+
+RespuestaLogout (aceptar/denegar Logout)
+---------------
+
+Nombre del archivo: respuestaLogoutXXYYYY.xml
+	XX: número de grupo
+	YYYY: número de terminal virtual
+    
+Descripción del xml:
+<?xml version="1.0" encoding="UTF-8" ?>
+<respuestaLogout vTerm="id terminal virtual">
+    <aceptado fueAceptado="si | no" />
+    <descripcion>"información adicional, de por qué no fue aceptado por ejemplo u otra informacion relevante"</descripcion>
+</respuestaLogout>
+
+
+
 //////////////
 // Reportes //
 //////////////
 
 PedidoReporteRankingDeJugadores
-------------------------------
+-------------------------------
+
 Nombre del archivo: pedidoReporteRankingDeJugadoresXXYYYY.xml
 	XX: número de grupo
 	YYYY: número de terminal virtual
@@ -16,7 +76,8 @@ Descripción del xml
 
 
 RespuestaReporteRankingDeJugadores
-------------------------------
+----------------------------------
+
 Nombre del archivo: respuestaReporteRankingDeJugadoresXXYYYY.xml
 	XX: número de grupo
 	YYYY: número de terminal virtual
@@ -34,11 +95,9 @@ Descripción del xml
 </respuestaReporteRankingDeJugadores>
 
 
-
-
-
 PedidoReporteEstadoActual
-------------------------------
+-------------------------
+
 Nombre del archivo: pedidoReporteEstadoActualXXYYYY.xml
 	XX: número de grupo
 	YYYY: número de terminal virtual
@@ -48,7 +107,8 @@ Descripción del xml
 
 
 RespuestaReporteEstadoActual
-------------------------------
+----------------------------
+
 Nombre del archivo: respuestaReporteEstadoActualXXYYYY.xml
 	XX: número de grupo
 	YYYY: número de terminal virtual
@@ -109,27 +169,26 @@ Descripción del xml
 </respuestaReporteEstadoActual>
 
 
+PedidoReporteMovimientos
+------------------------
 
-
-
-PedidoReporteDetalleMovimientosPorJugador
-------------------------------
-Nombre del archivo: pedidoReporteDetalleMovimientosPorJugadorXXYYYY.xml
+Nombre del archivo: pedidoReporteMovimientosXXYYYY.xml
 	XX: número de grupo
 	YYYY: número de terminal virtual
 Descripción del xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<pedidoReporteDetalleMovimientosPorJugador vTerm="id terminal virtual"></pedidoReporteDetalleMovimientosPorJugador>
+<pedidoReporteMovimientos vTerm="id terminal virtual"></pedidoReporteMovimientos>
 
 
-RespuestaReporteDetalleMovimientosPorJugador
-------------------------------
-Nombre del archivo: respuestaReporteDetalleMovimientosPorJugadorXXYYYY.xml
+RespuestaReporteMovimientos
+---------------------------
+
+Nombre del archivo: respuestaReporteMovimientosXXYYYY.xml
 	XX: número de grupo
 	YYYY: número de terminal virtual
 Descripción del xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<respuestaReporteDetalleMovimientosPorJugador vTerm="id terminal virtual">
+<respuestaReporteMovimientos vTerm="id terminal virtual">
 	<jugador nombre="nombre del jugador">
 		<jugadasTragamonedas>
 			<jugadaTragamonedas tipo="normal | todos ponen | feliz | gordo progresivo | feliz y gordo progresivo">
@@ -159,7 +218,7 @@ Descripción del xml
 		...
 	</jugador>
 	...
-</respuestaReporteDetalleMovimientosPorJugador>
+</respuestaReporteMovimientos>
 
 
 
@@ -179,7 +238,7 @@ Descripción del xml:
 <entradaModoDirigidoTragamonedas vTerm="id terminal virtual" />
 
 
-Respuesta Entrada ModoDirigido::Tragamonedas
+Respuesta Entrada ModoDirigido::Tragamonedas (aceptar/denegar EntradaModoDirigidoTragamonedas)
 --------------------------------------------
 
 Nombre del archivo: respuestaEntradaModoDirigidoTragamonedasXXYYYY.xml
@@ -215,7 +274,7 @@ Descripción del xml:
 <entradaModoDirigidoCraps vTerm="id terminal virtual" />
 
 
-Respuesta Entrada ModoDirigido::Craps
+Respuesta Entrada ModoDirigido::Craps (aceptar/denegar EntradaModoDirigidoCraps)
 -------------------------------------
 
 Nombre del archivo: respuestaEntradaModoDirigidoCrapsXXYYYY.xml
@@ -251,7 +310,7 @@ Descripción del xml:
 <entradaModoDirigidoJugadaFeliz vTerm="id terminal virtual" />
 
 
-Respuesta Entrada ModoDirigido::JugadaFeliz
+Respuesta Entrada ModoDirigido::JugadaFeliz (aceptar/denegar EntradaModoDirigidoJugadaFeliz)
 -------------------------------------------
 
 Nombre del archivo: respuestaEntradaModoDirigidoJugadaFelizXXYYYY.xml
@@ -280,7 +339,7 @@ Descripción del xml:
 <salidaModoDirigidoTragamonedas vTerm="id terminal virtual" />
 
 
-Respuesta Salida ModoDirigido::Tragamonedas
+Respuesta Salida ModoDirigido::Tragamonedas (aceptar/denegar SalidaModoDirigidoTragamonedas)
 -------------------------------------------
 
 Nombre del archivo: respuestaSalidaModoDirigidoTragamonedasXXYYYY.xml
@@ -307,7 +366,7 @@ Descripción del xml:
 <salidaModoDirigidoCraps vTerm="id terminal virtual" />
 
 
-Respuesta Salida ModoDirigido::Craps
+Respuesta Salida ModoDirigido::Craps (aceptar/denegar SalidaModoDirigidoCraps)
 ------------------------------------
 
 Nombre del archivo: respuestaSalidaModoDirigidoCrapsXXYYYY.xml
@@ -334,7 +393,7 @@ Descripción del xml:
 <salidaModoDirigidoJugadaFeliz vTerm="id terminal virtual" />
 
 
-Respuesta Salida ModoDirigido::JugadaFeliz
+Respuesta Salida ModoDirigido::JugadaFeliz (aceptar/denegar SalidaModoDirigidoJugadaFeliz)
 ------------------------------------------
 
 Nombre del archivo: respuestaSalidaModoDirigidoJugadaFelizXXYYYY.xml
@@ -372,7 +431,7 @@ Descripción del xml:
 </configurarModoDirigidoTragamonedas>
 
 
-Respuesta Configurar ModoDirigido::Tragamonedas
+Respuesta Configurar ModoDirigido::Tragamonedas (aceptar/denegar ConfigurarModoDirigidoTragamonedas)
 -----------------------------------------------
 
 Nombre del archivo: respuestaConfigurarModoDirigidoTragamonedasXXYYYY.xml
@@ -409,7 +468,7 @@ Descripción del xml:
 </configurarModoDirigidoCraps>
 
 
-Respuesta Configurar ModoDirigido::Craps
+Respuesta Configurar ModoDirigido::Craps (aceptar/denegar ConfigurarModoDirigidoCraps)
 ----------------------------------------
 
 Nombre del archivo: respuestaConfigurarModoDirigidoCrapsXXYYYY.xml
@@ -440,7 +499,7 @@ Descripción del xml:
 </configurarModoDirigidoJugadaFeliz>
 
 
-Respuesta Configurar ModoDirigido::JugadaFeliz
+Respuesta Configurar ModoDirigido::JugadaFeliz (aceptar/denegar ConfigurarModoDirigidoJugadaFeliz)
 ----------------------------------------------
 
 Nombre del archivo: respuestaConfigurarModoDirigidoJugadaFelizXXYYYY.xml
