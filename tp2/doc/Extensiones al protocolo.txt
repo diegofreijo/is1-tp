@@ -41,7 +41,7 @@ Nombre del archivo: logoutXXYYYY.xml
     
 Descripción del xml:
 <?xml version="1.0" encoding="UTF-8" ?>
-<logout vTerm="id terminal virtual" />
+<logout vTerm="id terminal virtual" password="password de administrador" />
 
 
 RespuestaLogout (aceptar/denegar Logout)
