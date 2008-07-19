@@ -27,6 +27,7 @@ Notar que cuando alguien entra, el mensajero de entrada debe hacer un NotificarE
 
 + Perro de 3 patas!
 
++ En la resolucion de cada apuesta, para poder reutilizar la logica de TipoJugadaDeCasino se le necesitan pasar las jugadas, apuestas y resultados genericos. Esto genera que haya que terminar haciendo un casteo a la hora de obtener info especifica (por ej, el valor de los dados en un resultado craps o el valor del punto en una jugada craps).
 
 
 
