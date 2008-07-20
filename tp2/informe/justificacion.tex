@@ -36,7 +36,13 @@ creemos que no es una buena decisi'on ya que si no contamos con ella, violariamo
 que si en un futuro el pedido cambia y por ejemplo decicimos agregar un timestamp para que caduque tendriamos que 
 modificar funcionalidades ya testeadas.
 
-\subsection{Cliente}
+\subsection{Clientes}
+
+Bas'andonos en las especificaciones observamos que ser'ia coherente que un usuario jugador/observador no conozca las posibles funcionalidades que puede utilizar un administrador y viceversa. En particular nos parece que los aspectos relacionados con el modo dirigido deber'ian incluso quedar expl'icitamente ocultos a observadores y jugadores. Por estas razones hemos decidido construir dos aplicaciones cliente separadas para modularizar el acceso a las distintas funcionalidades que un usuario puede efectuar. De esta forma dise~namos un cliente para jugadores/observadores y otro cliente exclusivo para administradores.
+
+\subsubsection{Cliente Jugadores/Observadores}
+
+\subsubsection{\label{Clientes::Administradores} Cliente Administradores}
 
 El cliente se basa en un diseño en capas.
 

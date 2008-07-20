@@ -1,235 +1,433 @@
-Las extensiones del protocolo est'an en un documento adjunto.
-% \begin{verbatim}
-%  
-% AccesoYManejoAdministrador
-% ===========================
-% 
-% PedidoReporteRankingDeJugadores
-% ------------------------------
-% Nombre del archivo: pedidoReporteRankingDeJugadoresXXYYYY.xml
-% 	XX: número de grupo
-% 	YYYY: número de terminal virtual
-% Descripción del xml
-% <?xml version="1.0" encoding="UTF-8" ?>
-% <pedidoReporteRankingDeJugadores vTerm="id terminal virtual"></pedidoReporteRankingDeJugadores>
-% 
-% 
-% RespuestaReporteRankingDeJugadores
-% ------------------------------
-% Nombre del archivo: respuestaReporteRankingDeJugadoresXXYYYY.xml
-% 	XX: número de grupo
-% 	YYYY: número de terminal virtual
-% Descripción del xml
-% <?xml version="1.0" encoding="UTF-8" ?>
-% <respuestaReporteRankingDeJugadores vTerm="id terminal virtual">
-% 	<jugadoresMasGanadores>
-% 		<jugador ranking="posicion" nombre="nombre del jugador" />
-% 		...
-% 	</jugadoresMasGanadores>
-% 	<jugadoresMasPerdedores>
-% 		<jugador ranking="posicion" nombre="nombre del jugador" />
-% 		...
-% 	</jugadoresMasPerdedores>
-% </respuestaReporteRankingDeJugadores>
-% 
-% 
-% 
-% 
-% 
-% PedidoReporteEstadoActual
-% ------------------------------
-% Nombre del archivo: pedidoReporteEstadoActualXXYYYY.xml
-% 	XX: número de grupo
-% 	YYYY: número de terminal virtual
-% Descripción del xml
-% <?xml version="1.0" encoding="UTF-8" ?>
-% <pedidoReporteEstadoActual vTerm="id terminal virtual"></pedidoReporteEstadoActual>
-% 
-% 
-% RespuestaReporteEstadoActual
-% ------------------------------
-% Nombre del archivo: respuestaReporteEstadoActualXXYYYY.xml
-% 	XX: número de grupo
-% 	YYYY: número de terminal virtual
-% Descripción del xml
-% <?xml version="1.0" encoding="UTF-8" ?>
-% <respuestaReporteEstadoActual vTerm="id terminal virtual">
-% 	<jugadores>
-% 		<jugador nombre="nombre del usuario jugador" />
-% 		... 
-% 	</jugadores>
-% 	<observadores>
-% 		<observador nombre="nombre del usuario observador" />
-% 		...
-% 	</observadores>
-% 	<juegos>
-% 		<tragamonedas>
-% 			<pozoProgresivo>"monto del pozo progresivo de las tragamonedas"</pozoProgresivo>
-% 			<mesasTragamonedas>
-% 				<mesaTragamonedas id="id del tragamonedas">
-% 					<jugador>"nombre del jugador en la mesa"</jugador>
-% 					<ultimoTiro>
-% 						<tirador>"nombre del jugador que efectuó el ultimo tiro"</tirador>
-% 						<resultado>
-% 							<rueda1>"cereza" o "bar simple" o "bar doble" o "bar triple" o "dinosaurio"</rueda1>
-% 							<rueda2>"cereza" o "bar simple" o "bar doble" o "bar triple" o "dinosaurio"</rueda2>
-% 							<rueda3>"cereza" o "bar simple" o "bar doble" o "bar triple" o "dinosaurio"</rueda3>
-% 						</resultado>
-% 					</ultimoTiro>
-% 				</mesaTragamonedas>
-% 				...
-% 			</mesasTragamonedas>
-% 		</tragamonedas>
-% 		<craps>
-% 			<mesasCraps>
-% 				<mesaCraps id="id de mesa craps">
-% 					<jugadores>
-% 						<jugador>"nombre de un jugador en la mesa"</jugador>
-% 						...
-% 					</jugadores>
-% 					<proximoTiro>
-% 						<tirador>"nombre del jugador con el turno" (si no ningún próximo tirador,
-%                                                    el tag estará vacío) </tirador>
-% 						<tiroSalida>"Si" o No, según sea o no tiro de salida (si no hay 
-%                                                           próximo tirador, el tag estará vacío) </tiroSalida>
-% 						<punto>"valor del punto establecido en el tiro de salida" (si es
-%                                                        punto de salida o no hay próximo tirador,el tag estará vacío) </punto>
-% 					</proximoTiro>
-% 					<ultimoTiro>
-% 						<tirador>"nombre del jugador que efectuó el ultimo tiro"</tirador>
-% 						<resultado></resultado>
-% 					</ultimoTiro>
-% 				</mesaCraps>
-% 				...
-% 			</mesasCraps>
-% 		</craps>
-% 	</juegos>
-% 	<pozosCasino>
-% 		<pozoFeliz>"monto del pozo feliz"</pozoFeliz>
-% 	</pozosCasino>
-% 	<saldoCasino>"saldo del casino"</saldoCasino>
-% </respuestaReporteEstadoActual>
-% 
-% 
-% 
-% 
-% 
-% PedidoReporteDetalleMovimientosPorJugador
-% ------------------------------
-% Nombre del archivo: pedidoReporteDetalleMovimientosPorJugadorXXYYYY.xml
-% 	XX: número de grupo
-% 	YYYY: número de terminal virtual
-% Descripción del xml
-% <?xml version="1.0" encoding="UTF-8" ?>
-% <pedidoReporteDetalleMovimientosPorJugador vTerm="id terminal virtual"></pedidoReporteDetalleMovimientosPorJugador>
-% 
-% 
-% RespuestaReporteDetalleMovimientosPorJugador
-% ------------------------------
-% Nombre del archivo: respuestaReporteDetalleMovimientosPorJugadorXXYYYY.xml
-% 	XX: número de grupo
-% 	YYYY: número de terminal virtual
-% Descripción del xml
-% <?xml version="1.0" encoding="UTF-8" ?>
-% <respuestaReporteDetalleMovimientosPorJugador vTerm="id terminal virtual">
-% 	<jugador nombre="nombre del jugador">
-% 		<jugadasTragamonedas>
-% 			<jugadaTragamonedas tipo="normal | todos ponen | feliz |
-%                                  gordo progresivo | feliz y gordo progresivo">
-% 				<mesa id="id de mesa" valorFicha="valor de ficha en la mesa" />
-% 				<apuesta fichas="cantidad de fichas apostadas" />
-% 				<resultado>
-% 					<rodillo figura="figura del rodillo" />
-% 					...
-% 				</resultado>
-% 				<pozoFeliz monto="monto del pozo">
-% 				<pozoProgesivo monto="monto del pozo">
-% 			</jugadaTragamonedas>
-% 			...
-% 		</jugadasTragamonedas>
-% 		<jugadasCraps tiroSalida="si | no" punto="valor de punto" tipo="normal
-%                      | todos ponen | feliz | gordo progresivo | feliz y gordo progresivo">
-% 			<jugadaCraps>
-% 				<mesa id="id de mesa" />
-% 				<apuesta monto="creditos apostados" tipo="en sitio a perder
-%                                | en sitio a ganar | de campo | venir | no venir | barra no pase | linea de pase" />
-% 				<resultado>
-% 					<dado numero="numero del dado">
-% 					...
-% 				</resultado>
-% 				<pozoFeliz monto="monto del pozo">
-% 			</jugadaCraps>
-% 			...
-% 		</jugadasCraps>
-% 		...
-% 	</jugador>
-% 	...
-% </respuestaReporteDetalleMovimientosPorJugador>
-% 
-% 
-% 
-% 
-% EstablecerModoDirigidoTragamonedas
-% ----------------------------------------
-% Nombre del archivo: establecerModoDirigidoTragamonedasXXYYYY.xml
-% 	XX: número de grupo
-% 	YYYY: número de terminal virtual
-% Descripción del xml
-% <?xml version="1.0" encoding="UTF-8" ?>
-% <establecerModoDirigidoTragamonedas vTerm="id terminal virtual">
-% 	<modoDirgido gordoProgresivo="sale | no sale | azar" jugadaFeliz="sale 
-%           | no sale | azar" jugadaTodosPonen="sale | no sale | azar" >
-% 		[<resultado>
-% 			<rodillo figura="figura que debe salir">
-% 			...
-% 		</resultado> | vacio si no se especifica un resultado]
-% 	</modoDirgido>
-% </establecerModoDirigidoTragamonedas>
-% 
-% 
-% RespuestaEstablecerModoDirigidoTragamonedas
-% ----------------------------------------
-% Nombre del archivo: establecerModoDirigidoTragamonedasXXYYYY.xml
-% 	XX: número de grupo
-% 	YYYY: número de terminal virtual
-% Descripción del xml
-% <?xml version="1.0" encoding="UTF-8" ?>
-% <respuestaEstablecerModoDirigidoTragamonedas vTerm="id terminal virtual">
-% 	<aceptado fueAceptado="si | no" />
-% 	<descripcion>"descripcion adicional, de porque no fue aceptado 
-% por ejemplo u otra informacion relevante"</descripcion>
-% </respuestaEstablecerModoDirigidoTragamonedas>
-% 
-% 
-% 
-% 	
-% EstablecerModoDirigidoCraps
-% ----------------------------------------
-% Nombre del archivo: establecerModoDirigidoCrapsXXYYYY.xml
-% 	XX: número de grupo
-% 	YYYY: número de terminal virtual
-% Descripción del xml
-% <?xml version="1.0" encoding="UTF-8" ?>
-% <establecerModoDirigidoCraps vTerm="id terminal virtual">
-% 	<modoDirgido jugadaFeliz="sale | no sale | azar" jugadaTodosPonen="sale | no sale | azar" >
-% 		[<resultado>
-% 			<dado numero="numero que debe salir en el dado">
-% 			...
-% 		</resultado> | vacio si no se especifica un resultado]
-% 	</modoDirgido>
-% </establecerModoDirigidoCraps>
-% 
-% 
-% RespuestaEstablecerModoDirigidoCraps
-% ----------------------------------------
-% Nombre del archivo: establecerModoDirigidoCrapsXXYYYY.xml
-% 	XX: número de grupo
-% 	YYYY: número de terminal virtual
-% Descripción del xml
-% <?xml version="1.0" encoding="UTF-8" ?>
-% <respuestaEstablecerModoDirigidoCraps vTerm="id terminal virtual">
-% 	<aceptado fueAceptado="si | no" />
-% 	<descripcion>"descripcion adicional, de porque no fue aceptado por ejemplo 
-% u otra informacion relevante"</descripcion>
-% </respuestaEstablecerModoDirigidoCraps>
-% \end{verbatim}
+A continuaci'on se detallan las extensiones al protocolo realizadas para soportar las funcionalidades referidas al manejo de pedido de reportes y modo dirigido para administradores desde una terminal de administrador (ver \ref{Clientes::Administradores}).
+
+\subsection{Componente TVirt Admin$_i$} 
+\subsubsection{Port AccesoYManejoAdministrador$_i$}
+
+\subsubsection{Descripci'on}
+
+Este protocolo corresponde a un port de un componente cliente de un Cliente/Servidor.
+
+Se usa para que un usuario administrador pueda:
+\begin{itemize}
+    \item{autenticarse}
+    \item{pedir reportes}
+    \item{configurar opciones del modo dirigido}
+\end{itemize}
+
+El servidor no deber'ia aceptar los diferentes pedidos admitidos por este protocolo si el usuario administrador no se autentica como tal al iniciar la aplicaci'on.
+
+Este protocolo permite que el acceso de un usuario administrador sea exclusivo, no admitiendo el servidor que ingrese m'as de un administrador en forma simult'anea. 
+Esto asegura la consistencia de los datos ya que el servidor centraliza y administra los accesos.
+
+Hemos factorizado en un mismo mensaje las dos posibles respuestas de parte del servidor en cuanto a la configuraci'on del casino en modo dirigido. Es importante destacar que estas respuestas son simplemente a modo informativo de que las configuraciones de modo dirigido fueron modificadas con 'exito (o no han podido ser modificadas). La aplicaci'on cliente no tendr'ia por qu'e modificar su estado en respuesta a estas notificaciones, salvo a lo sumo dar acuse de recibo al usuario por alg'un mecanismo (un messagebox por ejemplo). El 'unico caso en que el servidor deber'ia contestar en forma negativa estos pedidos es cuando el usuario que hace el pedido no fue autenticado satisfactoriamente por el servidor o bien se intenta acceder de forma ilegal, lo cual suponemos no resulta interesante a los fines del trabajo pr'actico en cuesti'on.
+
+\subsubsection{Diagrama}
+El siguiente diagrama describe los estados y transiciones que ocurren cuando se hace un uso esperado del protocolo.
+
+Se realizaron cambios con respecto a la notaci'on empleada en el documento del protocolo original para poder reducir la cantidad de flechas con el fin de que el diagrama sea m'as legible. A saber, se admiten flechas bidireccionales en el grafo dirigido, esto significa que puede recorrerse ese eje en ambas direcciones. En el documento original se utilizaban 2 flechas con direcci'on opuesta para representar esto.
+
+\imagenvertical{FSM_portAccesoYManejoAdministrador.png}{Diagrama de estados}{0.4}
+
+\clearpage
+\subsubsection{Archivos de comunicaci'on}
+
+
+\subsubsubsection{login}
+\bf{Nombre del archivo:} \it{loginXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <login vTerm="id terminal virtual" password="password de administrador"/>
+\end{verbatim}
+
+
+\subsubsubsection{aceptarLogin}
+\bf{Nombre del archivo:} \it{respuestaLoginXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaLogin vTerm="id terminal virtual">
+        <aceptado fueAceptado="si" />
+        <descripcion>"informaci'on adicional"</descripcion>
+    </respuestaLogin>
+\end{verbatim}
+
+
+\subsubsubsection{denegarLogin}
+\bf{Nombre del archivo:} \it{respuestaLoginXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaLogin vTerm="id terminal virtual">
+        <aceptado fueAceptado="no" />
+        <descripcion>"informaci'on adicional, de por qu'e no fue aceptado por ejemplo
+        u otra informacion relevante"</descripcion>
+    </respuestaLogin>
+\end{verbatim}
+
+
+\subsubsubsection{logout}
+\bf{Nombre del archivo:} \it{logoutXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <logout vTerm="id terminal virtual" password="password de administrador"/>
+\end{verbatim}
+
+
+\subsubsubsection{aceptarLogout}
+\bf{Nombre del archivo:} \it{respuestaLogoutXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaLogout vTerm="id terminal virtual">
+        <aceptado fueAceptado="si" />
+        <descripcion>"informaci'on adicional"</descripcion>
+    </respuestaLogout>
+\end{verbatim}
+
+
+\subsubsubsection{denegarLogout}
+\bf{Nombre del archivo:} \it{respuestaLogoutXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaLogout vTerm="id terminal virtual">
+        <aceptado fueAceptado="no" />
+        <descripcion>"informaci'on adicional, de por qu'e no fue aceptado por ejemplo
+        u otra informacion relevante"</descripcion>
+    </respuestaLogout>
+\end{verbatim}
+
+
+\subsubsubsection{pedirReporteRankingDeJugadores}
+\bf{Nombre del archivo:} \it{pedidoReporteRankingDeJugadoresXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <pedidoReporteRankingDeJugadores vTerm="id terminal virtual" />
+\end{verbatim}
+
+
+\subsubsubsection{respuestaReporteRankingDeJugadores}
+\bf{Nombre del archivo:} \it{respuestaReporteRankingDeJugadoresXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaReporteRankingDeJugadores vTerm="id terminal virtual">
+        <jugadoresMasGanadores>
+            <jugador ranking="posicion" nombre="nombre del jugador" />
+            ...
+        </jugadoresMasGanadores>
+        <jugadoresMasPerdedores>
+            <jugador ranking="posicion" nombre="nombre del jugador" />
+            ...
+        </jugadoresMasPerdedores>
+    </respuestaReporteRankingDeJugadores>
+\end{verbatim}
+
+
+\subsubsubsection{pedirReporteEstadoActual}
+\bf{Nombre del archivo:} \it{pedidoReporteEstadoActualXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <pedidoReporteEstadoActual vTerm="id terminal virtual"></pedidoReporteEstadoActual>
+\end{verbatim}
+
+
+\subsubsubsection{respuestaReporteEstadoActual}
+\bf{Nombre del archivo:} \it{respuestaReporteEstadoActualXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaReporteEstadoActual vTerm="id terminal virtual">
+        <jugadores>
+            <jugador nombre="nombre del usuario jugador" saldo="saldo del jugador" />
+            ... 
+        </jugadores>
+        <observadores>
+            <observador nombre="nombre del usuario observador" />
+            ...
+        </observadores>
+        <juegos>
+            <tragamonedas>
+               <pozoProgresivo>"monto del pozo progresivo de las tragamonedas"</pozoProgresivo>
+               <mesasTragamonedas>
+                  <mesaTragamonedas id="id del tragamonedas">
+                    <jugador>"nombre del jugador en la mesa"</jugador>
+                    <ultimoTiro>
+                      <tirador>"nombre del jugador que efectu'o el ultimo tiro"</tirador>
+                      <resultado>
+                       <rueda1>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda1>
+                       <rueda2>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda2>
+                       <rueda3>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda3>
+                      </resultado>
+                    </ultimoTiro>
+                  </mesaTragamonedas>
+                   ...
+               </mesasTragamonedas>
+            </tragamonedas>
+            <craps>
+                <mesasCraps>
+                    <mesaCraps id="id de mesa craps">
+                        <jugadores>
+                            <jugador>"nombre de un jugador en la mesa"</jugador>
+                            ...
+                        </jugadores>
+                        <proximoTiro>
+                            <tirador>"nombre del jugador con el turno" (si no ning'un pr'oximo tirador,
+                            el tag estar'a vac'io) </tirador>
+                            <tiroSalida>"Si" o "No", seg'un sea o no tiro de salida (si no hay pr'oximo
+                            tirador, el tag estar'a vac'io) </tiroSalida>
+                            <punto>"valor del punto establecido en el tiro de salida" (si es punto de
+                            salida o no hay pr'oximo tirador, el tag estar'a vac'io) </punto>
+                        </proximoTiro>
+                        <ultimoTiro>
+                            <tirador>"nombre del jugador que efectu'o el ultimo tiro"</tirador>
+                            <resultado></resultado>
+                        </ultimoTiro>
+                    </mesaCraps>
+                    ...
+                </mesasCraps>
+            </craps>
+        </juegos>
+        <pozosCasino>
+            <pozoFeliz>"monto del pozo feliz"</pozoFeliz>
+        </pozosCasino>
+        <saldoCasino>"saldo del casino"</saldoCasino>
+    </respuestaReporteEstadoActual>
+\end{verbatim}
+
+
+\subsubsubsection{pedirReporteMovimientos}
+\bf{Nombre del archivo:} \it{pedidoReporteMovimientosXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <pedidoReporteMovimientos vTerm="id terminal virtual" />
+\end{verbatim}
+
+
+\subsubsubsection{respuestaReporteMovimientos}
+\bf{Nombre del archivo:} \it{respuestaReporteMovimientosXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaReporteMovimientos vTerm="id terminal virtual">
+        <jugador nombre="nombre del jugador">
+            <jugadasTragamonedas>
+                <jugadaTragamonedas tipo="normal | todos ponen | feliz | gordo progresivo |
+                feliz y gordo progresivo">
+                    <mesa id="id de mesa" valorFicha="valor de ficha en la mesa" />
+                    <apuesta fichas="cantidad de fichas apostadas" />
+                    <resultado>
+                        <rodillo figura="figura del rodillo" />
+                        ...
+                    </resultado>
+                    <pozoFeliz monto="monto del pozo">
+                    <pozoProgesivo monto="monto del pozo">
+                </jugadaTragamonedas>
+                ...
+            </jugadasTragamonedas>
+            <jugadasCraps tiroSalida="si | no" punto="valor de punto" tipo="normal | todos ponen |
+            feliz | gordo progresivo | feliz y gordo progresivo">
+                <jugadaCraps>
+                    <mesa id="id de mesa" />
+                    <apuesta monto="creditos apostados" tipo="en sitio a perder | en sitio a ganar |
+                    de campo | venir | no venir | barra no pase | linea de pase" />
+                    <resultado>
+                        <dado numero="numero del dado">
+                        ...
+                    </resultado>
+                    <pozoFeliz monto="monto del pozo">
+                </jugadaCraps>
+                ...
+            </jugadasCraps>
+            ...
+        </jugador>
+        ...
+    </respuestaReporteMovimientos>
+\end{verbatim}
+
+
+\subsubsubsection{configurarModoDirigidoTragamonedas}
+\bf{Nombre del archivo:} \it{configurarModoDirigidoTragamonedasXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <configurarModoDirigidoTragamonedas vTerm="id terminal virtual">
+        <controlResultados activo="si | no">
+            <resultado>
+               [<rueda1>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda1>
+                <rueda2>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda2>
+                <rueda3>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda3>]
+            </resultado>
+        </controlResultados>
+        <controlTipoJugadas activo="si | no">
+            <tipo>"Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>
+        </controlTipoJugadas>
+    </configurarModoDirigidoTragamonedas>
+\end{verbatim}
+
+
+\subsubsubsection{respuestaConfigurarModoDirigidoTragamonedas}
+\bf{Nombre del archivo:} \it{respuestaConfigurarModoDirigidoTragamonedasXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaConfigurarModoDirigidoTragamonedas vTerm="id terminal virtual">
+        <aceptado fueAceptado="si | no" />
+        <descripcion>"informaci'on adicional, de por qu'e no fue aceptado por ejemplo u otra
+        informacion relevante"</descripcion>
+    </respuestaConfigurarModoDirigidoTragamonedas>
+\end{verbatim}
+
+
+\subsubsubsection{configurarModoDirigidoCraps}
+\bf{Nombre del archivo:} \it{configurarModoDirigidoCrapsXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <configurarModoDirigidoCraps vTerm="id terminal virtual">
+        <controlResultados activo="si | no">
+           [<resultado>
+                <dado1>"1" | "2" | "3" | "4" | "5" | "6"</dado1>
+                <dado2>"1" | "2" | "3" | "4" | "5" | "6"</dado2>
+            </resultado>]
+        </controlResultados>
+        <controlTipoJugadas activo="si | no">
+           [<tipo>"Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>]
+        </controlTipoJugadas>
+    </configurarModoDirigidoCraps>
+\end{verbatim}
+
+
+\subsubsubsection{respuestaConfigurarModoDirigidoCraps}
+\bf{Nombre del archivo:} \it{respuestaConfigurarModoDirigidoCrapsXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaConfigurarModoDirigidoCraps vTerm="id terminal virtual">
+        <aceptado fueAceptado="si | no" />
+        <descripcion>"informaci'on adicional, de por qu'e no fue aceptado por ejemplo u otra
+        informacion relevante"</descripcion>
+    </respuestaConfigurarModoDirigidoCraps>
+\end{verbatim}
+
+
+\subsubsubsection{configurarModoDirigidoJugadaFeliz}
+\bf{Nombre del archivo:} \it{configurarModoDirigidoJugadaFelizXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <configurarModoDirigidoJugadaFeliz vTerm="id terminal virtual">
+        <control activo="si | no">
+           [<mesa>"id de la mesa"</mesa>]
+        </control>
+    </configurarModoDirigidoJugadaFeliz>
+\end{verbatim}
+
+
+\subsubsubsection{respuestaConfigurarModoDirigidoJugadaFeliz}
+\bf{Nombre del archivo:} \it{respuestaConfigurarModoDirigidoJugadaFelizXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\bf{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaConfigurarModoDirigidoJugadaFeliz vTerm="id terminal virtual">
+        <aceptado fueAceptado="si | no" />
+        <descripcion>"informaci'on adicional, de por qu'e no fue aceptado por ejemplo u otra
+        informacion relevante"</descripcion>
+    </respuestaConfigurarModoDirigidoJugadaFeliz>
+\end{verbatim}
