@@ -31,6 +31,15 @@ Notar que cuando alguien entra, el mensajero de entrada debe hacer un NotificarE
 
 + No implementamos el cancelo de apuestas en craps porque el protocolo no lo soportaba.
 
++ Estamos downcasteando entre Mesa y Jugada, y que???
+
++ Cambiamos el seteo del modo dirigido a que sea por mesa en todos ponen y normal y no tp y no feliz y no normal
+
+
+
+
+
+
 
 
 
