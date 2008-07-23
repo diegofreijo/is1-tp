@@ -226,6 +226,27 @@ Descripción del xml
 // Modo Dirigido //
 ///////////////////
 
+Configurar ModoDirigido::Tragamonedas
+-------------------------------------
+
+Nombre del archivo: configurarModoDirigidoTragamonedasXXYYYY.xml
+	XX: número de grupo
+	YYYY: número de terminal virtual
+    
+Descripción del xml:
+<?xml version="1.0" encoding="UTF-8" ?>
+<configurarModoDirigidoTragamonedas vTerm="id terminal virtual">
+    <controlResultados activo="si | no">
+        <resultado>
+            [<rueda1>"cereza" | "bar simple" | "bar doble" | "bar triple" | "dinosaurio"</rueda1>
+            <rueda2>"cereza" | "bar simple" | "bar doble" | "bar triple" | "dinosaurio"</rueda2>
+            <rueda3>"cereza" | "bar simple" | "bar doble" | "bar triple" | "dinosaurio"</rueda3>]
+        </resultado>
+    </controlResultados>
+    <controlTipoJugadas activo="si | no">
+        <tipo>"Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>
+    </controlTipoJugadas>
+</configurarModoDirigidoTragamonedas>
 
 
 Respuesta Configurar ModoDirigido::Tragamonedas (aceptar/denegar ConfigurarModoDirigidoTragamonedas)
