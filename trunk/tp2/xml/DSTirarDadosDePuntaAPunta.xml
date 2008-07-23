@@ -78,7 +78,7 @@
 							<covered xmi:idref="EAID_2A4FBB16_4DC4_11dd_B49B_001E8CBC47B0"/>
 							<operand xmi:type="uml:InteractionOperand" xmi:id="EAID_OP000001_5831_11dd_1194_001FC65B69E1">
 								<guard xmi:type="uml:InteractionConstraint" xmi:id="EAID_IC000001_5831_11dd_1194_001FC65B69E1">
-									<specification xmi:type="uml:OpaqueExpression" xmi:id="EAID_OE000001_5831_11dd_1194_001FC65B69E1"/>
+									<specification xmi:type="uml:OpaqueExpression" xmi:id="EAID_OE000001_5831_11dd_1194_001FC65B69E1" body="unaApuesta != null"/>
 								</guard>
 							</operand>
 						</fragment>
@@ -144,13 +144,6 @@
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000002_5775_11dd_1194_001FC65B69E1" covered="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000003_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 						<message xmi:type="uml:Message" xmi:id="EAID_D430DBC6_5835_11dd_1194_001FC65B69E1" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000002_5775_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000003_576D_11dd_1194_001FC65B69E1"/>
-						<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1" name="eltipoDeJugada :: TipoDeJugada" visibility="public" represents="EAID_AT000000_A20_57F8_11dd_1194_001FC65B69E"/>
-						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_57F8_11dd_1194_001FC65B69E1" covered="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1"/>
-						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000003_576D_11dd_1194_001FC65B69E1" covered="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_B5A8E0FE_577C_11dd_1194_001FC65B69E1" name="Resolverse()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000000_57F8_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000003_576D_11dd_1194_001FC65B69E1"/>
-						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_57F8_11dd_1194_001FC65B69E1" covered="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1"/>
-						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000003_5775_11dd_1194_001FC65B69E1" covered="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_C905FE66_5835_11dd_1194_001FC65B69E1" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000001_57F8_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000003_5775_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:CombinedFragment" xmi:id="EAID_4E3FF352_576E_11dd_1194_001FC65B69E1" name="estado" visibility="public" interactionOperator="intop_alt">
 							<covered xmi:idref="EAID_4BDFED34_4DC7_11dd_B49B_001E8CBC47B0"/>
 							<covered xmi:idref="EAID_2A4FBB16_4DC4_11dd_B49B_001E8CBC47B0"/>
@@ -176,6 +169,13 @@
 							<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000054_538A_11dd_828E_001FC65B69E1" name=" res"/>
 						</message>
 						<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_A6B32902_5389_11dd_828E_001FC65B69E1" name="juegoCraps" visibility="public" represents="EAID_AT000000_902_5389_11dd_828E_001FC65B69E"/>
+						<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1" name="jugadaFeliz :: TipoDeJugada" visibility="public" represents="EAID_AT000000_A20_57F8_11dd_1194_001FC65B69E"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_57F8_11dd_1194_001FC65B69E1" covered="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000003_576D_11dd_1194_001FC65B69E1" covered="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_B5A8E0FE_577C_11dd_1194_001FC65B69E1" name="Resolverse()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000000_57F8_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000003_576D_11dd_1194_001FC65B69E1"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_57F8_11dd_1194_001FC65B69E1" covered="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000003_5775_11dd_1194_001FC65B69E1" covered="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_C905FE66_5835_11dd_1194_001FC65B69E1" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000001_57F8_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000003_5775_11dd_1194_001FC65B69E1"/>
 						<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_EACEFC82_47AA_11dd_B49B_001E8CBC47B0" name="laMesas::mesa" visibility="public" represents="EAID_AT000000_C82_47AA_11dd_B49B_001E8CBC47B"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_47AA_11dd_B49B_001E8CBC47B0" covered="EAID_EACEFC82_47AA_11dd_B49B_001E8CBC47B0"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000019_47AA_11dd_B49B_001E8CBC47B0" covered="EAID_A453C65C_47AA_11dd_B49B_001E8CBC47B0"/>
@@ -271,48 +271,53 @@
 						<message xmi:type="uml:Message" xmi:id="EAID_0E1CE2DC_5780_11dd_1194_001FC65B69E1" messageKind="lost" messageSort="synchCall" sendEvent="EAID_FR000006_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000007_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000008_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_3260E34E_577D_11dd_1194_001FC65B69E1" name="get_apuestas()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000007_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000008_576D_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_290CE380_58B6_11dd_1194_001FC65B69E1" name="estanSaliendo" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000007_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000008_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000009_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000010_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_3260E34E_577D_11dd_1194_001FC65B69E1" name="get_apuestas()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000009_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000010_576D_11dd_1194_001FC65B69E1"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000011_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000013_576D_11dd_1194_001FC65B69E1" covered="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_3A0CAE8A_576D_11dd_1194_001FC65B69E1" name="new JugadaCraps " messageKind="complete" messageSort="createMessage" sendEvent="EAID_FR000009_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000013_576D_11dd_1194_001FC65B69E1">
+						<message xmi:type="uml:Message" xmi:id="EAID_3A0CAE8A_576D_11dd_1194_001FC65B69E1" name="new JugadaCraps " messageKind="complete" messageSort="createMessage" sendEvent="EAID_FR000011_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000013_576D_11dd_1194_001FC65B69E1">
 							<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000012_576D_11dd_1194_001FC65B69E1" name="lasApuestas"/>
 							<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000030_576D_11dd_1194_001FC65B69E1" name=" elResultadoCraps"/>
 							<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000043_576D_11dd_1194_001FC65B69E1" name=" jugadaFeliz"/>
 							<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000058_576D_11dd_1194_001FC65B69E1" name=" EstanSaliendo"/>
 							<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000075_576D_11dd_1194_001FC65B69E1" name=" mesa.getPunto()"/>
 						</message>
-						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000010_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000012_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000002_57F8_11dd_1194_001FC65B69E1" covered="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_3EE1175C_57F9_11dd_1194_001FC65B69E1" name="resolverse " messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000010_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000002_57F8_11dd_1194_001FC65B69E1">
+						<message xmi:type="uml:Message" xmi:id="EAID_3EE1175C_57F9_11dd_1194_001FC65B69E1" name="resolverse " messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000012_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000002_57F8_11dd_1194_001FC65B69E1">
 							<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000015_57F9_11dd_1194_001FC65B69E1" name="unaJugadaCraps"/>
 						</message>
-						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000011_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_5832_11dd_1194_001FC65B69E1" covered="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_46EBB612_5832_11dd_1194_001FC65B69E1" name="new ResultadoCraps ()" messageKind="complete" messageSort="createMessage" sendEvent="EAID_FR000011_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000000_5832_11dd_1194_001FC65B69E1"/>
-						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000012_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000004_5775_11dd_1194_001FC65B69E1" covered="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_59F08192_5775_11dd_1194_001FC65B69E1" name="CalcularTipoDeJugadaDeCasinoCraps()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000012_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000004_5775_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000013_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000000_5832_11dd_1194_001FC65B69E1" covered="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_46EBB612_5832_11dd_1194_001FC65B69E1" name="new ResultadoCraps ()" messageKind="complete" messageSort="createMessage" sendEvent="EAID_FR000013_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000000_5832_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000014_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_6358E838_576F_11dd_1194_001FC65B69E1" name="valorDados := dados[0].Valor() + dados[1].Valor()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000013_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000014_576D_11dd_1194_001FC65B69E1"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000004_5775_11dd_1194_001FC65B69E1" covered="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_59F08192_5775_11dd_1194_001FC65B69E1" name="CalcularTipoDeJugadaDeCasinoCraps()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000014_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000004_5775_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000015_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_5832_11dd_1194_001FC65B69E1" covered="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_9B32213E_5832_11dd_1194_001FC65B69E1" name="SetDados (dados)" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000015_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000001_5832_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000016_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000005_5775_11dd_1194_001FC65B69E1" covered="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_9DABF2D8_5778_11dd_1194_001FC65B69E1" name="CalcularDados ()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000016_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000005_5775_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_6358E838_576F_11dd_1194_001FC65B69E1" name="valorDados := dados[0].Valor() + dados[1].Valor()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000015_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000016_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000017_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000001_5832_11dd_1194_001FC65B69E1" covered="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_9B32213E_5832_11dd_1194_001FC65B69E1" name="SetDados (dados)" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000017_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000001_5832_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000018_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_A533C80A_577D_11dd_1194_001FC65B69E1" name="lasApuestas := lista &lt;apuestas&gt;" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000017_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000018_576D_11dd_1194_001FC65B69E1"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000005_5775_11dd_1194_001FC65B69E1" covered="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_9DABF2D8_5778_11dd_1194_001FC65B69E1" name="CalcularDados ()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000018_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000005_5775_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000019_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000020_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_B11CEB3E_576D_11dd_1194_001FC65B69E1" name="getEstado ()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000019_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000020_576D_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_A533C80A_577D_11dd_1194_001FC65B69E1" name="lasApuestas := lista &lt;apuestas&gt;" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000019_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000020_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000021_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000002_5832_11dd_1194_001FC65B69E1" covered="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_D3B0F9D4_58B6_11dd_1194_001FC65B69E1" name="SetEstadoRondaCraps " messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000021_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000002_5832_11dd_1194_001FC65B69E1">
+							<argument xmi:type="uml:LiteralString" xmi:id="EAID_AR000014_58B6_11dd_1194_001FC65B69E1" name="estanSaliendo"/>
+						</message>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000022_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_B973C190_576D_11dd_1194_001FC65B69E1" name="elEstado" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000021_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000022_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000023_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_E4CD9C18_5834_11dd_1194_001FC65B69E1" name="SetEstado (puntoEstablecido)" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000022_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000023_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000024_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_E4CD9C18_5834_11dd_1194_001FC65B69E1" name="SetEstado (puntoEstablecido)" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000023_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000024_576D_11dd_1194_001FC65B69E1"/>
+						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000025_576D_11dd_1194_001FC65B69E1" covered="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_FE74B13E_58B5_11dd_1194_001FC65B69E1" name="GetEstadoRondaCraps()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000024_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000025_576D_11dd_1194_001FC65B69E1"/>
 						<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1" name="unajugadaCraps :: unaJugadaCrapsFeliz" visibility="public" represents="EAID_AT000000_F94_576D_11dd_1194_001FC65B69E"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000014_576D_11dd_1194_001FC65B69E1" covered="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000015_576D_11dd_1194_001FC65B69E1" covered="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1"/>
@@ -348,7 +353,7 @@
 						<message xmi:type="uml:Message" xmi:id="EAID_B53C304A_582F_11dd_1194_001FC65B69E1" name="GetValor ()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000024_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000008_577E_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000025_576D_11dd_1194_001FC65B69E1" covered="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000005_577E_11dd_1194_001FC65B69E1" covered="EAID_7E44E296_577E_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_B62119F0_577E_11dd_1194_001FC65B69E1" name="resolverse(resultado)" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000025_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000005_577E_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_B62119F0_577E_11dd_1194_001FC65B69E1" name="resolverse(elResultadoCraps)" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000025_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000005_577E_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000026_576D_11dd_1194_001FC65B69E1" covered="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000009_577E_11dd_1194_001FC65B69E1" covered="EAID_384EA330_577E_11dd_1194_001FC65B69E1"/>
 						<message xmi:type="uml:Message" xmi:id="EAID_B77758EA_57FC_11dd_1194_001FC65B69E1" name="GetValor ()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000026_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000009_577E_11dd_1194_001FC65B69E1"/>
@@ -369,7 +374,7 @@
 						<message xmi:type="uml:Message" xmi:id="EAID_FC717E34_5834_11dd_1194_001FC65B69E1" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000034_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000003_57F8_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000035_576D_11dd_1194_001FC65B69E1" covered="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1"/>
 						<fragment xmi:type="uml:OccurrenceSpecification" xmi:id="EAID_FR000011_577E_11dd_1194_001FC65B69E1" covered="EAID_384EA330_577E_11dd_1194_001FC65B69E1"/>
-						<message xmi:type="uml:Message" xmi:id="EAID_FE0EA2AC_5830_11dd_1194_001FC65B69E1" name="Proxima ()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000035_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000011_577E_11dd_1194_001FC65B69E1"/>
+						<message xmi:type="uml:Message" xmi:id="EAID_FE0EA2AC_5830_11dd_1194_001FC65B69E1" name="Proximo ()" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000035_576D_11dd_1194_001FC65B69E1" receiveEvent="EAID_FR000011_577E_11dd_1194_001FC65B69E1"/>
 					</ownedBehavior>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_F72_5388_11dd_828E_001FC65B69E"/>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_65C_47AA_11dd_B49B_001E8CBC47B"/>
@@ -384,9 +389,9 @@
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_28C_57F5_11dd_1194_001FC65B69E"/>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_DA6_5832_11dd_1194_001FC65B69E"/>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_348_5775_11dd_1194_001FC65B69E"/>
-					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_A20_57F8_11dd_1194_001FC65B69E"/>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_A4C_47A9_11dd_B49B_001E8CBC47B"/>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_902_5389_11dd_828E_001FC65B69E"/>
+					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_A20_57F8_11dd_1194_001FC65B69E"/>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_C82_47AA_11dd_B49B_001E8CBC47B"/>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_330_577E_11dd_1194_001FC65B69E"/>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_2F6_47AD_11dd_B49B_001E8CBC47B"/>
@@ -657,7 +662,7 @@
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=3;"/>
 				<modelDocument/>
 				<tags/>
-				<xrefs/>
+				<xrefs value="$XREFPROP=$XID={A402DB88-58B8-11dd-1194-001FC65B69E1}$XID;$NAM=Partitions$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PAR;Name=unaApuesta != null;Size=342;@ENDPAR;$DES;$CLT={745661E8-5831-11dd-1194-001FC65B69E1}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 				<extendedProperties tagged="0" package_name="Ds TirarDados" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1"/>
 			</element>
 			<element xmi:idref="EAID_B3B9F0B6_576E_11dd_1194_001FC65B69E1" xmi:type="uml:Sequence" name="dados :: &lt;dado,dado&gt;" scope="public">
@@ -746,6 +751,7 @@
 				<links>
 					<Sequence xmi:id="EAID_46EBB612_5832_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_9B32213E_5832_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1"/>
+					<Sequence xmi:id="EAID_D3B0F9D4_58B6_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1"/>
 				</links>
 			</element>
 			<element xmi:idref="EAID_036C3348_5775_11dd_1194_001FC65B69E1" xmi:type="uml:Sequence" name="elServidorJugadas" scope="public">
@@ -765,23 +771,6 @@
 					<Sequence xmi:id="EAID_59F08192_5775_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_9DABF2D8_5778_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_C905FE66_5835_11dd_1194_001FC65B69E1" start="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1" end="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
-				</links>
-			</element>
-			<element xmi:idref="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1" xmi:type="uml:Sequence" name="eltipoDeJugada :: TipoDeJugada" scope="public">
-				<model package="EAPK_9AAA26D6_4DBE_11dd_B49B_001E8CBC47B0" tpos="0" ea_localid="1747" ea_eleType="element"/>
-				<properties isSpecification="false" sType="Sequence" nType="0" scope="public"/>
-				<project version="1.0" phase="1.0" created="2008-07-22 11:17:07" modified="2008-07-22 11:17:34" complexity="1" status="Proposed"/>
-				<code gentype="&lt;none&gt;"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
-				<modelDocument/>
-				<tags/>
-				<xrefs/>
-				<extendedProperties tagged="0" package_name="Ds TirarDados"/>
-				<links>
-					<Sequence xmi:id="EAID_B5A8E0FE_577C_11dd_1194_001FC65B69E1" start="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1" end="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1"/>
-					<Sequence xmi:id="EAID_C905FE66_5835_11dd_1194_001FC65B69E1" start="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1" end="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
-					<Sequence xmi:id="EAID_3EE1175C_57F9_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1"/>
-					<Sequence xmi:id="EAID_FC717E34_5834_11dd_1194_001FC65B69E1" start="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1" end="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1"/>
 				</links>
 			</element>
 			<element xmi:idref="EAID_4E3FF352_576E_11dd_1194_001FC65B69E1" xmi:type="uml:InteractionFragment" name="estado" scope="public">
@@ -824,6 +813,23 @@
 				<extendedProperties tagged="0" package_name="Ds TirarDados"/>
 				<links>
 					<Sequence xmi:id="EAID_C56C0D86_538A_11dd_828E_001FC65B69E1" start="EAID_12C57A4C_47A9_11dd_B49B_001E8CBC47B0" end="EAID_A6B32902_5389_11dd_828E_001FC65B69E1"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1" xmi:type="uml:Sequence" name="jugadaFeliz :: TipoDeJugada" scope="public">
+				<model package="EAPK_9AAA26D6_4DBE_11dd_B49B_001E8CBC47B0" tpos="0" ea_localid="1747" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Sequence" nType="0" scope="public"/>
+				<project version="1.0" phase="1.0" created="2008-07-22 11:17:07" modified="2008-07-23 00:04:37" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ds TirarDados"/>
+				<links>
+					<Sequence xmi:id="EAID_B5A8E0FE_577C_11dd_1194_001FC65B69E1" start="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1" end="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1"/>
+					<Sequence xmi:id="EAID_C905FE66_5835_11dd_1194_001FC65B69E1" start="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1" end="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
+					<Sequence xmi:id="EAID_3EE1175C_57F9_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1"/>
+					<Sequence xmi:id="EAID_FC717E34_5834_11dd_1194_001FC65B69E1" start="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1" end="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1"/>
 				</links>
 			</element>
 			<element xmi:idref="EAID_EACEFC82_47AA_11dd_B49B_001E8CBC47B0" xmi:type="uml:Sequence" name="laMesas::mesa" scope="public">
@@ -1008,6 +1014,7 @@
 				<links>
 					<Sequence xmi:id="EAID_0ADD6B06_5770_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_0E1CE2DC_5780_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_42200022_5781_11dd_1194_001FC65B69E1"/>
+					<Sequence xmi:id="EAID_290CE380_58B6_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_3260E34E_577D_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_3A0CAE8A_576D_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_3EE1175C_57F9_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1"/>
@@ -1017,20 +1024,20 @@
 					<Sequence xmi:id="EAID_9B32213E_5832_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_9DABF2D8_5778_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_036C3348_5775_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_A533C80A_577D_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-					<Sequence xmi:id="EAID_B11CEB3E_576D_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-					<Sequence xmi:id="EAID_B973C190_576D_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
+					<Sequence xmi:id="EAID_D3B0F9D4_58B6_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_E4CD9C18_5834_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
+					<Sequence xmi:id="EAID_FE74B13E_58B5_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_0ADD6B06_5770_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_24B8D20C_576D_11dd_1194_001FC65B69E1" start="EAID_1ADB5E9E_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
+					<Sequence xmi:id="EAID_290CE380_58B6_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_3260E34E_577D_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_5A956F4C_5778_11dd_1194_001FC65B69E1" start="EAID_036C3348_5775_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_6358E838_576F_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_A533C80A_577D_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-					<Sequence xmi:id="EAID_B11CEB3E_576D_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_B96BEF3C_5778_11dd_1194_001FC65B69E1" start="EAID_036C3348_5775_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
-					<Sequence xmi:id="EAID_B973C190_576D_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_D430DBC6_5835_11dd_1194_001FC65B69E1" start="EAID_036C3348_5775_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 					<Sequence xmi:id="EAID_E4CD9C18_5834_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
+					<Sequence xmi:id="EAID_FE74B13E_58B5_11dd_1194_001FC65B69E1" start="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" end="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1"/>
 				</links>
 			</element>
 			<element xmi:idref="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1" xmi:type="uml:Sequence" name="unajugadaCraps :: unaJugadaCrapsFeliz" scope="public">
@@ -1143,7 +1150,7 @@
 				<model ea_localid="1592"/>
 				<properties ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="50" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="51" headStyle="0" lineStyle="0"/>
 				<labels/>
 				<extendedProperties stateflags="Initiate=0;Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;SCME=0;SCTR=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2100,7 +2107,7 @@
 				<model ea_localid="1696"/>
 				<properties name="creditos" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="28" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="29" headStyle="0" lineStyle="0"/>
 				<labels mt="creditos"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=17;EX=0;EY=0;$LLB=;LLT=;LMT=CX=39:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2133,7 +2140,7 @@
 				<model ea_localid="1706"/>
 				<properties ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="30" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="31" headStyle="0" lineStyle="0"/>
 				<labels/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=19;EX=0;EY=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2166,9 +2173,9 @@
 				<model ea_localid="1715"/>
 				<properties name="creditos" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="42" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="43" headStyle="0" lineStyle="0"/>
 				<labels mt="creditos"/>
-				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=20;EX=0;EY=0;$LLB=;LLT=;LMT=CX=39:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=18;EX=0;EY=0;$LLB=;LLT=;LMT=CX=39:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -2199,7 +2206,7 @@
 				<model ea_localid="1700"/>
 				<properties name="SetCreditos (creditos + premio)" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="29" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="30" headStyle="0" lineStyle="0"/>
 				<labels mt="SetCreditos (creditos + premio)"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=6;EX=0;EY=0;$LLB=;LLT=;LMT=CX=152:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2232,7 +2239,7 @@
 				<model ea_localid="1596"/>
 				<properties name="GetCreditos ()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="27" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="28" headStyle="0" lineStyle="0"/>
 				<labels mt="GetCreditos ()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=69:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2265,7 +2272,7 @@
 				<model ea_localid="1713"/>
 				<properties name="GetCretidos ()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="41" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="42" headStyle="0" lineStyle="0"/>
 				<labels mt="GetCretidos ()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=69:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2298,7 +2305,7 @@
 				<model ea_localid="1714"/>
 				<properties name="SetCreditos" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="43" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="44" headStyle="0" lineStyle="0"/>
 				<labels mt="SetCreditos(creditos + aPagarle)"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;params=creditos + aPagarle;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=159:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2331,9 +2338,9 @@
 				<model ea_localid="1720"/>
 				<properties name="new ResultadoCraps ()" ea_type="Sequence" subtype="New" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="4" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="6" headStyle="0" lineStyle="0"/>
 				<labels mt="new ResultadoCraps ()"/>
-				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-16;EX=0;EY=0;$LLB=;LLT=;LMT=CX=111:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-17;EX=0;EY=0;$LLB=;LLT=;LMT=CX=111:CY=14:OX=2:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -2364,9 +2371,42 @@
 				<model ea_localid="1721"/>
 				<properties name="SetDados (dados)" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="5" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="7" headStyle="0" lineStyle="0"/>
 				<labels mt="SetDados (dados)"/>
-				<extendedProperties virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=87:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<extendedProperties virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=87:CY=14:OX=-15:OY=2:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_D3B0F9D4_58B6_11dd_1194_001FC65B69E1">
+				<source xmi:idref="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1">
+					<model ea_localid="1631" type="Sequence" name="unaMesa :: Mesa"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1">
+					<model ea_localid="1752" type="Sequence" name="elResultadoCraps :: ResultadoCraps"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="1729"/>
+				<properties name="SetEstadoRondaCraps " ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="8" headStyle="0" lineStyle="0"/>
+				<labels mt="SetEstadoRondaCraps (estanSaliendo)"/>
+				<extendedProperties virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;params=estanSaliendo;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=187:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -2397,7 +2437,7 @@
 				<model ea_localid="1582"/>
 				<properties name="jugadaFeliz" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="12" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="13" headStyle="0" lineStyle="0"/>
 				<labels mt="jugadaFeliz"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=12;EX=0;EY=0;$LLB=;LLT=;LMT=CX=55:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2463,7 +2503,7 @@
 				<model ea_localid="1725"/>
 				<properties ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="49" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="50" headStyle="0" lineStyle="0"/>
 				<labels/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=-32;EX=0;EY=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2496,7 +2536,7 @@
 				<model ea_localid="1581"/>
 				<properties name="CalcularTipoDeJugadaDeCasinoCraps()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="11" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="12" headStyle="0" lineStyle="0"/>
 				<labels mt="CalcularTipoDeJugadaDeCasinoCraps()"/>
 				<extendedProperties stateflags="Initiate=0;Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-14;EX=0;EY=0;$LLB=;LLT=;LMT=CX=188:CY=14:OX=23:OY=-6:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2538,7 +2578,7 @@
 			</connector>
 			<connector xmi:idref="EAID_C905FE66_5835_11dd_1194_001FC65B69E1">
 				<source xmi:idref="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1">
-					<model ea_localid="1747" type="Sequence" name="eltipoDeJugada :: TipoDeJugada"/>
+					<model ea_localid="1747" type="Sequence" name="jugadaFeliz :: TipoDeJugada"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type containment="Unspecified"/>
 					<constraints/>
@@ -2562,108 +2602,9 @@
 				<model ea_localid="1724"/>
 				<properties ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="48" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="49" headStyle="0" lineStyle="0"/>
 				<labels/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
-				<style/>
-				<xrefs/>
-				<tags/>
-			</connector>
-			<connector xmi:idref="EAID_B5A8E0FE_577C_11dd_1194_001FC65B69E1">
-				<source xmi:idref="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1">
-					<model ea_localid="1747" type="Sequence" name="eltipoDeJugada :: TipoDeJugada"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</source>
-				<target xmi:idref="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1">
-					<model ea_localid="1632" type="Sequence" name="unajugadaCraps :: unaJugadaCrapsFeliz"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type aggregation="none" containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</target>
-				<model ea_localid="1585"/>
-				<properties name="Resolverse()" ea_type="Sequence" direction="Source -&gt; Destination"/>
-				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="17" headStyle="0" lineStyle="0"/>
-				<labels mt="Resolverse()"/>
-				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;SCME=0;SCTR=0;$LLB=;LLT=;LMT=CX=62:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
-				<style/>
-				<xrefs/>
-				<tags/>
-			</connector>
-			<connector xmi:idref="EAID_3EE1175C_57F9_11dd_1194_001FC65B69E1">
-				<source xmi:idref="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1">
-					<model ea_localid="1631" type="Sequence" name="unaMesa :: Mesa"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</source>
-				<target xmi:idref="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1">
-					<model ea_localid="1747" type="Sequence" name="eltipoDeJugada :: TipoDeJugada"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type aggregation="none" containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</target>
-				<model ea_localid="1695"/>
-				<properties name="resolverse " ea_type="Sequence" direction="Source -&gt; Destination"/>
-				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="16" headStyle="0" lineStyle="0"/>
-				<labels mt="resolverse (unaJugadaCraps)"/>
-				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;params=unaJugadaCraps;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=143:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
-				<style/>
-				<xrefs/>
-				<tags/>
-			</connector>
-			<connector xmi:idref="EAID_FC717E34_5834_11dd_1194_001FC65B69E1">
-				<source xmi:idref="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1">
-					<model ea_localid="1632" type="Sequence" name="unajugadaCraps :: unaJugadaCrapsFeliz"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</source>
-				<target xmi:idref="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1">
-					<model ea_localid="1747" type="Sequence" name="eltipoDeJugada :: TipoDeJugada"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type aggregation="none" containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</target>
-				<model ea_localid="1723"/>
-				<properties ea_type="Sequence" direction="Source -&gt; Destination"/>
-				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="47" headStyle="0" lineStyle="0"/>
-				<labels/>
-				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=0;EX=0;EY=0;SCME=0;SCTR=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -2701,6 +2642,105 @@
 				<xrefs/>
 				<tags/>
 			</connector>
+			<connector xmi:idref="EAID_B5A8E0FE_577C_11dd_1194_001FC65B69E1">
+				<source xmi:idref="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1">
+					<model ea_localid="1747" type="Sequence" name="jugadaFeliz :: TipoDeJugada"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1">
+					<model ea_localid="1632" type="Sequence" name="unajugadaCraps :: unaJugadaCrapsFeliz"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="1585"/>
+				<properties name="Resolverse()" ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="18" headStyle="0" lineStyle="0"/>
+				<labels mt="Resolverse()"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;SCME=0;SCTR=0;$LLB=;LLT=;LMT=CX=62:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_3EE1175C_57F9_11dd_1194_001FC65B69E1">
+				<source xmi:idref="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1">
+					<model ea_localid="1631" type="Sequence" name="unaMesa :: Mesa"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1">
+					<model ea_localid="1747" type="Sequence" name="jugadaFeliz :: TipoDeJugada"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="1695"/>
+				<properties name="resolverse " ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="17" headStyle="0" lineStyle="0"/>
+				<labels mt="resolverse (unaJugadaCraps)"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;params=unaJugadaCraps;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=143:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_FC717E34_5834_11dd_1194_001FC65B69E1">
+				<source xmi:idref="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1">
+					<model ea_localid="1632" type="Sequence" name="unajugadaCraps :: unaJugadaCrapsFeliz"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1">
+					<model ea_localid="1747" type="Sequence" name="jugadaFeliz :: TipoDeJugada"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="1723"/>
+				<properties ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="48" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=0;EX=0;EY=0;SCME=0;SCTR=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
 			<connector xmi:idref="EAID_054996DA_5831_11dd_1194_001FC65B69E1">
 				<source xmi:idref="EAID_384EA330_577E_11dd_1194_001FC65B69E1">
 					<model ea_localid="1637" type="Sequence" name="lasApuestas :: lista&lt;Apuestas&gt;"/>
@@ -2727,7 +2767,7 @@
 				<model ea_localid="1719"/>
 				<properties name="unaApuesta" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="45" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="46" headStyle="0" lineStyle="0"/>
 				<labels mt="unaApuesta"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=59:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2760,7 +2800,7 @@
 				<model ea_localid="1705"/>
 				<properties name="unaApuesta" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="35" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="36" headStyle="0" lineStyle="0"/>
 				<labels mt="unaApuesta"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=-9;EX=0;EY=0;$LLB=;LLT=;LMT=CX=59:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2793,9 +2833,9 @@
 				<model ea_localid="1590"/>
 				<properties name="unaApuesta" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="19" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="20" headStyle="0" lineStyle="0"/>
 				<labels mt="unaApuesta"/>
-				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=59:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=10;EX=0;EY=0;$LLB=;LLT=;LMT=CX=59:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -2826,9 +2866,9 @@
 				<model ea_localid="1708"/>
 				<properties name="montoApostado" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="37" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="38" headStyle="0" lineStyle="0"/>
 				<labels mt="montoApostado"/>
-				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=17;EX=0;EY=0;$LLB=;LLT=;LMT=CX=77:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=17;EX=0;EY=0;$LLB=;LLT=;LMT=CX=77:CY=14:OX=37:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -2859,7 +2899,7 @@
 				<model ea_localid="1702"/>
 				<properties name="montoApostado" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="21" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="22" headStyle="0" lineStyle="0"/>
 				<labels mt="montoApostado"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=77:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2892,7 +2932,7 @@
 				<model ea_localid="1717"/>
 				<properties name="unaApuesta " ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="32" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="33" headStyle="0" lineStyle="0"/>
 				<labels mt="unaApuesta "/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=10;EX=0;EY=0;$LLB=;LLT=;LMT=CX=59:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2925,7 +2965,7 @@
 				<model ea_localid="1704"/>
 				<properties name="Proximo()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="34" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="35" headStyle="0" lineStyle="0"/>
 				<labels mt="Proximo()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-12;EX=0;EY=0;$LLB=;LLT=;LMT=CX=47:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2958,7 +2998,7 @@
 				<model ea_localid="1589"/>
 				<properties name="proximo ()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="18" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="19" headStyle="0" lineStyle="0"/>
 				<labels mt="proximo ()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-19;EX=0;EY=0;$LLB=;LLT=;LMT=CX=50:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -2991,7 +3031,7 @@
 				<model ea_localid="1707"/>
 				<properties name="GetValor ()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="36" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="37" headStyle="0" lineStyle="0"/>
 				<labels mt="GetValor ()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=2;EX=0;EY=0;$LLB=;LLT=;LMT=CX=53:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3024,7 +3064,7 @@
 				<model ea_localid="1701"/>
 				<properties name="GetValor ()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="20" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="21" headStyle="0" lineStyle="0"/>
 				<labels mt="GetValor ()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=53:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3057,7 +3097,7 @@
 				<model ea_localid="1716"/>
 				<properties name="Proximo ()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="31" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="32" headStyle="0" lineStyle="0"/>
 				<labels mt="Proximo ()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-11;EX=0;EY=0;$LLB=;LLT=;LMT=CX=50:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3088,10 +3128,10 @@
 					<tags/>
 				</target>
 				<model ea_localid="1718"/>
-				<properties name="Proxima ()" ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<properties name="Proximo ()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="44" headStyle="0" lineStyle="0"/>
-				<labels mt="Proxima ()"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="45" headStyle="0" lineStyle="0"/>
+				<labels mt="Proximo ()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=50:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
@@ -3123,7 +3163,7 @@
 				<model ea_localid="1593"/>
 				<properties name="premio" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="24" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="25" headStyle="0" lineStyle="0"/>
 				<labels mt="premio"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=33:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3156,7 +3196,7 @@
 				<model ea_localid="1595"/>
 				<properties name="eljugador" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="26" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="27" headStyle="0" lineStyle="0"/>
 				<labels mt="eljugador"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=46:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3189,7 +3229,7 @@
 				<model ea_localid="1712"/>
 				<properties name="elJugador" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="40" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="41" headStyle="0" lineStyle="0"/>
 				<labels mt="elJugador"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=14;EX=0;EY=0;$LLB=;LLT=;LMT=CX=48:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3222,7 +3262,7 @@
 				<model ea_localid="1594"/>
 				<properties name="GetJugador ()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="25" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="26" headStyle="0" lineStyle="0"/>
 				<labels mt="GetJugador ()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-1;EX=0;EY=0;$LLB=;LLT=;LMT=CX=68:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3255,7 +3295,7 @@
 				<model ea_localid="1711"/>
 				<properties name="GetJugador ()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="39" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="40" headStyle="0" lineStyle="0"/>
 				<labels mt="GetJugador ()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-9;EX=0;EY=0;$LLB=;LLT=;LMT=CX=68:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3286,11 +3326,11 @@
 					<tags/>
 				</target>
 				<model ea_localid="1591"/>
-				<properties name="resolverse(resultado)" ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<properties name="resolverse(elResultadoCraps)" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="23" headStyle="0" lineStyle="0"/>
-				<labels mt="resolverse(resultado)"/>
-				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-28;EX=0;EY=0;$LLB=;LLT=;LMT=CX=104:CY=14:OX=2:OY=-6:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="24" headStyle="0" lineStyle="0"/>
+				<labels mt="resolverse(elResultadoCraps)"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-28;EX=0;EY=0;$LLB=;LLT=;LMT=CX=143:CY=14:OX=2:OY=-6:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -3321,9 +3361,42 @@
 				<model ea_localid="1579"/>
 				<properties name="SetPunto" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="13" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="14" headStyle="0" lineStyle="0"/>
 				<labels mt="SetPunto(valorDados)"/>
-				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;params=valorDados;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-27;EX=0;EY=0;$LLB=;LLT=;LMT=CX=107:CY=14:OX=43:OY=13:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;params=valorDados;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-30;EX=0;EY=0;$LLB=;LLT=;LMT=CX=107:CY=14:OX=43:OY=13:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_290CE380_58B6_11dd_1194_001FC65B69E1">
+				<source xmi:idref="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1">
+					<model ea_localid="1631" type="Sequence" name="unaMesa :: Mesa"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1">
+					<model ea_localid="1631" type="Sequence" name="unaMesa :: Mesa"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="1728"/>
+				<properties name="estanSaliendo" ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="5" headStyle="0" lineStyle="0"/>
+				<labels mt="estanSaliendo"/>
+				<extendedProperties stateflags="Activation=1;Initiate=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=5;EX=0;EY=0;$LLB=;LLT=;LMT=CX=68:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -3354,7 +3427,7 @@
 				<model ea_localid="1586"/>
 				<properties name="get_apuestas()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="9" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="10" headStyle="0" lineStyle="0"/>
 				<labels mt="get_apuestas()"/>
 				<extendedProperties virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-2;EX=0;EY=0;$LLB=;LLT=;LMT=CX=75:CY=14:OX=61:OY=16:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3387,9 +3460,9 @@
 				<model ea_localid="1566"/>
 				<properties name="new JugadaCraps " ea_type="Sequence" subtype="New" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="15" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="16" headStyle="0" lineStyle="0"/>
 				<labels mt="new JugadaCraps (lasApuestas, elResultadoCraps, ju"/>
-				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;params=lasApuestas, elResultadoCraps, jugadaFeliz, EstanSaliendo, mesa.getPunto();" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-82;EX=0;EY=0;$LLB=;LLT=;LMT=CX=470:CY=14:OX=-120:OY=-6:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;params=lasApuestas, elResultadoCraps, jugadaFeliz, EstanSaliendo, mesa.getPunto();" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-82;EX=0;EY=0;$LLB=;LLT=;LMT=CX=470:CY=14:OX=-64:OY=-8:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -3420,9 +3493,9 @@
 				<model ea_localid="1577"/>
 				<properties name="valorDados := dados[0].Valor() + dados[1].Valor()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="8" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="9" headStyle="0" lineStyle="0"/>
 				<labels mt="valorDados := dados[0].Valor() + dados[1].Valor()"/>
-				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=6;EX=0;EY=0;$LLB=;LLT=;LMT=CX=245:CY=14:OX=53:OY=14:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=245:CY=14:OX=53:OY=14:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -3453,75 +3526,9 @@
 				<model ea_localid="1587"/>
 				<properties name="lasApuestas := lista &lt;apuestas&gt;" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="10" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="11" headStyle="0" lineStyle="0"/>
 				<labels mt="lasApuestas := lista &lt;apuestas&gt;"/>
 				<extendedProperties stateflags="Activation=1;Initiate=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=159:CY=14:OX=49:OY=13:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
-				<style/>
-				<xrefs/>
-				<tags/>
-			</connector>
-			<connector xmi:idref="EAID_B11CEB3E_576D_11dd_1194_001FC65B69E1">
-				<source xmi:idref="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1">
-					<model ea_localid="1631" type="Sequence" name="unaMesa :: Mesa"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</source>
-				<target xmi:idref="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1">
-					<model ea_localid="1631" type="Sequence" name="unaMesa :: Mesa"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type aggregation="none" containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</target>
-				<model ea_localid="1569"/>
-				<properties name="getEstado ()" ea_type="Sequence" direction="Source -&gt; Destination"/>
-				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="6" headStyle="0" lineStyle="0"/>
-				<labels mt="getEstado ()"/>
-				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=61:CY=14:OX=46:OY=12:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
-				<style/>
-				<xrefs/>
-				<tags/>
-			</connector>
-			<connector xmi:idref="EAID_B973C190_576D_11dd_1194_001FC65B69E1">
-				<source xmi:idref="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1">
-					<model ea_localid="1631" type="Sequence" name="unaMesa :: Mesa"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</source>
-				<target xmi:idref="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1">
-					<model ea_localid="1631" type="Sequence" name="unaMesa :: Mesa"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type aggregation="none" containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</target>
-				<model ea_localid="1570"/>
-				<properties name="elEstado" ea_type="Sequence" direction="Source -&gt; Destination"/>
-				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="7" headStyle="0" lineStyle="0"/>
-				<labels mt="elEstado"/>
-				<extendedProperties stateflags="Activation=1;Initiate=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="1" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=42:CY=14:OX=45:OY=14:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -3552,9 +3559,42 @@
 				<model ea_localid="1722"/>
 				<properties name="SetEstado (puntoEstablecido)" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="14" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="15" headStyle="0" lineStyle="0"/>
 				<labels mt="SetEstado (puntoEstablecido)"/>
-				<extendedProperties virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-3;EX=0;EY=0;$LLB=;LLT=;LMT=CX=143:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<extendedProperties virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-3;EX=0;EY=0;$LLB=;LLT=;LMT=CX=143:CY=14:OX=49:OY=13:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_FE74B13E_58B5_11dd_1194_001FC65B69E1">
+				<source xmi:idref="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1">
+					<model ea_localid="1631" type="Sequence" name="unaMesa :: Mesa"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1">
+					<model ea_localid="1631" type="Sequence" name="unaMesa :: Mesa"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="1727"/>
+				<properties name="GetEstadoRondaCraps()" ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="4" headStyle="0" lineStyle="0"/>
+				<labels mt="GetEstadoRondaCraps()"/>
+				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;$LLB=;LLT=;LMT=CX=118:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
 				<tags/>
@@ -3585,7 +3625,7 @@
 				<model ea_localid="1710"/>
 				<properties name="pozoFeliz :=  GetPozoFeliz()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="33" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="34" headStyle="0" lineStyle="0"/>
 				<labels mt="pozoFeliz :=  GetPozoFeliz()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-19;EX=0;EY=0;$LLB=;LLT=;LMT=CX=135:CY=14:OX=45:OY=13:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3618,7 +3658,7 @@
 				<model ea_localid="1709"/>
 				<properties name="aPagarle := (montoApostado / totalApostado)  * pozoFeliz.Monto()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="38" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="39" headStyle="0" lineStyle="0"/>
 				<labels mt="aPagarle := (montoApostado / totalApostado)  * poz"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=10;EX=0;EY=0;$LLB=;LLT=;LMT=CX=324:CY=14:OX=48:OY=13:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3651,7 +3691,7 @@
 				<model ea_localid="1726"/>
 				<properties name="pozoFeliz.reset()" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="46" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="47" headStyle="0" lineStyle="0"/>
 				<labels mt="pozoFeliz.reset()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-8;EX=0;EY=0;$LLB=;LLT=;LMT=CX=82:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3684,7 +3724,7 @@
 				<model ea_localid="1703"/>
 				<properties name="totalApostado += montoApostado" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
-				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="22" headStyle="0" lineStyle="0"/>
+				<appearance linemode="1" linecolor="-1" linewidth="0" seqno="23" headStyle="0" lineStyle="0"/>
 				<labels mt="totalApostado += montoApostado"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_049549E2_576D_11dd_1194_001FC65B69E1" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=0;EX=0;EY=0;SCME=1;$LLB=;LLT=;LMT=CX=167:CY=14:OX=39:OY=17:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
@@ -3760,31 +3800,32 @@
 			<diagram xmi:id="EAID_049549E2_576D_11dd_1194_001FC65B69E1">
 				<model package="EAPK_9AAA26D6_4DBE_11dd_B49B_001E8CBC47B0" localID="77" owner="EAPK_9AAA26D6_4DBE_11dd_B49B_001E8CBC47B0"/>
 				<properties name="Ds TirarDados zoom en tirarDados EstanSaliendo" type="Sequence"/>
-				<project version="1.0" created="2008-07-21 18:36:03" modified="2008-07-22 18:40:45"/>
+				<project version="1.0" created="2008-07-21 18:36:03" modified="2008-07-23 10:11:30"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=823;DocSize.cy=1169;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;"/>
 				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=0;TDurLow=0;TDurHigh=100;TDurUnit=;TDurHide=0;INT_ARGS=;INT_RET=;INT_ATT=;SeqTopMargin=50;TConnectorNotation=;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;ShowNotes=0;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
 				<elements>
-					<element geometry="Left=597;Top=1456;Right=1266;Bottom=1798;" subject="EAID_745661E8_5831_11dd_1194_001FC65B69E1" seqno="1" style="DUID=74562DCC;"/>
-					<element geometry="Left=585;Top=875;Right=1243;Bottom=1347;" subject="EAID_0E8D1E44_57FD_11dd_1194_001FC65B69E1" seqno="2" style="DUID=0E8CEA28;"/>
-					<element geometry="Left=44;Top=1983;Right=58;Bottom=1997;" subject="EAID_42200022_5781_11dd_1194_001FC65B69E1" seqno="3" style="DUID=421FCB20;LBL=;"/>
-					<element geometry="Left=56;Top=561;Right=947;Bottom=699;" subject="EAID_8C081BC8_576F_11dd_1194_001FC65B69E1" seqno="4" style="DUID=8C07D99C;"/>
+					<element geometry="Left=618;Top=1486;Right=1287;Bottom=1828;" subject="EAID_745661E8_5831_11dd_1194_001FC65B69E1" seqno="1" style="DUID=74562DCC;"/>
+					<element geometry="Left=612;Top=905;Right=1270;Bottom=1377;" subject="EAID_0E8D1E44_57FD_11dd_1194_001FC65B69E1" seqno="2" style="DUID=0E8CEA28;"/>
+					<element geometry="Left=44;Top=2015;Right=58;Bottom=2029;" subject="EAID_42200022_5781_11dd_1194_001FC65B69E1" seqno="3" style="DUID=421FCB20;LBL=;"/>
+					<element geometry="Left=69;Top=601;Right=960;Bottom=739;" subject="EAID_8C081BC8_576F_11dd_1194_001FC65B69E1" seqno="4" style="DUID=8C07D99C;"/>
 					<element geometry="Left=51;Top=128;Right=65;Bottom=142;" subject="EAID_1ADB5E9E_576D_11dd_1194_001FC65B69E1" seqno="5" style="DUID=1ADB2988;"/>
-					<element geometry="Left=420;Top=50;Right=546;Bottom=2029;" subject="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1" seqno="6" style="DUID=3274CA16;"/>
-					<element geometry="Left=971;Top=50;Right=1095;Bottom=2029;" subject="EAID_7E44E296_577E_11dd_1194_001FC65B69E1" seqno="7" style="DUID=7E44AF06;"/>
-					<element geometry="Left=851;Top=50;Right=955;Bottom=2029;" subject="EAID_384EA330_577E_11dd_1194_001FC65B69E1" seqno="8" style="DUID=384E6FFA;"/>
-					<element geometry="Left=514;Top=50;Right=613;Bottom=2029;" subject="EAID_036C3348_5775_11dd_1194_001FC65B69E1" seqno="9" style="DUID=036BFF36;"/>
-					<element geometry="Left=669;Top=50;Right=893;Bottom=2029;" subject="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1" seqno="10" style="DUID=2E2ADB14;"/>
-					<element geometry="Left=1109;Top=50;Right=1236;Bottom=2029;" subject="EAID_6B2C328C_57F5_11dd_1194_001FC65B69E1" seqno="11" style="DUID=6B2BFBC8;"/>
-					<element geometry="Left=656;Top=50;Right=746;Bottom=2029;" subject="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1" seqno="12" style="DUID=DDF8458C;"/>
-					<element geometry="Left=230;Top=50;Right=320;Bottom=2029;" subject="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" seqno="13" style="DUID=1CC2F244;"/>
+					<element geometry="Left=661;Top=50;Right=812;Bottom=2093;" subject="EAID_DDF87A20_57F8_11dd_1194_001FC65B69E1" seqno="6" style="DUID=DDF8458C;"/>
+					<element geometry="Left=1118;Top=50;Right=1245;Bottom=2093;" subject="EAID_6B2C328C_57F5_11dd_1194_001FC65B69E1" seqno="7" style="DUID=6B2BFBC8;"/>
+					<element geometry="Left=737;Top=50;Right=961;Bottom=2093;" subject="EAID_2E2B0F94_576D_11dd_1194_001FC65B69E1" seqno="8" style="DUID=2E2ADB14;"/>
+					<element geometry="Left=545;Top=50;Right=644;Bottom=2093;" subject="EAID_036C3348_5775_11dd_1194_001FC65B69E1" seqno="9" style="DUID=036BFF36;"/>
+					<element geometry="Left=876;Top=50;Right=980;Bottom=2093;" subject="EAID_384EA330_577E_11dd_1194_001FC65B69E1" seqno="10" style="DUID=384E6FFA;"/>
+					<element geometry="Left=985;Top=50;Right=1109;Bottom=2093;" subject="EAID_7E44E296_577E_11dd_1194_001FC65B69E1" seqno="11" style="DUID=7E44AF06;"/>
+					<element geometry="Left=420;Top=50;Right=546;Bottom=2093;" subject="EAID_3274FDA6_5832_11dd_1194_001FC65B69E1" seqno="12" style="DUID=3274CA16;"/>
+					<element geometry="Left=229;Top=50;Right=319;Bottom=2093;" subject="EAID_1CC326B0_576D_11dd_1194_001FC65B69E1" seqno="13" style="DUID=1CC2F244;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_24B8D20C_576D_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_9DABF2D8_5778_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_B96BEF3C_5778_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_FE74B13E_58B5_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_290CE380_58B6_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_46EBB612_5832_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_9B32213E_5832_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_B11CEB3E_576D_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_B973C190_576D_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_D3B0F9D4_58B6_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_6358E838_576F_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_3260E34E_577D_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;Path=;" subject="EAID_A533C80A_577D_11dd_1194_001FC65B69E1" style=";Hidden=0;"/>
