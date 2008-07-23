@@ -9,6 +9,7 @@ NOTAS
 + El observer se implementa con el modelo como observado y el mensajero como el observador. La suscripcion es solo una: cuando se notifica un cambio de estado (en el notify viaja el numero de mesa) el mensajero va a recuperar del modelo la info que necesita de la mesa para armar el xml. Despues revisa que jugadores hay en esa mesa y para cada uno busca en una tabla suya en que terminal virtual esta. En esta taba es donde los jugadores realizan la suscripcion, porque contra el modelo no lo deben hacer (este no deberia conocer que existen terminales virtuales). Ojo que de esta forma, la logica de negocio que dice "todos los jugadores en una mesa deben enterarse de los cambios en esa mesa" se la esta definiendo en el mensajero y no el modelo (cuando deberia estar en el modelo), pero de no ser asi hace falta que el modelo haga la suscripcion y conozca las terminales virtuales. Y es menos feliz. 
 Notar que no se puede hacer una suscripcion por terminal a cada mesa porque el protocolo no banca el pedido de estado. 
 Notar que cuando alguien entra, el mensajero de entrada debe hacer un NotificarEstadoCraps con el que recien entro para que le llegue el estado de la mesa en el momento en que entro (notar que el observer no lo va a incluir en la actualizacion generadoa por "entro alguien a la mesa" porque en ese entonces todavia no estaba suscripto). Esto puede ser considerado logica de negocio pero es la opcion mas feliz que hay (tambien se puede poner un nuevo metodo que me diga si se puede o no hacer la entrada pero no la haga y otro metodo que haga la entrada (y ahi hace la notificacio del cambio)). Con la salida esto no pasa porque el cambio en la mesa es justamente que el tipo que sale no esta mas, entonces cuando el observer quiera notificar no va a encontrar al que esta saliendo de la mesa.
+Ademas, la instancia del observador la esta guardando el singleton MesasAbiertas para pasarle la instancia a cada mesa que cree. 
 
 + En entrarCraps, es HORRIBLE que me manden un string vacio como IdMesa si quieren que se cree la mesa. Aca podriamos:
 	- Hacer que el mensajero haga un if verificando si primero llama a crear mesa o no segun si este string es nulo o no. Esto haria que haya logica de negocio en el mensajero.
@@ -35,7 +36,16 @@ Notar que cuando alguien entra, el mensajero de entrada debe hacer un NotificarE
 
 + Cambiamos el seteo del modo dirigido a que sea por mesa en todos ponen y normal y no tp y no feliz y no normal
 
++ Decidimos manejar el modo dirigido haciendo que cada juego puede tener los siguientes estados:
+	
+	Feliz
+	TodosPonen
+	Normal
+	NormalNoTodosPonen
+	NormalNoFeliz
+	NormalNoTodosPonenNoFeliz
 
+Un pedido de configuracion de MD trae alguna de estas configuraciones. Cada vez que llega una, se pisa a la que ya estaba. Notar que esto genera que por juego pueda haber una sola mesa feliz seteada. Pero no genera problemas de concurrencia en el caso q los 2 juegos tengan seteada una mesa como feliz porque nuestro servidor serializa los pedidos.
 
 
 
