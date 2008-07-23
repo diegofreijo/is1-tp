@@ -260,7 +260,7 @@ Descripción del xml:
         </resultado>]
     </controlResultados>
     <controlTipoJugadas activo="si | no">
-        [<tipo>"Normal" | "TodosPonen" | "NoTodosPonen" | "NoFeliz"</tipo>]
+        [<tipo>"Normal" | "TodosPonen" | "NoTodosPonen" | "NoFeliz" | "NoFelizNoTodosPonen"</tipo>]
     </controlTipoJugadas>
 </configurarModoDirigidoCraps>
 
