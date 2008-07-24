@@ -19,11 +19,12 @@ El grafico del modelo va en formato digital
 El m'odulo del casino se puede separar en dos partes: 
 
 \begin{itemize}
-\item el m'odulo \italica{Cliente} 
-\item m'odulo \italica{Servidor}
+\item componentes \italica{Cliente}
+\item componente \italica{Servidor}
 \end{itemize}  
 
-Agregando algo m'as a resolver: la comunicaci'on entre los m'odulos. Dicha cuesti'on ya fue resuelta por el documento de Arquitectura Conceptual y Protocolo brindado por los clientes.
+La comunicaci'on entre el componente {\it Servidor} y los componentes {\it Cliente} ya fue resuelta por el documento de Arquitectura Conceptual y Protocolo brindado por los clientes (ver documento adjunto) y por las extensiones realizadas al mismo (ver \ref{ModificacionesAlProtocolo}).
+No existir'a comunicaci'on entre los componentes {\it Cliente} desde el punto de vista arquitectural, aunque s'i se relacionar'an indirectamente a trav'es de la l'ogica de negocio del servidor.
 
 A continuacion tenemos la explicaci'on de las clases (o conjunto de ellas) m'as relevantes del diagrama.
 
