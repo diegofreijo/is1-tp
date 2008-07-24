@@ -1,65 +1,6 @@
 AccesoYManejoAdministrador
 ===========================
 
-///////////////////
-// Autenticación //
-///////////////////
-
-Login
------
-
-Nombre del archivo: loginXXYYYY.xml
-	XX: número de grupo
-	YYYY: número de terminal virtual
-    
-Descripción del xml:
-<?xml version="1.0" encoding="UTF-8" ?>
-<login vTerm="id terminal virtual" password="password de administrador"/>
-
-
-RespuestaLogin (aceptar/denegar Login)
---------------
-
-Nombre del archivo: respuestaLoginXXYYYY.xml
-	XX: número de grupo
-	YYYY: número de terminal virtual
-    
-Descripción del xml:
-<?xml version="1.0" encoding="UTF-8" ?>
-<respuestaLogin vTerm="id terminal virtual">
-    <aceptado fueAceptado="si | no" />
-    <descripcion>"información adicional, de por qué no fue aceptado por ejemplo u otra informacion relevante"</descripcion>
-</respuestaLogin>
-
-
-Logout
-------
-
-Nombre del archivo: logoutXXYYYY.xml
-	XX: número de grupo
-	YYYY: número de terminal virtual
-    
-Descripción del xml:
-<?xml version="1.0" encoding="UTF-8" ?>
-<logout vTerm="id terminal virtual" password="password de administrador" />
-
-
-RespuestaLogout (aceptar/denegar Logout)
----------------
-
-Nombre del archivo: respuestaLogoutXXYYYY.xml
-	XX: número de grupo
-	YYYY: número de terminal virtual
-    
-Descripción del xml:
-<?xml version="1.0" encoding="UTF-8" ?>
-<respuestaLogout vTerm="id terminal virtual">
-    <aceptado fueAceptado="si | no" />
-    <descripcion>"información adicional, de por qué no fue aceptado por ejemplo u otra informacion relevante"</descripcion>
-</respuestaLogout>
-
-
-
 //////////////
 // Reportes //
 //////////////
@@ -72,7 +13,7 @@ Nombre del archivo: pedidoReporteRankingDeJugadoresXXYYYY.xml
 	YYYY: número de terminal virtual
 Descripción del xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<pedidoReporteRankingDeJugadores vTerm="id terminal virtual"></pedidoReporteRankingDeJugadores>
+<pedidoReporteRankingDeJugadores vTerm="id terminal virtual" password="password de administrador" />
 
 
 RespuestaReporteRankingDeJugadores
@@ -103,7 +44,7 @@ Nombre del archivo: pedidoReporteEstadoActualXXYYYY.xml
 	YYYY: número de terminal virtual
 Descripción del xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<pedidoReporteEstadoActual vTerm="id terminal virtual"></pedidoReporteEstadoActual>
+<pedidoReporteEstadoActual vTerm="id terminal virtual" password="password de administrador" />
 
 
 RespuestaReporteEstadoActual
@@ -177,7 +118,7 @@ Nombre del archivo: pedidoReporteMovimientosXXYYYY.xml
 	YYYY: número de terminal virtual
 Descripción del xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<pedidoReporteMovimientos vTerm="id terminal virtual"></pedidoReporteMovimientos>
+<pedidoReporteMovimientos vTerm="id terminal virtual" password="password de administrador" />
 
 
 RespuestaReporteMovimientos
@@ -235,7 +176,7 @@ Nombre del archivo: configurarModoDirigidoTragamonedasXXYYYY.xml
     
 Descripción del xml:
 <?xml version="1.0" encoding="UTF-8" ?>
-<configurarModoDirigidoTragamonedas vTerm="id terminal virtual">
+<configurarModoDirigidoTragamonedas vTerm="id terminal virtual" password="password de administrador">
     <controlResultados activo="si | no">
         <resultado>
             [<rueda1>"cereza" | "bar simple" | "bar doble" | "bar triple" | "dinosaurio"</rueda1>
@@ -244,7 +185,7 @@ Descripción del xml:
         </resultado>
     </controlResultados>
     <controlTipoJugadas activo="si | no">
-        <tipo>"Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>
+        <tipo>"Azar" | "Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>
     </controlTipoJugadas>
 </configurarModoDirigidoTragamonedas>
 
@@ -273,7 +214,7 @@ Nombre del archivo: configurarModoDirigidoCrapsXXYYYY.xml
     
 Descripción del xml:
 <?xml version="1.0" encoding="UTF-8" ?>
-<configurarModoDirigidoCraps vTerm="id terminal virtual">
+<configurarModoDirigidoCraps vTerm="id terminal virtual" password="password de administrador">
     <controlResultados activo="si | no">
         [<resultado>
             <dado1>"1" | "2" | "3" | "4" | "5" | "6"</dado1>
@@ -281,7 +222,7 @@ Descripción del xml:
         </resultado>]
     </controlResultados>
     <controlTipoJugadas activo="si | no">
-        [<tipo>"Normal" | "TodosPonen" | "NoTodosPonen" | "NoFeliz" | "NoFelizNoTodosPonen"</tipo>]
+        [<tipo>"Azar" | "Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>]
     </controlTipoJugadas>
 </configurarModoDirigidoCraps>
 
@@ -310,7 +251,7 @@ Nombre del archivo: configurarModoDirigidoJugadaFelizXXYYYY.xml
     
 Descripción del xml:
 <?xml version="1.0" encoding="UTF-8" ?>
-<configurarModoDirigidoJugadaFeliz vTerm="id terminal virtual">
+<configurarModoDirigidoJugadaFeliz vTerm="id terminal virtual" password="password de administrador">
     <control activo="si | no">
         [<mesa>"id de la mesa"</mesa>]
     </control>

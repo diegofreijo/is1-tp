@@ -9,20 +9,17 @@ Este protocolo corresponde a un port de un componente cliente de un Cliente/Serv
 
 Se usa para que un usuario administrador pueda:
 \begin{itemize}
-    \item{autenticarse}
     \item{pedir reportes}
     \item{configurar opciones del modo dirigido}
 \end{itemize}
 
-El servidor no deber'ia aceptar los diferentes pedidos admitidos por este protocolo si el usuario administrador no se autentica como tal al iniciar la aplicaci'on.
+El servidor no deber'ia aceptar los diferentes pedidos admitidos por este protocolo si el usuario administrador no se autentica como tal proporcionando el password correcto en cada operaci'on.
 
-Este protocolo permite que el acceso de un usuario administrador sea exclusivo, no admitiendo el servidor que ingrese m'as de un administrador en forma simult'anea. 
-Esto asegura la consistencia de los datos ya que el servidor centraliza y administra los accesos.
-
-Hemos factorizado en un mismo mensaje las dos posibles respuestas de parte del servidor en cuanto a la configuraci'on del casino en modo dirigido. Es importante destacar que estas respuestas son simplemente a modo informativo de que las configuraciones de modo dirigido fueron modificadas con 'exito (o no han podido ser modificadas). La aplicaci'on cliente no tendr'ia por qu'e modificar su estado en respuesta a estas notificaciones, salvo a lo sumo dar acuse de recibo al usuario por alg'un mecanismo (un messagebox por ejemplo). El 'unico caso en que el servidor deber'ia contestar en forma negativa estos pedidos es cuando el usuario que hace el pedido no fue autenticado satisfactoriamente por el servidor o bien se intenta acceder de forma ilegal, lo cual suponemos no resulta interesante a los fines del trabajo pr'actico en cuesti'on.
+Hemos factorizado en un mismo mensaje las dos posibles respuestas de parte del servidor en cuanto a la configuraci'on del casino en modo dirigido. Es importante destacar que estas respuestas son simplemente a modo informativo de que las configuraciones de modo dirigido fueron modificadas con 'exito (o no han podido ser modificadas). La aplicaci'on cliente no tendr'ia por qu'e modificar su estado en respuesta a estas notificaciones, salvo a lo sumo dar acuse de recibo al usuario por alg'un mecanismo (un messagebox por ejemplo). El 'unico caso en que el servidor deber'ia contestar en forma negativa estos pedidos es cuando el usuario que hace el pedido no fue autenticado satisfactoriamente por el servidor.
 
 \subsubsection{Diagrama}
 El siguiente diagrama describe los estados y transiciones que ocurren cuando se hace un uso esperado del protocolo.
+Por la forma del protocolo dise~nado cualquiera podr'ia ser el estado inicial.
 
 Se realizaron cambios con respecto a la notaci'on empleada en el documento del protocolo original para poder reducir la cantidad de flechas con el fin de que el diagrama sea m'as legible. A saber, se admiten flechas bidireccionales en el grafo dirigido, esto significa que puede recorrerse ese eje en ambas direcciones. En el documento original se utilizaban 2 flechas con direcci'on opuesta para representar esto.
 
@@ -30,105 +27,6 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 
 \clearpage
 \subsubsection{Archivos de comunicaci'on}
-
-
-\subsubsubsection{login}
-\bf{Nombre del archivo:} \it{loginXXYYYY.xml}
-\begin{itemize}
-    \item{XX: n'umero de grupo}
-    \item{YYYY: n'umero de terminal virtual}
-\end{itemize}
-
-\bf{Descripci'on del xml:}
-\begin{verbatim}
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <login vTerm="id terminal virtual" password="password de administrador"/>
-\end{verbatim}
-
-
-\subsubsubsection{aceptarLogin}
-\bf{Nombre del archivo:} \it{respuestaLoginXXYYYY.xml}
-\begin{itemize}
-    \item{XX: n'umero de grupo}
-    \item{YYYY: n'umero de terminal virtual}
-\end{itemize}
-
-\bf{Descripci'on del xml:}
-\begin{verbatim}
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <respuestaLogin vTerm="id terminal virtual">
-        <aceptado fueAceptado="si" />
-        <descripcion>"informaci'on adicional"</descripcion>
-    </respuestaLogin>
-\end{verbatim}
-
-
-\subsubsubsection{denegarLogin}
-\bf{Nombre del archivo:} \it{respuestaLoginXXYYYY.xml}
-\begin{itemize}
-    \item{XX: n'umero de grupo}
-    \item{YYYY: n'umero de terminal virtual}
-\end{itemize}
-
-\bf{Descripci'on del xml:}
-\begin{verbatim}
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <respuestaLogin vTerm="id terminal virtual">
-        <aceptado fueAceptado="no" />
-        <descripcion>"informaci'on adicional, de por qu'e no fue aceptado por ejemplo
-        u otra informacion relevante"</descripcion>
-    </respuestaLogin>
-\end{verbatim}
-
-
-\subsubsubsection{logout}
-\bf{Nombre del archivo:} \it{logoutXXYYYY.xml}
-\begin{itemize}
-    \item{XX: n'umero de grupo}
-    \item{YYYY: n'umero de terminal virtual}
-\end{itemize}
-
-\bf{Descripci'on del xml:}
-\begin{verbatim}
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <logout vTerm="id terminal virtual" password="password de administrador"/>
-\end{verbatim}
-
-
-\subsubsubsection{aceptarLogout}
-\bf{Nombre del archivo:} \it{respuestaLogoutXXYYYY.xml}
-\begin{itemize}
-    \item{XX: n'umero de grupo}
-    \item{YYYY: n'umero de terminal virtual}
-\end{itemize}
-
-\bf{Descripci'on del xml:}
-\begin{verbatim}
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <respuestaLogout vTerm="id terminal virtual">
-        <aceptado fueAceptado="si" />
-        <descripcion>"informaci'on adicional"</descripcion>
-    </respuestaLogout>
-\end{verbatim}
-
-
-\subsubsubsection{denegarLogout}
-\bf{Nombre del archivo:} \it{respuestaLogoutXXYYYY.xml}
-\begin{itemize}
-    \item{XX: n'umero de grupo}
-    \item{YYYY: n'umero de terminal virtual}
-\end{itemize}
-
-\bf{Descripci'on del xml:}
-\begin{verbatim}
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <respuestaLogout vTerm="id terminal virtual">
-        <aceptado fueAceptado="no" />
-        <descripcion>"informaci'on adicional, de por qu'e no fue aceptado por ejemplo
-        u otra informacion relevante"</descripcion>
-    </respuestaLogout>
-\end{verbatim}
-
 
 \subsubsubsection{pedirReporteRankingDeJugadores}
 \bf{Nombre del archivo:} \it{pedidoReporteRankingDeJugadoresXXYYYY.xml}
@@ -140,7 +38,7 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 \bf{Descripci'on del xml:}
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
-    <pedidoReporteRankingDeJugadores vTerm="id terminal virtual" />
+    <pedidoReporteRankingDeJugadores vTerm="id terminal virtual" password="password de administrador" />
 \end{verbatim}
 
 
@@ -155,14 +53,15 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 \begin{verbatim}
 <?xml version="1.0" encoding="UTF-8" ?>
     <respuestaReporteRankingDeJugadores vTerm="id terminal virtual">
-        <jugadoresMasGanadores>
+        <aceptado fueAceptado="si | no" />
+       [<jugadoresMasGanadores>
             <jugador ranking="posicion" nombre="nombre del jugador" />
             ...
         </jugadoresMasGanadores>
         <jugadoresMasPerdedores>
             <jugador ranking="posicion" nombre="nombre del jugador" />
             ...
-        </jugadoresMasPerdedores>
+        </jugadoresMasPerdedores>]
     </respuestaReporteRankingDeJugadores>
 \end{verbatim}
 
@@ -177,7 +76,7 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 \bf{Descripci'on del xml:}
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
-    <pedidoReporteEstadoActual vTerm="id terminal virtual"></pedidoReporteEstadoActual>
+    <pedidoReporteEstadoActual vTerm="id terminal virtual" password="password de administrador" />
 \end{verbatim}
 
 
@@ -192,7 +91,8 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
     <respuestaReporteEstadoActual vTerm="id terminal virtual">
-        <jugadores>
+        <aceptado fueAceptado="si | no" />
+       [<jugadores>
             <jugador nombre="nombre del usuario jugador" saldo="saldo del jugador" />
             ... 
         </jugadores>
@@ -245,7 +145,7 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
         <pozosCasino>
             <pozoFeliz>"monto del pozo feliz"</pozoFeliz>
         </pozosCasino>
-        <saldoCasino>"saldo del casino"</saldoCasino>
+        <saldoCasino>"saldo del casino"</saldoCasino>]
     </respuestaReporteEstadoActual>
 \end{verbatim}
 
@@ -260,7 +160,7 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 \bf{Descripci'on del xml:}
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
-    <pedidoReporteMovimientos vTerm="id terminal virtual" />
+    <pedidoReporteMovimientos vTerm="id terminal virtual" password="password de administrador" />
 \end{verbatim}
 
 
@@ -275,7 +175,8 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
     <respuestaReporteMovimientos vTerm="id terminal virtual">
-        <jugador nombre="nombre del jugador">
+        <aceptado fueAceptado="si | no" />
+       [<jugador nombre="nombre del jugador">
             <jugadasTragamonedas>
                 <jugadaTragamonedas tipo="normal | todos ponen | feliz | gordo progresivo |
                 feliz y gordo progresivo">
@@ -306,7 +207,7 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
             </jugadasCraps>
             ...
         </jugador>
-        ...
+        ...]
     </respuestaReporteMovimientos>
 \end{verbatim}
 
@@ -321,7 +222,7 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 \bf{Descripci'on del xml:}
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
-    <configurarModoDirigidoTragamonedas vTerm="id terminal virtual">
+    <configurarModoDirigidoTragamonedas vTerm="id terminal virtual" password="password de administrador">
         <controlResultados activo="si | no">
             <resultado>
                [<rueda1>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda1>
@@ -330,7 +231,7 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
             </resultado>
         </controlResultados>
         <controlTipoJugadas activo="si | no">
-            <tipo>"Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>
+            <tipo>"Azar" | "Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>
         </controlTipoJugadas>
     </configurarModoDirigidoTragamonedas>
 \end{verbatim}
@@ -364,7 +265,7 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 \bf{Descripci'on del xml:}
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
-    <configurarModoDirigidoCraps vTerm="id terminal virtual">
+    <configurarModoDirigidoCraps vTerm="id terminal virtual" password="password de administrador">
         <controlResultados activo="si | no">
            [<resultado>
                 <dado1>"1" | "2" | "3" | "4" | "5" | "6"</dado1>
@@ -372,7 +273,7 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
             </resultado>]
         </controlResultados>
         <controlTipoJugadas activo="si | no">
-           [<tipo>"Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>]
+           [<tipo>"Azar" | "Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>]
         </controlTipoJugadas>
     </configurarModoDirigidoCraps>
 \end{verbatim}
@@ -407,7 +308,7 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 \bf{Descripci'on del xml:}
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
-    <configurarModoDirigidoJugadaFeliz vTerm="id terminal virtual">
+    <configurarModoDirigidoJugadaFeliz vTerm="id terminal virtual" password="password de administrador">
         <control activo="si | no">
            [<mesa>"id de la mesa"</mesa>]
         </control>
