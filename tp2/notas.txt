@@ -51,7 +51,11 @@ Un pedido de configuracion de MD trae alguna de estas configuraciones. Cada vez 
 
 + En MD, el "a la vez" de jugadas felices no va a pasar nunca porq tenemos servidor monothread y porque la resolucion de las jugadas, decision del tipo y pagos se hacen en forma atomica y no se recibe otro mensaje hasta que no termine de suceder todo esto. Pero si justo del lado del cliente agarran a la vez el mensaje podria pasar que 2 clientes en distintas mesas vean a la vez una jugada feliz. Pero el protocolo no lo soporta, asi que no le damos importancia (por ejemplo, se necesitaria un ACK de la respuesta para saber que ya se mostro una jugada y recien ahi aceptar que hayan mas felices).
 
-+ 
++ Explica el uso de los receptores y despachadores de mensajes y sus agregaciones en lugar de herencias.
+
+
+
+
 
 
 
@@ -64,11 +68,4 @@ Version vieja
 + Nos basamos en el MVC de Java.
 + Para preservar OPC, aumentar un poco la cohesion y disminuir el acoplamiento, expusimos algunas factories en la interfaz violeta que pueda utilizar el controlador y asi y todo mantener un nivel de generalidad deseable en la comunicacion entre el controlador (y vista) contra los administradores. Ademas centralizamos mas la logia en el controlador. Otra posibilidad era que aplique un poco mas de logica de negocio el administrador, pero el dinamic cast tambien lo iba a tenre que hacer ahi (ademas del del controlador) consultando su diccionario para ver que factory usar. Estoy hablando mas que nada del caso de la creacion de una apuesta de craps.
 + 
-
-
-
-
-
-
-
 
