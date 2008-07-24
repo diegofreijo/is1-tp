@@ -47,7 +47,11 @@ Ademas, la instancia del observador la esta guardando el singleton MesasAbiertas
 
 Un pedido de configuracion de MD trae alguna de estas configuraciones. Cada vez que llega una, se pisa a la que ya estaba. Notar que esto genera que por juego pueda haber una sola mesa feliz seteada. Pero no genera problemas de concurrencia en el caso q los 2 juegos tengan seteada una mesa como feliz porque nuestro servidor serializa los pedidos.
 
++ En TirarDados de MesaCraps tuvimos q hacer un if para actuar en funcion del estado de la ronda. Esto se podria haber solucionado con un strategy o capaz state.
 
++ En MD, el "a la vez" de jugadas felices no va a pasar nunca porq tenemos servidor monothread y porque la resolucion de las jugadas, decision del tipo y pagos se hacen en forma atomica y no se recibe otro mensaje hasta que no termine de suceder todo esto. Pero si justo del lado del cliente agarran a la vez el mensaje podria pasar que 2 clientes en distintas mesas vean a la vez una jugada feliz. Pero el protocolo no lo soporta, asi que no le damos importancia (por ejemplo, se necesitaria un ACK de la respuesta para saber que ya se mostro una jugada y recien ahi aceptar que hayan mas felices).
+
++ 
 
 
 
