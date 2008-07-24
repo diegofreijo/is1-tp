@@ -224,14 +224,12 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
     <?xml version="1.0" encoding="UTF-8" ?>
     <configurarModoDirigidoTragamonedas vTerm="id terminal virtual" password="password de administrador">
         <controlResultados activo="si | no">
-            <resultado>
-               [<rueda1>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda1>
-                <rueda2>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda2>
-                <rueda3>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda3>]
-            </resultado>
+           [<rueda1>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda1>
+            <rueda2>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda2>
+            <rueda3>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda3>]
         </controlResultados>
         <controlTipoJugadas activo="si | no">
-            <tipo>"Azar" | "Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>
+           [<tipo>"Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>]
         </controlTipoJugadas>
     </configurarModoDirigidoTragamonedas>
 \end{verbatim}
@@ -267,13 +265,11 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
     <?xml version="1.0" encoding="UTF-8" ?>
     <configurarModoDirigidoCraps vTerm="id terminal virtual" password="password de administrador">
         <controlResultados activo="si | no">
-           [<resultado>
-                <dado1>"1" | "2" | "3" | "4" | "5" | "6"</dado1>
-                <dado2>"1" | "2" | "3" | "4" | "5" | "6"</dado2>
-            </resultado>]
+           [<dado1>"1" | "2" | "3" | "4" | "5" | "6"</dado1>
+            <dado2>"1" | "2" | "3" | "4" | "5" | "6"</dado2>]
         </controlResultados>
         <controlTipoJugadas activo="si | no">
-           [<tipo>"Azar" | "Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>]
+           [<tipo>"Normal" | "TodosPonen" | "NoNormal" | "NoTodosPonen" | "NoFeliz"</tipo>]
         </controlTipoJugadas>
     </configurarModoDirigidoCraps>
 \end{verbatim}
