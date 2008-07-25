@@ -8,7 +8,6 @@ Para tratar con los XML en los DS asumiremos que contamos con cirta funcionalida
 \begin{itemize}
 \item  Para obtener el atributo \textbf{idMesa} de un XML ejecutamos \textit{XML.idMesa}, donde idmesa es el tag que se encuentra en el xml.
 \item As'i tambi'en para la lista de jugadores, XML.jugadoresEnMesa devuelve una \textbf{lista$<$jugadores$>$}.
-
 \end{itemize}
 
 
@@ -30,21 +29,33 @@ Para tratar con los XML en los DS asumiremos que contamos con cirta funcionalida
 
 }
 
+\subsection{Diagrmas de punta a punta}
+En esta secci'on mostraremos DS desde que se leen los arhivos XML hasta que el mensajero de salida despacha los archivos
+XML de respuesta.
+
+\subsubsection{Craps}
+\input{escenarios_craps_pap.tex}
+
+\subsubsection{Tragamonedas}
+\input{escenarios_tragamonedas_pap.tex}
 
 
+\subsection{Diagrmas de que no son de punta a punta}
+Dado que la sección de recepcion de pedidos y el despacho es muy parecida en estos Diagramas 
+decidimos obviarlo.
 
 
-\subsection{Funcionalidades generales entre los jugadores y el casino}
+\subsubsection{Funcionalidades generales entre los jugadores y el casino}
 \input{escenarios_jugador.tex}
 
 
-\subsection{Funcionalidades referentes a Tragamonedas}
+\subsubsection{Tragamonedas}
 \input{escenarios_tragamonedas.tex}
 
 
-\subsection{Funcionalidades referentes a Craps}
+\subsubsection{Craps}
 \input{escenarios_craps.tex}
 
 
-\subsection{Funcionalidades generales de los administradores}
+\subsubsection{Funcionalidades generales de los administradores}
 \input{escenarios_admin.tex}
