@@ -48,7 +48,8 @@ Se encarga de generar las respuestas a los clientes, sabiendo de donde obtener l
 \subsubsubsection{Clases relevantes}
 
 \begin{description}
-\item[\italica{Manejadores}] 
+\item[\italica{Manejadores}] De forma similar a los manejadores del DespachadorDeEntrada, existe uno por cada conector del lado del cliente y posee un m'etodo por cada respuesta posible que se le deba enviar. Dentro de cada uno de 'estos se encuentra la l'ogica para obtener del Modelo la informaci'on necesaria en la construcci'on de las respuestas (al igual que la forma en la cual 'estas deben ser armadas).
+\item[MesaCrapsObserver] Es un observador de todas las mesas de craps abiertas en el casino. Se encarga de realizar las notificaciones necesarias al realizarse alguna modificaci'on en una de ellas; para ello es que contiene informaci'on relevante a los destinatarios de 'estas notificaciones.
 \end{description}
 
 
@@ -58,6 +59,61 @@ Contiene la l'ogica de negocio junto con las estructuras asociadas a ella. Expon
 \subsubsubsection{Clases relevantes}
 
 \begin{description}
+\item[\italica{Fachadas}] Conforman la interfaz del Modelo. Mediante ellas los clientes pueden comunicarse con la l'ogica del casino. Contienen la l'ogia de validaci'on de las operaciones invocadas y conocen como manipular las dem'as clases del modelo para cumplir con los pedios que les solicitan. Para agregar una mayor cohesi'on cada una representa una parte del casino. 'Estas son:
+	\begin{description}
+	\item[LobbyCasino] representa al punto de entrada a un casino, algo asi como el \italica{lobby} o recepci'on de un casino. Aqu'i tambi'en es donde se quedan los observadores (dado que no pueden acceder a las mesas de juego).
+	\item[JuegoCraps] engloba un juego de craps (el cual no necesariamente debe estar dentro de un casino). 'Esto incluye la administraci'on de las mesas, sus jugadores, apuestas y resultados.
+	\item[JuegoTragamonedas] al igual que JuegoCraps, representa la creaci'on de mesas tragamonedas y el manejo de apuestas y jugadas sobre ellas.
+	\item[AdministradorDeCasino] es el punto de administraci'on del casino y brinda servicios requeridos por los miembros del cuerpo administrativo de un casino: la configuraci'on del manejo dirigido y el pedido de reportes.
+	\end{description}
+
+\item[\italica{Capa de soporte}] Las clases aqu'i encotradas son los puntos de acceso a la informaci'on del casino. Son todas singleton porque al ser solo soporte de las dem'as clases, con una instancia alcanza. Adem'as, es necesario que sean accedidas desde cualquier punto (principalmente, las fachadas). A continuaci'on, el detalle de ellas:
+	\begin{description}
+	\item[JugadoresRegistrados] Administra y brinda acceso a los jugadores registrados, es decir, aquellos que marketing estableci'o en la lista que le configura al servidor.
+	\item[UsuariosEnCasino] Administra y brinda acceso a los usuarios (los cuales pueden ser jugadores u observadores) que ya ingresaron al casino.
+	\item[MesasAbiertas] Administra y brinda acceso a las mesas del casino que fueron creadas y por ende (debido a que una mesa sin jugadores es autom'aticamente destruida) que tienen jugadores jugando.
+	\item[HistorialJugadas] Administra y brinda acceso a las jugadas que ya fueron realizadas en el transcurso del d'ia, ya sean de craps o tragamonedas.
+	\item[ServidorJugadas] Es el encargado de brindar los resultados y tipos para las jugadas efectuadas en cada mesa del casino. De igual manera, permite la configuraci'on del modo dirigido.
+	\item[ConfiguracionCasino] Brinda informaci'on sobre la configuraci'on global del casino y sus juegos.
+	\item[Pozos] Administra y brinda acceso a los pozos del casino.
+	\end{description}
+
+\item[JugadorRegistrado] Representa a un jugador inscripto en la lista de marketing. Contiene el nombre y saldo del jugador y una \italica{abstract factory} (JugadorFactory) que permite abstraer el tipo de jugador a construir (Vip o Normal) cuando 'este entre en el casino.
+
+\item[Usuario] Representa a un observador o un jugador. Contiene todos los datos de 'este (en el caso del observador solo el nombre, para el jugador existe tambi'en el saldo y la mesa en la cual est'a jugando (a menos que no lo est'e). Un jugador a su vez puede ser normal o vip, donde la 'unica diferencia es distinguir qui'en puede quedarse con saldo negativo (vip) y quien no (normal).
+
+\item[Mesa] Representa a una mesa abierta en el casino. Contiene informaci'on de sus jugadores, las apuestas que se realizaron pero todavia no se resolvieron, ultima jugada realizada, observadores que la estan observando (para craps), pr'oximo y 'ultimo tirador, etc. Se especializa en un tipo de mesa para cada juego (en este caso, craps y tragamonedas). Notar que la mesa es la responsable de recibir y administrar las apuestas, los tiros y generar las jugadas correspondientes (al igual que registrarlas en el historial).
+
+\item[Jugada] Una jugada es un tiro en alg'un juego; JugadaCraps es un tiro de dados y JugadaTragamonedas es un giro de rodillos. Cada una tiene la posibilidad de resolverse pero para esto primero necesita que le brinden toda la informaci'on relevante (el resultado de la jugada, el tipo de jugada y la/s apuestas). Para ello, le pide al tipo de jugada (Feliz, TodosPonen, Normal) que se resuelva sin importar cual sea (patr'on \italica{strategy}) y 'este hace lo mismo con cada apuesta en funci'on de lo que su l'ogica le indique. Una jugada adem'as guarda los premios pagados (cuanto gan'o cada jugador, separado por concepto).
+
+\item[\italica{Selectores}] Los selectores son los portadores de la configuraci'on del modo dirigido. Cada uno le abstrae su funcionalidad espec'ifica al ServidorJugadas (patr'on \italica{strategy}) estableci'endo solamente que informaci'on es capaz de brindarle. Espec'ificamente, las clases selectoras son
+	\begin{description}
+	\item[SelectorResultadoCraps] Brinda el resultado de craps (los dados) que saldr'an en la mesa especificada. Notar que 'este puede ser tanto un selector que elige azarosamente o bien que utiliza una configuraci'on asignada por el modo dirigido.
+	\item[SelectorResultadoTragamonedas] S'imil al de craps, con la diferencia que el resultado ahora es de tragamonedas por lo que se compone de tres rodillos en lugar de dos dados.
+	\item[SelectorTipoJugada] Devuelve un tipo de jugada (Normal, Feliz, TodosPonen). La elecci'on pudo haber sido basada en varios criterios, configurables por el administrador:
+		\begin{description}
+			\item[Feliz] La mesa elegida debe sacar siempre jugada feliz.
+			\item[TodosPonen] La mesa elegida debe sacar siempre jugada todos ponen.
+			\item[Azar] La mesa elegida calcular'a su tipo de jugada azarosamente, calculando primero si debe ser feliz en funci'on de la probabilidad establecida y de no ser as'i realiza la misma operaci'on para todos ponen. Si tambi'en falla, la jugada ser'a normal.
+			\item[NoFeliz] Similar a Azar, pero no se realiza la verificaci'on de una jugada feliz.
+			\item[NoTodosPonen] Similar a Azar, pero no se realiza la verificaci'on de una jugada todos ponen.
+			\item[Normal] 
+		\end{description} 
+	\end{description}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \item[AdministradorJugador], \italica{AdministradorObservador} y \italica{FachadaUsuario}. 'Estas clases hacen el manejo del ingreso y egreso de jugadores y observadores. Adem'as de las consultas sobre el saldo, la existencia (entre otras) de jugadores y observadores
 
 \item[Usuarios] contiene la lista de jugadores (normales y vip) y la lista de observadores.
