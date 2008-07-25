@@ -1,99 +1,37 @@
-
-
-\escenario{ \textbf{Jugador de Craps entrando a una mesa}
-\begin{itemize}
-  \item El usuario decide entra a una mesa de craps
-  \item  verifica que no este jugando y que sea un jugador del casino
-  \item el sitema crea la mesa en caso de que no especifique una
-  \item lo ingresa
-  \item lo notifica
-\end{itemize}
-}
-
-\imagenvertical{DS_Craps_1.png}{Jugador de Craps entrando a una mesa}{0.6}
-
-
-
-
-
-\escenario{ \textbf{ Invitado mirando una ronda }
-\begin{itemize}
-  \item El invitado esta en el casino
-  \item decide ver el juego de craps de una mesa cualquiera de las abiertas
-  \item Mira la ronda y luego sale
-\end{itemize}
-}
-
-\escenario{
-\textbf{Jugador que se hace tirador} 
-\begin{itemize}    
-  \item el jugador está en el juego de craps
-  \item espera n rondas, hasta que le toca tirar, se convierte en tirador.
-  \item Tira los dados. 
-  \item No se hacen apuestas.
-  \item Saca un seven out por lo que deja de ser tirador.
-\end{itemize}
-}
-
-\escenario{ \textbf{Jugador haciendo apuesta de craps}
-    \begin{itemize}
-        \item Un jugador esta en una mesa
-        \item Decide hacer una apuesta de \textit{campo} por una ficha de menor valor.
-        \item Se hace el tiro, sale 7, pierde. 
-        \item En la siguiente jugada le toca tirar.
-        \item Hace la misma apuesta.
-        \item Sale 12. 
-        \item Gana su apuesta, se le paga 2 a 1. 
-    \end{itemize}
-}
-
-\escenario{
-    \begin{itemize}
-        \item est'a en el juego de crapsm en una mesa
-        \item Decide hacer una apuesta  \textit{linea pase} por una ficha de menor valor.
-        \item Se hace el tiro, sale 7, pierde. 
-    \end{itemize}
-}
-
-\escenario{
-    \begin{itemize}
-        \item Un jugador ingresa al juego de craps, elige una mesa
-        \item aguarda n rondas hasta que decide hacer su apuesta
-        \item Decide hacer una apuesta \textit{venir} por una ficha de menor valor, por lo cual  debe aguardar hasta que se estabezca el punto.
-        \item Se hace el tiro, sale 2, pierde.
-    \end{itemize}
-}
-
-
-\escenario{
-    \begin{itemize}
-        \item Un jugador ingresa al juego de craps, elige una mesa
-        \item aguarda n rondas hasta que decide hacer su apuesta, debe aguardar hasta que se estabezca el punto.
-        \item Decide hacer una apuesta \textit{venir} por una ficha de menor valor.
-        \item Se hace el tiro, sale 2, pierde. 
-    \end{itemize}
-}
-
-
-
-
-NUEVOS
-
-
 \escenario{ \textbf{Jugador de Craps haciendo una apuesta}
-\begin{itemize}
-  \item El usuario esta en una mesa de craps 
-\item elige un valor de ficha de \$20
-\item elige un valor de ficha de \$15
-\item elige el tipo de apuesta
-\item por cada eleccion se ve un mensaje en el log
-\item si elige una apuesta antes de una ficha  da un error
-\end{itemize}
+  \begin{itemize}
+    \item El usuario esta en una mesa de craps 
+  \item elige un valor de ficha de \$20
+  \item elige un valor de ficha de \$15
+  \item elige el tipo de apuesta
+  \item por cada eleccion se ve un mensaje en el log
+  \item si elige una apuesta antes de una ficha  da un error
+  \end{itemize}
 }
+
+
+\subsubsection{TirarDados}
+
+Este escenario es bastante gen'erico,
 
 \escenario{
-      \textbf{Abrir Cliente}
-      
-
-
+      \begin{itemize}
+      \item El usuario puede o no estar en la mesa.
+      \item El usuario puede o no ser el tirador.
+      \item En caso de que sea el tirador y esté en la mesa.
+      \item Se tiran los dados.
+      \item Si sali'o alg'un valor propio de punto este se setea.
+      \item Hay alguna cantidad de apuestas de alg'un tipo que se resuelven o no con su l'ogica particular, dependiendo del contexto $^1$
+      \item Estamos en un ``est'an saliendo'' $^3$
+      \item Es una jugada feliz $^2$
+    \end{itemize}
 }
+
+
+$^1$ Resoluci'on de distintas apuestas se ve en otros DS's (en sitio a perder y a venir)
+$^2$ En otro DS se ve la situacion con el caso de que el punto esté establecido
+$^3$ En otro DS se ve la jugada Todos ponen
+
+El pozo feliz se reparte si o si el servidor de Jugadas no devuelve una feliz mientras el pozo no lleque al m'nimo
+
+La notificaci'on a de que una mesa cambió se pude hacer generico sin complicar demasiado el diagrama.

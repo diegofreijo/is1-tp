@@ -2,6 +2,37 @@ Planteamos 2 enfoques para la construcci'on de los escenarios y diagramas de sec
 fue basada en el echo de que contabamos con protocolos que inducian interaci'on de
 nuestras clases. El otro fue basado en los casos de uso.
 
+\textbf{Notaci'on en los diagramas}
+
+Para tratar con los XML en los DS asumiremos que contamos con cirta funcionalidad, provista por los objetos, por ejemplo:
+\begin{itemize}
+\item  Para obtener el atributo \textbf{idMesa} de un XML ejecutamos \textit{XML.idMesa}, donde idmesa es el tag que se encuentra en el xml.
+\item As'i tambi'en para la lista de jugadores, XML.jugadoresEnMesa devuelve una \textbf{lista$<$jugadores$>$}.
+
+\end{itemize}
+
+
+
+
+\escenario{ \textbf{Startup del Casino}
+\begin{itemize}
+\item se inicia el servidor
+\item se leen los achivos de configuraci'on
+\end{itemize}
+
+}
+
+\escenario{ \textbf{Startup Cliente}
+\begin{itemize}
+\item se incia el cliente
+\item 
+\end{itemize}
+
+}
+
+
+
+
 
 \subsection{Funcionalidades generales entre los jugadores y el casino}
 \input{escenarios_jugador.tex}
