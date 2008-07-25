@@ -1,0 +1,86 @@
+\subsection{Gr'afico Diagrama de Clases}
+
+El enfoque en este diagrama es sobre el \italica{Servidor}.
+
+El grafico del modelo va en formato digital
+
+% A continuaci'on tenemos el gr'afico del diagrama de clases para la resoluci'on del problema sobre el casino.
+% 
+
+% y
+% \imagenvertical{DC_DiagramaCompleto_vista_control.png}{Diagrama de Clases}{0.18}
+% 
+% \imagenvertical{DC_DiagramaCompleto_modelo.png}{Diagrama de Clases}{0.18}
+
+\clearpage
+
+\subsection{Explicaci'on}
+Para facilitar el dise'no, mantener un nivel bajo de acoplamiento e incluso fomentar la reutilizaci'on de los elementos utilizados en el diagrama, se agruparon ciertas clases en m'odulos. Cada m'odulo define una 'unica responsabilidad y las clases que lo contienen deben respetarla y ejecutarla.
+
+A continuaci'on tenemos la explicaci'on detallada de los m'odulos junto con sus clases relevantes.
+
+
+\subsubsection{Comunicaci'on}
+Se encarga de mantener la comunicaci'on de bajo nivel contra los clientes. 'Esto incluye la recepci'on de pedidos y el envio de las respuestas y mensajes de estado. Adem'as es el encargado de abstraer el medio de comunicaci'on (por ejemplo, por archivo que es el utilizado en el presente trabajo). Su l'ogica es simple y genera, consistiendo de rutinas de escucha de mensajes
+
+\subsubsubsection{Clases relevantes}
+
+\begin{description}
+\item[ReceptorPedidos] Es el encargado de \italica{poolear} el medio que le fue especificado en b'usqueda de nuevos pedidos. Posee un ReceptorPedidosConcreto qui'en es el encargado de especificar el medio por el cual debe escuchar pedidos (en nuestro caso, por archivo) y es establecido en el arranque de la aplicaci'on. Una vez que se invoca a ComenzarRecepcion, el servidor ya est'a listo para comenzar a recibir pedidos de clientes. Notar que no es un singleton porque no se requiere limitar la cantidad de receptores (pueden haber uno por thread si el sistema fuese multithreading) ni requiere ser referenciado. 
+\item[DespachadorRespuestas] Similar al receptor, 'este se encarga de enviar la respuesta ya generada de vuelta a un cliente. Es un singleton para que se permita su uso a quien as'i lo requiera, pero no para limitar la cantidad de instancias (en principio, podrian ser m'as si se necesitan atender despachos de varios threads). Al igual que el receptor, posee un DespachadorRespuestasEspecifico que se encarga de hacer el env'io real porque es quien realmente conoce el medio por donde se debe enviar la respuesta (en nuestro caso, por archivo).
+\end{description}
+
+
+\subsubsection{MensajeroDeEntrada}
+Tiene como tarea la de manejar el flujo de informaci'on dentro del servidor. 'Esto incluye distribuir los pedidos recibidos desde la capa de comunicaci'on a los respectivos encargados de atenderlos y de avisarle a los encargados de generar las respuestas que las generen (adem'as de informar cu'al de ellas deben generar). En su l'ogica, principalmente sabe recorrer los XML para obtener los valores que necesitan los responsables de atender al pedido. Adem'as, sabe comprender dada una respuesta del manejo del pedido a quien le debe informar que respuesta devolver al cliente.
+
+\subsubsubsection{Clases relevantes}
+
+\begin{description}
+\item[DespachadorPedidos] Es el responsable de despachar cada pedido recien entrado a su manejador correspondiente.
+\item[\italica{Manejadores}] Cada manejador posee la responsabilidad de atender a pedidos de un conector del lado del cliente y posee un m'etodo por cada pedido que pueda llegar. Dentro de cada uno de 'estos m'etodos se encuentra la l'ogica de invocaci'on al Modelo y MensajeroDeSalida.
+\end{description}
+
+
+\subsubsection{MensajeroDeSalida}
+Se encarga de generar las respuestas a los clientes, sabiendo de donde obtener la informaci'on necesaria para lograrlo. Adem'as es quien atiende eventos generados por la l'ogica del casino y sabe como actual ante cada uno de ellos. Tiene l'ogica para conseguir los datos necesarios para generar las respuestas, al igual que sabe como 'estas deben ser armadas.
+
+\subsubsubsection{Clases relevantes}
+
+\begin{description}
+\item[\italica{Manejadores}] 
+\end{description}
+
+
+\subsubsection{Modelo}
+Contiene la l'ogica de negocio junto con las estructuras asociadas a ella. Expone interfaces (llamadas \italica{fachadas}) mediantes las cuales los demas m'odulos pueden comunicarse con 'el. Su l'ogica esta compuesta por las validaciones ante cada mensaje y las consultas y modificaciones que 'estos generan. 
+
+\subsubsubsection{Clases relevantes}
+
+\begin{description}
+\item[AdministradorJugador], \italica{AdministradorObservador} y \italica{FachadaUsuario}. 'Estas clases hacen el manejo del ingreso y egreso de jugadores y observadores. Adem'as de las consultas sobre el saldo, la existencia (entre otras) de jugadores y observadores
+
+\item[Usuarios] contiene la lista de jugadores (normales y vip) y la lista de observadores.
+Sus operaciones est'an relacionadas con el manejo de las antedichas listas y obtenci'on de datos sobre el jugador, mediante \italica{ObtenerSaldoJugador}
+
+\item[AdministradorMesaCraps] es la responsable del ingreso y egreso de jugadores en las mesas, decir qu'e mesas est'an abiertas, ultimos resultados, entre otros. B'asicamente se ocupa de administrar todo lo referente a las mesas y los tiros del juego craps.
+
+\item[AdministradorMesaTragamonedas] al igual que la anterior administra lo referente a las mesas y los tiros, pero en este caso es sobre el juego de Tragamonedas.
+
+\item[Mesas] la lista de mesas de craps y la lista de mesas tragamonedas. La \italica{Clase MesaTragamoneda} y la \italica{Clase MesaCraps} son las representaciones de las mesas del juego Tragamonedas y del juego Craps respectivamente. 
+
+\item[JugadaCraps] contiene el resultado de los dados, a traves de la \italica{Clase Dado}. Tambi'en contiene las apuestas efectudas y por qu'e importe.
+
+\item[JugadaTragamonedas] contiene el resultado de los rodillos, a traves de la \italica{Clase ResultadoTragamonedas}. Pues esta contiene la \italica{Clase RodilloTragamonedas} que tiene como atributo el valor del rodillo.
+Tambi'en se relaciona con la \italica{Clase PozoProgresivo}, de la cual se obtendr'a el monto para realizar el pago y el consiguiente reseteo del mismo.
+
+\item[AdministradorPozos] muest]a los saldos del pozo progresivo y del pozo feliz.
+
+\item[ReceptorPedidos] media]te su especializaci'on levantar'a los distintos pedidos de la manera que sea necesaria.
+
+\item[DespachadorRespuestas] es an]aloga a la anterior y tiene el mismo comportamiento diferenci'andose en que es para las respuestas. Hay una por puerto.
+
+\item[DespachadorPedidos] inter]retar'a el pedido y seg'un de qui'en provenga se lo dar'a para procesar a alguna de las Clases \italica{JuegoCraps}, \italica{AccesoYVistaCraps}, \italica{AccesoYVistaTragamonedas} o \italica{AccesoYVistaCasino}. 
+
+\end{description}
+
