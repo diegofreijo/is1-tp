@@ -1,0 +1,37 @@
+
+
+
+
+\textbf{Tirar Dados}
+
+
+Este escenario es bastante gen'erico,
+
+\escenario{
+      \begin{itemize}
+      \item El usuario puede o no estar en la mesa.
+      \item El usuario puede o no ser el tirador.
+      \item En caso de que sea el tirador y est'e en la mesa.
+      \item Se tiran los dados.
+      \item Si sali'o alg'un valor propio de punto este se setea.
+      \item Hay alguna cantidad de apuestas de alg'un tipo que se resuelven o no con su l'ogica particular, dependiendo del contexto %$^1$
+      \item Estamos en un ``est'an saliendo''% $^3$
+      \item Es una jugada feliz %$^2$
+    \end{itemize}
+}
+
+% 
+% $^1$ Resoluci'on de distintas apuestas se ve en otros DS's (en sitio a perder y a venir)
+% $^2$ En otro DS se ve la situacion con el caso de que el punto esté establecido
+% $^3$ En otro DS se ve la jugada Todos ponen
+
+El pozo feliz se reparte si o si el servidor de Jugadas no devuelve una feliz mientras el pozo no lleque al m'inimo.
+La notificaci'on a de que una mesa cambió se pude ver en apostar, sin bien est'a instanciado en una mesa, aplica si la mesa fuera gen'erica.
+
+
+Este DS se dividió en 3 secciones:
+\begin{enumerate}
+ \item Recepcion de pedido: es la recepcion de pedido,  y la respuesta hacia el modulo de comunciación, no se muestra lo que sucede en la llamada TirarCraps (usuario, unXML)
+\item  TirarCraps: Hace todo lo concerniente a la validaci'on, no se hace zoom en TirarDados.
+\item TirarDados: aqui puede verse lo que pasa cuando se hace un tirar dados de una mesa
+\end{enumerate}

@@ -1,45 +1,60 @@
-\escenario
-{
-\begin{itemize}
- \item Un jugador con una mesa elegida para jugar
-\item  inserta una cantidad v'alida de fichas en una m'aquina tragamonedas
-\item  gira los rodillos. 
-\item 'Esta, luego de debitar el monto establecido con aterioridad correspondiente al pozo progresivo, consulta el tipo de jugada al casino 
-\item le responde que es una jugada normal
-\item la m'aquina genera el resultado de la jugada en base a las probabilidades que le establecieron. 
-\item 'Esta termina arrojando un resultado ganador 
-\item el jugador observa el resultado y tipo de jugada 
-\item recibe el cobro.
+% \escenario
+% {
+% \begin{itemize}
+%  \item Un jugador con una mesa elegida para jugar
+% \item  inserta una cantidad v'alida de fichas en una m'aquina tragamonedas
+% \item  gira los rodillos. 
+% \item 'Esta, luego de debitar el monto establecido con aterioridad correspondiente al pozo progresivo, consulta el tipo de jugada al casino 
+% \item le responde que es una jugada normal
+% \item la m'aquina genera el resultado de la jugada en base a las probabilidades que le establecieron. 
+% \item 'Esta termina arrojando un resultado ganador 
+% \item el jugador observa el resultado y tipo de jugada 
+% \item recibe el cobro.
+% 
+% \end{itemize}
+% 
+% }
+% 
+% \escenario
+% {
+% \begin{itemize}
+%   \item Un jugador con una mesa elegida para jugar inserta una cantidad v'alida de fichas en una m'aquina tragamonedas 
+%   \item gira los rodillos. 
+%   \item debita el monto establecido con aterioridad correspondiente al pozo progresivo
+%   \item consulta el tipo de jugada al casino
+%   \item le responde que es una jugada normal
+%   \item la m'aquina genera el resultado de la jugada en base a las probabilidades que le establecieron
+%   \item termina arrojando un resultado perdedor
+%   \item el jugador observa el resultado y tipo de jugada.
+% \end{itemize}
+% }
+% 
+% \escenario
+% {
+% Un jugador con una mesa elegida para jugar inserta una cantidad v'alida de fichas en una m'aquina tragamonedas y gira los rodillos. 'Esta, luego de debitar el monto establecido con aterioridad correspondiente al pozo progresivo, consulta el tipo de jugada al casino y le responde que es una jugada todos ponen. Luego la m'aquina genera el resultado de la jugada en base a las probabilidades que le establecieron. 'Esta termina arrojando un resultado ganador para el jugador qui'en luego observa el resultado y tipo de jugada, recibe el cobro y la m'aquina debita en el pozo feliz el importe correspondiente.
+% }
+% 
+% \escenario
+% {
+% Un jugador con una mesa elegida para jugar inserta una cantidad v'alida de fichas en una m'aquina tragamonedas y gira los rodillos. 'Esta, luego de debitar el monto establecido con aterioridad correspondiente al pozo progresivo, consulta el tipo de jugada al casino y le responde que es una jugada feliz. Luego la m'aquina genera el resultado de la jugada en base a las probabilidades que le establecieron. 'Esta termina arrojando un resultado ganador para el jugador. 'Este observa el resultado, el tipo de jugada y luego cobra la suma entre el pago por la apuesta ganada y el pozo feliz hasta ese momento. Luego el pozo feliz es reiniciado a su valor inicial. 
+% }
+% 
+% \escenario
+% {
+% Un jugador con una mesa elegida para jugar inserta la m'axima cantidad de fichas en una m'aquina tragamonedas luego de jugar en ella el mismo importe tantas veces como las necesarias para que pueda ganar el pozo progresivo y gira los rodillos. 'Esta, luego de debitar el monto establecido con aterioridad correspondiente al pozo progresivo, consulta el tipo de jugada al casino y le responde que es una jugada de pozo progresivo. Luego la m'aquina genera el resultado de la jugada en base a las probabilidades que le establecieron. 'Esta termina arrojando el resultado con pago m'aximo. El jugador observa el resultado y tipo de jugada. Luego cobra la suma entre el pago por la apuesta ganada y el monto total del pozo progresivo. Luego el pozo progresivo es reiniciado a su valor inicial.
+% }
 
+
+El Escenario elegido para mostrar el funcionamiento del \textit{tirarTragamonedas} fue el siguiente:
+
+ \escenario
+ {
+\begin{itemize}
+  \item El jugador ingreso a la mesaCraps o no
+  \item Hizo o no alguna apuesta
+  \item Es una jugada normal
+  \item Gira los rodillos
+  \item Se le paga la apuesta si corresponde
 \end{itemize}
 
-}
-
-\escenario
-{
-\begin{itemize}
-  \item Un jugador con una mesa elegida para jugar inserta una cantidad v'alida de fichas en una m'aquina tragamonedas 
-  \item gira los rodillos. 
-  \item debita el monto establecido con aterioridad correspondiente al pozo progresivo
-  \item consulta el tipo de jugada al casino
-  \item le responde que es una jugada normal
-  \item la m'aquina genera el resultado de la jugada en base a las probabilidades que le establecieron
-  \item termina arrojando un resultado perdedor
-  \item el jugador observa el resultado y tipo de jugada.
-\end{itemize}
-}
-
-\escenario
-{
-Un jugador con una mesa elegida para jugar inserta una cantidad v'alida de fichas en una m'aquina tragamonedas y gira los rodillos. 'Esta, luego de debitar el monto establecido con aterioridad correspondiente al pozo progresivo, consulta el tipo de jugada al casino y le responde que es una jugada todos ponen. Luego la m'aquina genera el resultado de la jugada en base a las probabilidades que le establecieron. 'Esta termina arrojando un resultado ganador para el jugador qui'en luego observa el resultado y tipo de jugada, recibe el cobro y la m'aquina debita en el pozo feliz el importe correspondiente.
-}
-
-\escenario
-{
-Un jugador con una mesa elegida para jugar inserta una cantidad v'alida de fichas en una m'aquina tragamonedas y gira los rodillos. 'Esta, luego de debitar el monto establecido con aterioridad correspondiente al pozo progresivo, consulta el tipo de jugada al casino y le responde que es una jugada feliz. Luego la m'aquina genera el resultado de la jugada en base a las probabilidades que le establecieron. 'Esta termina arrojando un resultado ganador para el jugador. 'Este observa el resultado, el tipo de jugada y luego cobra la suma entre el pago por la apuesta ganada y el pozo feliz hasta ese momento. Luego el pozo feliz es reiniciado a su valor inicial. 
-}
-
-\escenario
-{
-Un jugador con una mesa elegida para jugar inserta la m'axima cantidad de fichas en una m'aquina tragamonedas luego de jugar en ella el mismo importe tantas veces como las necesarias para que pueda ganar el pozo progresivo y gira los rodillos. 'Esta, luego de debitar el monto establecido con aterioridad correspondiente al pozo progresivo, consulta el tipo de jugada al casino y le responde que es una jugada de pozo progresivo. Luego la m'aquina genera el resultado de la jugada en base a las probabilidades que le establecieron. 'Esta termina arrojando el resultado con pago m'aximo. El jugador observa el resultado y tipo de jugada. Luego cobra la suma entre el pago por la apuesta ganada y el monto total del pozo progresivo. Luego el pozo progresivo es reiniciado a su valor inicial.
 }

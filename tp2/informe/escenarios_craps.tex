@@ -1,6 +1,7 @@
+
 \escenario{ \textbf{Jugador de Craps haciendo una apuesta}
   \begin{itemize}
-    \item El usuario esta en una mesa de craps 
+   \item El usuario esta en una mesa de craps 
   \item elige un valor de ficha de \$20
   \item elige un valor de ficha de \$15
   \item elige el tipo de apuesta
@@ -10,28 +11,3 @@
 }
 
 
-\subsubsection{TirarDados}
-
-Este escenario es bastante gen'erico,
-
-\escenario{
-      \begin{itemize}
-      \item El usuario puede o no estar en la mesa.
-      \item El usuario puede o no ser el tirador.
-      \item En caso de que sea el tirador y esté en la mesa.
-      \item Se tiran los dados.
-      \item Si sali'o alg'un valor propio de punto este se setea.
-      \item Hay alguna cantidad de apuestas de alg'un tipo que se resuelven o no con su l'ogica particular, dependiendo del contexto $^1$
-      \item Estamos en un ``est'an saliendo'' $^3$
-      \item Es una jugada feliz $^2$
-    \end{itemize}
-}
-
-
-$^1$ Resoluci'on de distintas apuestas se ve en otros DS's (en sitio a perder y a venir)
-$^2$ En otro DS se ve la situacion con el caso de que el punto esté establecido
-$^3$ En otro DS se ve la jugada Todos ponen
-
-El pozo feliz se reparte si o si el servidor de Jugadas no devuelve una feliz mientras el pozo no lleque al m'nimo
-
-La notificaci'on a de que una mesa cambió se pude hacer generico sin complicar demasiado el diagrama.
