@@ -1,10 +1,8 @@
-El m'odulo del casino se puede separar en dos partes: 
+La arquitectura del casino se compone por:
 
-\begin{itemize}
-\item componentes \italica{Cliente}
-\item componente \italica{Servidor}
-\end{itemize}  
+\begin{description}
+\item[Cliente] Sirve como interfaz gr'afica utilizada por los usuarios finales encargada de transformar las acciones de ellos en el pedido correspondiente y enviarlo al servidor. Adem'as es el encargado de reflejar la respuesta de 'este en la interfaz para informaci'on del usuario.
+\item[Servidor] Es la aplicaci'on adonde los clientes envian sus pedidos y la cual les responde con la informaci'on necesitada. Lleva el estado de todas las entidades del casino y contiene la l'ogica establecida por cada uno de ellos.
+\end{description}
 
-La comunicaci'on entre el componente {\it Servidor} y los componentes {\it Cliente} ya fue resuelta por el documento de Arquitectura Conceptual y Protocolo brindado por los clientes (ver documento adjunto) y por las extensiones realizadas al mismo (ver secci'on \ref{Seccion::ModificacionesAlProtocolo}.).
-
-No existir'a comunicaci'on entre los componentes {\it Cliente} desde el punto de vista arquitectural, aunque s'i se relacionar'an indirectamente a trav'es de la l'ogica de negocio del servidor.
+La comunicaci'on entre ellos ya fue resuelta por el documento de Arquitectura Conceptual y Protocolo brindado por los Timbalistas (ver documento adjunto) y por las extensiones realizadas al mismo (ver secci'on \ref{Seccion::ModificacionesAlProtocolo}). No existir'a comunicaci'on entre los componentes {\it Cliente} desde el punto de vista arquitectural, aunque s'i se relacionar'an indirectamente a trav'es de la l'ogica de negocio del servidor.
