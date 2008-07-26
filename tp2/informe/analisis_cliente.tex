@@ -1,0 +1,25 @@
+Bas'andonos en las especificaciones observamos que ser'ia coherente que un usuario jugador/observador no conozca las posibles funcionalidades que puede utilizar un administrador y viceversa. En particular nos parece que los aspectos relacionados con el modo dirigido deber'ian incluso quedar expl'icitamente ocultos a observadores y jugadores. Por estas razones hemos decidido construir dos aplicaciones cliente separadas para modularizar el acceso a las distintas funcionalidades que un usuario puede efectuar. De esta forma dise~namos un cliente para jugadores/observadores y otro cliente exclusivo para administradores.
+
+\subsubsection{Cliente Jugadores/Observadores}\label{Clientes::Jugadores/Observadores}
+
+\subsubsection{Cliente Administradores}\label{Clientes::Administradores}
+
+El cliente se basa en un dise'no en capas.
+
+\imagenvertical{DC_Cliente.png}{Diagrama de Clases Cliente}{0.4}
+
+\begin{enumerate}
+	\item \textbf{Presentaci'on: }Estar'an las clases qeu se encargaran de dibujar las distintas pantallas de juego y de manejar todo lo relacionado a los enventos que los usuarios activar'an.
+	\item \textbf{Controlador: } estara la l'ogica que construye los mensajes al servidor y las clases necesarias para ello.
+	\item \textbf{Comunicaci'on:} estar'an las clases y metodos que construyen el archivo xml y la acci'on de escribirlos en el puerto correspondiente del servidor (en este caso una carpeta en el mismo).
+	\item  \textbf{Modelo:} este paquete tendr'a una clase, \textit{configuraci'on}, la cual contendr'a toda la informaci'on que los mensajes de comunicaci'on no contengan y que son necesarios para poder mostrar las pantallas y construir los mensajes de comunciaci'on
+ \end{enumerate}
+
+\subsubsection{Justificaci'on del dise~no}
+Creemos que este dise~no es adecuado para este problema ya que es sumamente flexible tanto si se cambia la capa de presentaci'on como si se cambia la capa de comunciaci'on. Por ejemplo, si el d'ia de ma'nana queremos mostrarlo v'ia una p'agina web o si decidimos que la comunicaci'on sea hecha v'ia sockets nuestro dide~no se puede adaptar facilmente, ya que solo hay que modificar la capa correspondiente.
+
+\subsubsection{Ejemplos / Referencias a DS's}
+Ejemplos de la interac'on de las distintas capas del cliente pueden verse en los DS's:
+
+
+

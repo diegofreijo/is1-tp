@@ -15,9 +15,7 @@ El grafico del modelo va en formato digital
 \clearpage
 
 \subsection{Explicaci'on}
-Para facilitar el dise'no, mantener un nivel bajo de acoplamiento e incluso fomentar la reutilizaci'on de los elementos utilizados en el diagrama, se agruparon ciertas clases en m'odulos. Cada m'odulo define una 'unica responsabilidad y las clases que lo contienen deben respetarla y ejecutarla.
-
-A continuaci'on tenemos la explicaci'on detallada de los m'odulos junto con sus clases relevantes.
+Para facilitar el dise'no, mantener un nivel bajo de acoplamiento e incluso fomentar la reutilizaci'on de los elementos del diagrama, todas las clases fueron agrupadas en m'odulos. Cada m'odulo define una 'unica responsabilidad y las clases que lo contienen deben respetarla y llevarla a cabo. A continuaci'on tenemos la explicaci'on detallada de cada uno de ellos con sus clases relevantes.
 
 
 \subsubsection{Comunicaci'on}
@@ -84,59 +82,25 @@ Contiene la l'ogica de negocio junto con las estructuras asociadas a ella. Expon
 
 \item[Mesa] Representa a una mesa abierta en el casino. Contiene informaci'on de sus jugadores, las apuestas que se realizaron pero todavia no se resolvieron, ultima jugada realizada, observadores que la estan observando (para craps), pr'oximo y 'ultimo tirador, etc. Se especializa en un tipo de mesa para cada juego (en este caso, craps y tragamonedas). Notar que la mesa es la responsable de recibir y administrar las apuestas, los tiros y generar las jugadas correspondientes (al igual que registrarlas en el historial).
 
-\item[Jugada] Una jugada es un tiro en alg'un juego; JugadaCraps es un tiro de dados y JugadaTragamonedas es un giro de rodillos. Cada una tiene la posibilidad de resolverse pero para esto primero necesita que le brinden toda la informaci'on relevante (el resultado de la jugada, el tipo de jugada y la/s apuestas). Para ello, le pide al tipo de jugada (Feliz, TodosPonen, Normal) que se resuelva sin importar cual sea (patr'on \italica{strategy}) y 'este hace lo mismo con cada apuesta en funci'on de lo que su l'ogica le indique. Una jugada adem'as guarda los premios pagados (cuanto gan'o cada jugador, separado por concepto).
+\item[Jugada] Una jugada es un tiro en alg'un juego; JugadaCraps es un tiro de dados y JugadaTragamonedas es un giro de rodillos. Cada una tiene la posibilidad de resolverse pero para esto primero necesita que le brinden toda la informaci'on relevante (el resultado de la jugada, el tipo de jugada y la/s apuestas) aunque guarde a'un m'as informaci'on de utilidad para el historial (como por ejemplo el tirador y el valor de los pozos relevantes). En su resoluci'on, le pide al tipo de jugada (Feliz, TodosPonen, Normal) que se resuelva sin importar cual sea (patr'on \italica{strategy}) y 'este hace lo mismo con cada apuesta en funci'on de lo que su l'ogica le indique. Una jugada adem'as guarda los premios pagados (cuanto gan'o cada jugador, separado por concepto).
 
 \item[\italica{Selectores}] Los selectores son los portadores de la configuraci'on del modo dirigido. Cada uno le abstrae su funcionalidad espec'ifica al ServidorJugadas (patr'on \italica{strategy}) estableci'endo solamente que informaci'on es capaz de brindarle. Espec'ificamente, las clases selectoras son
 	\begin{description}
 	\item[SelectorResultadoCraps] Brinda el resultado de craps (los dados) que saldr'an en la mesa especificada. Notar que 'este puede ser tanto un selector que elige azarosamente o bien que utiliza una configuraci'on asignada por el modo dirigido.
 	\item[SelectorResultadoTragamonedas] S'imil al de craps, con la diferencia que el resultado ahora es de tragamonedas por lo que se compone de tres rodillos en lugar de dos dados.
-	\item[SelectorTipoJugada] Devuelve un tipo de jugada (Normal, Feliz, TodosPonen). La elecci'on pudo haber sido basada en varios criterios, configurables por el administrador:
+	\item[SelectorTipoJugada] Devuelve un tipo de jugada (Normal, Feliz, TodosPonen) para la mesa requerida. La elecci'on pudo haber sido basada en varios criterios, configurables por el administrador:
 		\begin{description}
 			\item[Feliz] La mesa elegida debe sacar siempre jugada feliz.
 			\item[TodosPonen] La mesa elegida debe sacar siempre jugada todos ponen.
+			\item[Normal] La mesa elegida debe sacar siempre jugada normal.
 			\item[Azar] La mesa elegida calcular'a su tipo de jugada azarosamente, calculando primero si debe ser feliz en funci'on de la probabilidad establecida y de no ser as'i realiza la misma operaci'on para todos ponen. Si tambi'en falla, la jugada ser'a normal.
 			\item[NoFeliz] Similar a Azar, pero no se realiza la verificaci'on de una jugada feliz.
-			\item[NoTodosPonen] Similar a Azar, pero no se realiza la verificaci'on de una jugada todos ponen.
-			\item[Normal] 
+			\item[NoTodosPonen] Similar a Azar, pero no se realiza la verificaci'on de una jugada todos ponen. 
 		\end{description} 
 	\end{description}
 
+\item[\italica{Configuraciones}] 'Estas clases simplemente agrupan las configuraciones del casino bajo distintos criterios, para facilitar su trato. Solamente son utilitarias del soporte ConfiguracionCasino. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-\item[AdministradorJugador], \italica{AdministradorObservador} y \italica{FachadaUsuario}. 'Estas clases hacen el manejo del ingreso y egreso de jugadores y observadores. Adem'as de las consultas sobre el saldo, la existencia (entre otras) de jugadores y observadores
-
-\item[Usuarios] contiene la lista de jugadores (normales y vip) y la lista de observadores.
-Sus operaciones est'an relacionadas con el manejo de las antedichas listas y obtenci'on de datos sobre el jugador, mediante \italica{ObtenerSaldoJugador}
-
-\item[AdministradorMesaCraps] es la responsable del ingreso y egreso de jugadores en las mesas, decir qu'e mesas est'an abiertas, ultimos resultados, entre otros. B'asicamente se ocupa de administrar todo lo referente a las mesas y los tiros del juego craps.
-
-\item[AdministradorMesaTragamonedas] al igual que la anterior administra lo referente a las mesas y los tiros, pero en este caso es sobre el juego de Tragamonedas.
-
-\item[Mesas] la lista de mesas de craps y la lista de mesas tragamonedas. La \italica{Clase MesaTragamoneda} y la \italica{Clase MesaCraps} son las representaciones de las mesas del juego Tragamonedas y del juego Craps respectivamente. 
-
-\item[JugadaCraps] contiene el resultado de los dados, a traves de la \italica{Clase Dado}. Tambi'en contiene las apuestas efectudas y por qu'e importe.
-
-\item[JugadaTragamonedas] contiene el resultado de los rodillos, a traves de la \italica{Clase ResultadoTragamonedas}. Pues esta contiene la \italica{Clase RodilloTragamonedas} que tiene como atributo el valor del rodillo.
-Tambi'en se relaciona con la \italica{Clase PozoProgresivo}, de la cual se obtendr'a el monto para realizar el pago y el consiguiente reseteo del mismo.
-
-\item[AdministradorPozos] muest]a los saldos del pozo progresivo y del pozo feliz.
-
-\item[ReceptorPedidos] media]te su especializaci'on levantar'a los distintos pedidos de la manera que sea necesaria.
-
-\item[DespachadorRespuestas] es an]aloga a la anterior y tiene el mismo comportamiento diferenci'andose en que es para las respuestas. Hay una por puerto.
-
-\item[DespachadorPedidos] inter]retar'a el pedido y seg'un de qui'en provenga se lo dar'a para procesar a alguna de las Clases \italica{JuegoCraps}, \italica{AccesoYVistaCraps}, \italica{AccesoYVistaTragamonedas} o \italica{AccesoYVistaCasino}. 
+\item[Pozo] Cada pozo (tanto el Feliz como el Progresivo) est'a compuesto por un monto (su valor actual) y posee la popiedad de resetearse a su monto m'inimo pre establecido en la configuraci'on del casino (utilizado cuando alguien lo gana). 
 
 \end{description}
-
