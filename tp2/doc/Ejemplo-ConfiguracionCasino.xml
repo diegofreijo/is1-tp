@@ -1,5 +1,6 @@
 <configuracionCasino>
 	<configuracionDelCasino>
+		<password_admin valor="MentaGranizada" />
 		<saldoCasino monto="10000" />
 		<fichasValidas>
 			<fichaValida valor="20" />

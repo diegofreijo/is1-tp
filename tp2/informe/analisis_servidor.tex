@@ -1,38 +1,83 @@
-\subsection{Servidor}
-Se model'o basandonos en el patr'on de dise'no MVC. Con lo cual tenemos tres grandes paquetes:
+\subsubsection{Digamos NO al pegote (bajo acoplamiento)}
+El objetivo primordial del dise'no del servidor fue generar un m'inimo acoplamiento entre los elementos de software. Las estrategias utilizadas para conseguirlo fueron la modularizaci'on y dependencias de entidades abstractas.
+
+La modularizaci'on consiste en agrupar todas las clases \italica{m'odulos}. Cada m'odulo posee una interfaz, compuesta por una serie de clases principalmente con m'etodos de acceso p'ublico que permiten la utilizaci'on de la funcionalidad del mismo. Toda clase de otro m'odulo s'olo podr'a depender bien del resto que habita en su mismo m'odulo o de aquellas definidas en la interfaz de otro m'odulo. As'i se logra un m'inimo acoplamiento entre las clases, ya que la estructura interna de un m'odulo puede cambiar completamente y sin la necesidad de revisar dependencias con otros m'odulos (obviamente, se asume que la interfaz no debe variar y que se debe seguir cumpliendo la misma funcionalidad que antes).
+
+Tambi'en se foment'o que en lo posible toda clase dependiese de entidades abstractas (ya sean clases abstractas o interfaces). De 'esta forma, las clases concretas que realizan o heredan de 'estas pueden ser modificadas o reemplazadas (e incluso agregar m'as) por otras sin alterar aquellas que poseen dependencias. Y aquello es una consecuencia altamente favorable que provino del bajo acoplamiento generado. Algunos ejemplos de 'esta pr'actica son: 
 
 \begin{itemize}
- \item Modelo
- \item Controlador
- \item Vista
+\item MesasAbiertas contiene una colecci'on de Mesa (clase abstracta)
+\item ServidorJugada siempre devuelve Resultado y TipoJugada (que son clases abstractas)
+\item UsuariosEnCasino depende de Usuario (otra abstracta)
+\item MesaCraps posee como obsevador a un elemento que realiza la interfaz MesaCrapsObserver
+\item DespachadorRespuestas posee una referencia a la interfaz DespachadorRespuestasEspecifico (y de forma similar ocurre en el ReceptorPedidos)
 \end{itemize}
- 
-\todo{REVISAR ESTO}
-La recepci'on de los pedidos se hace con la Clase ReceptorPedidos, que est'a dentro del paquete Vista. Esta clase ser'a especializada de la manera que sea necesaria. Esto brinda una mayor flexibilidad a la hora de tomar los pedidos y nos liga menos al tipo en el que llega el pedido.
 
-La Clase DespachadorPedidos (paquete controlador) toma los par'ametros de entrada y multiplexa seg'un corresponda. Esta clase es singleton debido a que solo es necesaria una sola instancia para no tener problemas de concurrencia.
 
-Las clases JuegoCraps, AccesoYVistaCraps, AccesoYVistaTragamonedas y AccesoYVistaCasino procesan los datos seg'un corresponda. Los datos son obtenidos de los administradores que est'an en el paquete Modelo. Esto crea acoplamiento sobre dichas clases, pero no las crea sobre el resto del paquete modelo. Si bien el acoplamiento est'a, 'este es entre paquetes que es menor que entre clases de distintos paquetes. 'Estas clases son singleton.
 
-Tenemos las Clases Singleton para la emisi'on de la respuesta: JuegoCraps, AccesoYVistaCraps, AccesoYVistaTragamonedas y AccesoYVistaCasino.
+\subsubsection{Hagamos cosas con sentido (alta cohesi'on)}
+Por lo general, lograr una ca'ida en el acoplamiento del dise'no trae como efectos secundarios una ca'ida de la cohesi'on. Y por cohesi'on, en el presente trabajo, se considerar'a a la sem'antica que cada entidad de software recibi'o. En el dise'no planteado hay algunos puntos a destacar que ayudaron a aumentar tal aspecto:
 
-Estas clases se corresponden uno a uno con las del controlador, brindando las respuestas a los pedidos. En el caso de necesitar datos, que no fueron brindados por el controlador, tambi'en le hacen el pedido a las clases administrador del paquete Modelo.
+\begin{itemize}
+\item La interfaz del Modelo est'a compuesta por fachadas (el patr'on de dise'no \italica{facade}). Cada fachada simbolliza un concepto f'acilmente manejable por los clientes que la utilizan (los dem'as m'odulos, que en nuestro caso son los mensajeros). Un ejemplo es la fachada JuegoCraps que representa al juego de craps como una ente separado de, entre otros, JuegoTragamonedas. Notar que la representaci'on real interna de ambos juegos es muy similar (ambos tipos de mesas heredan de la clase abstracta Mesa, ambos poseen referencias a Jugador, ambas poseen apuestas que terminan heredando de la clase abstracta Apuesta, etc). Pero 'esto no le es mostrado a los clientes, ellos cuando quieren usar al juego de craps solo utilizan al juego de craps y se desligan de la existencia del juego de tragamonedas.
+\item Al favorecer el bajo acoplamiento se utilizaron dependencias contra entidades abstractas. Pero para que 'estas dependencias no pierdan el sentido, se cuid'o que
+	\begin{itemize}
+	\item el nombre de las entidades abstractas sea realmente declarativo. Un ejemplo: el ServidorJugadas posee SelectorResultadoCraps (clase abstracta) y f'acilmente se comprende que se trata de una clase que elige (selecciona) que resultado de craps debe ocurrir, sin importarnos el criterio utilizado. De haberla bautizado ResultadoModoDirigidoCraps el ServidorJugadas podr'ia pensar que solamente devuelve el resultado establecido por ModoDirigido para craps, con lo que podr'ia entrar en duda que hacer cuando se debe elegir un resultado al azar (adem'as de no saber como hacerlo por no poseer tal l'ogica).
+	\item la elecci'on si una clase es abstracta bo interfaz no fuese tomada a la liguera. Sabemos que no es lo mismo decir ''A hereda de B'' que ''A realiza B''. En el primer caso estamos asumiendo que A \negrita{es} B por lo que A solamente es una extensi'on de B (pero todo lo que hac'ia B lo sigue haciendo A de la misma manera). En el segundo, estamos diciendo que A \negrita{se comporta como} B por lo que solamente se dice que ofrece el misma funcionalidad, peor no se establece de que forma la realiza ni estamos diciendo que sem'anticamente sean lo mismo. Por ejemplo, un JugadorVip \negrita{es} un Jugador y por ende puede hacer todo lo que hace un jugador (por ejemplo, elegir mesas para jugar). En cambio el InformanteDeCambiosACientes \negrita{se comporta como} un observador de mesas de craps porque permite ser notificado de cambios en una mesa de craps, pero sem'anticamente no se quiso decir m'as que eso. 
+	\end{itemize}
+\item se definieron tipos de dato b'asicos para ayudar a comprender su significado. Por ejemplo, se defini'o el tipo Nombre para referenciar al nombre de un usuario, siendo en realidad una redefinici'on del tipo Texto. As'i es como en EntrarCasino(Nombre, Texto) de LobbyCasino es f'acil identificar que el primer par'ametro debe corresponder al nombre de un jugador (por supuesto que casos como 'este se ven en todo el dise'no). Lo mismo sucede con Creditos, IdMesa e IdTerminalVirtual.
+\end{itemize}
 
-Como son para emitir la respuesta ent'an dentro del paquete Vista.
 
-Para emitir la respuesta utilizar'an un tipo llamado Respuesta. Esto permite desacoplar del tipo de respuesta y dejar a la clase especializada del Despachador de respuestas, la responsabilidad del formato de respuesta. Como es especializaci'on en caso en que se modifique el modo en que se envia la respuesta se hereda una clase nueva. Favoreciendo el open-close.
 
-\todo{HASTA ACA}
+\subsubsection{Reutilizando recetas \italica{exitosas} (patrones de dise'no)}
+El dise'no del servidor plante'o varios problemas que fueron resueltos utilizando algunos patrones de dise'no. A continuaci'on se muestra cada uno junto a los lugares donde se usaron:
 
-\subsubsection{Modelo}
+\begin{description}
+\item[Singleton] Asegura que solo una instancia de la clase ser'a creada y permite el acceso a 'esta desde cualquier punto de la aplicaci'on sin necesidad de guardar la referencia. Se utiliz'o en
+	\begin{itemize}
+	\item DespachadorPedidos de MensajeroDeEntrada
+	\item Manejadores del MensajeroDeEntrada y del MensajeroDeSalida
+	\item Fachadas del Modelo
+	\item clases Soporte del Modelo
+	\item NotificadorDeCambiosAClientes del MensajeroDeSalida
+	\item DespachadorRespuestas de Comunicacion
+	\end{itemize}
+\item[Abstract Factory] Permite desacoplarle la responsabilidad de elegir que objeto esec'ifico crear al encargado de crearlo. Se utiliz'o en:
+	\begin{itemize}
+	\item JugadorFactory del Modelo, permitiendo que quien quiera crear al objeto jugador cuando ingrese al casino no deba elegir si crear un JugadorVip o JugadorNormal.
+	\end{itemize}
+\item[Strategy] Permite cambiar din'amicamente el algoritmo a utilizar para realizar cierta funcionalidad. Se utiliz'o en:
+	\begin{itemize}
+	\item TipoJugada del Modelo, para que la Jugada simplemente le pida que se resuelva y ella, seg'un la instancia concreta, se resuelva como ya sabe.
+	\item Apuesta del Modelo, para que TipoJugada simplemente le pida que se resuelva y ella, seg'un la instancia concreta, se resuelva como ya sabe.
+	\item Selectores de TipoJugada y Resultado en el Modelo, para que ServidorJugadas no deba elegir ni el TipoJugada ni Resultado que debe revolver en funci'on de como fue condigurado el modo dirigido.
+	\end{itemize}
+\item[Facade] Permite ver a un subsistema como una sola entidad. Se utiliz'o en:
+	\begin{itemize}
+	\item LobbyCasino del Modelo, para que quien solamente quiera ver al Modelo como que contiene a la recepci'on de un casino as'i pueda.
+	\item JuegoCraps y JuegoTragamonedas del Modelo, los clientes ven solamente los respectivos juegos sin importar la implementaci'on de los subsistemas.
+	\item AdministradorDeCasino del Modelo, muestra el centro de administraci'on de un casino.
+	\end{itemize}
+%\item[Template Method] Permite definir un algoritmo en forma gen'erica delegando ciertos pasos a las subclases. Se utiliz'o en:
+%	\begin{itemize}
+%	\item Jugador del Modelo, donde el PuedePagar
+%	\end{itemize}
+\end{description}
 
-\subsubsection{Controlador}
 
-\subsubsection{Vista}
 
-Tenemos una clase \textit{Pedido} que tiene adentro un xml con los par'ametros del pedido. Un tipo de pedido.
-Entendemos que podriamos prescindir de esta clase y llamar a Controlador correspondiente pasandole el xml,
-creemos que no es una buena decisi'on ya que si no contamos con ella, violariamos el principio Open-Close, dado 
-que si en un futuro el pedido cambia y por ejemplo decicimos agregar un timestamp para que caduque tendriamos que 
-modificar funcionalidades ya testeadas.
+\subsubsection{Cuesti'on de criterio (criterios de dise'no)}
+Para finalizar el an'alisis, aqu'i se muestran los criterios respetados (en mayor o menor medida) en el dise'no del servidor.
 
+\begin{description}
+\item[Open-Closed] El dise'no es extensible (sin necesidad de modificaci'on) en los siguientes puntos:
+	\begin{description}
+	\item nuevo tipo de jugador: el nuevo tipo debe heredar de Jugador como lo hacen JugadorNormal y JugadorVip, y hay que crear una nueva JugadorFactory que genere al nuevo tipo.
+	\item nuevo juego: se debe generar una nueva fachada para la inerfaz del Modelo, nuevo tipo de resultado que herede de Resultado, nueva/s apuesta/s que herden de Apuesta, nuevo tipo de mesa que herde de Mesa y nuevos Selectores para el manejo del modo dirigido y la elecci'on del resultado y tipo de jugada que debe obtener cada mesa.
+	\end{description}
+\item[Liskov Substitution] Toda clase derivada se comporta igual que su clase padre, y se puede ver en toda herencia del dise'no: Jugador, Mesa, Pozo, Resultado, Apuesta, etc.
+\item[Dependency Inversion] En donde no era necesario depender de clases espec'ificas se utiliz'o una clase abstracta o una interfaz. Por ejemplo, los observadores de mesas, obtenedores de pedidos, etc. Pero en varios lados era in'util agregar una abstracci'on cuando ya se sab'ia la subclase se iba a representar (una MesaCraps no tiene referencia a Apuesta sino a ApuestaCraps, de no haber sido as'i habr'ia tenido que hacer \italica{downcast} siempre para utilizar la l'ogica espec'ifica).
+\item[Single Responsability] Toda clase (e incluso m'odulo) posee una sola responsabilidad y si debe ser modificada o reemplazada es por un s'olo motivo. Por ejemplo, si se establece que los jugadores vip tengan otra forma de validar si puede pagar cierta apuesta (por ej, tienen una cota m'inima de saldo que pueden tener) entonces habr'a que modificar JugadorVip, pero no hay otro motivo que as'i lo requiera.
+\item[Interface Segregation] Se intent'o mantener a las interfaces de cada clase lo minimal posible, es decir que atiendan a una sola necesidad. Las fachadas del Modelo son las que terminaron obteniendo una interfaz muy grande, pero es de entender porque en una sola clase se necesit'o centralizar toda la funcionalida que ofrece una pieza del casino. Y de haber dividido esa interfaz, hubiese perdido sentido el objetivo de la fachada: ver esa parte del casino como una sola entidad (clase).
+\end{description}
