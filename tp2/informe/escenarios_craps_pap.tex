@@ -41,34 +41,33 @@ Este DS se dividió en 3 secciones:
 
 El escenario para 'esta funcionalidad es el siguiente:
 
-El jugador Cosme Fulanito desea apostar en el juego de craps. La apuesta realizada es a ganar sobre el n'umero cinco. La cantidad apostada es una ficha de valor 20 y dos de valor 10. Cosme est'a en la mesa 25 y su terminal virtual es la 9999.
+\escenario{
+El jugador Cosme Fulanito desea apostar en el juego de craps. La apuesta realizada es a ganar sobre el n'umero cinco. La cantidad apostada es una ficha de valor 20 y dos de valor 10. Cosme est'a en la mesa 25.
 
-Se crea el XML correspondiente con el nombre del archivo "apuestaCraps059999" y se deposita en la carpeta del servidor.
+%Se crea el XML correspondiente con el nombre del archivo "apuestaCraps059999" y se deposita en la carpeta del servidor.
 
-En el servidor se levanta dicho XML, se lo parsea y se efect'uan las valiaciones correspondientes. A saber:
+%En el servidor se levanta dicho XML, se lo parsea y se efect'uan las valiaciones correspondientes. A saber:
+
+Para que su apuesta sea efectiva deber'a pasar por las siguientes validaciones:
 
 \begin{itemize}
  \item Cosme Fulanito es un jugador de la mesa en la que acusa estar;
  \item Los valores de fichas utilizados son v'alidas para 'este d'ia;
- \item Se verifica que tenga los fondos suficientes para poder pagar lo que apost'o o que sea un cliente vip;
+ \item Debe tener los fondos suficientes para poder pagar lo que apost'o o que sea un cliente vip;
 \end{itemize}
 
-Si alguna de las validaciones anteriormente mencionadas no se cumple entonces no se le dejar'a realizar la apuesta.
+Si alguna de las validaciones anteriormente mencionadas no se cumple entonces no se le dejar'a realizar la apuesta. En caso contrario si.
 
-Si se cumplen todas las validaciones se agregar'a la apuesta a la mesa y adem'as se notificar'a a todos los dem'as jugadores de la mesa 25 mediante un archivo XML llamado "EstadoCraps059999".
+Si se cumplen todas las validaciones se agregar'a la apuesta a la mesa y adem'as se notificar'a a todos los dem'as jugadores de la mesa 25 del cambio sucedido.
+}
 
-Se afirmativa o negativa la respuesta de la apuesta, (seg'un haya pasado las validaciones o no) 'esta ser'a mediante el archivo XML "respuestaEntradaCraps059999".
-
-Por 'ultimo se recibe la respuesta en la terminal virtual 9999 y se realizan las modificaciones del modelo correspondiente.
-
-Notar que tambi'en recibir'a la notificaci'on del estado de la mesa de craps n'umero 25.
-
-%aca iria una imagen---------------------------------------------------------------------------------------------------
+%aca iria una imagen------------------------------------------------------------
 
 \clearpage
 
 \textbf{Entrar Casino}
 
+\escenario{
 Un usuario desea entrar al casino, puede hacerlo en modo jugador o en modo observador.
 Si ya ha ingresado en modo jugador no se lo dejar'a entrar nuevamente. Si est'a en modo observador y desea ingresar en el mismo modo tampoco podr'a hacerlo.
 
@@ -78,13 +77,15 @@ En cambio si quiere entrar como jugador (independientemente de si ingres'o como 
  \item En caso afirmativo quedar'a ingresado en modo jugador.
  \item En caso negativo quedar'a en modo observador o fuera del casino seg'un cual fuese su estado anterior.
 \end{itemize}
+}
 
-%aca iria una imagen---------------------------------------------------------------------------------------------------
+%aca iria una imagen------------------------------------------------------------
 
 \clearpage
 
 \textbf{Pedir Estado Casino}
 
+\escenario{
 Un usuario desea informarse sobre el estado del casino. Se le informar'a s'olo si ha ingresado en el casino, m'as haya si es en modo jugador o en modo observador.
 
 El estado del casino est'a formado por:
@@ -106,3 +107,5 @@ El estado del casino est'a formado por:
  	 \item El 'ultimo tirador y el pr'oximo;
 	\end{itemize}
 \end{itemize}
+}
+
