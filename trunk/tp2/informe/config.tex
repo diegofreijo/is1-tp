@@ -3,12 +3,13 @@
 
 \usepackage[spanish,activeacute]{babel}								% Idioma castellano
 \usepackage{caratula}														% Caratula de Algo2
-%\usepackage[a4paper=true,pagebackref=true]{hyperref}				% Agrega la TOC al PDF e hipervinculos
+\usepackage[a4paper=true,pagebackref=true]{hyperref}				% Agrega la TOC al PDF e hipervinculos
 %\usepackage{graphicx} 														% Permite insertar graficos
 \usepackage{fancyhdr}														% Permite manejo de cabeceras de pagina
 \usepackage{eufrak}															% Usado en el enunciado del trabajo
 \usepackage{latexsym}
 \usepackage[font=small,labelfont=bf]{caption}						% Para editar las captions
+\usepackage{color}															% Permite agregarle color a la fuente
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
@@ -37,7 +38,7 @@
 
 
 %%%%%%%%%%%%%%%% COMANDOS %%%%%%%%%%%%%%%%%%%%
-\newcommand{\todo}{{\large\textbf{TODO: }}}
+\newcommand{\todo}[1]{{\textcolor{red}{\Huge\negrita{TODO: #1}}}}
 \newcommand{\paso}{\textsc{Paso }}
 \newcommand{\func}[1]{\verb"#1"}
 \newcommand{\imagen}[3]

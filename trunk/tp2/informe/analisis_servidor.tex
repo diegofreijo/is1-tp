@@ -1,5 +1,5 @@
 \subsection{Servidor}
-Se model'o basandonos en el patr'on de diseño MVC. Con lo cual tenemos tres grandes paquetes:
+Se model'o basandonos en el patr'on de dise'no MVC. Con lo cual tenemos tres grandes paquetes:
 
 \begin{itemize}
  \item Modelo
@@ -7,7 +7,7 @@ Se model'o basandonos en el patr'on de diseño MVC. Con lo cual tenemos tres gra
  \item Vista
 \end{itemize}
  
-\todo REVISAR ESTO
+\todo{REVISAR ESTO}
 La recepci'on de los pedidos se hace con la Clase ReceptorPedidos, que est'a dentro del paquete Vista. Esta clase ser'a especializada de la manera que sea necesaria. Esto brinda una mayor flexibilidad a la hora de tomar los pedidos y nos liga menos al tipo en el que llega el pedido.
 
 La Clase DespachadorPedidos (paquete controlador) toma los par'ametros de entrada y multiplexa seg'un corresponda. Esta clase es singleton debido a que solo es necesaria una sola instancia para no tener problemas de concurrencia.
@@ -22,7 +22,7 @@ Como son para emitir la respuesta ent'an dentro del paquete Vista.
 
 Para emitir la respuesta utilizar'an un tipo llamado Respuesta. Esto permite desacoplar del tipo de respuesta y dejar a la clase especializada del Despachador de respuestas, la responsabilidad del formato de respuesta. Como es especializaci'on en caso en que se modifique el modo en que se envia la respuesta se hereda una clase nueva. Favoreciendo el open-close.
 
-\todo HASTA ACA
+\todo{HASTA ACA}
 
 \subsubsection{Modelo}
 
@@ -35,31 +35,4 @@ Entendemos que podriamos prescindir de esta clase y llamar a Controlador corresp
 creemos que no es una buena decisi'on ya que si no contamos con ella, violariamos el principio Open-Close, dado 
 que si en un futuro el pedido cambia y por ejemplo decicimos agregar un timestamp para que caduque tendriamos que 
 modificar funcionalidades ya testeadas.
-
-\subsection{Clientes}
-
-Bas'andonos en las especificaciones observamos que ser'ia coherente que un usuario jugador/observador no conozca las posibles funcionalidades que puede utilizar un administrador y viceversa. En particular nos parece que los aspectos relacionados con el modo dirigido deber'ian incluso quedar expl'icitamente ocultos a observadores y jugadores. Por estas razones hemos decidido construir dos aplicaciones cliente separadas para modularizar el acceso a las distintas funcionalidades que un usuario puede efectuar. De esta forma dise~namos un cliente para jugadores/observadores y otro cliente exclusivo para administradores.
-
-\subsubsection{\label{Clientes::Jugadores/Observadores}Cliente Jugadores/Observadores}
-
-\subsubsection{\label{Clientes::Administradores}Cliente Administradores}
-
-El cliente se basa en un diseño en capas.
-
-\imagenvertical{DC_Cliente.png}{Diagrama de Clases Cliente}{0.4}
-
-\begin{enumerate}
-	\item \textbf{Presentaci'on: }Estar'an las clases qeu se encargaran de dibujar las distintas pantallas de juego y de manejar todo lo relacionado a los enventos que los usuarios activar'an.
-	\item \textbf{Controlador: } estara la lógica que construye los mensajes al servidor y las clases necesarias para ello.
-	\item \textbf{Comunicaci'on:} estar'an las clases y metodos que construyen el archivo xml y la acci'on de escribirlos en el puerto correspondiente del servidor (en este caso una carpeta en el mismo).
-	\item  \textbf{Modelo:} este paquete tendrá una clase, \textit{configuraci'on}, la cual contendr'a toda la informaci'on que los mensajes de comunicaci'on no contengan y que son necesarios para poder mostrar las pantallas y construir los mensajes de comunciaci'on
- \end{enumerate}
-
-\subsubsection{Justificaci'on del dise~no}
-Creemos que este dise~no es adecuado para este problema ya que es sumamente flexible tanto si se cambia la capa de presentaci'on como si se cambia la capa de comunciaci'on. Por ejemplo, si el d'ia de mañana queremos mostrarlo v'ia una p'agina web o si decidimos que la comunicaci'on sea hecha v'ia sockets nuestro dide~no se puede adaptar facilmente, ya que solo hay que modificar la capa correspondiente.
-
-\subsubsection{Ejemplos / Referencias a DS's}
-Ejemplos de la interac'on de las distintas capas del cliente pueden verse en los DS's:
-
-
 
