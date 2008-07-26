@@ -32,8 +32,8 @@
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_4A0584FE_B54C_42d3_BE48_A299821AD727" name="laConfiguracionCasino : ConfiguracionCasino" visibility="public" represents="EAID_AT000000_4FE_B54C_42d3_BE48_A299821AD72"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_5F091841_74B9_4d6b_BBC9_FEC30D2A9465" name="lasMesasAbiertas : MesasAbiertas" visibility="public" represents="EAID_AT000000_841_74B9_4d6b_BBC9_FEC30D2A946"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_1411D783_EFF1_473f_B48E_BD20F698831B" name="losJugadoresRegistrados : JugadoresRegistrados" visibility="public" represents="EAID_AT000000_783_EFF1_473f_B48E_BD20F698831"/>
-					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_34BC25C3_62AD_4b69_BDE3_FBA2D4365B55" name="unDespachadorRespuestasArchivo : DespachadorRespuestasArchivo" visibility="public" represents="EAID_AT000000_5C3_62AD_4b69_BDE3_FBA2D4365B5"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_5760BAFD_BA41_4034_86D4_65C428D0980A" name="unJugadorRegistrado : JugadorRegistrado" visibility="public" represents="EAID_AT000000_AFD_BA41_4034_86D4_65C428D0980"/>
+					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_34BC25C3_62AD_4b69_BDE3_FBA2D4365B55" name="unObtenedorPedidosArchivo : ObtenedorPedidosArchivo" visibility="public" represents="EAID_AT000000_5C3_62AD_4b69_BDE3_FBA2D4365B5"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_78A455BB_DA27_4ef7_9FE8_E03E20D05BD2" name="unReceptorPedidosArchivo : ReceptorPedidosArchivo" visibility="public" represents="EAID_AT000000_5BB_DA27_4ef7_9FE8_E03E20D05BD"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_133FD19E_CB78_4985_B7E5_FA8F651E1082" name="unaConfiguracionGeneralDelCasino : ConfiguracionGeneralDelCasino" visibility="public" represents="EAID_AT000000_19E_CB78_4985_B7E5_FA8F651E108"/>
 					<lifeline xmi:type="uml:Lifeline" xmi:id="EAID_9378DF6E_5689_4e6c_8570_89F0AAFAF23B" name="unaJugadorFactory : JugadorNormalFactory" visibility="public" represents="EAID_AT000000_F6E_5689_4e6c_8570_89F0AAFAF23"/>
@@ -192,7 +192,7 @@
 					<message xmi:type="uml:Message" xmi:id="EAID_8F215FCC_7D89_4393_B147_79727B320E83" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000007_EFF1_473f_B48E_BD20F698831B" receiveEvent="EAID_FR000003_B564_4c74_A194_C61F6805805B"/>
 					<message xmi:type="uml:Message" xmi:id="EAID_0F17EC78_2118_4e9e_BEFC_A7FB35CC905B" name="setDespachador" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000001_A91F_48b7_93C4_769033A084B6" receiveEvent="EAID_FR000000_BA0F_4648_8E71_C93FC4758C9E"/>
 					<message xmi:type="uml:Message" xmi:id="EAID_4CE648F4_E968_4138_BB1C_DC9CDDF4D5E8" messageKind="lost" messageSort="reply" sendEvent="EAID_FR000001_B564_4c74_A194_C61F6805805B"/>
-					<message xmi:type="uml:Message" xmi:id="EAID_5616E31A_9D1C_4549_8B38_0A7B5B4051C3" name="despachador := unDespachadorRespuestasArchivo" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000002_BA0F_4648_8E71_C93FC4758C9E" receiveEvent="EAID_FR000003_BA0F_4648_8E71_C93FC4758C9E"/>
+					<message xmi:type="uml:Message" xmi:id="EAID_5616E31A_9D1C_4549_8B38_0A7B5B4051C3" name="obtenedor := unObtenedorPedidosArchivo" messageKind="complete" messageSort="synchCall" sendEvent="EAID_FR000002_BA0F_4648_8E71_C93FC4758C9E" receiveEvent="EAID_FR000003_BA0F_4648_8E71_C93FC4758C9E"/>
 					<message xmi:type="uml:Message" xmi:id="EAID_330B7854_66E2_4404_9386_EBF3914EF5B2" messageKind="complete" messageSort="reply" sendEvent="EAID_FR000001_BA0F_4648_8E71_C93FC4758C9E" receiveEvent="EAID_FR000024_A91F_48b7_93C4_769033A084B6"/>
 					<message xmi:type="uml:Message" xmi:id="EAID_7DE66E02_5BF0_455e_A915_F129A1E8FE9F" name="new" messageKind="complete" messageSort="createMessage" sendEvent="EAID_FR000012_A91F_48b7_93C4_769033A084B6" receiveEvent="EAID_FR000000_DA27_4ef7_9FE8_E03E20D05BD2"/>
 					<message xmi:type="uml:Message" xmi:id="EAID_8416CADF_B7CB_4891_B8D5_C4DD7B8C2F69" name="new" messageKind="complete" messageSort="createMessage" sendEvent="EAID_FR000014_A91F_48b7_93C4_769033A084B6" receiveEvent="EAID_FR000001_F6B9_4ce4_92E6_978C2D91A0E5"/>
@@ -213,8 +213,8 @@
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_4FE_B54C_42d3_BE48_A299821AD72"/>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_841_74B9_4d6b_BBC9_FEC30D2A946"/>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_783_EFF1_473f_B48E_BD20F698831"/>
-				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_5C3_62AD_4b69_BDE3_FBA2D4365B5"/>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_AFD_BA41_4034_86D4_65C428D0980"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_5C3_62AD_4b69_BDE3_FBA2D4365B5"/>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_5BB_DA27_4ef7_9FE8_E03E20D05BD"/>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_19E_CB78_4985_B7E5_FA8F651E108"/>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_AT000000_F6E_5689_4e6c_8570_89F0AAFAF23"/>
@@ -240,8 +240,8 @@
 		<thecustomprofile:Modelo base_Sequence="EAID_4A0584FE_B54C_42d3_BE48_A299821AD727"/>
 		<thecustomprofile:Modelo base_Sequence="EAID_5F091841_74B9_4d6b_BBC9_FEC30D2A9465"/>
 		<thecustomprofile:Modelo base_Sequence="EAID_1411D783_EFF1_473f_B48E_BD20F698831B"/>
-		<thecustomprofile:Comunicacion base_Sequence="EAID_34BC25C3_62AD_4b69_BDE3_FBA2D4365B55"/>
 		<thecustomprofile:Modelo base_Sequence="EAID_5760BAFD_BA41_4034_86D4_65C428D0980A"/>
+		<thecustomprofile:Comunicacion base_Sequence="EAID_34BC25C3_62AD_4b69_BDE3_FBA2D4365B55"/>
 		<thecustomprofile:Comunicacion base_Sequence="EAID_78A455BB_DA27_4ef7_9FE8_E03E20D05BD2"/>
 		<thecustomprofile:Modelo base_Sequence="EAID_133FD19E_CB78_4985_B7E5_FA8F651E1082"/>
 		<thecustomprofile:Modelo base_Sequence="EAID_9378DF6E_5689_4e6c_8570_89F0AAFAF23B"/>
@@ -662,20 +662,6 @@
 					<Sequence xmi:id="EAID_A8757A67_8E35_400c_B3BD_8DC312890A0E" start="EAID_24691765_C133_46d8_B9DF_74AD8CB29906" end="EAID_1411D783_EFF1_473f_B48E_BD20F698831B"/>
 				</links>
 			</element>
-			<element xmi:idref="EAID_34BC25C3_62AD_4b69_BDE3_FBA2D4365B55" xmi:type="uml:Sequence" name="unDespachadorRespuestasArchivo : DespachadorRespuestasArchivo" scope="public">
-				<model package="EAPK_746CB04A_E149_4d11_B7BB_7996D180DF58" tpos="0" ea_localid="24" ea_eleType="element"/>
-				<properties isSpecification="false" sType="Sequence" nType="0" scope="public" stereotype="Comunicacion"/>
-				<project author="giga" version="1.0" phase="1.0" created="2008-07-25 00:03:38" modified="2008-07-25 00:04:11" complexity="1" status="Proposed"/>
-				<code gentype="&lt;none&gt;"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
-				<modelDocument/>
-				<tags/>
-				<xrefs value="$XREFPROP=$XID={016416F7-5A80-4511-A1F8-23AFCC8D21B2}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=Comunicacion;GUID={5EC1045C-FB32-4e61-925B-01690196D043};@ENDSTEREO;$DES;$CLT={34BC25C3-62AD-4b69-BDE3-FBA2D4365B55}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="DSs"/>
-				<links>
-					<Sequence xmi:id="EAID_91DA0350_5CA2_4d98_884A_6C9DBE9FD0C1" start="EAID_CABB1AA5_A91F_48b7_93C4_769033A084B6" end="EAID_34BC25C3_62AD_4b69_BDE3_FBA2D4365B55"/>
-				</links>
-			</element>
 			<element xmi:idref="EAID_5760BAFD_BA41_4034_86D4_65C428D0980A" xmi:type="uml:Sequence" name="unJugadorRegistrado : JugadorRegistrado" scope="public">
 				<model package="EAPK_746CB04A_E149_4d11_B7BB_7996D180DF58" tpos="0" ea_localid="18" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Sequence" nType="0" scope="public" stereotype="Modelo"/>
@@ -688,6 +674,20 @@
 				<extendedProperties tagged="0" package_name="DSs"/>
 				<links>
 					<Sequence xmi:id="EAID_323C2673_22D1_4ae8_9697_46E07A3BF0D4" start="EAID_1411D783_EFF1_473f_B48E_BD20F698831B" end="EAID_5760BAFD_BA41_4034_86D4_65C428D0980A"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_34BC25C3_62AD_4b69_BDE3_FBA2D4365B55" xmi:type="uml:Sequence" name="unObtenedorPedidosArchivo : ObtenedorPedidosArchivo" scope="public">
+				<model package="EAPK_746CB04A_E149_4d11_B7BB_7996D180DF58" tpos="0" ea_localid="24" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Sequence" nType="0" scope="public" stereotype="Comunicacion"/>
+				<project author="giga" version="1.0" phase="1.0" created="2008-07-25 00:03:38" modified="2008-07-26 17:07:53" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={016416F7-5A80-4511-A1F8-23AFCC8D21B2}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=Comunicacion;GUID={5EC1045C-FB32-4e61-925B-01690196D043};@ENDSTEREO;$DES;$CLT={34BC25C3-62AD-4b69-BDE3-FBA2D4365B55}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="DSs"/>
+				<links>
+					<Sequence xmi:id="EAID_91DA0350_5CA2_4d98_884A_6C9DBE9FD0C1" start="EAID_CABB1AA5_A91F_48b7_93C4_769033A084B6" end="EAID_34BC25C3_62AD_4b69_BDE3_FBA2D4365B55"/>
 				</links>
 			</element>
 			<element xmi:idref="EAID_78A455BB_DA27_4ef7_9FE8_E03E20D05BD2" xmi:type="uml:Sequence" name="unReceptorPedidosArchivo : ReceptorPedidosArchivo" scope="public">
@@ -1080,9 +1080,9 @@
 				<properties name="setDespachador" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
 				<appearance linemode="1" linecolor="-1" linewidth="1" seqno="15" headStyle="0" lineStyle="0"/>
-				<labels mt="setDespachador(unDespachadorRespuestasArchivo)"/>
+				<labels mt="setDespachador(unObtenedorPedidosArchivo)"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_4D77DAC7_8B4C_4d0d_A1DF_B82B89E0359E" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=-27;EX=0;EY=0;$LLB=;LLT=;LMT=CX=254:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
-				<style value="paramvalues=unDespachadorRespuestasArchivo;"/>
+				<style value="paramvalues=unObtenedorPedidosArchivo;"/>
 				<xrefs/>
 				<tags/>
 			</connector>
@@ -1429,7 +1429,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_34BC25C3_62AD_4b69_BDE3_FBA2D4365B55">
-					<model ea_localid="24" type="Sequence" name="unDespachadorRespuestasArchivo : DespachadorRespuestasArchivo"/>
+					<model ea_localid="24" type="Sequence" name="unObtenedorPedidosArchivo : ObtenedorPedidosArchivo"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1935,10 +1935,10 @@
 					<tags/>
 				</target>
 				<model ea_localid="40"/>
-				<properties name="despachador := unDespachadorRespuestasArchivo" ea_type="Sequence" direction="Source -&gt; Destination"/>
+				<properties name="obtenedor := unObtenedorPedidosArchivo" ea_type="Sequence" direction="Source -&gt; Destination"/>
 				<documentation/>
 				<appearance linemode="1" linecolor="-1" linewidth="1" seqno="16" headStyle="0" lineStyle="0"/>
-				<labels mt="despachador := unDespachadorRespuestasArchivo()"/>
+				<labels mt="obtenedor := unObtenedorPedidosArchivo()"/>
 				<extendedProperties stateflags="Activation=0;" virtualInheritance="0" diagram="EAID_4D77DAC7_8B4C_4d0d_A1DF_B82B89E0359E" privatedata1="Synchronous" privatedata2="retval=void;" privatedata3="Call" privatedata4="0" privatedata5="SX=0;SY=23;EX=0;EY=0;$LLB=;LLT=;LMT=CX=252:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
 				<style/>
 				<xrefs/>
