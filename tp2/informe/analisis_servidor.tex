@@ -46,18 +46,23 @@ El dise'no del servidor plante'o varios problemas que fueron resueltos utilizand
 \item[Abstract Factory] Permite desacoplarle la responsabilidad de elegir que objeto esec'ifico crear al encargado de crearlo. Se utiliz'o en:
 	\begin{itemize}
 	\item JugadorFactory del Modelo, permitiendo que quien quiera crear al objeto jugador cuando ingrese al casino no deba elegir si crear un JugadorVip o JugadorNormal.
+	\item SelectorTipoJugada del Modelo, haciendo que ServidorJugada genere un nuevo TipoJugada a travez del selector sin saber espec'ificamente cu'al est'a generando.
 	\end{itemize}
 \item[Strategy] Permite cambiar din'amicamente el algoritmo a utilizar para realizar cierta funcionalidad. Se utiliz'o en:
 	\begin{itemize}
 	\item TipoJugada del Modelo, para que la Jugada simplemente le pida que se resuelva y ella, seg'un la instancia concreta, se resuelva como ya sabe.
 	\item Apuesta del Modelo, para que TipoJugada simplemente le pida que se resuelva y ella, seg'un la instancia concreta, se resuelva como ya sabe.
-	\item Selectores de TipoJugada y Resultado en el Modelo, para que ServidorJugadas no deba elegir ni el TipoJugada ni Resultado que debe revolver en funci'on de como fue condigurado el modo dirigido.
+	\item Selectores del Resultado en el Modelo, para que ServidorJugadas no deba elegir el Resultado que debe revolver en funci'on de como fue condigurado el modo dirigido.
 	\end{itemize}
 \item[Facade] Permite ver a un subsistema como una sola entidad. Se utiliz'o en:
 	\begin{itemize}
 	\item LobbyCasino del Modelo, para que quien solamente quiera ver al Modelo como que contiene a la recepci'on de un casino as'i pueda.
 	\item JuegoCraps y JuegoTragamonedas del Modelo, los clientes ven solamente los respectivos juegos sin importar la implementaci'on de los subsistemas.
 	\item AdministradorDeCasino del Modelo, muestra el centro de administraci'on de un casino.
+	\end{itemize}
+\item[Observer] Permite que un objeto sea notificado cuando otro objeto cambia su estado. Se utiliz'o en:
+	\begin{itemize}
+	\item IMesaObserver del MensajeroDeSalida, donde el 'unico que en este caso realiza la interfaz (NotificadorDeCambiosAClientes) es notificado por la mesa que observa (en este caso se sabe que solamente ser'a notificado de mesas de craps) que alg'un estado suyo cambi'o.
 	\end{itemize}
 %\item[Template Method] Permite definir un algoritmo en forma gen'erica delegando ciertos pasos a las subclases. Se utiliz'o en:
 %	\begin{itemize}

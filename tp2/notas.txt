@@ -56,16 +56,3 @@ Un pedido de configuracion de MD trae alguna de estas configuraciones. Cada vez 
 
 
 
-
-
-
-
-
-Version vieja
---------------------------------------------------------------------------
-+ El jugador resuelve en cada especializacion si puede pagar o no para preservar OPC y sin caer en violar Liskov preguntando por el tipo de jugador que sos y acutar en funcion a eso. Pero es logica de negocio. Y si lo usamos aca lo usamos tambien en el resolvedor de las apuestas.
-+ Decidimos agregar la interfaz violeta para disminuir el acoplamiento innato del MVC.
-+ Nos basamos en el MVC de Java.
-+ Para preservar OPC, aumentar un poco la cohesion y disminuir el acoplamiento, expusimos algunas factories en la interfaz violeta que pueda utilizar el controlador y asi y todo mantener un nivel de generalidad deseable en la comunicacion entre el controlador (y vista) contra los administradores. Ademas centralizamos mas la logia en el controlador. Otra posibilidad era que aplique un poco mas de logica de negocio el administrador, pero el dinamic cast tambien lo iba a tenre que hacer ahi (ademas del del controlador) consultando su diccionario para ver que factory usar. Estoy hablando mas que nada del caso de la creacion de una apuesta de craps.
-+ 
-
