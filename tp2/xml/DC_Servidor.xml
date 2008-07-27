@@ -1723,34 +1723,24 @@
 					</ownedEnd>
 				</packagedElement>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_E8E4048F_2B52_47e8_B429_A65D7F697247" name="SelectorAzar" visibility="public">
-					<ownedOperation xmi:id="EAID_1AF26A17_8246_4bc9_975F_72059F8BA6FF" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_CEE507E5_95AA_46d4_9E64_1AA0FDF11363" name="mesa" direction="pk_in"/>
-					</ownedOperation>
+					<ownedOperation xmi:id="EAID_1AF26A17_8246_4bc9_975F_72059F8BA6FF" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential"/>
 					<generalization xmi:type="uml:Generalization" xmi:id="EAID_7611CE93_E36F_4676_A99C_86F2B345FB72" general="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
 				</packagedElement>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_D5983AC9_4C9F_4113_8957_01BF1639F42B" name="SelectorFeliz" visibility="public">
-					<ownedOperation xmi:id="EAID_E6A4E0D4_D24E_446b_931C_978AFC3FE8B5" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_CD16F78B_CEE1_40f7_BBEA_10C843465BBF" name="mesa" direction="pk_in"/>
-					</ownedOperation>
+					<ownedOperation xmi:id="EAID_E6A4E0D4_D24E_446b_931C_978AFC3FE8B5" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential"/>
 					<generalization xmi:type="uml:Generalization" xmi:id="EAID_D60C21F7_B801_45f2_984E_BDCAC4987714" general="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
 				</packagedElement>
-				<packagedElement xmi:type="uml:Class" xmi:id="EAID_1D3FF021_2BDF_4afd_9689_38449A4D0517" name="SelectorNormal" visibility="public">
-					<ownedOperation xmi:id="EAID_28E865DB_9E5B_4ac6_9A37_BB9674A99C70" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_73CB46FA_0FC7_4a06_BEC7_2E23F01E748D" name="mesa" direction="pk_in"/>
-					</ownedOperation>
-					<generalization xmi:type="uml:Generalization" xmi:id="EAID_32FBF772_3A0E_4e57_9B27_F0C257CAC3F1" general="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
-				</packagedElement>
-				<packagedElement xmi:type="uml:Class" xmi:id="EAID_21B16A32_5E86_47e2_8D5C_9FABF641D5F5" name="SelectorNormalNoFeliz" visibility="public">
-					<ownedOperation xmi:id="EAID_82463D9C_311F_48a3_A9E4_C14F0114D3B4" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_596D8903_60BD_4b50_9491_747A493B5C0B" name="mesa" direction="pk_in"/>
-					</ownedOperation>
+				<packagedElement xmi:type="uml:Class" xmi:id="EAID_21B16A32_5E86_47e2_8D5C_9FABF641D5F5" name="SelectorNoFeliz" visibility="public">
+					<ownedOperation xmi:id="EAID_82463D9C_311F_48a3_A9E4_C14F0114D3B4" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential"/>
 					<generalization xmi:type="uml:Generalization" xmi:id="EAID_30ACDA90_E908_4637_AFAD_0CDE89012CEA" general="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
 				</packagedElement>
-				<packagedElement xmi:type="uml:Class" xmi:id="EAID_2A5DFF5C_F93D_4c74_988C_2871094D1A24" name="SelectorNormalNoTodosPonen" visibility="public">
-					<ownedOperation xmi:id="EAID_DB229407_84D3_4fef_B1AC_6FD27E56BF23" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_BD135F97_82E1_4462_9900_EC21E4C0819F" name="mesa" direction="pk_in"/>
-					</ownedOperation>
+				<packagedElement xmi:type="uml:Class" xmi:id="EAID_2A5DFF5C_F93D_4c74_988C_2871094D1A24" name="SelectorNoTodosPonen" visibility="public">
+					<ownedOperation xmi:id="EAID_DB229407_84D3_4fef_B1AC_6FD27E56BF23" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential"/>
 					<generalization xmi:type="uml:Generalization" xmi:id="EAID_D0EA24FD_2828_4047_9E45_07CE6A89F4B4" general="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Class" xmi:id="EAID_1D3FF021_2BDF_4afd_9689_38449A4D0517" name="SelectorNormal" visibility="public">
+					<ownedOperation xmi:id="EAID_28E865DB_9E5B_4ac6_9A37_BB9674A99C70" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential"/>
+					<generalization xmi:type="uml:Generalization" xmi:id="EAID_32FBF772_3A0E_4e57_9B27_F0C257CAC3F1" general="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
 				</packagedElement>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_28E440C6_73CC_4221_BC0E_8D9F22B192DD" name="SelectorResultadoAlAarTragamonedas" visibility="public">
 					<ownedOperation xmi:id="EAID_27D644BE_370F_483c_8553_2A4425B1B107" name="SeleccionarResultado" visibility="public" concurrency="sequential"/>
@@ -1790,15 +1780,11 @@
 					<ownedOperation xmi:id="EAID_F745D2BD_A7B9_459e_9C3D_A9BC76F2E5BE" name="SeleccionarResultado" visibility="public" concurrency="sequential" isAbstract="true"/>
 				</packagedElement>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E" name="SelectorTipoJugada" visibility="public">
-					<ownedOperation xmi:id="EAID_596365B2_4C6A_4ccf_A8E5_477220B6403C" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential" isAbstract="true">
-						<ownedParameter xmi:id="EAID_C350B9E1_4158_41fa_AE3C_C9F2363CD807" name="mesa" direction="pk_in"/>
-					</ownedOperation>
+					<ownedOperation xmi:id="EAID_596365B2_4C6A_4ccf_A8E5_477220B6403C" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential" isAbstract="true"/>
 				</packagedElement>
 				<packagedElement xmi:type="uml:Usage" xmi:id="EAID_BAA8A6C6_86AB_4a29_9578_17CFA11D7C9E" visibility="public" supplier="EAID_DE239100_E1B4_49ae_B536_B51C1A9EE29E" client="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_92E3C412_518F_47ba_BE22_85E01A6A8AE8" name="SelectorTodosPonen" visibility="public">
-					<ownedOperation xmi:id="EAID_CD0E944B_FE20_4ffb_B704_9CB2C476EC47" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_E5161971_43ED_40c9_9EC1_BA2C9545348F" name="mesa" direction="pk_in"/>
-					</ownedOperation>
+					<ownedOperation xmi:id="EAID_CD0E944B_FE20_4ffb_B704_9CB2C476EC47" name="SeleccionarTipoJugada" visibility="public" concurrency="sequential"/>
 					<generalization xmi:type="uml:Generalization" xmi:id="EAID_3052FF21_52C6_42ef_8510_57E2504658B6" general="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
 				</packagedElement>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_88C86FB5_F82A_446f_941E_9C347C7031AF" name="ServidorJugadas" visibility="public">
@@ -12381,14 +12367,6 @@
 								<tags/>
 								<xrefs/>
 							</parameter>
-							<parameter xmi:idref="EAID_CEE507E5_95AA_46d4_9E64_1AA0FDF11363" visibility="public">
-								<properties pos="0" type="IdMesa" const="false" ea_guid="{CEE507E5-95AA-46d4-9E64-1AA0FDF11363}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
 						</parameters>
 						<xrefs/>
 					</operation>
@@ -12428,8 +12406,39 @@
 								<tags/>
 								<xrefs/>
 							</parameter>
-							<parameter xmi:idref="EAID_CD16F78B_CEE1_40f7_BBEA_10C843465BBF" visibility="public">
-								<properties pos="0" type="IdMesa" const="false" ea_guid="{CD16F78B-CEE1-40f7-BBEA-10C843465BBF}"/>
+						</parameters>
+						<xrefs/>
+					</operation>
+				</operations>
+				<links>
+					<Generalization xmi:id="EAID_D60C21F7_B801_45f2_984E_BDCAC4987714" start="EAID_D5983AC9_4C9F_4113_8957_01BF1639F42B" end="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_21B16A32_5E86_47e2_8D5C_9FABF641D5F5" xmi:type="uml:Class" name="SelectorNoFeliz" scope="public">
+				<model package="EAPK_84F8D4F7_143A_48db_BD44_0961F7A615C9" tpos="0" ea_localid="491" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="giga" version="1.0" phase="1.0" created="2008-07-22 18:01:09" modified="2008-07-26 20:30:53" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={1C0852BE-13B2-4f72-BC2A-1C63D4AF4004}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={21B16A32-5E86-47e2-8D5C-9FABF641D5F5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Modelo"/>
+				<operations>
+					<operation xmi:idref="EAID_82463D9C_311F_48a3_A9E4_C14F0114D3B4" name="SeleccionarTipoJugada" scope="Public">
+						<properties position="0"/>
+						<stereotype/>
+						<model ea_guid="{82463D9C-311F-48a3-A9E4-C14F0114D3B4}" ea_localid="607"/>
+						<type type="TipoJugada" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_311F_48a3_A9E4_C14F0114D3B4" visibility="public">
+								<properties pos="0" type="TipoJugada" const="false" ea_guid="{RETURNID-311F-48a3-A9E4-C14F0114D3B4}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -12441,7 +12450,46 @@
 					</operation>
 				</operations>
 				<links>
-					<Generalization xmi:id="EAID_D60C21F7_B801_45f2_984E_BDCAC4987714" start="EAID_D5983AC9_4C9F_4113_8957_01BF1639F42B" end="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
+					<Generalization xmi:id="EAID_30ACDA90_E908_4637_AFAD_0CDE89012CEA" start="EAID_21B16A32_5E86_47e2_8D5C_9FABF641D5F5" end="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_2A5DFF5C_F93D_4c74_988C_2871094D1A24" xmi:type="uml:Class" name="SelectorNoTodosPonen" scope="public">
+				<model package="EAPK_84F8D4F7_143A_48db_BD44_0961F7A615C9" tpos="0" ea_localid="492" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="giga" version="1.0" phase="1.0" created="2008-07-22 18:01:22" modified="2008-07-26 20:30:43" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={A1F37B7A-1155-4fb0-B1E1-D508E2BA0974}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={2A5DFF5C-F93D-4c74-988C-2871094D1A24}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Modelo"/>
+				<operations>
+					<operation xmi:idref="EAID_DB229407_84D3_4fef_B1AC_6FD27E56BF23" name="SeleccionarTipoJugada" scope="Public">
+						<properties position="0"/>
+						<stereotype/>
+						<model ea_guid="{DB229407-84D3-4fef-B1AC-6FD27E56BF23}" ea_localid="608"/>
+						<type type="TipoJugada" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_84D3_4fef_B1AC_6FD27E56BF23" visibility="public">
+								<properties pos="0" type="TipoJugada" const="false" ea_guid="{RETURNID-84D3-4fef-B1AC-6FD27E56BF23}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+				</operations>
+				<links>
+					<Generalization xmi:id="EAID_D0EA24FD_2828_4047_9E45_07CE6A89F4B4" start="EAID_2A5DFF5C_F93D_4c74_988C_2871094D1A24" end="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
 				</links>
 			</element>
 			<element xmi:idref="EAID_1D3FF021_2BDF_4afd_9689_38449A4D0517" xmi:type="uml:Class" name="SelectorNormal" scope="public">
@@ -12475,114 +12523,12 @@
 								<tags/>
 								<xrefs/>
 							</parameter>
-							<parameter xmi:idref="EAID_73CB46FA_0FC7_4a06_BEC7_2E23F01E748D" visibility="public">
-								<properties pos="0" type="IdMesa" const="false" ea_guid="{73CB46FA-0FC7-4a06-BEC7-2E23F01E748D}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
 						</parameters>
 						<xrefs/>
 					</operation>
 				</operations>
 				<links>
 					<Generalization xmi:id="EAID_32FBF772_3A0E_4e57_9B27_F0C257CAC3F1" start="EAID_1D3FF021_2BDF_4afd_9689_38449A4D0517" end="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
-				</links>
-			</element>
-			<element xmi:idref="EAID_21B16A32_5E86_47e2_8D5C_9FABF641D5F5" xmi:type="uml:Class" name="SelectorNormalNoFeliz" scope="public">
-				<model package="EAPK_84F8D4F7_143A_48db_BD44_0961F7A615C9" tpos="0" ea_localid="491" ea_eleType="element"/>
-				<properties isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="giga" version="1.0" phase="1.0" created="2008-07-22 18:01:09" modified="2008-07-22 22:16:08" complexity="1" status="Proposed"/>
-				<code gentype="Java"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
-				<modelDocument/>
-				<tags/>
-				<xrefs value="$XREFPROP=$XID={1C0852BE-13B2-4f72-BC2A-1C63D4AF4004}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={21B16A32-5E86-47e2-8D5C-9FABF641D5F5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="Modelo"/>
-				<operations>
-					<operation xmi:idref="EAID_82463D9C_311F_48a3_A9E4_C14F0114D3B4" name="SeleccionarTipoJugada" scope="Public">
-						<properties position="0"/>
-						<stereotype/>
-						<model ea_guid="{82463D9C-311F-48a3-A9E4-C14F0114D3B4}" ea_localid="607"/>
-						<type type="TipoJugada" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
-						<behaviour/>
-						<code/>
-						<style/>
-						<styleex/>
-						<documentation/>
-						<tags/>
-						<parameters>
-							<parameter xmi:idref="EAID_RETURNID_311F_48a3_A9E4_C14F0114D3B4" visibility="public">
-								<properties pos="0" type="TipoJugada" const="false" ea_guid="{RETURNID-311F-48a3-A9E4-C14F0114D3B4}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
-							<parameter xmi:idref="EAID_596D8903_60BD_4b50_9491_747A493B5C0B" visibility="public">
-								<properties pos="0" type="IdMesa" const="false" ea_guid="{596D8903-60BD-4b50-9491-747A493B5C0B}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
-						</parameters>
-						<xrefs/>
-					</operation>
-				</operations>
-				<links>
-					<Generalization xmi:id="EAID_30ACDA90_E908_4637_AFAD_0CDE89012CEA" start="EAID_21B16A32_5E86_47e2_8D5C_9FABF641D5F5" end="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
-				</links>
-			</element>
-			<element xmi:idref="EAID_2A5DFF5C_F93D_4c74_988C_2871094D1A24" xmi:type="uml:Class" name="SelectorNormalNoTodosPonen" scope="public">
-				<model package="EAPK_84F8D4F7_143A_48db_BD44_0961F7A615C9" tpos="0" ea_localid="492" ea_eleType="element"/>
-				<properties isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="giga" version="1.0" phase="1.0" created="2008-07-22 18:01:22" modified="2008-07-22 22:16:08" complexity="1" status="Proposed"/>
-				<code gentype="Java"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
-				<modelDocument/>
-				<tags/>
-				<xrefs value="$XREFPROP=$XID={A1F37B7A-1155-4fb0-B1E1-D508E2BA0974}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={2A5DFF5C-F93D-4c74-988C-2871094D1A24}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="Modelo"/>
-				<operations>
-					<operation xmi:idref="EAID_DB229407_84D3_4fef_B1AC_6FD27E56BF23" name="SeleccionarTipoJugada" scope="Public">
-						<properties position="0"/>
-						<stereotype/>
-						<model ea_guid="{DB229407-84D3-4fef-B1AC-6FD27E56BF23}" ea_localid="608"/>
-						<type type="TipoJugada" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
-						<behaviour/>
-						<code/>
-						<style/>
-						<styleex/>
-						<documentation/>
-						<tags/>
-						<parameters>
-							<parameter xmi:idref="EAID_RETURNID_84D3_4fef_B1AC_6FD27E56BF23" visibility="public">
-								<properties pos="0" type="TipoJugada" const="false" ea_guid="{RETURNID-84D3-4fef-B1AC-6FD27E56BF23}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
-							<parameter xmi:idref="EAID_BD135F97_82E1_4462_9900_EC21E4C0819F" visibility="public">
-								<properties pos="0" type="IdMesa" const="false" ea_guid="{BD135F97-82E1-4462-9900-EC21E4C0819F}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
-						</parameters>
-						<xrefs/>
-					</operation>
-				</operations>
-				<links>
-					<Generalization xmi:id="EAID_D0EA24FD_2828_4047_9E45_07CE6A89F4B4" start="EAID_2A5DFF5C_F93D_4c74_988C_2871094D1A24" end="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E"/>
 				</links>
 			</element>
 			<element xmi:idref="EAID_28E440C6_73CC_4221_BC0E_8D9F22B192DD" xmi:type="uml:Class" name="SelectorResultadoAlAarTragamonedas" scope="public">
@@ -12942,14 +12888,6 @@
 								<tags/>
 								<xrefs/>
 							</parameter>
-							<parameter xmi:idref="EAID_C350B9E1_4158_41fa_AE3C_C9F2363CD807" visibility="public">
-								<properties pos="0" type="IdMesa" const="false" ea_guid="{C350B9E1-4158-41fa-AE3C-C9F2363CD807}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
 						</parameters>
 						<xrefs/>
 					</operation>
@@ -12990,14 +12928,6 @@
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_FE20_4ffb_B704_9CB2C476EC47" visibility="public">
 								<properties pos="0" type="TipoJugada" const="false" ea_guid="{RETURNID-FE20-4ffb-B704-9CB2C476EC47}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
-							<parameter xmi:idref="EAID_E5161971_43ED_40c9_9EC1_BA2C9545348F" visibility="public">
-								<properties pos="0" type="IdMesa" const="false" ea_guid="{E5161971-43ED-40c9-9EC1-BA2C9545348F}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -18679,42 +18609,9 @@
 				<xrefs value="$XREFPROP=$XID={6204595B-BA27-4a7b-B3E6-E4A96107F029}$XID;$NAM=CustomProperties$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isSubstitutable@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={D60C21F7-B801-45f2-984E-BDCAC4987714}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 				<tags/>
 			</connector>
-			<connector xmi:idref="EAID_32FBF772_3A0E_4e57_9B27_F0C257CAC3F1">
-				<source xmi:idref="EAID_1D3FF021_2BDF_4afd_9689_38449A4D0517">
-					<model ea_localid="493" type="Class" name="SelectorNormal"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type aggregation="none" containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</source>
-				<target xmi:idref="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E">
-					<model ea_localid="487" type="Class" name="SelectorTipoJugada"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type aggregation="none" containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</target>
-				<model ea_localid="517"/>
-				<properties ea_type="Generalization" direction="Source -&gt; Destination"/>
-				<documentation/>
-				<appearance linemode="3" linecolor="-1" linewidth="1" seqno="0" headStyle="0" lineStyle="0"/>
-				<labels/>
-				<extendedProperties virtualInheritance="0"/>
-				<style/>
-				<xrefs value="$XREFPROP=$XID={FB510145-EA30-4862-B5A4-18258B4379A0}$XID;$NAM=CustomProperties$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isSubstitutable@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={32FBF772-3A0E-4e57-9B27-F0C257CAC3F1}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<tags/>
-			</connector>
 			<connector xmi:idref="EAID_30ACDA90_E908_4637_AFAD_0CDE89012CEA">
 				<source xmi:idref="EAID_21B16A32_5E86_47e2_8D5C_9FABF641D5F5">
-					<model ea_localid="491" type="Class" name="SelectorNormalNoFeliz"/>
+					<model ea_localid="491" type="Class" name="SelectorNoFeliz"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -18747,7 +18644,7 @@
 			</connector>
 			<connector xmi:idref="EAID_D0EA24FD_2828_4047_9E45_07CE6A89F4B4">
 				<source xmi:idref="EAID_2A5DFF5C_F93D_4c74_988C_2871094D1A24">
-					<model ea_localid="492" type="Class" name="SelectorNormalNoTodosPonen"/>
+					<model ea_localid="492" type="Class" name="SelectorNoTodosPonen"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -18776,6 +18673,39 @@
 				<extendedProperties virtualInheritance="0"/>
 				<style/>
 				<xrefs value="$XREFPROP=$XID={660531FF-FFC5-47d5-8E08-910E81434C13}$XID;$NAM=CustomProperties$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isSubstitutable@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={D0EA24FD-2828-4047-9E45-07CE6A89F4B4}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_32FBF772_3A0E_4e57_9B27_F0C257CAC3F1">
+				<source xmi:idref="EAID_1D3FF021_2BDF_4afd_9689_38449A4D0517">
+					<model ea_localid="493" type="Class" name="SelectorNormal"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_B7EC4D75_F2EC_4c7a_A981_0353913F540E">
+					<model ea_localid="487" type="Class" name="SelectorTipoJugada"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="517"/>
+				<properties ea_type="Generalization" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="1" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={FB510145-EA30-4862-B5A4-18258B4379A0}$XID;$NAM=CustomProperties$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isSubstitutable@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={32FBF772-3A0E-4e57-9B27-F0C257CAC3F1}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 				<tags/>
 			</connector>
 			<connector xmi:idref="EAID_113A7008_A9E2_4942_8AC2_BC6B58CBA325">
@@ -19113,8 +19043,8 @@
 			<diagram xmi:id="EAID_BB102F95_E292_4bff_BB38_A0CF1F1EF5C5">
 				<model package="EAPK_1A790808_5D0E_46d8_90BB_EAF6C4BC5173" localID="22" owner="EAPK_1A790808_5D0E_46d8_90BB_EAF6C4BC5173"/>
 				<properties name="Servidor" type="Logical"/>
-				<project author="GIGA" version="1.0" created="2008-06-14 00:36:57" modified="2008-07-26 19:47:44"/>
-				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=795;DocSize.cy=1138;ShowDetails=0;Orientation=P;Zoom=110;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;"/>
+				<project author="GIGA" version="1.0" created="2008-06-14 00:36:57" modified="2008-07-26 19:51:56"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=795;DocSize.cy=1138;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;"/>
 				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
