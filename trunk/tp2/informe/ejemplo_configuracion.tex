@@ -1,0 +1,60 @@
+\subsection{ConfiguracionCasino.xml}
+Es el archivo de configuraci'on general del casino. Ser'a consumido por la clase ConfiguracionCasino al iniciar el servidor.
+
+\begin{verbatim}
+<configuracionCasino>
+    <configuracionDelCasino>
+        <password_admin valor="MentaGranizada" />
+        <saldoCasino monto="10000" />
+        <fichasValidas>
+            <fichaValida valor="20" />
+            <fichaValida valor="10" />
+            <fichaValida valor="5" />
+            <fichaValida valor="1" />
+        </fichasValidas>
+    </configuracionDelCasino>
+    <configuracionTragamonedas>
+        <probabilidadOcurrenciaFiguras>
+            <figura tipo="Blanco" ocurrencia="0.40" />
+            <figura tipo="Cereza" ocurrencia="0.29" />
+            <figura tipo="BarSimple" ocurrencia="0.15" />
+            <figura tipo="BarDoble" ocurrencia="0.10" />
+            <figura tipo="BarTriple" ocurrencia="0.05" />
+            <figura tipo="Dinosaurio" ocurrencia="0.01" />
+        </probabilidadOcurrenciaFiguras>
+    </configuracionTragamonedas>
+    <configuracionCraps>
+        <probabilidadOcurrenciaNumeros>
+            <numero valor="1" ocurrencia="0.16" />
+            <numero valor="2" ocurrencia="0.16" />
+            <numero valor="3" ocurrencia="0.16" />
+            <numero valor="4" ocurrencia="0.16" />
+            <numero valor="5" ocurrencia="0.16" />
+            <numero valor="6" ocurrencia="0.16" />
+        </probabilidadOcurrenciaNumeros>
+    </configuracionCraps>
+    <configuracionPozoFeliz>
+        <porcentajeDescuentoTodosPonen valor="0.2" />
+        <probabilidadOcurrenciaFeliz valor="0.05" />
+        <probabilidadOcurrenciaTodosPonen valor="0.1" />
+        <montoMinimo valor="1000" />
+    </configuracionPozoFeliz>
+    <configuracionPozoProgresivo>
+        <cantApuestasJugagaMaximaGordoProgresivo valor="3" />
+        <porcentajeDescuentoPorApuesta valor="0.1" />
+        <montoMinimo valor="500" />
+    </configuracionPozoProgresivo>
+</configuracionCasino>
+
+\end{verbatim}
+
+\subsection{JugadoresRegistrados.xml}
+Es la lista que genera Marketing a partir de la informaci'on que le va dando Rosa Espinosa. Contiene la informaci'on de los jugadores registrados para poder jugar en el casino junto con su saldo y tipo de jugador. Ser'a consumido por la clase JugadoresRegistrados al iniciar el servidor.
+
+\begin{verbatim}
+<jugadores>
+    <jugador nombre="Cosme Fulanito" saldo="2000" tipo="normal" />
+    <jugador nombre="Pedro el de la Esquina" saldo="100.50" tipo="normal" />
+    <jugador nombre="Matute" saldo="0.25" tipo="vip" />
+</jugadores>
+\end{verbatim}

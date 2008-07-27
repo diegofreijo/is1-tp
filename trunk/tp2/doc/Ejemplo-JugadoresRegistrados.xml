@@ -1,5 +1,0 @@
-<jugadores>
-	<jugador nombre="Cosme Fulanito" saldo="2000" tipo="normal" />
-	<jugador nombre="Pedro el de la Esquina" saldo="100.50" tipo="normal" />
-	<jugador nombre="Matute" saldo="0.25" tipo="vip" />
-</jugadores>
