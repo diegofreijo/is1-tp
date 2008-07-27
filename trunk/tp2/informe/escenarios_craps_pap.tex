@@ -41,7 +41,6 @@ Este DS se dividió en 3 secciones:
 
 El escenario para 'esta funcionalidad es el siguiente:
 
-\escenario{
 El jugador Cosme Fulanito desea apostar en el juego de craps. La apuesta realizada es a ganar sobre el n'umero cinco. La cantidad apostada es una ficha de valor 20 y dos de valor 10. Cosme est'a en la mesa 25.
 
 %Se crea el XML correspondiente con el nombre del archivo "apuestaCraps059999" y se deposita en la carpeta del servidor.
@@ -59,53 +58,10 @@ Para que su apuesta sea efectiva deber'a pasar por las siguientes validaciones:
 Si alguna de las validaciones anteriormente mencionadas no se cumple entonces no se le dejar'a realizar la apuesta. En caso contrario si.
 
 Si se cumplen todas las validaciones se agregar'a la apuesta a la mesa y adem'as se notificar'a a todos los dem'as jugadores de la mesa 25 del cambio sucedido.
-}
+
 
 %aca iria una imagen------------------------------------------------------------
 
 \clearpage
 
-\textbf{Entrar Casino}
-
-\escenario{
-Un usuario desea entrar al casino, puede hacerlo en modo jugador o en modo observador.
-Si ya ha ingresado en modo jugador no se lo dejar'a entrar nuevamente. Si est'a en modo observador y desea ingresar en el mismo modo tampoco podr'a hacerlo.
-
-En cambio si quiere entrar como jugador (independientemente de si ingres'o como observador o si no ingres'o) se deber'a validar que sea un usuario autorizado por marketing:
-
-\begin{itemize}
- \item En caso afirmativo quedar'a ingresado en modo jugador.
- \item En caso negativo quedar'a en modo observador o fuera del casino seg'un cual fuese su estado anterior.
-\end{itemize}
-}
-
-%aca iria una imagen------------------------------------------------------------
-
-\clearpage
-
-\textbf{Pedir Estado Casino}
-
-\escenario{
-Un usuario desea informarse sobre el estado del casino. Se le informar'a s'olo si ha ingresado en el casino, m'as haya si es en modo jugador o en modo observador.
-
-El estado del casino est'a formado por:
-
-\begin{itemize}
- \item La lista de jugadores y observadores ingresados en el casino;
- \item El valor del pozo feliz y del pozo progresivo;
- \item El estado de las mesas del juegos de craps:
-	\begin{itemize}
-	 \item Los jugadores;
-	 \item El 'ultimo tirador y el pr'oximo;
-	 \item Si el siguiente es tiro de salida o ya est'a el punto establecido;
-	 \item El valor de los dados en el 'ultimo tiro;
-	\end{itemize}
- \item El estado de las mesas del juego tragamonedas:
-	\begin{itemize}
- 	 \item Los jugadores;
- 	 \item El valor de los rodillos en el 'ultimo tiro;
- 	 \item El 'ultimo tirador y el pr'oximo;
-	\end{itemize}
-\end{itemize}
-}
 
