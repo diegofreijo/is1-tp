@@ -1,16 +1,18 @@
 \subsection{Gr'aficos del Diagrama}
-Para facilitar la visualizaci'on del diagrama de clases, en lugar de imprimirlo completamente (de ser as'i se necesitar'ia una enorme mesa con agujeros en el medio para poder recorrerlo) preferimos particionarlo generando un gr'afico por cada m'odulo.
+Para facilitar la visualizaci'on del diagrama de clases, en lugar de imprimirlo completamente (de ser as'i se necesitar'ia una enorme mesa con agujeros en el medio para poder recorrerlo) preferimos particionarlo generando un gr'afico por cada m'odulo. Notar que en cada diagrama de m'odulo s'olo se muestran las clases de 'este (tambi'en, solo se muestran las asociaciones y dependencias de 'estas clases y no otras). La distribuci'on gr'afica fue modificada en cada caso para la claridad del diagrama.
+\clearpage
+
 
 \subsubsection{Comunicaci'on}
 \imagenvertical{DC_Servidor/DC_Comunicacion.png}{Diagrama de clases de la capa de comunicacion}{0.4}
 \clearpage
 
 \subsubsection{MensajeroDeEntrada}
-%\imagenvertical{DC_Servidor/DC_Comunicacion.png}{Diagrama de clases de la capa de comunicacion}{0.3}
+\imagenvertical{DC_Servidor/DC_MensajeroDeEntrada.png}{Diagrama de clases de la capa de mensajer'ia de entrada}{0.35}
 \clearpage
 
 \subsubsection{MensajeroDeSalida}
-%\imagenvertical{DC_Servidor/DC_Comunicacion.png}{Diagrama de clases de la capa de comunicacion}{0.3}
+\imagenvertical{DC_Servidor/DC_MensajeroDeSalida.png}{Diagrama de clases de la capa de mensajer'ia de salida}{0.35}
 \clearpage
 
 \subsubsection{Modelo}
@@ -93,7 +95,15 @@ Contiene la l'ogica de negocio junto con las estructuras asociadas a ella. Expon
 
 \item[Mesa] Representa a una mesa abierta en el casino. Contiene informaci'on de sus jugadores, las apuestas que se realizaron pero todavia no se resolvieron, ultima jugada realizada, observadores que la estan observando (para craps), pr'oximo y 'ultimo tirador, etc. Se especializa en un tipo de mesa para cada juego (en este caso, craps y tragamonedas). Notar que la mesa es la responsable de recibir y administrar las apuestas, los tiros y generar las jugadas correspondientes (al igual que registrarlas en el historial).
 
-\item[Jugada] Una jugada es un tiro en alg'un juego; JugadaCraps es un tiro de dados y JugadaTragamonedas es un giro de rodillos. Cada una tiene la posibilidad de resolverse pero para esto primero necesita que le brinden toda la informaci'on relevante (el resultado de la jugada, el tipo de jugada y la/s apuestas) aunque guarde a'un m'as informaci'on de utilidad para el historial (como por ejemplo el tirador y el valor de los pozos relevantes). En su resoluci'on, le pide al tipo de jugada (Feliz, TodosPonen, Normal) que se resuelva sin importar cual sea (patr'on \italica{strategy}) y 'este hace lo mismo con cada apuesta en funci'on de lo que su l'ogica le indique. Una jugada adem'as guarda los premios pagados (cuanto gan'o cada jugador, separado por concepto).
+\item[Jugada] Una jugada es un tiro en alg'un juego; JugadaCraps es un tiro de dados y JugadaTragamonedas es un giro de rodillos. Cada una tiene la posibilidad de resolverse pero para esto primero necesita que le brinden toda la informaci'on relevante (el resultado de la jugada, el tipo de jugada y la/s apuestas) aunque guarde a'un m'as informaci'on de utilidad para el historial (como por ejemplo el tirador y el valor de los pozos relevantes). En su resoluci'on, le pide al tipo de jugada (Feliz, TodosPonen, Normal) que se resuelva sin importar cual sea (patr'on \italica{strategy}). Una jugada adem'as guarda la lista de Premios, uno por cada apuesa resuelta en 'ese tiro.
+
+\item[TipoJugada] Un tipo de jugada puede ser Feliz, TodosPonen o Normal. Cada uno implementa su propia l'ogica para resolverse en funci'on de las apuestas que le brindaron para tal fin. Sea cual sea 'esta l'ogica, en cierto momento a cada apuesta se le deber'a pedir que se resuelva aunque se desconozca el tipo de apuesta e incluso se desconozca a que juego pertenece (patr'on \italica{strategy}).
+
+\item[Apuesta] Una apuesta puede ser de Craps o Tragamonedas. Cada una tiene la posibilidad de resolverse en funci'on del resultado que le pasan y devuelve cuanto le pag'o a su apostador al hacerlo.
+
+\item[Resultado] Es el resultado de una jugada. En el caso del resultado de craps posee los dos dados con sus valores y en el caso de tragamonedas, los tres rodillos tambi'en con sus valores.
+
+\item[Premio] Representa el resultado final de la resoluci'on de una apuesta m'as la composici'on con el resto del contexto. Es por eso que posee la informaci'on de cuanto vali'o la apuesta, cuanto se pag'o en concepto del pago innato de la apuesta, cuanto en concepto de cada pozo y cuanto le fue descontado al apostador por jugada todos ponen. Ademas posee al apostador y el nombre de la apuesta para futuras referencias. Notar que una apuesta a'un no resuelta en un tiro (aplica principalmente para las apuestas de craps ya que las de tragamonedas siempre son resueltas en un tiro) no posee un premio asociado.
 
 \item[\italica{Selectores}] Los selectores son los portadores de la configuraci'on del modo dirigido. Cada uno le abstrae su funcionalidad espec'ifica al ServidorJugadas (patr'on \italica{strategy}) estableci'endo solamente que informaci'on es capaz de brindarle. Espec'ificamente, las clases selectoras son
 	\begin{description}
