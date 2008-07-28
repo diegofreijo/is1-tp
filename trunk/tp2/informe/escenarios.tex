@@ -1,38 +1,45 @@
-Planteamos 2 enfoques para la construcci'on de los escenarios y diagramas de secuencia. La primera 
-fue basada en el echo de que contabamos con protocolos que inducian interaci'on de
-nuestras clases. El otro fue basado en los casos de uso.
+Para la construcci'on de los escenarios y diagramas de secuencia fue basada en el echo de que contabamos con los mensajes de protocolo los cuales inducen interaci'on y modificaci'on de nuestro modelo.
 
-\textbf{Notaci'on en los diagramas}
+Tambi'en decidimos hacer que nuestros escenarios sean lo m'as gen'ericos posible siempre y cuando esto no complique la lectura. 
 
-Para tratar con los XML en los DS asumiremos que contamos con cirta funcionalidad, provista por los objetos, por ejemplo:
+En cuanto a la profundidad para algunos DS mostramos la interacci'on de punta 
+a punta estos se encuentran en la secci'on del mismo nombre.
+Factorizandolos en 2 o 3 DS's cada uno. El resto de los diagramas, salvo excepciones, comienzan con la llamada al m'etodo de la fachada del modelo.
+
+Dado que la sección de recepci'on de pedidos y el despacho es muy parecida en estos diagramas 
+decidimos obviarlos (salvo, claro, en los de punta a punta).
+
+
+Por simpleza no usamos los \textit{ObtenerInstancia} de los Singletons. Estos estarán implicitos.
+
+
+Para tratar con los XML asumiremos que contamos con cierta funcionalidad, provista por los objetos, por ejemplo:
 \begin{itemize}
-\item  Para obtener el atributo \textbf{idMesa} de un XML ejecutamos \textit{XML.idMesa}, donde idmesa es el tag que se encuentra en el xml.
-\item As'i tambi'en para la lista de jugadores, XML.jugadoresEnMesa devuelve una \textbf{lista$<$jugadores$>$}.
+\item  Para obtener el atributo \textbf{idMesa} de un XML usamos \textit{XML.idMesa}, donde idMesa es el tag que se encuentra en el XML, y  \textit{XML.idMesa}, nos devoveria un entero almacenado en ese tag.
+
+\item As'i tambi'en para la lista de jugadores, \textit{XML.jugadoresEnMesa} devuelve una \textbf{lista$<$jugadores$>$}.
 \end{itemize}
 
-
-
-
-
-\escenario{ \textbf{Startup del Casino}
-\begin{itemize}
-\item se inicia el servidor
-\item se leen los achivos de configuraci'on
-\end{itemize}
-
-}
-
-\escenario{ \textbf{Startup Cliente}
-\begin{itemize}
-\item se incia el cliente
-\item 
-\end{itemize}
-
-}
+% 
+% \escenario{ \textbf{Startup del Casino}
+% \begin{itemize}
+% \item se inicia el servidor
+% \item se leen los achivos de configuraci'on
+% \end{itemize}
+% 
+% }
+% 
+% \escenario{ \textbf{Startup Cliente}
+% \begin{itemize}
+% \item se incia el cliente
+% \item ???????????????????????????????????
+% \end{itemize}
+% 
+% }
 
 \subsection{Diagramas de punta a punta}
-En esta secci'on mostraremos DS desde que se leen los arhivos XML hasta que el mensajero de salida despacha los archivos
-XML de respuesta.
+
+En esta secci'on mostraremos DS desde que se leen los arhivos XML hasta que el mensajero de salida despacha los archivos XML de respuesta.
 
 \subsubsection{Craps}
 \input{escenarios_craps_pap.tex}
@@ -46,8 +53,8 @@ Dado que la sección de recepcion de pedidos y el despacho es muy parecida en es
 decidimos obviarlo.
 
 
-\subsubsection{Funcionalidades generales entre los jugadores y el casino}
-\input{escenarios_jugador.tex}
+\subsubsection{Funcionalidades de inicializaci'on}
+\input{escenarios_inicializacion.tex}
 
 
 \subsubsection{Tragamonedas}
