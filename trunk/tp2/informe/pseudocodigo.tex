@@ -1,0 +1,92 @@
+\subsubsubsection{ObtenerJugadoresMasGanadores(): Lista<Nombre>}
+
+'Este m'etodo pertenece a la clase \italica{AdministradorDeCasino}. Devuelve la lista ordenada en forma descendente de los jugadores que m'as dinero han ganado en el casino durante el presente d'ia.
+
+\begin{verbatim}
+AdministradorDeCasino::ObtenerJugadoresMasGanadores(): Lista<Nombre>
+	
+	jugadas = elHistorialDeJugadas.GetJugadas()
+	jugadasTragamonedas = elHistorialDeJugadas.GetJugadasTragamonedas()
+	premios = jugadas.GetPremios()
+	premiosTragamonedas = jugadasTragamonedas.GetPremio()
+
+	Para cada elemento de premios hacer
+		gano = monto_normal + monto_feliz - monto_todosponen - monto_apostado
+		Si al jugador asociado es nuevo (no aparecio en una iteracion anterior)
+			se le guarda este valor
+		si no
+			se le suma al valor que ya tenia
+		Fin si
+	Fin para
+
+Para cada elemento de premiosTragamonedas hacer
+		gano = monto_normal + monto_feliz - monto_todosponen - monto_apostado + monto_progresivo
+		Si al jugador asociado es nuevo (no aparecio en una iteracion anterior)
+			se le guarda este valor
+		si no
+			se le suma al valor que ya tenia
+		Fin si
+	Fin para
+
+	De los jugadores que menor valor tienen en gano se toma a los 3 primeros y se los retorna
+\end{verbatim}
+
+
+\subsubsubsection{ObtenerJugadoresMasPerdedores(): Lista<Nombre>}
+
+'Este m'etodo pertenece a la clase \italica{AdministradorDeCasino}. Devuelve la lista ordenada en forma descendente de los jugadores que m'as dinero han perdido en el casino durante el presente d'ia.
+
+\begin{verbatim}
+AdministradorDeCasino::ObtenerJugadoresMasPerdedores(): Lista<Nombre>
+	
+	jugadas = elHistorialDeJugadas.GetJugadas()
+	jugadasTragamonedas = elHistorialDeJugadas.GetJugadasTragamonedas()
+	premios = jugadas.GetPremios()
+	premiosTragamonedas = jugadasTragamonedas.GetPremio()
+
+	Para cada elemento de premios hacer
+		perdio = monto_normal + monto_feliz - monto_todosponen - monto_apostado
+		Si al jugador asociado es nuevo (no aparecio en una iteracion anterior)
+			se le guarda este valor
+		si no
+			se le suma al valor que ya tenia
+		Fin si
+	Fin para
+
+	Para cada elemento de premiosTragamonedas hacer
+		perdio = monto_normal + monto_feliz - monto_todosponen - monto_apostado + monto_progresivo
+		Si al jugador asociado es nuevo (no aparecio en una iteracion anterior)
+			se le guarda este valor
+		si no
+			se le suma al valor que ya tenia
+		Fin si
+	Fin para
+
+	De los jugadores que menor valor tienen en perdio se toma a los 3 primeros y se los retorna
+\end{verbatim}
+
+
+\subsubsubsection{DetalleMovimientoJugadores(): Coleccion<Tupla<Nombre, Texto, Creditos, Creditos, Creditos, Creditos>>}
+
+'Este m'etodo pertenece a la clase \italica{AdministradorDeCasino}. Devuelve la una coleccion con los jugadores sus apuestas y los premios ganados y perdidos durante el presente d'ia.
+
+\begin{verbatim}
+AdministradorDeCasino::DetalleMovimientoJugadores(): Coleccion<Tupla<Nombre, Texto, Creditos, Creditos, Creditos, Creditos>>
+
+	jugadas = elHistorialDeJugadas.GetJugadas()
+	jugadasTragamonedas = elHistorialDeJugadas.GetJugadasTragamonedas()
+	premios = jugadas.GetPremios()
+	premiosTragamonedas = jugadasTragamonedas.GetPremio()
+
+	Para cada elemento p de premios hacer
+		unaTupla = Tupla(p.apostador, p.nombre_tipo_apuesta, p.monto_normal, p.monto_feliz, p.monto_todosponen, Null)
+		laListaDeRetorno.Agregar(unaTupla)
+	Fin para
+
+	Para cada elemento p de premiosTragamonedas hacer
+		unaTupla = Tupla(p.apostador, p.nombre_tipo_apuesta, p.monto_normal, p.monto_feliz, p.monto_todosponen, p.montoProgresivo)
+		laListaDeRetorno.Agregar(unaTupla)
+	Fin para
+
+	Retornar laListaDeRetorno
+\end{verbatim}
