@@ -26,13 +26,12 @@ Este DS se dividió en 3 secciones:
 % \imagen{}{TirarDados}{0.5}
 Tirar dados \tam
 
+
 \escenario{Apostar Craps de punta a punta}{
 
 El jugador Cosme Fulanito desea apostar en el juego de craps. La apuesta realizada es a ganar sobre el n'umero cinco. La cantidad apostada es una ficha de valor 20 y dos de valor 10. Cosme est'a en la mesa 25.
-}
-%Se crea el XML correspondiente con el nombre del archivo "apuestaCraps059999" y se deposita en la carpeta del servidor.
 
-%En el servidor se levanta dicho XML, se lo parsea y se efect'uan las valiaciones correspondientes. A saber:
+En la mesa est'a el punto establecido y adem'as existe el pr'oximo tirador.
 
 Para que su apuesta sea efectiva deber'a pasar por las siguientes validaciones:
 
@@ -45,29 +44,34 @@ Para que su apuesta sea efectiva deber'a pasar por las siguientes validaciones:
 Si alguna de las validaciones anteriormente mencionadas no se cumple entonces no se le dejar'a realizar la apuesta. En caso contrario si.
 
 Si se cumplen todas las validaciones se agregar'a la apuesta a la mesa y adem'as se notificar'a a todos los dem'as jugadores de la mesa 25 del cambio sucedido.
+}
 
+\imagen{DS_Craps/ApostarCraps/DS_ApostarCrapsCliente.png}{Apostar Craps en el cliente}{0.6}
 
+\imagen{DS_Craps/ApostarCraps/DS_ApostarCrapsRecepcionDelPedido.png}{Apostar Craps, recepci'on del pedido}{0.6}
 
- \escenario{ PedirEstado de punta a punta }{
-Un usuario desea informarse sobre el estado del casino. Se le informar'a s'olo si ha ingresado en el casino, m'as haya si es en modo jugador o en modo observador.
+\imagen{DS_Craps/ApostarCraps/DS_ApostarCrapsDentroDelModelo.png}{Apostar Craps, operatoria dentro del modelo}{0.6}
 
-El estado del casino est'a formado por:
-\begin{itemize}
- \item La lista de jugadores y observadores ingresados en el casino;
- \item El valor del pozo feliz y del pozo progresivo;
- \item El estado de las mesas del juegos de craps:
-	\begin{itemize}
-	 \item Los jugadores;
-	 \item El 'ultimo tirador y el pr'oximo;
-	 \item Si el siguiente es tiro de salida o ya est'a el punto establecido;
-	 \item El valor de los dados en el 'ultimo tiro;
-	\end{itemize}
- \item El estado de las mesas del juego tragamonedas:
-	\begin{itemize}
- 	 \item Los jugadores;
- 	 \item El valor de los rodillos en el 'ultimo tiro;
- 	 \item El 'ultimo tirador y el pr'oximo;
-	\end{itemize}
-\end{itemize}
- }
+\imagen{DS_Craps/ApostarCraps/DS_ApostarCrapsEmisionDeRespuesta.png}{Apostar Craps, emisi'on de la respuesta}{0.6}
+
+\imagen{DS_Craps/ApostarCraps/DS_ApostarCrapsEH.png}{Apostar Craps, notificaci'on a cada jugador}{0.6}
+
+\imagen{DS_Craps/ApostarCraps/DS_ApostarCrapsNotificarEstado.png}{Apostar Craps, armado de la notificaci'on}{0.6}
+
+\subsubsubsection{Las siguientes funciones pertenecen al Apostar Craps. Fueron separadas porque tienen menor relevancia}
+
+\imagen{DS_Craps/DS_ApuestasVigentes.png}{Apuestas Vigentes}{0.6}
+
+\imagen{DS_Craps/DS_Dado1UltimoTiro.png}{Valor del Dado 1 en el 'ultimo tiro}{0.6}
+
+\imagen{DS_Craps/DS_Dado2UltimoTiro.png}{Valor del Dado 2 en el 'ultimo tiro}{0.6}
+
+\imagen{DS_Craps/DS_EsProximoTiroDeSalida.png}{Determina si el pr'oximo es tiro de salida}{0.6}
+
+\imagen{DS_Craps/DS_JugadoresEnMesa.png}{Jugadores en mesa}{0.6}
+
+\imagen{DS_Craps/DS_TiradorProximoTiro.png}{Tirador del pr'oximo tiro}{0.6}
+
+\imagen{DS_Craps/DS_ValorPuntoProximoTiro.png}{Valor del punto para el pr'oximo tiro}{0.6}
+
 
