@@ -140,7 +140,7 @@
 					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000057_DE72_4dcd_9574_9A0E3E5193BE" value="1"/>
 					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000058_DE72_4dcd_9574_9A0E3E5193BE" value="1"/>
 				</ownedAttribute>
-				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_406A7C2F_0888_4040_A595_3FE67A22EF7B" name="EnSitioAPerder" visibility="public" isDerived="false">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_406A7C2F_0888_4040_A595_3FE67A22EF7B" name="EnSitioEnContra" visibility="public" isDerived="false">
 					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000059_0888_4040_A595_3FE67A22EF7B" value="1"/>
 					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000060_0888_4040_A595_3FE67A22EF7B" value="1"/>
 				</ownedAttribute>
@@ -220,10 +220,12 @@
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_2647DB30_C4E9_47a8_B5D4_9698F3333879" name="IReceptorMensajes" visibility="public" isAbstract="true">
 					<ownedOperation xmi:id="EAID_9144E8DA_51D2_482f_A4E5_0A08E51A2D9E" name="ObtenerNuevoMensajeAsync" visibility="public" concurrency="sequential" isAbstract="true">
 						<ownedParameter xmi:id="EAID_E21493FB_92FA_40c6_8E49_4021884C33D5" name="tipo" direction="pk_in"/>
+						<ownedParameter xmi:id="EAID_81E92463_6CC1_4c6e_A6A7_FCEB5D451A3F" name="idTerm" direction="pk_in"/>
 						<ownedParameter xmi:id="EAID_18179C95_0115_448b_B45A_513AA95EA7E3" name="msg" direction="pk_in"/>
 					</ownedOperation>
 					<ownedOperation xmi:id="EAID_60653D12_0A39_4b0f_A95B_ADD5D4308509" name="ObtenerNuevoMensajeSync" visibility="public" concurrency="sequential" isAbstract="true">
 						<ownedParameter xmi:id="EAID_F06819FA_6619_4f67_87F7_EA4ABFFF5387" name="tipo" direction="pk_in"/>
+						<ownedParameter xmi:id="EAID_A074F0F1_A50D_47ae_B09A_01D934DBD956" name="idTerm" direction="pk_in"/>
 					</ownedOperation>
 				</packagedElement>
 				<packagedElement xmi:type="uml:Association" xmi:id="EAID_2014F54B_F24C_4dae_B9D1_017AB7BDBB2B" visibility="public">
@@ -249,6 +251,7 @@
 					<ownedOperation xmi:id="EAID_E2DDB601_297C_4357_BCD9_8E64A9BE4DD0" name="Pedido" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_FF5C4FC9_849C_4726_9A2D_72E08265E5D1" name="tipo" direction="pk_in"/>
 						<ownedParameter xmi:id="EAID_DE6E56FE_E82D_4aeb_B77E_385D7E1E6796" name="parametros" direction="pk_in"/>
+						<ownedParameter xmi:id="EAID_8E38491C_F85C_4207_9337_C855EF39AAD0" name="idTerm" direction="pk_in"/>
 					</ownedOperation>
 				</packagedElement>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_759204D4_8BD8_44e7_988A_9777BB4CCDAA" name="ReceptorMensajesArchivo" visibility="public">
@@ -265,9 +268,12 @@
 					</ownedOperation>
 					<ownedOperation xmi:id="EAID_EE38B937_9C07_4345_9E9C_09BAD975F63F" name="ObtenerNuevoMensajeAsync" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_893F5591_59D1_4452_A5A1_E0ED40D32367" name="tipo" direction="pk_in"/>
+						<ownedParameter xmi:id="EAID_BEA14105_7AFA_4b27_B704_67E03FC82E85" name="idTerm" direction="pk_in"/>
+						<ownedParameter xmi:id="EAID_88AC6B7D_5449_4b6e_B2A0_401C703003C0" name="msg" direction="pk_in"/>
 					</ownedOperation>
 					<ownedOperation xmi:id="EAID_BEAAF103_E309_451e_9DAE_E9264C118FCD" name="ObtenerNuevoMensajeSync" visibility="public" concurrency="synchronous">
 						<ownedParameter xmi:id="EAID_0FC54D66_98E2_4ead_9D0E_43E576B5C278" name="tipo" direction="pk_in"/>
+						<ownedParameter xmi:id="EAID_633B15D8_0671_430e_A6DE_C9A437E1A1EE" name="idTerm" direction="pk_in"/>
 					</ownedOperation>
 				</packagedElement>
 				<packagedElement xmi:type="uml:Realization" xmi:id="EAID_796988D9_1E00_43de_BD87_CB7790CFD775" visibility="public" supplier="EAID_2647DB30_C4E9_47a8_B5D4_9698F3333879" realizingClassifier="EAID_2647DB30_C4E9_47a8_B5D4_9698F3333879" client="EAID_759204D4_8BD8_44e7_988A_9777BB4CCDAA"/>
@@ -283,10 +289,12 @@
 					</ownedOperation>
 					<ownedOperation xmi:id="EAID_DDB7C6DD_B86C_4a34_874A_9C61E7B2BB2C" name="ObtenerNuevoMensajeAsync" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_164FBCE0_7250_41ef_A264_4279146AEAC4" name="tipo" direction="pk_in"/>
+						<ownedParameter xmi:id="EAID_5EB33CF5_51B4_4231_8A70_8DB1800FDF24" name="idTerm" direction="pk_in"/>
 						<ownedParameter xmi:id="EAID_E515E4F4_2F56_48ce_805F_6B8ACCE8153B" name="msg" direction="pk_in"/>
 					</ownedOperation>
 					<ownedOperation xmi:id="EAID_AFE63FC8_DFA1_47ca_8E22_798EE32EB4E8" name="ObtenerNuevoMensajeSync" visibility="public" concurrency="synchronous">
 						<ownedParameter xmi:id="EAID_DF71FCD7_CA77_4645_BC03_ACE97CE24545" name="text" direction="pk_in"/>
+						<ownedParameter xmi:id="EAID_0330ABB1_3F3F_4f7e_8EA8_0BD370624DCD" name="idTerm" direction="pk_in"/>
 					</ownedOperation>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_src14F54B_F24C_4dae_B9D1_017AB7BDBB2B" visibility="public" association="EAID_2014F54B_F24C_4dae_B9D1_017AB7BDBB2B" isOrdered="false" isDerived="false" isDerivedUnion="false" aggregation="none">
 						<type xmi:idref="EAID_2647DB30_C4E9_47a8_B5D4_9698F3333879"/>
@@ -419,9 +427,15 @@
 						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000099_1945_4b79_932D_1A7E8271DADB" value="1"/>
 						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000100_1945_4b79_932D_1A7E8271DADB" value="1"/>
 					</ownedAttribute>
+					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_97132FA2_C16C_426a_AEC0_74D06AD87F41" name="fichasEnMano" visibility="private" isDerived="false">
+						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000101_C16C_426a_AEC0_74D06AD87F41" value="1"/>
+						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000102_C16C_426a_AEC0_74D06AD87F41" value="1"/>
+					</ownedAttribute>
 					<ownedOperation xmi:id="EAID_90A96228_CDC7_439c_9C18_162FE57BC6B1" name="ControladorVentanaCraps" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_B15F8884_8C54_450c_A1B2_00E68A017AD5" name="session" direction="pk_in"/>
 					</ownedOperation>
+					<ownedOperation xmi:id="EAID_42EE43A6_BBB0_45ff_AB0B_0E063BD916DA" name="OnTomarFichaButtonClicked" visibility="public" concurrency="sequential"/>
+					<ownedOperation xmi:id="EAID_47707FC7_B8B9_47a9_B273_76D1969BCC28" name="OnDejarFichasEnManoButtonClicked" visibility="public" concurrency="sequential"/>
 					<ownedOperation xmi:id="EAID_60E203E5_4FB0_40c0_A202_93A5FA397180" name="OnTirarButtonClicked" visibility="public" concurrency="sequential"/>
 					<ownedOperation xmi:id="EAID_CB91E142_F278_4b00_93CE_F236D0AA2C64" name="OnApostarLineaDePaseButtonClicked" visibility="public" concurrency="sequential"/>
 					<ownedOperation xmi:id="EAID_555BED75_763A_498a_A409_5A8F2BED3EB1" name="OnApostarBarraNoPaseButtonClicked" visibility="public" concurrency="sequential"/>
@@ -513,12 +527,12 @@
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_5793B173_5C99_458e_956E_3E3416F3FAD9" name="ControladorVentanaTragamonedas" visibility="public">
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_C17E98F9_4ED1_4a1a_B12E_29B2342A0681" name="idMesa" visibility="private" isDerived="false">
 						<type xmi:idref="EAID_61728DCF_8BA0_43ce_A67F_704B59165F6D"/>
-						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000101_4ED1_4a1a_B12E_29B2342A0681" value="1"/>
-						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000102_4ED1_4a1a_B12E_29B2342A0681" value="1"/>
+						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000103_4ED1_4a1a_B12E_29B2342A0681" value="1"/>
+						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000104_4ED1_4a1a_B12E_29B2342A0681" value="1"/>
 					</ownedAttribute>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_75B39382_CA8E_4102_A52E_3C567C4D60DF" name="montoApostado" visibility="private" isDerived="false">
-						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000103_CA8E_4102_A52E_3C567C4D60DF" value="1"/>
-						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000104_CA8E_4102_A52E_3C567C4D60DF" value="1"/>
+						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000105_CA8E_4102_A52E_3C567C4D60DF" value="1"/>
+						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000106_CA8E_4102_A52E_3C567C4D60DF" value="1"/>
 					</ownedAttribute>
 					<ownedOperation xmi:id="EAID_992A6F22_991F_49f7_AE6C_CF1273EB6E47" name="ControladorVentanaTragamonedas" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_AC2D73FD_083E_466c_B2F4_A46B86E99808" name="session" direction="pk_in"/>
@@ -556,17 +570,17 @@
 				<packagedElement xmi:type="uml:Usage" xmi:id="EAID_D1403E8C_2DA9_4583_9C53_AE968E3E6BC1" visibility="public" supplier="EAID_301F792D_9077_48a6_93A7_3EEFF025B592" client="EAID_5793B173_5C99_458e_956E_3E3416F3FAD9"/>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_0D36E3D9_1FAD_4fce_8394_C83F1C4479D0" name="Sesion" visibility="public">
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_530AFFE9_8F30_4481_B766_517D68D9AE15" name="nombreUsuario" visibility="private" isDerived="false">
-						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000105_8F30_4481_B766_517D68D9AE15" value="1"/>
-						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000106_8F30_4481_B766_517D68D9AE15" value="1"/>
+						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000107_8F30_4481_B766_517D68D9AE15" value="1"/>
+						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000108_8F30_4481_B766_517D68D9AE15" value="1"/>
 					</ownedAttribute>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_4AF6801A_46AC_484d_88C9_B2E885B6990F" name="modoUsuario" visibility="private" isDerived="false">
 						<type xmi:idref="EAID_BA8CEB06_FAEE_4ad3_9C78_7EC99FC412F3"/>
-						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000107_46AC_484d_88C9_B2E885B6990F" value="1"/>
-						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000108_46AC_484d_88C9_B2E885B6990F" value="1"/>
+						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000109_46AC_484d_88C9_B2E885B6990F" value="1"/>
+						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000110_46AC_484d_88C9_B2E885B6990F" value="1"/>
 					</ownedAttribute>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_9CED9539_C1AD_48f7_8530_5062911342FD" name="saldo" visibility="private" isDerived="false">
-						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000109_C1AD_48f7_8530_5062911342FD" value="1"/>
-						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000110_C1AD_48f7_8530_5062911342FD" value="1"/>
+						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000111_C1AD_48f7_8530_5062911342FD" value="1"/>
+						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000112_C1AD_48f7_8530_5062911342FD" value="1"/>
 					</ownedAttribute>
 					<ownedOperation xmi:id="EAID_2E555D2B_4FCB_48b2_A150_E348B52F2D27" name="Sesion" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_6F550DBB_AA96_4600_98D7_CEFE2EABC283" name="nombre" direction="pk_in"/>
@@ -595,8 +609,7 @@
 						<ownedParameter xmi:id="EAID_D02F5AEE_DFD7_47e0_8B99_61698B1D4713" name="title" direction="pk_in"/>
 					</ownedOperation>
 					<ownedOperation xmi:id="EAID_009CAD1E_F0DF_4fa2_A60B_AFE9D0898D57" name="MostrarModal" visibility="public" concurrency="sequential"/>
-					<ownedOperation xmi:id="EAID_3B1225E3_F9B2_4929_9652_C1F52AC09804" name="Cerrar" visibility="public" concurrency="sequential"/>
-					<ownedOperation xmi:id="EAID_28B215D8_DAE6_40a7_B7BC_058F8358FA7F" name="MostrarMensajeDeTexto" visibility="public" concurrency="sequential" isStatic="true">
+					<ownedOperation xmi:id="EAID_28B215D8_DAE6_40a7_B7BC_058F8358FA7F" name="MostrarMensajeDeTexto" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_2C2F6CAB_C726_4024_82BC_D560642C61D7" name="text" direction="pk_in"/>
 					</ownedOperation>
 				</packagedElement>
@@ -608,11 +621,8 @@
 					<ownedOperation xmi:id="EAID_4E28A0C6_5599_4dd0_A95C_959382B004C5" name="EstablecerCreditosJugador" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_3B8DBB97_0557_4035_BDB3_0A135A2DEE25" name="text" direction="pk_in"/>
 					</ownedOperation>
-					<ownedOperation xmi:id="EAID_399F2250_EF58_412b_BFE8_4C9F9792259F" name="EstablecerValorFicha" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_563C34B1_41CC_442e_86C1_FFA33CFA6F2B" name="text" direction="pk_in"/>
-					</ownedOperation>
-					<ownedOperation xmi:id="EAID_CA167B24_FF81_454c_9BC1_8834B913E285" name="EstablecerTipoJugada" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_F36475C3_23A9_4e86_8993_0A70659DD4DA" name="text" direction="pk_in"/>
+					<ownedOperation xmi:id="EAID_BF8939B9_3F5F_4930_BEF5_0DEA977ED56F" name="EstablecerPozoFeliz" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_9CEED3FA_C07F_436c_8C05_52E7209189FF" name="monto" direction="pk_in"/>
 					</ownedOperation>
 					<ownedOperation xmi:id="EAID_75597DBE_DF07_4bf6_AD7B_F2DB2C76AA05" name="EstablecerTipoTiro" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_97224DC6_3CE7_48cf_95B2_95E37B479748" name="text" direction="pk_in"/>
@@ -620,11 +630,14 @@
 					<ownedOperation xmi:id="EAID_A2779CD5_6B2C_4404_B11B_625CE507F547" name="EstablecerPunto" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_C891E2E1_B629_4930_9828_DDFF7ACE7ABC" name="text" direction="pk_in"/>
 					</ownedOperation>
+					<ownedOperation xmi:id="EAID_B95996E9_C6CB_467e_9D29_91F5E3C8264C" name="EstablecerTirador" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_A3B702DB_323E_4053_B64F_BFF5F13A304B" name="nombre" direction="pk_in"/>
+					</ownedOperation>
 					<ownedOperation xmi:id="EAID_103C3D22_A61B_49fb_AE31_61322C9A853A" name="EstablecerJugadores" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_386DCA79_DBFD_4078_BCF7_C21294570E5D" name="text" direction="pk_in"/>
 					</ownedOperation>
-					<ownedOperation xmi:id="EAID_E267F697_A195_4027_8BCF_533C66924BA3" name="EstablecerPremiosJugada" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_888CBEE0_683C_4668_BC45_17FC08F5DA9B" name="text" direction="pk_in"/>
+					<ownedOperation xmi:id="EAID_1E5225BA_16F6_4ccf_B1DF_2B47DFA35A13" name="EstablecerTiradorUltimoTiro" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_86D6EE83_9FFF_4124_B1A7_9DB476628D4B" name="name" direction="pk_in"/>
 					</ownedOperation>
 					<ownedOperation xmi:id="EAID_9728D03A_DDBE_461a_9018_AD8ACE69295B" name="EstablecerFiguraDado1" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_8761ACC2_F2EE_4cc4_9606_E7D7C54AF2C0" name="figura" direction="pk_in"/>
@@ -632,11 +645,41 @@
 					<ownedOperation xmi:id="EAID_FA71689F_5CD7_4836_89D2_3D9276D4C116" name="EstablecerFiguraDado2" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_ABA83246_253D_4ec2_BE21_AA895AACCDB2" name="figura" direction="pk_in"/>
 					</ownedOperation>
-					<ownedOperation xmi:id="EAID_B95996E9_C6CB_467e_9D29_91F5E3C8264C" name="EstablecerTirador" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_A3B702DB_323E_4053_B64F_BFF5F13A304B" name="nombre" direction="pk_in"/>
+					<ownedOperation xmi:id="EAID_E267F697_A195_4027_8BCF_533C66924BA3" name="EstablecerPremioJugada" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_888CBEE0_683C_4668_BC45_17FC08F5DA9B" name="text" direction="pk_in"/>
 					</ownedOperation>
-					<ownedOperation xmi:id="EAID_BF8939B9_3F5F_4930_BEF5_0DEA977ED56F" name="EstablecerPozoFeliz" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_9CEED3FA_C07F_436c_8C05_52E7209189FF" name="monto" direction="pk_in"/>
+					<ownedOperation xmi:id="EAID_B5B78BDF_AB1F_46e9_ACA2_A82EBF793968" name="EstablecerPremioJugadaFeliz" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_8835CB81_0956_4eff_B372_94BA9AE56E4F" name="text" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_DE2106AC_B4EF_4554_ADCC_676024F5BFF3" name="EstablecerMontoRetenidoJugadaTodosPonen" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_B5F7785A_A1D5_43f4_B72E_12B92894150E" name="text" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_F552BDE8_9243_47a6_858F_1B5C0CF7E2D2" name="EstablecerApuestasLineaDePase" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_F5CE8EEF_7D61_4f9e_8999_4CE080E932D9" name="apuestas" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_391B8CD2_D496_4a7d_B7C9_4B939440059B" name="EstablecerApuestasBarraNoPase" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_140DAD5C_B8ED_47b8_AF1A_87A036283E6F" name="apuestas" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_7A4012B9_ED04_47dd_B42E_6E9F8B4EB572" name="EstablecerApuestasVenir" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_E3001FC3_BF53_4b94_ACD7_3BDFFAC23C8A" name="apuestas" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_397CE424_0D7A_498c_A880_C6E2B5E101F7" name="EstablecerApuestasNoVenir" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_5908B624_B1AE_48ee_B1B8_759BC8B8DAA4" name="apuestas" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_A85B98EC_C335_4bdb_A666_A1891C4601DB" name="EstablecerApuestasDeCampo" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_BA419547_491B_470e_98F0_CBDA492618CE" name="apuestas" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_A8878E8C_2037_4033_80AE_C20DCC2973A9" name="EstablecerApuestasEnSitioAGanar" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_4DC0F554_9563_4a67_9CB6_606507F69384" name="apuestas" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_7A5D6447_7595_487c_99DC_E0539ACB40CC" name="EstablecerApuestasEnSitioEnContra" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_710404DC_EB96_4ec9_98D9_8691D5A1F58E" name="apuestas" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_399F2250_EF58_412b_BFE8_4C9F9792259F" name="EstablecerValoresFichas" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_563C34B1_41CC_442e_86C1_FFA33CFA6F2B" name="valores" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_6EC3BDF4_618E_409e_9570_CA500B0A585C" name="EstablecerFichasEnMano" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_600C6001_8912_436d_A0DE_681217B27BB0" name="fichas" direction="pk_in"/>
 					</ownedOperation>
 					<generalization xmi:type="uml:Generalization" xmi:id="EAID_C234FFA0_4BC0_4f76_BD73_E5017D0D2B17" general="EAID_119C749A_6E01_4a65_A64C_09CEC448A199"/>
 				</packagedElement>
@@ -683,17 +726,14 @@
 					<ownedOperation xmi:id="EAID_F85EDEF7_1F4C_48aa_9939_8C51E9334269" name="EstablecerValorFicha" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_76952FE8_B924_4ec4_8095_0A6EF683CA5A" name="text" direction="pk_in"/>
 					</ownedOperation>
-					<ownedOperation xmi:id="EAID_032A323E_EBF3_4790_9C76_1492EA4DFCD5" name="EstablecerTipoJugada" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_9B4908AF_F244_491e_830C_2F49988F9332" name="text" direction="pk_in"/>
-					</ownedOperation>
 					<ownedOperation xmi:id="EAID_DAE99565_CAEB_4baf_A38C_D2CA6875E0CD" name="EstablecerPozoFeliz" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_0019327A_A728_4f1a_B0CD_977FECDEACF3" name="text" direction="pk_in"/>
 					</ownedOperation>
 					<ownedOperation xmi:id="EAID_F6D37238_D2C3_4b24_8E9C_27C58907D3F9" name="EstablecerPozoProgresivo" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_151F58D3_54DF_409a_A063_14AC403954C9" name="text" direction="pk_in"/>
 					</ownedOperation>
-					<ownedOperation xmi:id="EAID_8C9253DD_89EC_457b_BCBC_6C64F4915E93" name="EstablecerPozoProgresivoHabilitado" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_9AB89202_FF38_489e_A0FF_ECAB8E100675" name="text" direction="pk_in"/>
+					<ownedOperation xmi:id="EAID_032A323E_EBF3_4790_9C76_1492EA4DFCD5" name="EstablecerTipoJugada" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_9B4908AF_F244_491e_830C_2F49988F9332" name="text" direction="pk_in"/>
 					</ownedOperation>
 					<ownedOperation xmi:id="EAID_063B30C0_8E85_4b83_B0C8_18C8AB2E44DC" name="EstablecerFiguraRodillo1" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_7D78B1F2_CECD_4f9e_A5B9_BD6214D8F363" name="img" direction="pk_in"/>
@@ -704,11 +744,23 @@
 					<ownedOperation xmi:id="EAID_6717C3B3_D376_433c_A776_99C50558F215" name="EstablecerFiguraRodillo3" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_176865F6_73D9_4c4e_BE08_27CED6B9E18F" name="img" direction="pk_in"/>
 					</ownedOperation>
+					<ownedOperation xmi:id="EAID_2B61D3E1_D20D_4dee_9B87_1911C2934F9F" name="EstablecerPremioJugada" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_5DE6828B_6E1D_4f92_B329_CBE669AE146A" name="text" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_054CA5E1_002E_41cb_983B_535B2AEBFBD1" name="EstablecerPremioJugadaFeliz" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_817E29B5_FA13_4708_BE7F_5704ACFE7BA9" name="text" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_BB0E591D_AB9B_4198_96CD_33F562AE5F28" name="EstablecerPremioJugadaProgresiva" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_AA738349_F6F6_4d46_B042_A11258F3D2E6" name="text" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_85A1A3F9_9B13_402f_BFD2_467E4A09223F" name="EstablecerMontoRetenidoJugadaTodosPonen" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_7181C4A2_C8E5_42ba_BFAB_81C4B866AB88" name="text" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_8C9253DD_89EC_457b_BCBC_6C64F4915E93" name="EstablecerPozoProgresivoHabilitado" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_9AB89202_FF38_489e_A0FF_ECAB8E100675" name="text" direction="pk_in"/>
+					</ownedOperation>
 					<ownedOperation xmi:id="EAID_26244331_F958_4b50_B7FD_1B7B70B47B82" name="EstablecerCantidadFichasApostadas" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_4BE40341_E4F9_465a_94DA_56CED7D3B261" name="cant" direction="pk_in"/>
-					</ownedOperation>
-					<ownedOperation xmi:id="EAID_2B61D3E1_D20D_4dee_9B87_1911C2934F9F" name="EstablecerPremiosJugada" visibility="public" concurrency="sequential">
-						<ownedParameter xmi:id="EAID_5DE6828B_6E1D_4f92_B329_CBE669AE146A" name="text" direction="pk_in"/>
 					</ownedOperation>
 					<generalization xmi:type="uml:Generalization" xmi:id="EAID_DA58746B_8CD6_4e9a_B2B8_A1C5C867C96D" general="EAID_119C749A_6E01_4a65_A64C_09CEC448A199"/>
 				</packagedElement>
@@ -788,6 +840,7 @@
 		<EAUML:use base_Dependency="EAID_FEC22794_1B58_4cd9_9FA6_367A7E637A79"/>
 		<EAUML:use base_Dependency="EAID_2B04D36B_DE7B_4d4e_80B3_0427CA521333"/>
 		<EAUML:use base_Dependency="EAID_E4DAFA3D_0770_4e31_84AF_7724B8A51CCF"/>
+		<thecustomprofile:ea_guid base_Attribute="EAID_97132FA2_C16C_426a_AEC0_74D06AD87F41" ea_guid="{97132FA2-C16C-426a-AEC0-74D06AD87F41}"/>
 		<thecustomprofile:create base_Dependency="EAID_F900BACD_ACDF_4b58_AE0A_388D5154D524"/>
 		<thecustomprofile:create base_Dependency="EAID_4B08416F_A115_43f2_856C_2CDFF872DF27"/>
 		<thecustomprofile:create base_Dependency="EAID_3CC7A766_99CF_4a0c_ABA7_88FF8F3108F1"/>
@@ -795,6 +848,7 @@
 		<thecustomprofile:create base_Dependency="EAID_49AB1EA9_1464_41ad_86CE_720FE6D94C48"/>
 		<thecustomprofile:create base_Dependency="EAID_399ED8AB_4295_47c8_97AE_11ABD73F2C29"/>
 		<thecustomprofile:create base_Dependency="EAID_AFF0F726_C94F_4056_95C1_654CAF4E31E0"/>
+		<thecustomprofile:ea_guid base_Attribute="EAID_4AF6801A_46AC_484d_88C9_B2E885B6990F" ea_guid="{4AF6801A-46AC-484d-88C9-B2E885B6990F}"/>
 		<uml:Profile xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1/uml.xml" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:id="thecustomprofile" nsPrefix="thecustomprofile" name="thecustomprofile" metamodelReference="mmref01">
 			<ownedComment xmi:type="uml:Comment" xmi:id="comment01" annotatedElement="thecustomprofile">
 				<body> Version:1.0</body>
@@ -817,6 +871,17 @@
 			</packagedElement>
 			<packagedElement xmi:type="uml:Extension" xmi:id="Class_interface" name="A_Class_interface" memberEnd="extension_interface interface-base_Class">
 				<ownedEnd xmi:id="extension_interface" name="extension_interface" type="interface" isComposite="true" lower="0" upper="1" memberEnd="extension_interface interface-base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="ea_guid" name="ea_guid">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="ea_guid-base_Attribute" name="base_Attribute" association="Attribute_ea_guid">
+					<type href="http://schema.omg.org/spec/UML/2.1/uml.xml#Attribute"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="ea_guid-ea_guid" name="ea_guid">
+					<type href="http://schema.omg.org/spec/UML/2.1/uml.xml#String"/>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="Attribute_ea_guid" name="A_Attribute_ea_guid" memberEnd="extension_ea_guid ea_guid-base_Attribute">
+				<ownedEnd xmi:id="extension_ea_guid" name="extension_ea_guid" type="ea_guid" isComposite="true" lower="0" upper="1" memberEnd="extension_ea_guid ea_guid-base_Attribute"/>
 			</packagedElement>
 			<packagedElement xmi:type="uml:Stereotype" xmi:id="create" name="create">
 				<ownedAttribute xmi:type="uml:Property" xmi:id="create-base_Dependency" name="base_Dependency" association="Dependency_create">
@@ -1489,7 +1554,7 @@
 						<tags/>
 						<xrefs value="$XREFPROP=$XID={EC370984-B88E-4470-A4E4-9F32AD74ED5E}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={919F8F99-7BF4-4b24-A3B1-3F01C5F527B8};@ENDSTEREO;$DES;$CLT={F362CA7D-DE72-4dcd-9574-9A0E3E5193BE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
-					<attribute xmi:idref="EAID_406A7C2F_0888_4040_A595_3FE67A22EF7B" name="EnSitioAPerder" scope="Public">
+					<attribute xmi:idref="EAID_406A7C2F_0888_4040_A595_3FE67A22EF7B" name="EnSitioEnContra" scope="Public">
 						<initial/>
 						<documentation/>
 						<model ea_localid="18" ea_guid="{406A7C2F-0888-4040-A595-3FE67A22EF7B}"/>
@@ -1792,7 +1857,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={1CF22725-9220-497d-8AE6-0DF06E0F2913}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={DF2CF65D-C70F-4d5d-A5C8-2C32BE0BE26E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="Comunicación" ea_attsclassified="{4F7FBA7B-F7DE-4e9b-A9B9-4F10516C23CC},{29D575DC-771F-4d0a-87AD-8F7FC74DAE87}" ea_oprsclassified="{928FDE2F-48E3-45e1-9905-E18FD2BF32A7},{DE4F538B-4CE1-46c4-BB89-62CD1EBC30A9}"/>
+				<extendedProperties tagged="0" package_name="Comunicación" ea_attsclassified="{4F7FBA7B-F7DE-4e9b-A9B9-4F10516C23CC},{29D575DC-771F-4d0a-87AD-8F7FC74DAE87}" ea_oprsclassified="{DE4F538B-4CE1-46c4-BB89-62CD1EBC30A9},{928FDE2F-48E3-45e1-9905-E18FD2BF32A7}" ea_classified="{6916FEAB-D8AB-49d1-BF96-3670774D7A1C}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_4F7FBA7B_F7DE_4e9b_A9B9_4F10516C23CC" name="instancia" scope="Private">
 						<initial/>
@@ -1857,7 +1922,9 @@
 						<style/>
 						<styleex/>
 						<documentation/>
-						<tags/>
+						<tags>
+							<tag xmi:id="EAID_D5147B13_15E4_4a83_9A16_2760AE7A45A3" name="ea_guid" value="{98EE2429-CBA8-46c5-9FB1-B87DAB87392B}"/>
+						</tags>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_CBA8_46c5_9FB1_B87DAB87392B" visibility="public">
 								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-CBA8-46c5-9FB1-B87DAB87392B}"/>
@@ -2007,8 +2074,16 @@
 								<tags/>
 								<xrefs/>
 							</parameter>
+							<parameter xmi:idref="EAID_81E92463_6CC1_4c6e_A6A7_FCEB5D451A3F" visibility="public">
+								<properties pos="1" type="int" const="false" ea_guid="{81E92463-6CC1-4c6e-A6A7-FCEB5D451A3F}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
 							<parameter xmi:idref="EAID_18179C95_0115_448b_B45A_513AA95EA7E3" visibility="public">
-								<properties pos="1" type="Xml*" const="false" ea_guid="{18179C95-0115-448b-B45A-513AA95EA7E3}"/>
+								<properties pos="2" type="Xml*" const="false" ea_guid="{18179C95-0115-448b-B45A-513AA95EA7E3}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -2046,6 +2121,14 @@
 								<tags/>
 								<xrefs/>
 							</parameter>
+							<parameter xmi:idref="EAID_A074F0F1_A50D_47ae_B09A_01D934DBD956" visibility="public">
+								<properties pos="1" type="int" const="false" ea_guid="{A074F0F1-A50D-47ae-B09A-01D934DBD956}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
 						</parameters>
 						<xrefs/>
 					</operation>
@@ -2067,7 +2150,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={02676854-0A75-4a86-BE9A-40AEA56B65F6}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={E54EB320-6E39-49e3-BAD1-44C0859778B9}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="Comunicación"/>
+				<extendedProperties tagged="0" package_name="Comunicación" ea_classified="{AD59432E-C059-4b0f-9D9F-6C93C8CF1F98}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_BD82590D_0EA7_4c8a_81D8_0A137EDC69AA" name="parametros" scope="Private">
 						<initial/>
@@ -2146,6 +2229,14 @@
 							</parameter>
 							<parameter xmi:idref="EAID_DE6E56FE_E82D_4aeb_B77E_385D7E1E6796" visibility="public">
 								<properties pos="1" type="Xml" const="false" ea_guid="{DE6E56FE-E82D-4aeb-B77E-385D7E1E6796}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_8E38491C_F85C_4207_9337_C855EF39AAD0" visibility="public">
+								<properties pos="2" type="int" const="false" ea_guid="{8E38491C-F85C-4207-9337-C855EF39AAD0}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -2268,6 +2359,22 @@
 								<tags/>
 								<xrefs/>
 							</parameter>
+							<parameter xmi:idref="EAID_BEA14105_7AFA_4b27_B704_67E03FC82E85" visibility="public">
+								<properties pos="1" type="int" const="false" ea_guid="{BEA14105-7AFA-4b27-B704-67E03FC82E85}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_88AC6B7D_5449_4b6e_B2A0_401C703003C0" visibility="public">
+								<properties pos="2" type="Xml*" const="false" ea_guid="{88AC6B7D-5449-4b6e-B2A0-401C703003C0}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
 						</parameters>
 						<xrefs/>
 					</operation>
@@ -2301,6 +2408,14 @@
 								<tags/>
 								<xrefs/>
 							</parameter>
+							<parameter xmi:idref="EAID_633B15D8_0671_430e_A6DE_C9A437E1A1EE" visibility="public">
+								<properties pos="1" type="int" const="false" ea_guid="{633B15D8-0671-430e-A6DE-C9A437E1A1EE}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
 						</parameters>
 						<xrefs/>
 					</operation>
@@ -2318,7 +2433,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={2797BF7B-F402-4936-BF1B-1AAAEC152BD1}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={79DC8F40-3C93-4304-AB21-D861CB4D52CE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="Comunicación" ea_attsclassified="{6E24FC33-9A66-4200-8306-2EF4318320FB},{772FF035-8CC8-45fa-AD0D-69F69C0B3D63}" ea_oprsclassified="{1B9BCF20-04D5-4613-814E-3DEA46D0914A},{20885CFD-99DE-48b5-99DD-86C086275D27}"/>
+				<extendedProperties tagged="0" package_name="Comunicación" ea_attsclassified="{6E24FC33-9A66-4200-8306-2EF4318320FB},{772FF035-8CC8-45fa-AD0D-69F69C0B3D63}" ea_oprsclassified="{20885CFD-99DE-48b5-99DD-86C086275D27},{1B9BCF20-04D5-4613-814E-3DEA46D0914A}" ea_classified="{EA6B81D6-B461-40b3-961A-F21C024CC2F4}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_6E24FC33_9A66_4200_8306_2EF4318320FB" name="instancia" scope="Private">
 						<initial/>
@@ -2401,8 +2516,16 @@
 								<tags/>
 								<xrefs/>
 							</parameter>
+							<parameter xmi:idref="EAID_5EB33CF5_51B4_4231_8A70_8DB1800FDF24" visibility="public">
+								<properties pos="1" type="int" const="false" ea_guid="{5EB33CF5-51B4-4231-8A70-8DB1800FDF24}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
 							<parameter xmi:idref="EAID_E515E4F4_2F56_48ce_805F_6B8ACCE8153B" visibility="public">
-								<properties pos="1" type="Xml*" const="false" ea_guid="{E515E4F4-2F56-48ce-805F-6B8ACCE8153B}"/>
+								<properties pos="2" type="Xml*" const="false" ea_guid="{E515E4F4-2F56-48ce-805F-6B8ACCE8153B}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -2422,7 +2545,9 @@
 						<style/>
 						<styleex/>
 						<documentation value="Este método es bloqueante"/>
-						<tags/>
+						<tags>
+							<tag xmi:id="EAID_CD9F47D8_AD21_4454_ADB6_5D5224B928CE" name="ea_guid" value="{AFE63FC8-DFA1-47ca-8E22-798EE32EB4E8}"/>
+						</tags>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_DFA1_47ca_8E22_798EE32EB4E8" visibility="public">
 								<properties pos="0" type="Xml" const="false" ea_guid="{RETURNID-DFA1-47ca-8E22-798EE32EB4E8}"/>
@@ -2434,6 +2559,14 @@
 							</parameter>
 							<parameter xmi:idref="EAID_DF71FCD7_CA77_4645_BC03_ACE97CE24545" visibility="public">
 								<properties pos="0" type="Texto" const="false" ea_guid="{DF71FCD7-CA77-4645-BC03-ACE97CE24545}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_0330ABB1_3F3F_4f7e_8EA8_0BD370624DCD" visibility="public">
+								<properties pos="1" type="int" const="false" ea_guid="{0330ABB1-3F3F-4f7e-8EA8-0BD370624DCD}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -2461,7 +2594,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={5892B590-5C98-4b7a-A9EB-25169A83A54B}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={973D1A30-73D4-45bf-A39C-FD8D4D0CAA73}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="Comunicación" ea_attsclassified="{E61FB2CB-4C35-4228-9ED1-95FB1C569FCD}" ea_oprsclassified="{881EBB83-B41B-4ca1-8880-7F65271024B9}"/>
+				<extendedProperties tagged="0" package_name="Comunicación" ea_attsclassified="{E61FB2CB-4C35-4228-9ED1-95FB1C569FCD}" ea_oprsclassified="{881EBB83-B41B-4ca1-8880-7F65271024B9}" ea_classified="{4DBFD4B4-B21D-4e44-A1CE-D269A346CFC4}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_E61FB2CB_4C35_4228_9ED1_95FB1C569FCD" name="instancia" scope="Private">
 						<initial/>
@@ -2572,7 +2705,9 @@
 						<style/>
 						<styleex/>
 						<documentation/>
-						<tags/>
+						<tags>
+							<tag xmi:id="EAID_76D38661_2DDA_4e5d_98DB_0DFB2408E966" name="ea_guid" value="{289A8F9C-08A5-41a2-A0F7-DC23AFB9FCDE}"/>
+						</tags>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_08A5_41a2_A0F7_DC23AFB9FCDE" visibility="public">
 								<properties pos="0" type="int" const="false" ea_guid="{RETURNID-08A5-41a2-A0F7-DC23AFB9FCDE}"/>
@@ -3221,7 +3356,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={B441E77E-E125-4356-B05E-FB527AB50A6F}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={422B20C7-1A9B-4088-A011-3A8B6F8E5B6A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="Ports"/>
+				<extendedProperties tagged="0" package_name="Ports" ea_classified="{B6F26A16-D223-436c-8D7C-AF2599C6ADC6}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_4F2A828B_37E7_4270_B476_8C68520C9F45" name="instancia" scope="Private">
 						<initial/>
@@ -3325,7 +3460,9 @@
 						<style/>
 						<styleex/>
 						<documentation/>
-						<tags/>
+						<tags>
+							<tag xmi:id="EAID_D154D950_C4A0_4181_BBA2_3FAB0D7ECC03" name="ea_guid" value="{671F007B-9E9B-4c23-B694-2497A99650AD}"/>
+						</tags>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_9E9B_4c23_B694_2497A99650AD" visibility="public">
 								<properties pos="0" type="Xml" const="false" ea_guid="{RETURNID-9E9B-4c23-B694-2497A99650AD}"/>
@@ -3352,7 +3489,7 @@
 								<xrefs/>
 							</parameter>
 							<parameter xmi:idref="EAID_5BF0F20E_D431_4748_A607_069E03D8BE4A" visibility="public">
-								<properties pos="2" type="set&lt; pair&lt;Int,ValorFicha&gt; &gt;" const="false" ea_guid="{5BF0F20E-D431-4748-A607-069E03D8BE4A}"/>
+								<properties pos="2" type="Coleccion&lt; Tupla&lt;Int,ValorFicha&gt; &gt;" const="false" ea_guid="{5BF0F20E-D431-4748-A607-069E03D8BE4A}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -3411,7 +3548,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={C1DC1AAF-3503-4b1b-BE41-BA9F374C55CA}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={EDEFD0F3-24CE-4333-8B26-24A4B22C6517}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="ControladoresVentanas"/>
+				<extendedProperties tagged="0" package_name="ControladoresVentanas" ea_classified="{9D0AA4AD-10C0-4c2a-B59D-1449C741E33C}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_19F01644_1945_4b79_932D_1A7E8271DADB" name="idMesa" scope="Private">
 						<initial/>
@@ -3419,13 +3556,30 @@
 						<model ea_localid="594" ea_guid="{19F01644-1945-4b79-932D-1A7E8271DADB}"/>
 						<properties type="IdMesa" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
-						<containment containment="Not Specified" position="1"/>
+						<containment containment="Not Specified" position="0"/>
 						<stereotype/>
 						<bounds lower="1" upper="1"/>
 						<options/>
 						<style/>
 						<styleex value="volatile=0;"/>
 						<tags/>
+						<xrefs/>
+					</attribute>
+					<attribute xmi:idref="EAID_97132FA2_C16C_426a_AEC0_74D06AD87F41" name="fichasEnMano" scope="Private">
+						<initial/>
+						<documentation/>
+						<model ea_localid="597" ea_guid="{97132FA2-C16C-426a-AEC0-74D06AD87F41}"/>
+						<properties type="Coleccion&lt; Tupla&lt;int,ValorFicha&gt; &gt;" derived="0" collection="false" duplicates="0" changeability="changeable"/>
+						<coords ordered="0"/>
+						<containment containment="Not Specified" position="1"/>
+						<stereotype/>
+						<bounds lower="1" upper="1"/>
+						<options/>
+						<style/>
+						<styleex value="volatile=0;"/>
+						<tags>
+							<tag xmi:id="EAID_3CF8023A_401E_4cc7_AE66_83D3C3A33D48" name="ea_guid" value="{97132FA2-C16C-426a-AEC0-74D06AD87F41}"/>
+						</tags>
 						<xrefs/>
 					</attribute>
 				</attributes>
@@ -3461,8 +3615,54 @@
 						</parameters>
 						<xrefs/>
 					</operation>
-					<operation xmi:idref="EAID_60E203E5_4FB0_40c0_A202_93A5FA397180" name="OnTirarButtonClicked" scope="Public">
+					<operation xmi:idref="EAID_42EE43A6_BBB0_45ff_AB0B_0E063BD916DA" name="OnTomarFichaButtonClicked" scope="Public">
+						<properties position="1"/>
+						<stereotype/>
+						<model ea_guid="{42EE43A6-BBB0-45ff-AB0B-0E063BD916DA}" ea_localid="1134"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_BBB0_45ff_AB0B_0E063BD916DA" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-BBB0-45ff-AB0B-0E063BD916DA}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_47707FC7_B8B9_47a9_B273_76D1969BCC28" name="OnDejarFichasEnManoButtonClicked" scope="Public">
 						<properties position="2"/>
+						<stereotype/>
+						<model ea_guid="{47707FC7-B8B9-47a9-B273-76D1969BCC28}" ea_localid="1136"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_B8B9_47a9_B273_76D1969BCC28" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-B8B9-47a9-B273-76D1969BCC28}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_60E203E5_4FB0_40c0_A202_93A5FA397180" name="OnTirarButtonClicked" scope="Public">
+						<properties position="3"/>
 						<stereotype/>
 						<model ea_guid="{60E203E5-4FB0-40c0-A202-93A5FA397180}" ea_localid="1068"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -3485,7 +3685,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_CB91E142_F278_4b00_93CE_F236D0AA2C64" name="OnApostarLineaDePaseButtonClicked" scope="Public">
-						<properties position="3"/>
+						<properties position="4"/>
 						<stereotype/>
 						<model ea_guid="{CB91E142-F278-4b00-93CE-F236D0AA2C64}" ea_localid="1059"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -3508,7 +3708,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_555BED75_763A_498a_A409_5A8F2BED3EB1" name="OnApostarBarraNoPaseButtonClicked" scope="Public">
-						<properties position="4"/>
+						<properties position="5"/>
 						<stereotype/>
 						<model ea_guid="{555BED75-763A-498a-A409-5A8F2BED3EB1}" ea_localid="1060"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -3531,7 +3731,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_F796309F_5D9E_4a53_BDB7_BBF631293F01" name="OnApostarVenirButtonClicked" scope="Public">
-						<properties position="5"/>
+						<properties position="6"/>
 						<stereotype/>
 						<model ea_guid="{F796309F-5D9E-4a53-BDB7-BBF631293F01}" ea_localid="1061"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -3554,7 +3754,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_B9A7A3F0_773B_43b7_AB08_3E997D4025C3" name="OnApostarNoVenirButtonClicked" scope="Public">
-						<properties position="6"/>
+						<properties position="7"/>
 						<stereotype/>
 						<model ea_guid="{B9A7A3F0-773B-43b7-AB08-3E997D4025C3}" ea_localid="1062"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -3577,7 +3777,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_4AED5646_4A54_488b_AB07_91CAA829DE1D" name="OnApostarCampoButtonClicked" scope="Public">
-						<properties position="7"/>
+						<properties position="8"/>
 						<stereotype/>
 						<model ea_guid="{4AED5646-4A54-488b-AB07-91CAA829DE1D}" ea_localid="1063"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -3600,7 +3800,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_424D7C39_2B0E_4ea6_BB98_1362C7114E27" name="OnApostarEnSitioAGanarButtonClicked" scope="Public">
-						<properties position="8"/>
+						<properties position="9"/>
 						<stereotype/>
 						<model ea_guid="{424D7C39-2B0E-4ea6-BB98-1362C7114E27}" ea_localid="1064"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -3609,7 +3809,9 @@
 						<style/>
 						<styleex/>
 						<documentation/>
-						<tags/>
+						<tags>
+							<tag xmi:id="EAID_E7C05309_38F1_43fd_AF8A_2639D2743020" name="ea_guid" value="{424D7C39-2B0E-4ea6-BB98-1362C7114E27}"/>
+						</tags>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_2B0E_4ea6_BB98_1362C7114E27" visibility="public">
 								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-2B0E-4ea6-BB98-1362C7114E27}"/>
@@ -3631,7 +3833,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_5AC893F2_60A3_4484_9AB0_D31AAE9AAFC1" name="OnApostarEnSitioEnContraButtonClicked" scope="Public">
-						<properties position="9"/>
+						<properties position="10"/>
 						<stereotype/>
 						<model ea_guid="{5AC893F2-60A3-4484-9AB0-D31AAE9AAFC1}" ea_localid="1065"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -3662,7 +3864,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_0FA4F5F8_7440_4ff2_91AF_6DE703CEFB68" name="OnActualizarInfoCasino" scope="Public">
-						<properties position="10"/>
+						<properties position="11"/>
 						<stereotype/>
 						<model ea_guid="{0FA4F5F8-7440-4ff2-91AF-6DE703CEFB68}" ea_localid="1121"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -3685,7 +3887,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_4E8AD96F_5728_41b8_976A_5C13AE27CD13" name="OnIdle" scope="Public">
-						<properties position="11"/>
+						<properties position="12"/>
 						<stereotype/>
 						<model ea_guid="{4E8AD96F-5728-41b8-976A-5C13AE27CD13}" ea_localid="1067"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -3708,7 +3910,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_8479BEC0_F0BC_4f0b_B243_9D674CB76E8F" name="OnSalirButtonClicked" scope="Public">
-						<properties position="12"/>
+						<properties position="13"/>
 						<stereotype/>
 						<model ea_guid="{8479BEC0-F0BC-4f0b-B243-9D674CB76E8F}" ea_localid="631"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -4160,7 +4362,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={03EF41A3-683F-4d2a-BBE5-3709F96832A1}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={0D36E3D9-1FAD-4fce-8394-C83F1C4479D0}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="ControladoresVentanas"/>
+				<extendedProperties tagged="0" package_name="ControladoresVentanas" ea_classified="{A695E3F3-D97D-4912-BBBB-3D7AFD71093C}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_530AFFE9_8F30_4481_B766_517D68D9AE15" name="nombreUsuario" scope="Private">
 						<initial/>
@@ -4189,7 +4391,9 @@
 						<options/>
 						<style/>
 						<styleex value="volatile=0;"/>
-						<tags/>
+						<tags>
+							<tag xmi:id="EAID_4FC64CB1_C9E8_48db_B2C9_095936918B00" name="ea_guid" value="{4AF6801A-46AC-484d-88C9-B2E885B6990F}"/>
+						</tags>
 						<xrefs/>
 					</attribute>
 					<attribute xmi:idref="EAID_9CED9539_C1AD_48f7_8530_5062911342FD" name="saldo" scope="Private">
@@ -4266,7 +4470,9 @@
 						<style/>
 						<styleex/>
 						<documentation/>
-						<tags/>
+						<tags>
+							<tag xmi:id="EAID_226A81FB_9428_45d4_87D6_F148110F0C15" name="ea_guid" value="{C0ADDED5-DE18-4b03-97E4-72D2EBE1B9F6}"/>
+						</tags>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_DE18_4b03_97E4_72D2EBE1B9F6" visibility="public">
 								<properties pos="0" type="Texto" const="false" ea_guid="{RETURNID-DE18-4b03-97E4-72D2EBE1B9F6}"/>
@@ -4374,7 +4580,9 @@
 						<style/>
 						<styleex/>
 						<documentation/>
-						<tags/>
+						<tags>
+							<tag xmi:id="EAID_5A10BD16_214D_4900_8A59_B733A611100A" name="ea_guid" value="{93F8F86D-ABF7-45b4-BAD4-EF16E8707B5B}"/>
+						</tags>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_ABF7_45b4_BAD4_EF16E8707B5B" visibility="public">
 								<properties pos="0" type="Creditos" const="false" ea_guid="{RETURNID-ABF7-45b4-BAD4-EF16E8707B5B}"/>
@@ -4397,7 +4605,9 @@
 						<style/>
 						<styleex/>
 						<documentation/>
-						<tags/>
+						<tags>
+							<tag xmi:id="EAID_B14DDDCD_CC6D_4bc2_BC05_E87B9666C3A7" name="ea_guid" value="{D78A98CA-0399-435c-A14D-E567F2F7F4DA}"/>
+						</tags>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_0399_435c_A14D_E567F2F7F4DA" visibility="public">
 								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-0399-435c-A14D-E567F2F7F4DA}"/>
@@ -4506,40 +4716,19 @@
 						</parameters>
 						<xrefs/>
 					</operation>
-					<operation xmi:idref="EAID_3B1225E3_F9B2_4929_9652_C1F52AC09804" name="Cerrar" scope="Public">
-						<properties position="2"/>
+					<operation xmi:idref="EAID_28B215D8_DAE6_40a7_B7BC_058F8358FA7F" name="MostrarMensajeDeTexto" scope="Public">
+						<properties position="3"/>
 						<stereotype/>
-						<model ea_guid="{3B1225E3-F9B2-4929-9652-C1F52AC09804}" ea_localid="406"/>
+						<model ea_guid="{28B215D8-DAE6-40a7-B7BC-058F8358FA7F}" ea_localid="405"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
 						<styleex/>
 						<documentation/>
-						<tags/>
-						<parameters>
-							<parameter xmi:idref="EAID_RETURNID_F9B2_4929_9652_C1F52AC09804" visibility="public">
-								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-F9B2-4929-9652-C1F52AC09804}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
-						</parameters>
-						<xrefs/>
-					</operation>
-					<operation xmi:idref="EAID_28B215D8_DAE6_40a7_B7BC_058F8358FA7F" name="MostrarMensajeDeTexto" scope="Public">
-						<properties position="3"/>
-						<stereotype/>
-						<model ea_guid="{28B215D8-DAE6-40a7-B7BC-058F8358FA7F}" ea_localid="405"/>
-						<type type="void" const="false" static="true" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
-						<behaviour/>
-						<code/>
-						<style/>
-						<styleex/>
-						<documentation/>
-						<tags/>
+						<tags>
+							<tag xmi:id="EAID_51374756_58CB_4f84_8BCD_9B970778EF7A" name="ea_guid" value="{28B215D8-DAE6-40a7-B7BC-058F8358FA7F}"/>
+						</tags>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_DAE6_40a7_B7BC_058F8358FA7F" visibility="public">
 								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-DAE6-40a7-B7BC-058F8358FA7F}"/>
@@ -4578,7 +4767,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={057972A3-37FD-4fbe-8F8B-5963A0BEAF55}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={88E14AEE-A664-47d0-8A95-3797A26B350D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="Ventanas"/>
+				<extendedProperties tagged="0" package_name="Ventanas" ea_classified="{3CA5D5E9-D226-4c34-B4AB-D82CDD298BE9}"/>
 				<operations>
 					<operation xmi:idref="EAID_C1D2C271_8765_444a_850F_7770482BF670" name="VentanaCraps" scope="Public">
 						<properties position="0"/>
@@ -4644,7 +4833,9 @@
 						<style/>
 						<styleex/>
 						<documentation/>
-						<tags/>
+						<tags>
+							<tag xmi:id="EAID_F4604568_8A2E_458d_8EBB_A3407EE685F3" name="ea_guid" value="{4E28A0C6-5599-4dd0-A95C-959382B004C5}"/>
+						</tags>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_5599_4dd0_A95C_959382B004C5" visibility="public">
 								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-5599-4dd0-A95C-959382B004C5}"/>
@@ -4665,10 +4856,10 @@
 						</parameters>
 						<xrefs/>
 					</operation>
-					<operation xmi:idref="EAID_399F2250_EF58_412b_BFE8_4C9F9792259F" name="EstablecerValorFicha" scope="Public">
+					<operation xmi:idref="EAID_BF8939B9_3F5F_4930_BEF5_0DEA977ED56F" name="EstablecerPozoFeliz" scope="Public">
 						<properties position="3"/>
 						<stereotype/>
-						<model ea_guid="{399F2250-EF58-412b-BFE8-4C9F9792259F}" ea_localid="633"/>
+						<model ea_guid="{BF8939B9-3F5F-4930-BEF5-0DEA977ED56F}" ea_localid="1105"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
@@ -4677,47 +4868,16 @@
 						<documentation/>
 						<tags/>
 						<parameters>
-							<parameter xmi:idref="EAID_RETURNID_EF58_412b_BFE8_4C9F9792259F" visibility="public">
-								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-EF58-412b-BFE8-4C9F9792259F}"/>
+							<parameter xmi:idref="EAID_RETURNID_3F5F_4930_BEF5_0DEA977ED56F" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-3F5F-4930-BEF5-0DEA977ED56F}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
 								<tags/>
 								<xrefs/>
 							</parameter>
-							<parameter xmi:idref="EAID_563C34B1_41CC_442e_86C1_FFA33CFA6F2B" visibility="public">
-								<properties pos="0" type="Texto" const="false" ea_guid="{563C34B1-41CC-442e-86C1-FFA33CFA6F2B}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
-						</parameters>
-						<xrefs/>
-					</operation>
-					<operation xmi:idref="EAID_CA167B24_FF81_454c_9BC1_8834B913E285" name="EstablecerTipoJugada" scope="Public">
-						<properties position="4"/>
-						<stereotype/>
-						<model ea_guid="{CA167B24-FF81-454c-9BC1-8834B913E285}" ea_localid="634"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
-						<behaviour/>
-						<code/>
-						<style/>
-						<styleex/>
-						<documentation/>
-						<tags/>
-						<parameters>
-							<parameter xmi:idref="EAID_RETURNID_FF81_454c_9BC1_8834B913E285" visibility="public">
-								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-FF81-454c-9BC1-8834B913E285}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
-							<parameter xmi:idref="EAID_F36475C3_23A9_4e86_8993_0A70659DD4DA" visibility="public">
-								<properties pos="0" type="Texto" const="false" ea_guid="{F36475C3-23A9-4e86-8993-0A70659DD4DA}"/>
+							<parameter xmi:idref="EAID_9CEED3FA_C07F_436c_8C05_52E7209189FF" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{9CEED3FA-C07F-436c-8C05-52E7209189FF}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -4728,7 +4888,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_75597DBE_DF07_4bf6_AD7B_F2DB2C76AA05" name="EstablecerTipoTiro" scope="Public">
-						<properties position="5"/>
+						<properties position="4"/>
 						<stereotype/>
 						<model ea_guid="{75597DBE-DF07-4bf6-AD7B-F2DB2C76AA05}" ea_localid="629"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -4759,7 +4919,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_A2779CD5_6B2C_4404_B11B_625CE507F547" name="EstablecerPunto" scope="Public">
-						<properties position="6"/>
+						<properties position="5"/>
 						<stereotype/>
 						<model ea_guid="{A2779CD5-6B2C-4404-B11B-625CE507F547}" ea_localid="630"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -4780,6 +4940,37 @@
 							</parameter>
 							<parameter xmi:idref="EAID_C891E2E1_B629_4930_9828_DDFF7ACE7ABC" visibility="public">
 								<properties pos="0" type="Texto" const="false" ea_guid="{C891E2E1-B629-4930-9828-DDFF7ACE7ABC}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_B95996E9_C6CB_467e_9D29_91F5E3C8264C" name="EstablecerTirador" scope="Public">
+						<properties position="6"/>
+						<stereotype/>
+						<model ea_guid="{B95996E9-C6CB-467e-9D29-91F5E3C8264C}" ea_localid="1104"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_C6CB_467e_9D29_91F5E3C8264C" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-C6CB-467e-9D29-91F5E3C8264C}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_A3B702DB_323E_4053_B64F_BFF5F13A304B" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{A3B702DB-323E-4053-B64F-BFF5F13A304B}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -4820,10 +5011,10 @@
 						</parameters>
 						<xrefs/>
 					</operation>
-					<operation xmi:idref="EAID_E267F697_A195_4027_8BCF_533C66924BA3" name="EstablecerPremiosJugada" scope="Public">
+					<operation xmi:idref="EAID_1E5225BA_16F6_4ccf_B1DF_2B47DFA35A13" name="EstablecerTiradorUltimoTiro" scope="Public">
 						<properties position="8"/>
 						<stereotype/>
-						<model ea_guid="{E267F697-A195-4027-8BCF-533C66924BA3}" ea_localid="1101"/>
+						<model ea_guid="{1E5225BA-16F6-4ccf-B1DF-2B47DFA35A13}" ea_localid="1140"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
@@ -4832,16 +5023,16 @@
 						<documentation/>
 						<tags/>
 						<parameters>
-							<parameter xmi:idref="EAID_RETURNID_A195_4027_8BCF_533C66924BA3" visibility="public">
-								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-A195-4027-8BCF-533C66924BA3}"/>
+							<parameter xmi:idref="EAID_RETURNID_16F6_4ccf_B1DF_2B47DFA35A13" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-16F6-4ccf-B1DF-2B47DFA35A13}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
 								<tags/>
 								<xrefs/>
 							</parameter>
-							<parameter xmi:idref="EAID_888CBEE0_683C_4668_BC45_17FC08F5DA9B" visibility="public">
-								<properties pos="0" type="Texto" const="false" ea_guid="{888CBEE0-683C-4668-BC45-17FC08F5DA9B}"/>
+							<parameter xmi:idref="EAID_86D6EE83_9FFF_4124_B1A7_9DB476628D4B" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{86D6EE83-9FFF-4124-B1A7-9DB476628D4B}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -4913,10 +5104,10 @@
 						</parameters>
 						<xrefs/>
 					</operation>
-					<operation xmi:idref="EAID_B95996E9_C6CB_467e_9D29_91F5E3C8264C" name="EstablecerTirador" scope="Public">
+					<operation xmi:idref="EAID_E267F697_A195_4027_8BCF_533C66924BA3" name="EstablecerPremioJugada" scope="Public">
 						<properties position="11"/>
 						<stereotype/>
-						<model ea_guid="{B95996E9-C6CB-467e-9D29-91F5E3C8264C}" ea_localid="1104"/>
+						<model ea_guid="{E267F697-A195-4027-8BCF-533C66924BA3}" ea_localid="1101"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
@@ -4925,16 +5116,16 @@
 						<documentation/>
 						<tags/>
 						<parameters>
-							<parameter xmi:idref="EAID_RETURNID_C6CB_467e_9D29_91F5E3C8264C" visibility="public">
-								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-C6CB-467e-9D29-91F5E3C8264C}"/>
+							<parameter xmi:idref="EAID_RETURNID_A195_4027_8BCF_533C66924BA3" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-A195-4027-8BCF-533C66924BA3}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
 								<tags/>
 								<xrefs/>
 							</parameter>
-							<parameter xmi:idref="EAID_A3B702DB_323E_4053_B64F_BFF5F13A304B" visibility="public">
-								<properties pos="0" type="Texto" const="false" ea_guid="{A3B702DB-323E-4053-B64F-BFF5F13A304B}"/>
+							<parameter xmi:idref="EAID_888CBEE0_683C_4668_BC45_17FC08F5DA9B" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{888CBEE0-683C-4668-BC45-17FC08F5DA9B}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -4944,10 +5135,10 @@
 						</parameters>
 						<xrefs/>
 					</operation>
-					<operation xmi:idref="EAID_BF8939B9_3F5F_4930_BEF5_0DEA977ED56F" name="EstablecerPozoFeliz" scope="Public">
+					<operation xmi:idref="EAID_B5B78BDF_AB1F_46e9_ACA2_A82EBF793968" name="EstablecerPremioJugadaFeliz" scope="Public">
 						<properties position="12"/>
 						<stereotype/>
-						<model ea_guid="{BF8939B9-3F5F-4930-BEF5-0DEA977ED56F}" ea_localid="1105"/>
+						<model ea_guid="{B5B78BDF-AB1F-46e9-ACA2-A82EBF793968}" ea_localid="1141"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
@@ -4956,16 +5147,326 @@
 						<documentation/>
 						<tags/>
 						<parameters>
-							<parameter xmi:idref="EAID_RETURNID_3F5F_4930_BEF5_0DEA977ED56F" visibility="public">
-								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-3F5F-4930-BEF5-0DEA977ED56F}"/>
+							<parameter xmi:idref="EAID_RETURNID_AB1F_46e9_ACA2_A82EBF793968" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-AB1F-46e9-ACA2-A82EBF793968}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
 								<tags/>
 								<xrefs/>
 							</parameter>
-							<parameter xmi:idref="EAID_9CEED3FA_C07F_436c_8C05_52E7209189FF" visibility="public">
-								<properties pos="0" type="Texto" const="false" ea_guid="{9CEED3FA-C07F-436c-8C05-52E7209189FF}"/>
+							<parameter xmi:idref="EAID_8835CB81_0956_4eff_B372_94BA9AE56E4F" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{8835CB81-0956-4eff-B372-94BA9AE56E4F}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_DE2106AC_B4EF_4554_ADCC_676024F5BFF3" name="EstablecerMontoRetenidoJugadaTodosPonen" scope="Public">
+						<properties position="13"/>
+						<stereotype/>
+						<model ea_guid="{DE2106AC-B4EF-4554-ADCC-676024F5BFF3}" ea_localid="1142"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_B4EF_4554_ADCC_676024F5BFF3" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-B4EF-4554-ADCC-676024F5BFF3}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_B5F7785A_A1D5_43f4_B72E_12B92894150E" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{B5F7785A-A1D5-43f4-B72E-12B92894150E}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_F552BDE8_9243_47a6_858F_1B5C0CF7E2D2" name="EstablecerApuestasLineaDePase" scope="Public">
+						<properties position="14"/>
+						<stereotype/>
+						<model ea_guid="{F552BDE8-9243-47a6-858F-1B5C0CF7E2D2}" ea_localid="1143"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_9243_47a6_858F_1B5C0CF7E2D2" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-9243-47a6-858F-1B5C0CF7E2D2}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_F5CE8EEF_7D61_4f9e_8999_4CE080E932D9" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{F5CE8EEF-7D61-4f9e-8999-4CE080E932D9}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_391B8CD2_D496_4a7d_B7C9_4B939440059B" name="EstablecerApuestasBarraNoPase" scope="Public">
+						<properties position="15"/>
+						<stereotype/>
+						<model ea_guid="{391B8CD2-D496-4a7d-B7C9-4B939440059B}" ea_localid="1144"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_D496_4a7d_B7C9_4B939440059B" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-D496-4a7d-B7C9-4B939440059B}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_140DAD5C_B8ED_47b8_AF1A_87A036283E6F" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{140DAD5C-B8ED-47b8-AF1A-87A036283E6F}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_7A4012B9_ED04_47dd_B42E_6E9F8B4EB572" name="EstablecerApuestasVenir" scope="Public">
+						<properties position="16"/>
+						<stereotype/>
+						<model ea_guid="{7A4012B9-ED04-47dd-B42E-6E9F8B4EB572}" ea_localid="1145"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_ED04_47dd_B42E_6E9F8B4EB572" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-ED04-47dd-B42E-6E9F8B4EB572}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_E3001FC3_BF53_4b94_ACD7_3BDFFAC23C8A" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{E3001FC3-BF53-4b94-ACD7-3BDFFAC23C8A}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_397CE424_0D7A_498c_A880_C6E2B5E101F7" name="EstablecerApuestasNoVenir" scope="Public">
+						<properties position="17"/>
+						<stereotype/>
+						<model ea_guid="{397CE424-0D7A-498c-A880-C6E2B5E101F7}" ea_localid="1146"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_0D7A_498c_A880_C6E2B5E101F7" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-0D7A-498c-A880-C6E2B5E101F7}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_5908B624_B1AE_48ee_B1B8_759BC8B8DAA4" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{5908B624-B1AE-48ee-B1B8-759BC8B8DAA4}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_A85B98EC_C335_4bdb_A666_A1891C4601DB" name="EstablecerApuestasDeCampo" scope="Public">
+						<properties position="18"/>
+						<stereotype/>
+						<model ea_guid="{A85B98EC-C335-4bdb-A666-A1891C4601DB}" ea_localid="1147"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_C335_4bdb_A666_A1891C4601DB" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-C335-4bdb-A666-A1891C4601DB}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_BA419547_491B_470e_98F0_CBDA492618CE" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{BA419547-491B-470e-98F0-CBDA492618CE}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_A8878E8C_2037_4033_80AE_C20DCC2973A9" name="EstablecerApuestasEnSitioAGanar" scope="Public">
+						<properties position="19"/>
+						<stereotype/>
+						<model ea_guid="{A8878E8C-2037-4033-80AE-C20DCC2973A9}" ea_localid="1148"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_2037_4033_80AE_C20DCC2973A9" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-2037-4033-80AE-C20DCC2973A9}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_4DC0F554_9563_4a67_9CB6_606507F69384" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{4DC0F554-9563-4a67-9CB6-606507F69384}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_7A5D6447_7595_487c_99DC_E0539ACB40CC" name="EstablecerApuestasEnSitioEnContra" scope="Public">
+						<properties position="20"/>
+						<stereotype/>
+						<model ea_guid="{7A5D6447-7595-487c-99DC-E0539ACB40CC}" ea_localid="1149"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_7595_487c_99DC_E0539ACB40CC" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-7595-487c-99DC-E0539ACB40CC}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_710404DC_EB96_4ec9_98D9_8691D5A1F58E" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{710404DC-EB96-4ec9-98D9-8691D5A1F58E}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_399F2250_EF58_412b_BFE8_4C9F9792259F" name="EstablecerValoresFichas" scope="Public">
+						<properties position="21"/>
+						<stereotype/>
+						<model ea_guid="{399F2250-EF58-412b-BFE8-4C9F9792259F}" ea_localid="633"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_EF58_412b_BFE8_4C9F9792259F" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-EF58-412b-BFE8-4C9F9792259F}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_563C34B1_41CC_442e_86C1_FFA33CFA6F2B" visibility="public">
+								<properties pos="0" type="Coleccion&lt;ValorFicha&gt;" const="false" ea_guid="{563C34B1-41CC-442e-86C1-FFA33CFA6F2B}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_6EC3BDF4_618E_409e_9570_CA500B0A585C" name="EstablecerFichasEnMano" scope="Public">
+						<properties position="22"/>
+						<stereotype/>
+						<model ea_guid="{6EC3BDF4-618E-409e-9570-CA500B0A585C}" ea_localid="1135"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_618E_409e_9570_CA500B0A585C" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-618E-409e-9570-CA500B0A585C}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_600C6001_8912_436d_A0DE_681217B27BB0" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{600C6001-8912-436d-A0DE-681217B27BB0}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -5369,39 +5870,8 @@
 						</parameters>
 						<xrefs/>
 					</operation>
-					<operation xmi:idref="EAID_032A323E_EBF3_4790_9C76_1492EA4DFCD5" name="EstablecerTipoJugada" scope="Public">
-						<properties position="3"/>
-						<stereotype/>
-						<model ea_guid="{032A323E-EBF3-4790-9C76-1492EA4DFCD5}" ea_localid="628"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
-						<behaviour/>
-						<code/>
-						<style/>
-						<styleex/>
-						<documentation/>
-						<tags/>
-						<parameters>
-							<parameter xmi:idref="EAID_RETURNID_EBF3_4790_9C76_1492EA4DFCD5" visibility="public">
-								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-EBF3-4790-9C76-1492EA4DFCD5}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
-							<parameter xmi:idref="EAID_9B4908AF_F244_491e_830C_2F49988F9332" visibility="public">
-								<properties pos="0" type="Texto" const="false" ea_guid="{9B4908AF-F244-491e-830C-2F49988F9332}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
-						</parameters>
-						<xrefs/>
-					</operation>
 					<operation xmi:idref="EAID_DAE99565_CAEB_4baf_A38C_D2CA6875E0CD" name="EstablecerPozoFeliz" scope="Public">
-						<properties position="4"/>
+						<properties position="3"/>
 						<stereotype/>
 						<model ea_guid="{DAE99565-CAEB-4baf-A38C-D2CA6875E0CD}" ea_localid="636"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -5432,7 +5902,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_F6D37238_D2C3_4b24_8E9C_27C58907D3F9" name="EstablecerPozoProgresivo" scope="Public">
-						<properties position="5"/>
+						<properties position="4"/>
 						<stereotype/>
 						<model ea_guid="{F6D37238-D2C3-4b24-8E9C-27C58907D3F9}" ea_localid="637"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -5462,10 +5932,10 @@
 						</parameters>
 						<xrefs/>
 					</operation>
-					<operation xmi:idref="EAID_8C9253DD_89EC_457b_BCBC_6C64F4915E93" name="EstablecerPozoProgresivoHabilitado" scope="Public">
-						<properties position="6"/>
+					<operation xmi:idref="EAID_032A323E_EBF3_4790_9C76_1492EA4DFCD5" name="EstablecerTipoJugada" scope="Public">
+						<properties position="5"/>
 						<stereotype/>
-						<model ea_guid="{8C9253DD-89EC-457b-BCBC-6C64F4915E93}" ea_localid="1055"/>
+						<model ea_guid="{032A323E-EBF3-4790-9C76-1492EA4DFCD5}" ea_localid="628"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
@@ -5474,16 +5944,16 @@
 						<documentation/>
 						<tags/>
 						<parameters>
-							<parameter xmi:idref="EAID_RETURNID_89EC_457b_BCBC_6C64F4915E93" visibility="public">
-								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-89EC-457b-BCBC-6C64F4915E93}"/>
+							<parameter xmi:idref="EAID_RETURNID_EBF3_4790_9C76_1492EA4DFCD5" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-EBF3-4790-9C76-1492EA4DFCD5}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
 								<tags/>
 								<xrefs/>
 							</parameter>
-							<parameter xmi:idref="EAID_9AB89202_FF38_489e_A0FF_ECAB8E100675" visibility="public">
-								<properties pos="0" type="Texto" const="false" ea_guid="{9AB89202-FF38-489e-A0FF-ECAB8E100675}"/>
+							<parameter xmi:idref="EAID_9B4908AF_F244_491e_830C_2F49988F9332" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{9B4908AF-F244-491e-830C-2F49988F9332}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -5494,7 +5964,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_063B30C0_8E85_4b83_B0C8_18C8AB2E44DC" name="EstablecerFiguraRodillo1" scope="Public">
-						<properties position="7"/>
+						<properties position="6"/>
 						<stereotype/>
 						<model ea_guid="{063B30C0-8E85-4b83-B0C8-18C8AB2E44DC}" ea_localid="409"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -5525,7 +5995,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_92A3EDAC_B714_45f7_BA46_B834576DF5D5" name="EstablecerFiguraRodillo2" scope="Public">
-						<properties position="8"/>
+						<properties position="7"/>
 						<stereotype/>
 						<model ea_guid="{92A3EDAC-B714-45f7-BA46-B834576DF5D5}" ea_localid="778"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -5556,7 +6026,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_6717C3B3_D376_433c_A776_99C50558F215" name="EstablecerFiguraRodillo3" scope="Public">
-						<properties position="9"/>
+						<properties position="8"/>
 						<stereotype/>
 						<model ea_guid="{6717C3B3-D376-433c-A776-99C50558F215}" ea_localid="779"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -5586,39 +6056,8 @@
 						</parameters>
 						<xrefs/>
 					</operation>
-					<operation xmi:idref="EAID_26244331_F958_4b50_B7FD_1B7B70B47B82" name="EstablecerCantidadFichasApostadas" scope="Public">
-						<properties position="10"/>
-						<stereotype/>
-						<model ea_guid="{26244331-F958-4b50-B7FD-1B7B70B47B82}" ea_localid="627"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
-						<behaviour/>
-						<code/>
-						<style/>
-						<styleex/>
-						<documentation/>
-						<tags/>
-						<parameters>
-							<parameter xmi:idref="EAID_RETURNID_F958_4b50_B7FD_1B7B70B47B82" visibility="public">
-								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-F958-4b50-B7FD-1B7B70B47B82}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
-							<parameter xmi:idref="EAID_4BE40341_E4F9_465a_94DA_56CED7D3B261" visibility="public">
-								<properties pos="0" type="Entero" const="false" ea_guid="{4BE40341-E4F9-465a-94DA-56CED7D3B261}"/>
-								<style/>
-								<styleex/>
-								<documentation/>
-								<tags/>
-								<xrefs/>
-							</parameter>
-						</parameters>
-						<xrefs/>
-					</operation>
-					<operation xmi:idref="EAID_2B61D3E1_D20D_4dee_9B87_1911C2934F9F" name="EstablecerPremiosJugada" scope="Public">
-						<properties position="11"/>
+					<operation xmi:idref="EAID_2B61D3E1_D20D_4dee_9B87_1911C2934F9F" name="EstablecerPremioJugada" scope="Public">
+						<properties position="9"/>
 						<stereotype/>
 						<model ea_guid="{2B61D3E1-D20D-4dee-9B87-1911C2934F9F}" ea_localid="1098"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -5639,6 +6078,161 @@
 							</parameter>
 							<parameter xmi:idref="EAID_5DE6828B_6E1D_4f92_B329_CBE669AE146A" visibility="public">
 								<properties pos="0" type="Texto" const="false" ea_guid="{5DE6828B-6E1D-4f92-B329-CBE669AE146A}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_054CA5E1_002E_41cb_983B_535B2AEBFBD1" name="EstablecerPremioJugadaFeliz" scope="Public">
+						<properties position="10"/>
+						<stereotype/>
+						<model ea_guid="{054CA5E1-002E-41cb-983B-535B2AEBFBD1}" ea_localid="1150"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_002E_41cb_983B_535B2AEBFBD1" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-002E-41cb-983B-535B2AEBFBD1}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_817E29B5_FA13_4708_BE7F_5704ACFE7BA9" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{817E29B5-FA13-4708-BE7F-5704ACFE7BA9}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_BB0E591D_AB9B_4198_96CD_33F562AE5F28" name="EstablecerPremioJugadaProgresiva" scope="Public">
+						<properties position="11"/>
+						<stereotype/>
+						<model ea_guid="{BB0E591D-AB9B-4198-96CD-33F562AE5F28}" ea_localid="1151"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_AB9B_4198_96CD_33F562AE5F28" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-AB9B-4198-96CD-33F562AE5F28}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_AA738349_F6F6_4d46_B042_A11258F3D2E6" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{AA738349-F6F6-4d46-B042-A11258F3D2E6}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_85A1A3F9_9B13_402f_BFD2_467E4A09223F" name="EstablecerMontoRetenidoJugadaTodosPonen" scope="Public">
+						<properties position="12"/>
+						<stereotype/>
+						<model ea_guid="{85A1A3F9-9B13-402f-BFD2-467E4A09223F}" ea_localid="1152"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_9B13_402f_BFD2_467E4A09223F" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-9B13-402f-BFD2-467E4A09223F}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_7181C4A2_C8E5_42ba_BFAB_81C4B866AB88" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{7181C4A2-C8E5-42ba-BFAB-81C4B866AB88}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_8C9253DD_89EC_457b_BCBC_6C64F4915E93" name="EstablecerPozoProgresivoHabilitado" scope="Public">
+						<properties position="13"/>
+						<stereotype/>
+						<model ea_guid="{8C9253DD-89EC-457b-BCBC-6C64F4915E93}" ea_localid="1055"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_89EC_457b_BCBC_6C64F4915E93" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-89EC-457b-BCBC-6C64F4915E93}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_9AB89202_FF38_489e_A0FF_ECAB8E100675" visibility="public">
+								<properties pos="0" type="Texto" const="false" ea_guid="{9AB89202-FF38-489e-A0FF-ECAB8E100675}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_26244331_F958_4b50_B7FD_1B7B70B47B82" name="EstablecerCantidadFichasApostadas" scope="Public">
+						<properties position="14"/>
+						<stereotype/>
+						<model ea_guid="{26244331-F958-4b50-B7FD-1B7B70B47B82}" ea_localid="627"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_F958_4b50_B7FD_1B7B70B47B82" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-F958-4b50-B7FD-1B7B70B47B82}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_4BE40341_E4F9_465a_94DA_56CED7D3B261" visibility="public">
+								<properties pos="0" type="Entero" const="false" ea_guid="{4BE40341-E4F9-465a-94DA-56CED7D3B261}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -7389,30 +7983,30 @@
 			<diagram xmi:id="EAID_6ED72F5D_2D74_4ce5_AD1A_6A7C39F9F413">
 				<model package="EAPK_287C342F_33CD_415f_98E6_BA4FB6956EC8" localID="1" owner="EAPK_287C342F_33CD_415f_98E6_BA4FB6956EC8"/>
 				<properties name="Client (Player)" type="Logical"/>
-				<project author="LaCaX" version="1.0" created="2008-07-20 17:14:42" modified="2008-07-27 17:49:41"/>
-				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=799;DocSize.cy=1114;ShowDetails=0;Orientation=P;Zoom=95;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;"/>
+				<project author="LaCaX" version="1.0" created="2008-07-20 17:14:42" modified="2008-07-28 02:32:45"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=799;DocSize.cy=1114;ShowDetails=0;Orientation=P;Zoom=55;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;"/>
 				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
 				<elements>
-					<element geometry="Left=1496;Top=571;Right=1740;Bottom=650;" subject="EAID_F9DA73BF_46B1_4812_8381_33FE7216E639" seqno="1" style="DUID=4136F124;BCol=16752895;"/>
+					<element geometry="Left=1446;Top=585;Right=1690;Bottom=664;" subject="EAID_F9DA73BF_46B1_4812_8381_33FE7216E639" seqno="1" style="DUID=4136F124;BCol=16752895;"/>
 					<element geometry="Left=942;Top=2084;Right=1123;Bottom=2211;" subject="EAID_973D1A30_73D4_45bf_A39C_FD8D4D0CAA73" seqno="2" style="DUID=31D4F9D3;ImageID=0;BCol=13434828;"/>
 					<element geometry="Left=443;Top=25;Right=548;Bottom=165;" subject="EAID_868DE0A1_EC6B_40a3_B84B_0F3AADDC3B47" seqno="3" style="DUID=805A07BD;LCol=0;ImageID=0;BCol=-1;"/>
-					<element geometry="Left=1847;Top=729;Right=2011;Bottom=832;" subject="EAID_48264CE0_C1C9_47b3_9384_2724119B6B3E" seqno="4" style="DUID=280F14E4;ImageID=0;"/>
-					<element geometry="Left=180;Top=1825;Right=447;Bottom=1939;" subject="EAID_79DC8F40_3C93_4304_AB21_D861CB4D52CE" seqno="5" style="DUID=799417CC;BCol=13434828;"/>
+					<element geometry="Left=1862;Top=730;Right=2026;Bottom=833;" subject="EAID_48264CE0_C1C9_47b3_9384_2724119B6B3E" seqno="4" style="DUID=280F14E4;ImageID=0;"/>
+					<element geometry="Left=180;Top=1825;Right=470;Bottom=1939;" subject="EAID_79DC8F40_3C93_4304_AB21_D861CB4D52CE" seqno="5" style="DUID=799417CC;BCol=13434828;"/>
 					<element geometry="Left=1578;Top=1858;Right=1898;Bottom=1972;" subject="EAID_DF2CF65D_C70F_4d5d_A5C8_2C32BE0BE26E" seqno="6" style="DUID=2B476F2D;BCol=13434828;ImageID=0;"/>
 					<element geometry="Left=73;Top=1053;Right=319;Bottom=1232;" subject="EAID_0D36E3D9_1FAD_4fce_8394_C83F1C4479D0" seqno="7" style="DUID=40B6C91E;ImageID=0;BCol=10535167;"/>
 					<element geometry="Left=815;Top=475;Right=1102;Bottom=545;" subject="EAID_372A17BC_D868_4909_9E4E_4BA797F0AC90" seqno="8" style="DUID=E53F2729;BCol=16752895;"/>
 					<element geometry="Left=769;Top=51;Right=877;Bottom=139;" subject="EAID_4838B369_0C9D_427d_A42A_232230C54395" seqno="9" style="DUID=13BDEFD0;"/>
 					<element geometry="Left=915;Top=44;Right=1024;Bottom=146;" subject="EAID_E11ABAE0_3996_43cc_B869_1AA71694F197" seqno="10" style="DUID=A8F1C1C0;"/>
 					<element geometry="Left=1600;Top=20;Right=1700;Bottom=171;" subject="EAID_9C083350_FF4F_4c38_9FB2_C39BC9D7F342" seqno="11" style="DUID=9327DC4C;LCol=0;ImageID=0;BCol=14938876;"/>
-					<element geometry="Left=1062;Top=312;Right=1265;Bottom=417;" subject="EAID_119C749A_6E01_4a65_A64C_09CEC448A199" seqno="12" style="DUID=EA172A3C;BCol=16752895;"/>
-					<element geometry="Left=1647;Top=878;Right=1991;Bottom=1096;" subject="EAID_EDEFD0F3_24CE_4333_8B26_24A4B22C6517" seqno="13" style="DUID=C6783EEC;BCol=10535167;ImageID=0;"/>
+					<element geometry="Left=946;Top=254;Right=1148;Bottom=343;" subject="EAID_119C749A_6E01_4a65_A64C_09CEC448A199" seqno="12" style="DUID=EA172A3C;BCol=16752895;"/>
+					<element geometry="Left=1647;Top=878;Right=1991;Bottom=1135;" subject="EAID_EDEFD0F3_24CE_4333_8B26_24A4B22C6517" seqno="13" style="DUID=C6783EEC;BCol=10535167;ImageID=0;"/>
 					<element geometry="Left=1186;Top=877;Right=1499;Bottom=1043;" subject="EAID_5793B173_5C99_458e_956E_3E3416F3FAD9" seqno="14" style="DUID=5C39AB91;BCol=10535167;ImageID=0;"/>
 					<element geometry="Left=598;Top=881;Right=863;Bottom=973;" subject="EAID_8EC2BE9B_A9BB_48ef_AEA3_34F04C95F0E3" seqno="15" style="DUID=615FEA20;BCol=10535167;ImageID=0;"/>
 					<element geometry="Left=88;Top=877;Right=356;Bottom=943;" subject="EAID_AF05AAC9_2E18_4bb3_9C89_92F22AF16B0B" seqno="16" style="DUID=687E5235;BCol=10535167;ImageID=0;"/>
-					<element geometry="Left=1699;Top=332;Right=1946;Bottom=541;" subject="EAID_88E14AEE_A664_47d0_8A95_3797A26B350D" seqno="17" style="DUID=44EEB6DC;BCol=16752895;"/>
-					<element geometry="Left=1164;Top=451;Right=1442;Bottom=647;" subject="EAID_52956B33_5614_4643_BB8B_2CD51FC18532" seqno="18" style="DUID=4C14FBDE;BCol=16752895;"/>
+					<element geometry="Left=1644;Top=231;Right=1950;Bottom=570;" subject="EAID_88E14AEE_A664_47d0_8A95_3797A26B350D" seqno="17" style="DUID=44EEB6DC;BCol=16752895;ImageID=0;"/>
+					<element geometry="Left=1234;Top=315;Right=1540;Bottom=550;" subject="EAID_52956B33_5614_4643_BB8B_2CD51FC18532" seqno="18" style="DUID=4C14FBDE;BCol=16752895;"/>
 					<element geometry="Left=523;Top=475;Right=716;Bottom=545;" subject="EAID_277C958C_C459_483c_8CC6_61ED3FEA5A92" seqno="19" style="DUID=13A18EE0;BCol=16752895;"/>
 					<element geometry="Left=84;Top=481;Right=353;Bottom=551;" subject="EAID_7713EF97_CEF3_4682_BF58_F1E047575E59" seqno="20" style="DUID=146FF53E;BCol=16752895;"/>
 					<element geometry="Left=1269;Top=2112;Right=1413;Bottom=2213;" subject="EAID_E54EB320_6E39_49e3_BAD1_44C0859778B9" seqno="21" style="DUID=B93A4F2A;LCol=0;BCol=13434828;ImageID=0;"/>
@@ -7422,22 +8016,22 @@
 					<element geometry="Left=594;Top=18;Right=724;Bottom=172;" subject="EAID_B4160F11_66D3_4f33_801D_7ADF52A35C85" seqno="25" style="DUID=20F7E5C3;"/>
 					<element geometry="Left=487;Top=1999;Right=643;Bottom=2057;" subject="EAID_875330E8_0022_4845_9ACF_B253B8078B91" seqno="26" style="DUID=C258C1CC;"/>
 					<element geometry="Left=1224;Top=44;Right=1346;Bottom=146;" subject="EAID_DCCD0423_B213_4ed4_90F3_A5424B1671E1" seqno="27" style="DUID=186D138E;ImageID=0;LCol=0;BCol=-1;"/>
-					<element geometry="Left=1355;Top=1477;Right=1876;Bottom=1591;" subject="EAID_422B20C7_1A9B_4088_A011_3A8B6F8E5B6A" seqno="28" style="DUID=D50ACFFF;ImageID=0;LCol=0;BCol=13434828;"/>
+					<element geometry="Left=1355;Top=1477;Right=1918;Bottom=1591;" subject="EAID_422B20C7_1A9B_4088_A011_3A8B6F8E5B6A" seqno="28" style="DUID=D50ACFFF;ImageID=0;LCol=0;BCol=13434828;"/>
 					<element geometry="Left=1057;Top=51;Right=1160;Bottom=139;" subject="EAID_AA063611_9B47_4bd7_931B_AED1BC406C25" seqno="29" style="DUID=C4FD9EBA;"/>
 					<element geometry="Left=1061;Top=1477;Right=1278;Bottom=1604;" subject="EAID_99476A0D_677E_4f0b_ACC0_E94DE7748829" seqno="30" style="DUID=6B6123D0;ImageID=0;LCol=0;NSL=0;BCol=13434828;"/>
 					<element geometry="Left=288;Top=1472;Right=518;Bottom=1599;" subject="EAID_9E792349_AB74_49a5_86AE_81BDE75FAD20" seqno="31" style="DUID=959E5417;ImageID=0;LCol=0;BCol=13434828;"/>
 					<element geometry="Left=609;Top=1467;Right=969;Bottom=1607;" subject="EAID_301F792D_9077_48a6_93A7_3EEFF025B592" seqno="32" style="DUID=4290398D;ImageID=0;LCol=0;BCol=13434828;"/>
-					<element geometry="Left=193;Top=2084;Right=465;Bottom=2160;" subject="EAID_2647DB30_C4E9_47a8_B5D4_9698F3333879" seqno="33" style="DUID=ACF84109;LCol=0;BCol=13434828;ImageID=0;"/>
-					<element geometry="Left=600;Top=2082;Right=841;Bottom=2196;" subject="EAID_759204D4_8BD8_44e7_988A_9777BB4CCDAA" seqno="34" style="DUID=1CD47C5E;LCol=0;BCol=13434828;ImageID=0;"/>
+					<element geometry="Left=193;Top=2084;Right=481;Bottom=2160;" subject="EAID_2647DB30_C4E9_47a8_B5D4_9698F3333879" seqno="33" style="DUID=ACF84109;LCol=0;BCol=13434828;ImageID=0;"/>
+					<element geometry="Left=600;Top=2082;Right=891;Bottom=2196;" subject="EAID_759204D4_8BD8_44e7_988A_9777BB4CCDAA" seqno="34" style="DUID=1CD47C5E;LCol=0;BCol=13434828;ImageID=0;"/>
 					<element geometry="Left=143;Top=1402;Right=1941;Bottom=1687;" subject="EAID_1D94A15D_84F7_40a5_AA7D_77C748C47859" seqno="35" style="DUID=BBB5FF16;BCol=16764057;ImageID=0;font=Candara;fontsz=140;bold=0;italic=0;ul=0;"/>
 					<element geometry="Left=15;Top=1314;Right=2081;Bottom=2262;" subject="EAID_04EA3956_97C4_4bdf_AB6E_1E9F91FA903D" seqno="36" style="DUID=8BBB12CB;BCol=15925234;font=Candara;bold=0;italic=0;ul=0;ImageID=0;fontsz=220;NSL=0;"/>
-					<element geometry="Left=15;Top=223;Right=2081;Bottom=687;" subject="EAID_1C6A3330_68CB_4574_8E38_01CB47F85AE7" seqno="37" style="DUID=3BA44081;BCol=16771583;font=Candara;fontsz=220;bold=0;italic=0;ul=0;NSL=0;"/>
+					<element geometry="Left=14;Top=186;Right=2080;Bottom=687;" subject="EAID_1C6A3330_68CB_4574_8E38_01CB47F85AE7" seqno="37" style="DUID=3BA44081;BCol=16771583;font=Candara;fontsz=220;bold=0;italic=0;ul=0;NSL=0;"/>
 					<element geometry="Left=15;Top=699;Right=2081;Bottom=1284;" subject="EAID_12A2904E_2BC7_4eb3_B549_63A5696E7570" seqno="38" style="DUID=9852F3FE;font=Candara;fontsz=220;bold=0;italic=0;ul=0;NSL=0;ImageID=0;"/>
 					<element geometry="SX=108;SY=-62;EX=-71;EY=1;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=-71:OY=-65:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_0D28A99F_3E82_40bd_9241_118A33B08EE6" style="Mode=1;EOID=B93A4F2A;SOID=959E5417;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=-123;SY=-34;EX=-159;EY=24;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=1:OY=-10:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_46F09F58_C71A_405a_92A1_F7A759371D04" style="Mode=2;EOID=2B476F2D;SOID=4290398D;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=95;SY=-62;EX=-32;EY=-28;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=2:OY=-9:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C475DDDC_1457_4f49_869F_0629279F27A7" style="Mode=2;EOID=2B476F2D;SOID=959E5417;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=-116;SY=-3;EX=-46;EY=-9;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C234FFA0_4BC0_4f76_BD73_E5017D0D2B17" style="Mode=2;EOID=EA172A3C;SOID=44EEB6DC;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_DA58746B_8CD6_4e9a_B2B8_A1C5C867C96D" style="Mode=2;EOID=EA172A3C;SOID=4C14FBDE;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=-116;SY=3;EX=-46;EY=-3;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C234FFA0_4BC0_4f76_BD73_E5017D0D2B17" style="Mode=2;EOID=EA172A3C;SOID=44EEB6DC;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_DA58746B_8CD6_4e9a_B2B8_A1C5C867C96D" style="Mode=2;EOID=EA172A3C;SOID=4C14FBDE;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=-5;SY=34;EX=-100;EY=-16;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_D4FAA1F6_7785_45bb_AD68_10207C167D35" style="Mode=2;EOID=EA172A3C;SOID=13A18EE0;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=-5;SY=34;EX=-100;EY=5;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_0B54D1F7_BB28_4f6e_B56A_8DFA92B0F99B" style="Mode=2;EOID=EA172A3C;SOID=146FF53E;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=-12;SY=-1;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_B79C9BA2_A496_4d06_A2FA_5747861D8FEA" style="Mode=2;EOID=44EEB6DC;SOID=C6783EEC;Color=-1;LWidth=1;Hidden=0;"/>
@@ -7448,8 +8042,8 @@
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_8068BB33_A45F_476c_8A92_4AC4FCAE73A0" style="Mode=3;EOID=13A18EE0;SOID=615FEA20;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=-109;SY=9;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=-1:OY=-11:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_6387A89C_BCB1_4912_B2EF_F7F59811D57D" style="Mode=2;EOID=B93A4F2A;SOID=8755754E;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_62D705AD_E1F7_41f7_B80C_202263A7FE76" style="Mode=3;EOID=959E5417;SOID=5C39AB91;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=38:CY=12:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_49AB1EA9_1464_41ad_86CE_720FE6D94C48" style="Mode=2;EOID=40B6C91E;SOID=687E5235;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=114;SY=-1;EX=-97;EY=-1;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=844:-852$1720:-852$;" subject="EAID_4B08416F_A115_43f2_856C_2CDFF872DF27" style="Mode=3;EOID=C6783EEC;SOID=615FEA20;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_49AB1EA9_1464_41ad_86CE_720FE6D94C48" style="Mode=2;EOID=40B6C91E;SOID=687E5235;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=114;SY=-1;EX=-126;EY=-1;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=844:-852$1691:-852$;" subject="EAID_4B08416F_A115_43f2_856C_2CDFF872DF27" style="Mode=3;EOID=C6783EEC;SOID=615FEA20;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=-1;EX=-1;EY=14;EDGE=2;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=-10:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_6F2C0BA6_F718_40a5_A66E_ED65F9097FAE" style="Mode=2;EOID=615FEA20;SOID=687E5235;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=-11;SY=-25;EX=-11;EY=-25;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_AFF0F726_C94F_4056_95C1_654CAF4E31E0" style="Mode=3;EOID=4136F124;SOID=5C39AB91;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_4623F1B2_3A9B_4a2b_A8E0_9F42FB9D01BB" style="Mode=3;EOID=31D4F9D3;SOID=D50ACFFF;Color=-1;LWidth=1;Hidden=0;"/>
@@ -7459,7 +8053,7 @@
 					<element geometry="SX=35;SY=1;EX=-36;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=-12:OY=-40:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_1B2B95DA_2783_4b10_9A3F_B15D10027220" style="Mode=1;EOID=B93A4F2A;SOID=6B6123D0;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=98;SY=2;EX=14;EY=-15;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_796988D9_1E00_43de_BD87_CB7790CFD775" style="Mode=2;EOID=ACF84109;SOID=1CD47C5E;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=8:OY=-47:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_E4DAFA3D_0770_4e31_84AF_7724B8A51CCF" style="Mode=3;EOID=D50ACFFF;SOID=C6783EEC;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=-25;EY=56;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=42:OY=-47:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_2B04D36B_DE7B_4d4e_80B3_0427CA521333" style="Mode=3;EOID=6B6123D0;SOID=C6783EEC;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=-25;EY=56;EDGE=4;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=42:OY=-47:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_2B04D36B_DE7B_4d4e_80B3_0427CA521333" style="Mode=3;EOID=6B6123D0;SOID=C6783EEC;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=68;SY=1;EX=41;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_D1403E8C_2DA9_4583_9C53_AE968E3E6BC1" style="Mode=2;EOID=4290398D;SOID=5C39AB91;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=-171;SY=-58;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_23DD1C59_65C3_4b08_B5A1_3B3703E5C3CF" style="Mode=3;EOID=40B6C91E;SOID=C6783EEC;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=10;EY=62;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_7AE2A080_D486_4389_88C2_DF9E0DDF6A28" style="Mode=3;EOID=959E5417;SOID=615FEA20;Color=-1;LWidth=1;Hidden=0;"/>
@@ -7467,7 +8061,7 @@
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_F900BACD_ACDF_4b58_AE0A_388D5154D524" style="Mode=3;EOID=4136F124;SOID=C6783EEC;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=122;EY=30;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_62898C40_F577_4403_B514_D11DD9322A76" style="Mode=3;EOID=40B6C91E;SOID=5C39AB91;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=1;SY=-15;EX=0;EY=-11;EDGE=2;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_3CC7A766_99CF_4a0c_ABA7_88FF8F3108F1" style="Mode=2;EOID=5C39AB91;SOID=615FEA20;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=114;EY=53;EDGE=4;$LLB=;LLT=;LMT=;LMB=CX=32:CY=11:OX=129:OY=-64:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_FEC22794_1B58_4cd9_9FA6_367A7E637A79" style="Mode=3;EOID=959E5417;SOID=C6783EEC;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=-171;SY=-79;EX=114;EY=53;EDGE=4;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=129:OY=-64:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_FEC22794_1B58_4cd9_9FA6_367A7E637A79" style="Mode=3;EOID=959E5417;SOID=C6783EEC;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=-55;SY=-37;EX=-159;EY=40;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=-60:OY=-10:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_2573FD58_E97A_4309_8B88_5BE4AAEF4CCF" style="Mode=2;EOID=2B476F2D;SOID=6B6123D0;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_611EFF9C_DEEA_4e73_842C_B9A5E304BBC4" style="Mode=2;EOID=8755754E;SOID=F7E11229;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=-2;SY=-44;EX=-152;EY=40;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=-1:OY=-10:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_0BF03078_A8D3_4d87_8223_1AE507F93F39" style="Mode=2;EOID=2B476F2D;SOID=D50ACFFF;Color=-1;LWidth=1;Hidden=0;"/>

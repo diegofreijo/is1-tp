@@ -93,6 +93,7 @@
 			<packagedElement xmi:type="uml:Class" xmi:id="EAID_D2DA490E_AE41_4948_8F3F_C5D854A3DA86" name="ISyncReceptorMensajes" visibility="public" isAbstract="true">
 				<ownedOperation xmi:id="EAID_FD3E280A_FDB6_468f_B937_D713FDC1B1BD" name="ObtenerNuevoMensajeSync" visibility="public" concurrency="sequential" isAbstract="true">
 					<ownedParameter xmi:id="EAID_196A5F55_AF27_44c8_8FB2_247D0D6DFCAB" name="tipo" direction="pk_in"/>
+					<ownedParameter xmi:id="EAID_8C87BE55_8D18_432d_84F4_331925665007" name="idTerm" direction="pk_in"/>
 				</ownedOperation>
 			</packagedElement>
 			<packagedElement xmi:type="uml:Association" xmi:id="EAID_2CC6BDC5_2137_4634_AC71_976C80DF0398" visibility="public">
@@ -214,6 +215,7 @@
 				</ownedOperation>
 				<ownedOperation xmi:id="EAID_2C98FB98_8B14_4c20_81EA_7CBF47917CE9" name="ObtenerNuevoMensajeSync" visibility="public" concurrency="synchronous">
 					<ownedParameter xmi:id="EAID_54C6E27E_7799_4494_93FC_4A4B5C6E168D" name="tipo" direction="pk_in"/>
+					<ownedParameter xmi:id="EAID_21950B5B_3F10_4692_A566_60FBF3B07DD2" name="idTerm" direction="pk_in"/>
 				</ownedOperation>
 			</packagedElement>
 			<packagedElement xmi:type="uml:Realization" xmi:id="EAID_4A8802A3_4BA2_4b09_B9BB_5759CFA7F4C0" visibility="public" supplier="EAID_2647DB30_C4E9_47a8_B5D4_9698F3333879" realizingClassifier="EAID_2647DB30_C4E9_47a8_B5D4_9698F3333879" client="EAID_AFA5CAE6_9254_4c91_BEB0_A8ECB610AE2F"/>
@@ -230,6 +232,7 @@
 				</ownedOperation>
 				<ownedOperation xmi:id="EAID_4E86E568_63E1_4850_B967_AA31BBCE0B53" name="ObtenerNuevoMensajeSync" visibility="public" concurrency="synchronous">
 					<ownedParameter xmi:id="EAID_746FD883_8B06_4738_A2E5_08042AB3C06B" name="text" direction="pk_in"/>
+					<ownedParameter xmi:id="EAID_AB592954_D41B_42a9_8DB2_29CA4D4D237C" name="idTerm" direction="pk_in"/>
 				</ownedOperation>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_srcC6BDC5_2137_4634_AC71_976C80DF0398" visibility="public" association="EAID_2CC6BDC5_2137_4634_AC71_976C80DF0398" isOrdered="false" isDerived="false" isDerivedUnion="false" aggregation="none">
 					<type xmi:idref="EAID_D2DA490E_AE41_4948_8F3F_C5D854A3DA86"/>
@@ -265,28 +268,38 @@
 					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000084_A547_4e51_89AD_CA5F6FE22F39" value="1"/>
 				</ownedAttribute>
 			</packagedElement>
+			<packagedElement xmi:type="uml:Enumeration" xmi:id="EAID_11282A9B_3F55_4ea0_8ADF_DB7810B5B1D1" name="TipoJuego" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_D8E18F55_6C66_4076_AE38_82FD63B12E17" name="Tragamonedas" visibility="public" isDerived="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000085_6C66_4076_AE38_82FD63B12E17" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000086_6C66_4076_AE38_82FD63B12E17" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_C158AF75_4135_44fa_8081_BA4D42B7B92B" name="Craps" visibility="public" isDerived="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000087_4135_44fa_8081_BA4D42B7B92B" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000088_4135_44fa_8081_BA4D42B7B92B" value="1"/>
+				</ownedAttribute>
+			</packagedElement>
 			<packagedElement xmi:type="uml:Enumeration" xmi:id="EAID_9D928869_37DE_406f_AA2F_03F06FB9810D" name="TipoJugada" visibility="public">
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_E3C4A6B0_A1BC_4f40_90CF_B8C52CF5596E" name="Normal" visibility="public" isDerived="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000085_A1BC_4f40_90CF_B8C52CF5596E" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000086_A1BC_4f40_90CF_B8C52CF5596E" value="1"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000089_A1BC_4f40_90CF_B8C52CF5596E" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000090_A1BC_4f40_90CF_B8C52CF5596E" value="1"/>
 				</ownedAttribute>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_9E4B541A_151F_4550_86E8_A9738015DB9A" name="Feliz" visibility="public" isDerived="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000087_151F_4550_86E8_A9738015DB9A" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000088_151F_4550_86E8_A9738015DB9A" value="1"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000091_151F_4550_86E8_A9738015DB9A" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000092_151F_4550_86E8_A9738015DB9A" value="1"/>
 				</ownedAttribute>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_58870C2E_AE79_45fc_A232_CC9F25D8E064" name="TodosPonen" visibility="public" isDerived="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000089_AE79_45fc_A232_CC9F25D8E064" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000090_AE79_45fc_A232_CC9F25D8E064" value="1"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000093_AE79_45fc_A232_CC9F25D8E064" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000094_AE79_45fc_A232_CC9F25D8E064" value="1"/>
 				</ownedAttribute>
 			</packagedElement>
 			<packagedElement xmi:type="uml:Enumeration" xmi:id="EAID_AA09938A_A31A_418c_B43A_E3C126E7ED1E" name="TipoTiroCraps" visibility="public">
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_2FB8B89D_BD49_49a1_8C3E_CC9E95282150" name="Salida" visibility="public" isDerived="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000091_BD49_49a1_8C3E_CC9E95282150" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000092_BD49_49a1_8C3E_CC9E95282150" value="1"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000095_BD49_49a1_8C3E_CC9E95282150" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000096_BD49_49a1_8C3E_CC9E95282150" value="1"/>
 				</ownedAttribute>
 				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_75CB5D82_1E8C_47eb_9E2A_837F8DE704EB" name="PuntoEstablecido" visibility="public" isDerived="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000093_1E8C_47eb_9E2A_837F8DE704EB" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000094_1E8C_47eb_9E2A_837F8DE704EB" value="1"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000097_1E8C_47eb_9E2A_837F8DE704EB" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000098_1E8C_47eb_9E2A_837F8DE704EB" value="1"/>
 				</ownedAttribute>
 			</packagedElement>
 			<packagedElement xmi:type="uml:Class" xmi:id="EAID_0407BEB2_B1EC_4584_8543_BD74D7053E0E" name="Controladores GUI" visibility="public"/>
@@ -300,8 +313,8 @@
 				<packagedElement xmi:type="uml:Package" xmi:id="EAPK_42410BA4_FE1D_4432_B6A4_509D4BD6B21D" name="Ports" visibility="public">
 					<packagedElement xmi:type="uml:Class" xmi:id="EAID_0C1D60B8_64DA_41e0_97E7_467364072CA4" name="AccesoYManejoAdministrador" visibility="public">
 						<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_499CF657_20F4_4625_A6C6_479BB183946F" name="instancia" visibility="private" isStatic="true" isDerived="false">
-							<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000095_20F4_4625_A6C6_479BB183946F" value="1"/>
-							<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000096_20F4_4625_A6C6_479BB183946F" value="1"/>
+							<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000099_20F4_4625_A6C6_479BB183946F" value="1"/>
+							<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000100_20F4_4625_A6C6_479BB183946F" value="1"/>
 						</ownedAttribute>
 						<ownedOperation xmi:id="EAID_3BBDC25F_6951_418a_9819_83FB280F24A0" name="AccesoYManejoAdministrador" visibility="private" concurrency="sequential"/>
 						<ownedOperation xmi:id="EAID_0F8479E0_4357_4ecf_B1C4_A3E553B1038E" name="ObtenerInstancia" visibility="public" type="" concurrency="sequential" isStatic="true"/>
@@ -339,8 +352,8 @@
 					<packagedElement xmi:type="uml:Usage" xmi:id="EAID_C5E4D5C2_AF99_4423_A8F5_523BCAC6B8C3" visibility="public" supplier="EAID_CF49F5B5_C4F2_4420_8AFB_CAA5E29D86BA" client="EAID_0C1D60B8_64DA_41e0_97E7_467364072CA4"/>
 					<packagedElement xmi:type="uml:Class" xmi:id="EAID_C456BBA7_A81B_4db4_8B96_1C73E9E9248A" name="AccesoYVistaCasino" visibility="public">
 						<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_EAA1DA8B_46CA_48a0_ADD7_7B2454D6621B" name="instancia" visibility="private" isStatic="true" isDerived="false">
-							<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000097_46CA_48a0_ADD7_7B2454D6621B" value="1"/>
-							<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000098_46CA_48a0_ADD7_7B2454D6621B" value="1"/>
+							<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000101_46CA_48a0_ADD7_7B2454D6621B" value="1"/>
+							<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000102_46CA_48a0_ADD7_7B2454D6621B" value="1"/>
 						</ownedAttribute>
 						<ownedOperation xmi:id="EAID_9366A8F9_4C68_4b8b_AB8B_3CCFC4944167" name="AccesoYVistaCasino" visibility="private" concurrency="sequential"/>
 						<ownedOperation xmi:id="EAID_2C6E5D2C_6F51_46c6_BDA0_830C1850F2EB" name="ObtenerInstancia" visibility="public" concurrency="sequential" isStatic="true"/>
@@ -435,7 +448,7 @@
 			<packagedElement xmi:type="uml:Package" xmi:id="EAPK_489DD7EE_A723_4394_8816_94EC4596598B" name="Ventanas" visibility="public">
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_737682D9_4149_43ad_A1D7_248E43A5259B" name="Ventana" visibility="public">
 					<ownedOperation xmi:id="EAID_629FAF7C_19D5_422b_A8A3_F76C2649D7EA" name="MostrarModal" visibility="public" concurrency="sequential"/>
-					<ownedOperation xmi:id="EAID_45968696_4631_4a87_B8AF_DAB1E0B5222F" name="MostrarMensajeDeTexto" visibility="public" concurrency="sequential" isStatic="true">
+					<ownedOperation xmi:id="EAID_45968696_4631_4a87_B8AF_DAB1E0B5222F" name="MostrarMensajeDeTexto" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_EF0A6BF1_689F_4457_8460_9C7598E550DE" name="text" direction="pk_in"/>
 					</ownedOperation>
 				</packagedElement>
@@ -450,11 +463,20 @@
 				</packagedElement>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_5FF31E92_E6AF_48b2_A778_DC1A7A370565" name="VentanaJugadaFeliz" visibility="public">
 					<ownedOperation xmi:id="EAID_F890CAA5_0293_4e7a_891E_95AFD3EC7BA1" name="ObtenerEstadoControlarJugadaFelizCheckButton" visibility="public" concurrency="sequential"/>
-					<ownedOperation xmi:id="EAID_B880788C_90D3_42a3_A556_0BFDC31803A4" name="EstablecerIdMesas" visibility="public" concurrency="sequential">
+					<ownedOperation xmi:id="EAID_E9BA5591_7FEE_4289_9227_68B63D175F9F" name="EstablecerIdMesasCraps" visibility="public" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_251808EB_A58C_4171_9247_D3C5F35FB106" name="ids" direction="pk_in"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_B880788C_90D3_42a3_A556_0BFDC31803A4" name="EstablecerIdMesasTragamonedas" visibility="public" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_72DC30C5_84A7_4586_A2FF_FA4DC8B944A2" name="ids" direction="pk_in"/>
 					</ownedOperation>
-					<ownedOperation xmi:id="EAID_7D802125_35A6_4a10_8C51_77ACDD7B710E" name="ObtenerIdMesaSeleccionada" visibility="public" type="EAID_61728DCF_8BA0_43ce_A67F_704B59165F6D" concurrency="sequential">
+					<ownedOperation xmi:id="EAID_64BCD891_F2A1_4f21_8020_1B9D2A741D37" name="ObtenerTipoJuegoSeleccionado" visibility="public" type="EAID_11282A9B_3F55_4ea0_8ADF_DB7810B5B1D1" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_RT000000_F2A1_4f21_8020_1B9D2A741D37" name="return" type="EAID_11282A9B_3F55_4ea0_8ADF_DB7810B5B1D1" direction="pk_return"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_7D802125_35A6_4a10_8C51_77ACDD7B710E" name="ObtenerIdMesaTragamonedasSeleccionada" visibility="public" type="EAID_61728DCF_8BA0_43ce_A67F_704B59165F6D" concurrency="sequential">
 						<ownedParameter xmi:id="EAID_RT000000_35A6_4a10_8C51_77ACDD7B710E" name="return" type="EAID_61728DCF_8BA0_43ce_A67F_704B59165F6D" direction="pk_return"/>
+					</ownedOperation>
+					<ownedOperation xmi:id="EAID_D5DD83D3_B154_453d_9D14_28CA3A4C62B3" name="ObtenerIdMesaCrapsSeleccionada" visibility="public" type="EAID_61728DCF_8BA0_43ce_A67F_704B59165F6D" concurrency="sequential">
+						<ownedParameter xmi:id="EAID_RT000000_B154_453d_9D14_28CA3A4C62B3" name="return" type="EAID_61728DCF_8BA0_43ce_A67F_704B59165F6D" direction="pk_return"/>
 					</ownedOperation>
 					<generalization xmi:type="uml:Generalization" xmi:id="EAID_E60E6D3F_A658_4c94_B3F3_026D20F5479A" general="EAID_737682D9_4149_43ad_A1D7_248E43A5259B"/>
 				</packagedElement>
@@ -553,6 +575,9 @@
 		<thecustomprofile:enum base_Attribute="EAID_D0F63FD0_0F03_4e4b_B660_99D96C0BA0C0"/>
 		<thecustomprofile:enum base_Attribute="EAID_360A52E2_2DFF_4edb_9B34_9B93160EFD41"/>
 		<thecustomprofile:enum base_Attribute="EAID_DFE9BE5D_A547_4e51_89AD_CA5F6FE22F39"/>
+		<EAUML:enumeration base_Class="EAID_11282A9B_3F55_4ea0_8ADF_DB7810B5B1D1"/>
+		<thecustomprofile:enum base_Attribute="EAID_D8E18F55_6C66_4076_AE38_82FD63B12E17"/>
+		<thecustomprofile:enum base_Attribute="EAID_C158AF75_4135_44fa_8081_BA4D42B7B92B"/>
 		<EAUML:enumeration base_Class="EAID_9D928869_37DE_406f_AA2F_03F06FB9810D"/>
 		<thecustomprofile:enum base_Attribute="EAID_E3C4A6B0_A1BC_4f40_90CF_B8C52CF5596E"/>
 		<thecustomprofile:enum base_Attribute="EAID_9E4B541A_151F_4550_86E8_A9738015DB9A"/>
@@ -1176,7 +1201,7 @@
 				<extendedProperties tagged="0" package_name="Client (Admin)"/>
 				<operations>
 					<operation xmi:idref="EAID_FD3E280A_FDB6_468f_B937_D713FDC1B1BD" name="ObtenerNuevoMensajeSync" scope="Public">
-						<properties position="1"/>
+						<properties position="0"/>
 						<stereotype/>
 						<model ea_guid="{FD3E280A-FDB6-468f-B937-D713FDC1B1BD}" ea_localid="1082"/>
 						<type type="Xml" const="false" static="false" isAbstract="true" synchronised="1" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -1197,6 +1222,14 @@
 							</parameter>
 							<parameter xmi:idref="EAID_196A5F55_AF27_44c8_8FB2_247D0D6DFCAB" visibility="public">
 								<properties pos="0" type="Texto" const="false" ea_guid="{196A5F55-AF27-44c8-8FB2-247D0D6DFCAB}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_8C87BE55_8D18_432d_84F4_331925665007" visibility="public">
+								<properties pos="1" type="int" const="false" ea_guid="{8C87BE55-8D18-432d-84F4-331925665007}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -1714,7 +1747,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_2C98FB98_8B14_4c20_81EA_7CBF47917CE9" name="ObtenerNuevoMensajeSync" scope="Public">
-						<properties position="2"/>
+						<properties position="1"/>
 						<stereotype/>
 						<model ea_guid="{2C98FB98-8B14-4c20-81EA-7CBF47917CE9}" ea_localid="1079"/>
 						<type type="Xml" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Synchronous" returnarray="0" pure="0" isQuery="false"/>
@@ -1737,6 +1770,14 @@
 							</parameter>
 							<parameter xmi:idref="EAID_54C6E27E_7799_4494_93FC_4A4B5C6E168D" visibility="public">
 								<properties pos="0" type="Texto" const="false" ea_guid="{54C6E27E-7799-4494-93FC-4A4B5C6E168D}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_21950B5B_3F10_4692_A566_60FBF3B07DD2" visibility="public">
+								<properties pos="1" type="int" const="false" ea_guid="{21950B5B-3F10-4692-A566-60FBF3B07DD2}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -1817,7 +1858,7 @@
 						<xrefs/>
 					</operation>
 					<operation xmi:idref="EAID_4E86E568_63E1_4850_B967_AA31BBCE0B53" name="ObtenerNuevoMensajeSync" scope="Public">
-						<properties position="3"/>
+						<properties position="2"/>
 						<stereotype/>
 						<model ea_guid="{4E86E568-63E1-4850-B967-AA31BBCE0B53}" ea_localid="1093"/>
 						<type type="Xml" const="false" static="false" isAbstract="false" synchronised="1" concurrency="Synchronous" returnarray="0" pure="0" isQuery="false"/>
@@ -1838,6 +1879,14 @@
 							</parameter>
 							<parameter xmi:idref="EAID_746FD883_8B06_4738_A2E5_08042AB3C06B" visibility="public">
 								<properties pos="0" type="Texto" const="false" ea_guid="{746FD883-8B06-4738-A2E5-08042AB3C06B}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_AB592954_D41B_42a9_8DB2_29CA4D4D237C" visibility="public">
+								<properties pos="1" type="int" const="false" ea_guid="{AB592954-D41B-42a9-8DB2-29CA4D4D237C}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -1969,6 +2018,49 @@
 						<styleex value="volatile=0;"/>
 						<tags/>
 						<xrefs/>
+					</attribute>
+				</attributes>
+			</element>
+			<element xmi:idref="EAID_11282A9B_3F55_4ea0_8ADF_DB7810B5B1D1" xmi:type="uml:Class" name="TipoJuego" scope="public">
+				<model package="EAPK_E1F48C38_C8AC_4588_80C4_56E81FD35A8F" tpos="0" ea_localid="961" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Class" nType="0" scope="public" stereotype="enumeration" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="LaCaX" version="1.0" phase="1.0" created="2008-07-28 01:31:51" modified="2008-07-28 01:32:49" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={29120786-4B32-4a87-BB17-E9D06814E48A}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enumeration;GUID={01D1A4A7-496F-4a5b-90F8-ADCF4ABF5174};@ENDSTEREO;$DES;$CLT={11282A9B-3F55-4ea0-8ADF-DB7810B5B1D1}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={8B926D60-48EA-4bdf-AEAC-5B26CEF54102}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={11282A9B-3F55-4ea0-8ADF-DB7810B5B1D1}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Client (Admin)" ea_oprsclassified="{64BCD891-F2A1-4f21-8020-1B9D2A741D37}"/>
+				<attributes>
+					<attribute xmi:idref="EAID_D8E18F55_6C66_4076_AE38_82FD63B12E17" name="Tragamonedas" scope="Public">
+						<initial/>
+						<documentation/>
+						<model ea_localid="598" ea_guid="{D8E18F55-6C66-4076-AE38-82FD63B12E17}"/>
+						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
+						<coords ordered="0"/>
+						<containment containment="Not Specified" position="0"/>
+						<stereotype stereotype="enum"/>
+						<bounds lower="1" upper="1"/>
+						<options/>
+						<style/>
+						<styleex value="volatile=0;"/>
+						<tags/>
+						<xrefs value="$XREFPROP=$XID={987AE4F7-FA51-455a-AB83-873E1994BE5A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={5DEF64D6-A868-4896-AC7C-BD348CC230C0};@ENDSTEREO;$DES;$CLT={D8E18F55-6C66-4076-AE38-82FD63B12E17}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+					</attribute>
+					<attribute xmi:idref="EAID_C158AF75_4135_44fa_8081_BA4D42B7B92B" name="Craps" scope="Public">
+						<initial/>
+						<documentation/>
+						<model ea_localid="599" ea_guid="{C158AF75-4135-44fa-8081-BA4D42B7B92B}"/>
+						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
+						<coords ordered="0"/>
+						<containment containment="Not Specified" position="1"/>
+						<stereotype stereotype="enum"/>
+						<bounds lower="1" upper="1"/>
+						<options/>
+						<style/>
+						<styleex value="volatile=0;"/>
+						<tags/>
+						<xrefs value="$XREFPROP=$XID={ABA5FA1E-7D19-422b-A99D-A3CDF0D946CC}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={5DEF64D6-A868-4896-AC7C-BD348CC230C0};@ENDSTEREO;$DES;$CLT={C158AF75-4135-44fa-8081-BA4D42B7B92B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 				</attributes>
 			</element>
@@ -3154,7 +3246,7 @@
 						<properties position="1"/>
 						<stereotype/>
 						<model ea_guid="{45968696-4631-4a87-B8AF-DAB1E0B5222F}" ea_localid="719"/>
-						<type type="void" const="false" static="true" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -3334,8 +3426,39 @@
 						</parameters>
 						<xrefs/>
 					</operation>
-					<operation xmi:idref="EAID_B880788C_90D3_42a3_A556_0BFDC31803A4" name="EstablecerIdMesas" scope="Public">
+					<operation xmi:idref="EAID_E9BA5591_7FEE_4289_9227_68B63D175F9F" name="EstablecerIdMesasCraps" scope="Public">
 						<properties position="1"/>
+						<stereotype/>
+						<model ea_guid="{E9BA5591-7FEE-4289-9227-68B63D175F9F}" ea_localid="1137"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_7FEE_4289_9227_68B63D175F9F" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-7FEE-4289-9227-68B63D175F9F}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_251808EB_A58C_4171_9247_D3C5F35FB106" visibility="public">
+								<properties pos="0" type="Coleccion&lt;IdMesa&gt;" const="false" ea_guid="{251808EB-A58C-4171-9247-D3C5F35FB106}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_B880788C_90D3_42a3_A556_0BFDC31803A4" name="EstablecerIdMesasTragamonedas" scope="Public">
+						<properties position="2"/>
 						<stereotype/>
 						<model ea_guid="{B880788C-90D3-42a3-A556-0BFDC31803A4}" ea_localid="1133"/>
 						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -3365,8 +3488,31 @@
 						</parameters>
 						<xrefs/>
 					</operation>
-					<operation xmi:idref="EAID_7D802125_35A6_4a10_8C51_77ACDD7B710E" name="ObtenerIdMesaSeleccionada" scope="Public">
-						<properties position="2"/>
+					<operation xmi:idref="EAID_64BCD891_F2A1_4f21_8020_1B9D2A741D37" name="ObtenerTipoJuegoSeleccionado" scope="Public">
+						<properties position="3"/>
+						<stereotype/>
+						<model ea_guid="{64BCD891-F2A1-4f21-8020-1B9D2A741D37}" ea_localid="1138"/>
+						<type type="TipoJuego" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_F2A1_4f21_8020_1B9D2A741D37" visibility="public">
+								<properties pos="0" type="TipoJuego" const="false" classifier="EAID_11282A9B_3F55_4ea0_8ADF_DB7810B5B1D1" ea_guid="{RETURNID-F2A1-4f21-8020-1B9D2A741D37}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_7D802125_35A6_4a10_8C51_77ACDD7B710E" name="ObtenerIdMesaTragamonedasSeleccionada" scope="Public">
+						<properties position="4"/>
 						<stereotype/>
 						<model ea_guid="{7D802125-35A6-4a10-8C51-77ACDD7B710E}" ea_localid="772"/>
 						<type type="IdMesa" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
@@ -3379,6 +3525,29 @@
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_35A6_4a10_8C51_77ACDD7B710E" visibility="public">
 								<properties pos="0" type="IdMesa" const="false" classifier="EAID_61728DCF_8BA0_43ce_A67F_704B59165F6D" ea_guid="{RETURNID-35A6-4a10-8C51-77ACDD7B710E}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_D5DD83D3_B154_453d_9D14_28CA3A4C62B3" name="ObtenerIdMesaCrapsSeleccionada" scope="Public">
+						<properties position="5"/>
+						<stereotype/>
+						<model ea_guid="{D5DD83D3-B154-453d-9D14-28CA3A4C62B3}" ea_localid="1139"/>
+						<type type="IdMesa" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_B154_453d_9D14_28CA3A4C62B3" visibility="public">
+								<properties pos="0" type="IdMesa" const="false" classifier="EAID_61728DCF_8BA0_43ce_A67F_704B59165F6D" ea_guid="{RETURNID-B154-453d-9D14-28CA3A4C62B3}"/>
 								<style/>
 								<styleex/>
 								<documentation/>
@@ -4960,53 +5129,48 @@
 			<diagram xmi:id="EAID_F0ACF642_91C1_4c0b_9C6E_0964AF335708">
 				<model package="EAPK_E1F48C38_C8AC_4588_80C4_56E81FD35A8F" localID="16" owner="EAPK_E1F48C38_C8AC_4588_80C4_56E81FD35A8F"/>
 				<properties name="Client (Admin)" type="Logical"/>
-				<project author="LaCaX" version="1.0" created="2008-07-24 14:20:24" modified="2008-07-27 17:52:32"/>
-				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=799;DocSize.cy=1114;ShowDetails=0;Orientation=P;Zoom=55;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;"/>
+				<project author="LaCaX" version="1.0" created="2008-07-24 14:20:24" modified="2008-07-28 01:59:25"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=799;DocSize.cy=1114;ShowDetails=0;Orientation=P;Zoom=85;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;"/>
 				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
 				<elements>
-					<element geometry="Left=1419;Top=1262;Right=1649;Bottom=1363;" subject="EAID_C456BBA7_A81B_4db4_8B96_1C73E9E9248A" seqno="1" style="DUID=959E5417;ImageID=0;LCol=0;BCol=13434828;"/>
-					<element geometry="Left=431;Top=1518;Right=698;Bottom=1618;" subject="EAID_CF49F5B5_C4F2_4420_8AFB_CAA5E29D86BA" seqno="2" style="DUID=799417CC;BCol=13434828;ImageID=0;"/>
-					<element geometry="Left=1032;Top=1518;Right=1352;Bottom=1632;" subject="EAID_4A836E51_972D_4ae4_9C9D_61D7CE321631" seqno="3" style="DUID=2B476F2D;BCol=13434828;ImageID=0;"/>
-					<element geometry="Left=809;Top=1762;Right=953;Bottom=1853;" subject="EAID_21911FBB_85F4_40cc_BC07_1D007838B421" seqno="4" style="DUID=B93A4F2A;LCol=0;BCol=13434828;ImageID=0;"/>
-					<element geometry="Left=1082;Top=1776;Right=1302;Bottom=1839;" subject="EAID_F6708294_9C42_4b71_942E_F89A4BB5DFB7" seqno="5" style="DUID=8755754E;LCol=0;BCol=13434828;ImageID=0;"/>
-					<element geometry="Left=1400;Top=1770;Right=1642;Bottom=1845;" subject="EAID_8A605F1B_1329_4c1e_A2FD_DCBEACA1DE2D" seqno="6" style="DUID=F7E11229;LCol=0;BCol=13434828;ImageID=0;"/>
-					<element geometry="Left=644;Top=1669;Right=757;Bottom=1727;" subject="EAID_7A73DAFB_981F_40fd_B890_0AD33C9DAA49" seqno="7" style="DUID=C258C1CC;ImageID=0;"/>
-					<element geometry="Left=444;Top=1769;Right=662;Bottom=1835;" subject="EAID_D2DA490E_AE41_4948_8F3F_C5D854A3DA86" seqno="8" style="DUID=ACF84109;LCol=0;BCol=13434828;ImageID=0;"/>
-					<element geometry="Left=55;Top=1752;Right=323;Bottom=1862;" subject="EAID_AFA5CAE6_9254_4c91_BEB0_A8ECB610AE2F" seqno="9" style="DUID=1CD47C5E;LCol=0;BCol=13434828;ImageID=0;"/>
-					<element geometry="Left=478;Top=21;Right=583;Bottom=161;" subject="EAID_FF38D0FC_B7B7_4b2c_BF9D_A05C48E01C22" seqno="10" style="DUID=805A07BD;LCol=0;ImageID=0;BCol=-1;"/>
-					<element geometry="Left=178;Top=21;Right=276;Bottom=155;" subject="EAID_1889EFCA_30AF_483c_B76E_714C8FF04D2B" seqno="11" style="DUID=9CB4EEB5;"/>
-					<element geometry="Left=609;Top=472;Right=813;Bottom=542;" subject="EAID_8471766A_4FD1_42c3_8F6C_122C6680E903" seqno="12" style="DUID=C1630E30;BCol=16752895;"/>
-					<element geometry="Left=1648;Top=822;Right=1842;Bottom=911;" subject="EAID_4D9A7E62_7D69_4f3c_8D19_785A55286705" seqno="13" style="DUID=1D421F8E;BCol=10535167;"/>
-					<element geometry="Left=1233;Top=809;Right=1555;Bottom=888;" subject="EAID_08EF74FA_BD10_4c83_83F8_A483A64673AF" seqno="14" style="DUID=ADC5E88A;BCol=10535167;ImageID=0;"/>
-					<element geometry="Left=875;Top=809;Right=1219;Bottom=888;" subject="EAID_5BECEDE4_E9E5_48a3_9127_92CF824D9E5F" seqno="15" style="DUID=86082A27;BCol=10535167;"/>
-					<element geometry="Left=1599;Top=473;Right=1891;Bottom=552;" subject="EAID_5FF31E92_E6AF_48b2_A778_DC1A7A370565" seqno="16" style="DUID=33B38C65;BCol=16752895;"/>
-					<element geometry="Left=1239;Top=469;Right=1549;Bottom=561;" subject="EAID_ECF93814_DA5B_49a2_9F81_1FE04D79B005" seqno="17" style="DUID=B96CF474;BCol=16752895;"/>
-					<element geometry="Left=892;Top=432;Right=1202;Bottom=576;" subject="EAID_8A28596F_4169_42ef_9B20_DCC60498B34E" seqno="18" style="DUID=F04FF93C;BCol=16752895;ImageID=0;"/>
-					<element geometry="Left=351;Top=473;Right=573;Bottom=544;" subject="EAID_ADBD1E8D_323F_422b_ABE6_741E956EA143" seqno="19" style="DUID=71287C4F;BCol=16752895;ImageID=0;"/>
-					<element geometry="Left=146;Top=801;Right=452;Bottom=945;" subject="EAID_E08E68D2_1802_4442_9885_2A69CEA39E1B" seqno="20" style="DUID=41F167C2;BCol=10535167;"/>
-					<element geometry="Left=75;Top=472;Right=327;Bottom=542;" subject="EAID_DE652F31_C5B5_4274_B093_04D231D5E19E" seqno="21" style="DUID=A5754AAC;BCol=16752895;ImageID=0;"/>
-					<element geometry="Left=781;Top=48;Right=889;Bottom=136;" subject="EAID_AA09938A_A31A_418c_B43A_E3C126E7ED1E" seqno="22" style="DUID=13BDEFD0;ImageID=0;"/>
-					<element geometry="Left=927;Top=41;Right=1036;Bottom=143;" subject="EAID_9D928869_37DE_406f_AA2F_03F06FB9810D" seqno="23" style="DUID=A8F1C1C0;ImageID=0;"/>
-					<element geometry="Left=318;Top=21;Right=418;Bottom=161;" subject="EAID_934982A9_6BB3_4c1d_90A9_8CE77FB38EAF" seqno="24" style="DUID=9327DC4C;LCol=0;ImageID=0;BCol=14938876;"/>
-					<element geometry="Left=736;Top=285;Right=938;Bottom=361;" subject="EAID_737682D9_4149_43ad_A1D7_248E43A5259B" seqno="25" style="DUID=EA172A3C;BCol=16752895;ImageID=0;"/>
-					<element geometry="Left=1629;Top=16;Right=1751;Bottom=158;" subject="EAID_66F1F08D_147A_4c4f_94D4_D92E2FE65F63" seqno="26" style="DUID=545F8C4F;BCol=14938876;ImageID=0;"/>
-					<element geometry="Left=1427;Top=10;Right=1557;Bottom=164;" subject="EAID_927748BB_F94D_4498_A2D6_258433924CFF" seqno="27" style="DUID=20F7E5C3;ImageID=0;"/>
-					<element geometry="Left=1236;Top=41;Right=1358;Bottom=143;" subject="EAID_FB956410_210C_467f_B4EB_E543D5243A25" seqno="28" style="DUID=186D138E;ImageID=0;LCol=0;BCol=-1;"/>
-					<element geometry="Left=1069;Top=48;Right=1159;Bottom=136;" subject="EAID_BA8CEB06_FAEE_4ad3_9C78_7EC99FC412F3" seqno="29" style="DUID=C4FD9EBA;ImageID=0;"/>
-					<element geometry="Left=515;Top=1229;Right=1210;Bottom=1395;" subject="EAID_0C1D60B8_64DA_41e0_97E7_467364072CA4" seqno="30" style="DUID=959E5417;ImageID=0;LCol=0;BCol=13434828;"/>
-					<element geometry="Left=26;Top=1163;Right=1874;Bottom=1447;" subject="EAID_DBE9AC08_FB95_42b7_B02E_8EE5DE780037" seqno="31" style="DUID=BBB5FF16;BCol=16764057;ImageID=0;font=Candara;fontsz=140;bold=0;italic=0;ul=0;"/>
-					<element geometry="Left=6;Top=1071;Right=1936;Bottom=1913;" subject="EAID_A9C9A818_1F6D_4a91_BFC6_007967593288" seqno="32" style="DUID=8BBB12CB;BCol=15925234;font=Candara;bold=0;italic=0;ul=0;ImageID=0;fontsz=220;NSL=0;"/>
-					<element geometry="Left=835;Top=402;Right=1924;Bottom=591;" subject="EAID_DDC6AE6E_DA70_424a_91D9_56AA812A43A4" seqno="33" style="DUID=C3633B1E;ImageID=0;font=Candara;fontsz=140;bold=0;italic=0;ul=0;BCol=16777164;"/>
-					<element geometry="Left=6;Top=227;Right=1936;Bottom=610;" subject="EAID_B77AFB73_C466_41ef_9CFD_B659AADBBC99" seqno="34" style="DUID=3BA44081;BCol=16771583;font=Candara;fontsz=220;bold=0;italic=0;ul=0;ImageID=0;NSL=0;"/>
-					<element geometry="Left=6;Top=645;Right=1936;Bottom=1054;" subject="EAID_0407BEB2_B1EC_4584_8543_BD74D7053E0E" seqno="35" style="DUID=9852F3FE;font=Candara;fontsz=220;bold=0;italic=0;ul=0;ImageID=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=CX=32:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_2397E4ED_41DA_4186_B924_3A8F63D508DF" style="Mode=2;EOID=B93A4F2A;SOID=8755754E;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=43;SY=1;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_CBA36040_A330_4300_896D_28DB5FCA3C08" style="Mode=3;EOID=959E5417;SOID=1D421F8E;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=44:CY=11:OX=-76:OY=58:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_F4D9803D_6613_4c16_972D_5E7D64AEE918" style="Mode=3;EOID=C1630E30;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="Left=1139;Top=60;Right=1259;Bottom=157;" subject="EAID_11282A9B_3F55_4ea0_8ADF_DB7810B5B1D1" seqno="1" style="DUID=FD6F0581;"/>
+					<element geometry="Left=1419;Top=1262;Right=1649;Bottom=1363;" subject="EAID_C456BBA7_A81B_4db4_8B96_1C73E9E9248A" seqno="2" style="DUID=959E5417;ImageID=0;LCol=0;BCol=13434828;"/>
+					<element geometry="Left=431;Top=1518;Right=698;Bottom=1618;" subject="EAID_CF49F5B5_C4F2_4420_8AFB_CAA5E29D86BA" seqno="3" style="DUID=799417CC;BCol=13434828;ImageID=0;"/>
+					<element geometry="Left=1032;Top=1518;Right=1352;Bottom=1632;" subject="EAID_4A836E51_972D_4ae4_9C9D_61D7CE321631" seqno="4" style="DUID=2B476F2D;BCol=13434828;ImageID=0;"/>
+					<element geometry="Left=809;Top=1762;Right=953;Bottom=1853;" subject="EAID_21911FBB_85F4_40cc_BC07_1D007838B421" seqno="5" style="DUID=B93A4F2A;LCol=0;BCol=13434828;ImageID=0;"/>
+					<element geometry="Left=1082;Top=1776;Right=1302;Bottom=1839;" subject="EAID_F6708294_9C42_4b71_942E_F89A4BB5DFB7" seqno="6" style="DUID=8755754E;LCol=0;BCol=13434828;ImageID=0;"/>
+					<element geometry="Left=1400;Top=1770;Right=1642;Bottom=1845;" subject="EAID_8A605F1B_1329_4c1e_A2FD_DCBEACA1DE2D" seqno="7" style="DUID=F7E11229;LCol=0;BCol=13434828;ImageID=0;"/>
+					<element geometry="Left=644;Top=1669;Right=757;Bottom=1727;" subject="EAID_7A73DAFB_981F_40fd_B890_0AD33C9DAA49" seqno="8" style="DUID=C258C1CC;ImageID=0;"/>
+					<element geometry="Left=444;Top=1769;Right=678;Bottom=1835;" subject="EAID_D2DA490E_AE41_4948_8F3F_C5D854A3DA86" seqno="9" style="DUID=ACF84109;LCol=0;BCol=13434828;ImageID=0;"/>
+					<element geometry="Left=55;Top=1752;Right=323;Bottom=1862;" subject="EAID_AFA5CAE6_9254_4c91_BEB0_A8ECB610AE2F" seqno="10" style="DUID=1CD47C5E;LCol=0;BCol=13434828;ImageID=0;"/>
+					<element geometry="Left=1003;Top=38;Right=1108;Bottom=178;" subject="EAID_FF38D0FC_B7B7_4b2c_BF9D_A05C48E01C22" seqno="11" style="DUID=805A07BD;LCol=0;ImageID=0;BCol=-1;"/>
+					<element geometry="Left=703;Top=41;Right=801;Bottom=175;" subject="EAID_1889EFCA_30AF_483c_B76E_714C8FF04D2B" seqno="12" style="DUID=9CB4EEB5;"/>
+					<element geometry="Left=609;Top=472;Right=813;Bottom=542;" subject="EAID_8471766A_4FD1_42c3_8F6C_122C6680E903" seqno="13" style="DUID=C1630E30;BCol=16752895;"/>
+					<element geometry="Left=1648;Top=822;Right=1842;Bottom=911;" subject="EAID_4D9A7E62_7D69_4f3c_8D19_785A55286705" seqno="14" style="DUID=1D421F8E;BCol=10535167;"/>
+					<element geometry="Left=1233;Top=809;Right=1555;Bottom=888;" subject="EAID_08EF74FA_BD10_4c83_83F8_A483A64673AF" seqno="15" style="DUID=ADC5E88A;BCol=10535167;ImageID=0;"/>
+					<element geometry="Left=875;Top=809;Right=1219;Bottom=888;" subject="EAID_5BECEDE4_E9E5_48a3_9127_92CF824D9E5F" seqno="16" style="DUID=86082A27;BCol=10535167;"/>
+					<element geometry="Left=1583;Top=456;Right=1900;Bottom=574;" subject="EAID_5FF31E92_E6AF_48b2_A778_DC1A7A370565" seqno="17" style="DUID=33B38C65;BCol=16752895;"/>
+					<element geometry="Left=1239;Top=469;Right=1549;Bottom=561;" subject="EAID_ECF93814_DA5B_49a2_9F81_1FE04D79B005" seqno="18" style="DUID=B96CF474;BCol=16752895;"/>
+					<element geometry="Left=892;Top=432;Right=1202;Bottom=576;" subject="EAID_8A28596F_4169_42ef_9B20_DCC60498B34E" seqno="19" style="DUID=F04FF93C;BCol=16752895;ImageID=0;"/>
+					<element geometry="Left=351;Top=473;Right=573;Bottom=544;" subject="EAID_ADBD1E8D_323F_422b_ABE6_741E956EA143" seqno="20" style="DUID=71287C4F;BCol=16752895;ImageID=0;"/>
+					<element geometry="Left=146;Top=801;Right=452;Bottom=945;" subject="EAID_E08E68D2_1802_4442_9885_2A69CEA39E1B" seqno="21" style="DUID=41F167C2;BCol=10535167;"/>
+					<element geometry="Left=75;Top=472;Right=327;Bottom=542;" subject="EAID_DE652F31_C5B5_4274_B093_04D231D5E19E" seqno="22" style="DUID=A5754AAC;BCol=16752895;ImageID=0;"/>
+					<element geometry="Left=843;Top=38;Right=943;Bottom=178;" subject="EAID_934982A9_6BB3_4c1d_90A9_8CE77FB38EAF" seqno="23" style="DUID=9327DC4C;LCol=0;ImageID=0;BCol=14938876;"/>
+					<element geometry="Left=736;Top=285;Right=938;Bottom=361;" subject="EAID_737682D9_4149_43ad_A1D7_248E43A5259B" seqno="24" style="DUID=EA172A3C;BCol=16752895;ImageID=0;"/>
+					<element geometry="Left=515;Top=1229;Right=1210;Bottom=1395;" subject="EAID_0C1D60B8_64DA_41e0_97E7_467364072CA4" seqno="25" style="DUID=959E5417;ImageID=0;LCol=0;BCol=13434828;"/>
+					<element geometry="Left=26;Top=1163;Right=1874;Bottom=1447;" subject="EAID_DBE9AC08_FB95_42b7_B02E_8EE5DE780037" seqno="26" style="DUID=BBB5FF16;BCol=16764057;ImageID=0;font=Candara;fontsz=140;bold=0;italic=0;ul=0;"/>
+					<element geometry="Left=6;Top=1071;Right=1936;Bottom=1913;" subject="EAID_A9C9A818_1F6D_4a91_BFC6_007967593288" seqno="27" style="DUID=8BBB12CB;BCol=15925234;font=Candara;bold=0;italic=0;ul=0;ImageID=0;fontsz=220;NSL=0;"/>
+					<element geometry="Left=835;Top=402;Right=1924;Bottom=591;" subject="EAID_DDC6AE6E_DA70_424a_91D9_56AA812A43A4" seqno="28" style="DUID=C3633B1E;ImageID=0;font=Candara;fontsz=140;bold=0;italic=0;ul=0;BCol=16777164;"/>
+					<element geometry="Left=6;Top=227;Right=1936;Bottom=610;" subject="EAID_B77AFB73_C466_41ef_9CFD_B659AADBBC99" seqno="29" style="DUID=3BA44081;BCol=16771583;font=Candara;fontsz=220;bold=0;italic=0;ul=0;ImageID=0;NSL=0;"/>
+					<element geometry="Left=6;Top=645;Right=1936;Bottom=1054;" subject="EAID_0407BEB2_B1EC_4584_8543_BD74D7053E0E" seqno="30" style="DUID=9852F3FE;font=Candara;fontsz=220;bold=0;italic=0;ul=0;ImageID=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=CX=31:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_2397E4ED_41DA_4186_B924_3A8F63D508DF" style="Mode=2;EOID=B93A4F2A;SOID=8755754E;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=43;SY=1;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=31:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_CBA36040_A330_4300_896D_28DB5FCA3C08" style="Mode=3;EOID=959E5417;SOID=1D421F8E;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=-76:OY=58:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_F4D9803D_6613_4c16_972D_5E7D64AEE918" style="Mode=3;EOID=C1630E30;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_B071961A_4946_4001_97BA_E28AC1B16998" style="Mode=2;EOID=ACF84109;SOID=1CD47C5E;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_2CC6BDC5_2137_4634_AC71_976C80DF0398" style="Mode=2;EOID=799417CC;SOID=ACF84109;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=44:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_7049006A_2EA8_4179_84DF_7D8C2894B05A" style="Mode=2;EOID=B93A4F2A;SOID=959E5417;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_7049006A_2EA8_4179_84DF_7D8C2894B05A" style="Mode=2;EOID=B93A4F2A;SOID=959E5417;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_28672B89_9EBC_4c5e_86E4_8669FC55D0D9" style="Mode=3;EOID=C258C1CC;SOID=ACF84109;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=-14;SY=34;EX=-100;EY=5;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C3F6A4D3_BBFF_4b51_9928_D667F4DB2FFA" style="Mode=2;EOID=EA172A3C;SOID=A5754AAC;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_90D98AB8_B226_4c1c_B35A_C7950EB9EF7F" style="Mode=2;EOID=EA172A3C;SOID=C1630E30;Color=-1;LWidth=1;Hidden=0;"/>
@@ -5017,25 +5181,25 @@
 					<element geometry="SX=-129;SY=38;EX=100;EY=-16;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_14C45FF4_85D3_4a39_82F3_3BE5CAB2E999" style="Mode=2;EOID=EA172A3C;SOID=B96CF474;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_77E91046_A169_41b6_A5D6_34C92BD09438" style="Mode=2;EOID=EA172A3C;SOID=F04FF93C;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=6;SY=34;EX=-100;EY=-17;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_0466983D_0AE9_412d_A699_E5E9BCCCEF28" style="Mode=2;EOID=EA172A3C;SOID=71287C4F;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=32:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_4B8D6BCF_ABC8_47b5_9F7E_6913F34891B4" style="Mode=2;EOID=2B476F2D;SOID=959E5417;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=25;SY=-2;EX=25;EY=-2;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=32:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_94A57B05_C4BA_462e_8292_170E59C8EAA3" style="Mode=3;EOID=959E5417;SOID=86082A27;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=-119;SY=-1;EX=41;EY=1;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=44:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=1275:-756$503:-756$;" subject="EAID_660D2A80_A52E_47a9_AD5E_656B9DFCFD5B" style="Mode=3;EOID=71287C4F;SOID=ADC5E88A;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=-118;SY=-1;EX=13;EY=1;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=44:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=928:-778$474:-778$;" subject="EAID_81B6DE59_13F2_4003_90C7_F365C1F0467B" style="Mode=3;EOID=71287C4F;SOID=86082A27;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=-24;SY=-69;EX=-75;EY=-43;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=44:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=274:-1006$1669:-1006$;" subject="EAID_72823641_9D28_4023_AD1D_640FE1FFE151" style="Mode=3;EOID=1D421F8E;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=8;SY=-71;EX=-39;EY=1;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=44:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=307:-987$1354:-987$;" subject="EAID_B4E74591_C3DA_4043_8FC7_3C55E57E9B1E" style="Mode=3;EOID=ADC5E88A;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=43;SY=-71;EX=-87;EY=1;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=44:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=341:-967$959:-967$;" subject="EAID_1C8FBE31_116B_4680_9905_A1C9B62F9C1F" style="Mode=3;EOID=86082A27;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=-282;SY=-82;EX=16;EY=-1;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=32:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C5E4D5C2_AF99_4423_A8F5_523BCAC6B8C3" style="Mode=3;EOID=799417CC;SOID=959E5417;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=114;SY=-20;EX=128;EY=-56;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C90E9347_BEEB_48f0_8E59_780C1C3E8B04" style="Mode=3;EOID=2B476F2D;SOID=959E5417;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=62;SY=2;EX=147;EY=82;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=32:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_471FA432_7E96_4384_9A14_07AB04E32F3E" style="Mode=3;EOID=959E5417;SOID=ADC5E88A;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=2;SY=-20;EX=1;EY=25;EDGE=4;$LLB=;LLT=;LMT=;LMB=CX=29:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_A8FC3FFE_32E3_4733_B1D0_3B9BD86E4E9E" style="Mode=3;EOID=799417CC;SOID=959E5417;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=-103;SY=-71;EX=-57;EY=82;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=32:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_1F41EACD_41EC_47c4_8A80_4D610170BE4F" style="Mode=3;EOID=959E5417;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=10;SY=-14;EX=10;EY=-14;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=44:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_194393DC_3545_4557_AC47_28DDD151F2F7" style="Mode=2;EOID=71287C4F;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=31:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_4B8D6BCF_ABC8_47b5_9F7E_6913F34891B4" style="Mode=2;EOID=2B476F2D;SOID=959E5417;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=25;SY=-2;EX=25;EY=-2;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=31:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_94A57B05_C4BA_462e_8292_170E59C8EAA3" style="Mode=3;EOID=959E5417;SOID=86082A27;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=-119;SY=-1;EX=41;EY=1;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=1275:-756$503:-756$;" subject="EAID_660D2A80_A52E_47a9_AD5E_656B9DFCFD5B" style="Mode=3;EOID=71287C4F;SOID=ADC5E88A;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=-118;SY=-1;EX=13;EY=1;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=928:-778$474:-778$;" subject="EAID_81B6DE59_13F2_4003_90C7_F365C1F0467B" style="Mode=3;EOID=71287C4F;SOID=86082A27;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=-24;SY=-69;EX=-75;EY=-43;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=274:-1006$1669:-1006$;" subject="EAID_72823641_9D28_4023_AD1D_640FE1FFE151" style="Mode=3;EOID=1D421F8E;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=8;SY=-71;EX=-39;EY=1;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=307:-987$1354:-987$;" subject="EAID_B4E74591_C3DA_4043_8FC7_3C55E57E9B1E" style="Mode=3;EOID=ADC5E88A;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=43;SY=-71;EX=-87;EY=1;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=341:-967$959:-967$;" subject="EAID_1C8FBE31_116B_4680_9905_A1C9B62F9C1F" style="Mode=3;EOID=86082A27;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=-282;SY=-82;EX=16;EY=-1;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=31:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C5E4D5C2_AF99_4423_A8F5_523BCAC6B8C3" style="Mode=3;EOID=799417CC;SOID=959E5417;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=114;SY=-20;EX=128;EY=-56;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=31:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C90E9347_BEEB_48f0_8E59_780C1C3E8B04" style="Mode=3;EOID=2B476F2D;SOID=959E5417;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=62;SY=2;EX=147;EY=82;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=31:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_471FA432_7E96_4384_9A14_07AB04E32F3E" style="Mode=3;EOID=959E5417;SOID=ADC5E88A;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=2;SY=-20;EX=1;EY=25;EDGE=4;$LLB=;LLT=;LMT=;LMB=CX=31:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_A8FC3FFE_32E3_4733_B1D0_3B9BD86E4E9E" style="Mode=3;EOID=799417CC;SOID=959E5417;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=-103;SY=-71;EX=-57;EY=82;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=31:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_1F41EACD_41EC_47c4_8A80_4D610170BE4F" style="Mode=3;EOID=959E5417;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=10;SY=-14;EX=10;EY=-14;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_194393DC_3545_4557_AC47_28DDD151F2F7" style="Mode=2;EOID=71287C4F;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=-98;SY=71;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_28E47E07_714B_4d11_A8D3_F1C36E11BCA0" style="Mode=3;EOID=A5754AAC;SOID=41F167C2;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_8AEF3656_B0DD_4627_A340_A635C8E5FAB5" style="Mode=2;EOID=F04FF93C;SOID=86082A27;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=-3;EY=1;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_DB72B21F_FE04_4aab_83EB_CF7A44C7228B" style="Mode=2;EOID=B96CF474;SOID=ADC5E88A;Color=-1;LWidth=1;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_64C54AF4_A705_43f6_AF61_7B8403A06B4D" style="Mode=2;EOID=33B38C65;SOID=1D421F8E;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=-33;SY=0;EX=72;EY=-34;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=44:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=1711:-731$533:-731$;" subject="EAID_F8F8C492_2FF8_4bce_A910_0AA9E31A972F" style="Mode=3;EOID=71287C4F;SOID=1D421F8E;Color=-1;LWidth=1;Hidden=0;"/>
-					<element geometry="SX=92;SY=-1;EX=235;EY=82;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=32:CY=11:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_BA316947_089A_4a0b_AC88_AADF5F72B61A" style="Mode=3;EOID=959E5417;SOID=1D421F8E;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=-33;SY=0;EX=72;EY=-34;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=42:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=1711:-731$533:-731$;" subject="EAID_F8F8C492_2FF8_4bce_A910_0AA9E31A972F" style="Mode=3;EOID=71287C4F;SOID=1D421F8E;Color=-1;LWidth=1;Hidden=0;"/>
+					<element geometry="SX=92;SY=-1;EX=235;EY=82;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=31:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_BA316947_089A_4a0b_AC88_AADF5F72B61A" style="Mode=3;EOID=959E5417;SOID=1D421F8E;Color=-1;LWidth=1;Hidden=0;"/>
 				</elements>
 			</diagram>
 		</diagrams>
