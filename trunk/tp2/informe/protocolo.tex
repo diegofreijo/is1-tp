@@ -96,58 +96,10 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
             <jugador nombre="nombre del usuario jugador" saldo="saldo del jugador" />
             ... 
         </jugadores>
-        <observadores>
-            <observador nombre="nombre del usuario observador" />
-            ...
-        </observadores>
-        <juegos>
-            <tragamonedas>
-               <pozoProgresivo>"monto del pozo progresivo de las tragamonedas"</pozoProgresivo>
-               <mesasTragamonedas>
-                  <mesaTragamonedas id="id del tragamonedas">
-                    <jugador>"nombre del jugador en la mesa"</jugador>
-                    <ultimoTiro>
-                      <tirador>"nombre del jugador que efectu'o el ultimo tiro"</tirador>
-                      <resultado>
-                       <rueda1>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda1>
-                       <rueda2>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda2>
-                       <rueda3>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda3>
-                      </resultado>
-                    </ultimoTiro>
-                  </mesaTragamonedas>
-                   ...
-               </mesasTragamonedas>
-            </tragamonedas>
-            <craps>
-                <mesasCraps>
-                    <mesaCraps id="id de mesa craps">
-                        <jugadores>
-                            <jugador>"nombre de un jugador en la mesa"</jugador>
-                            ...
-                        </jugadores>
-                        <proximoTiro>
-                            <tirador>"nombre del jugador con el turno" (si no ning'un pr'oximo tirador,
-                            el tag estar'a vac'io) </tirador>
-                            <tiroSalida>"Si" o "No", seg'un sea o no tiro de salida (si no hay pr'oximo
-                            tirador, el tag estar'a vac'io) </tiroSalida>
-                            <punto>"valor del punto establecido en el tiro de salida" (si es punto de
-                            salida o no hay pr'oximo tirador, el tag estar'a vac'io) </punto>
-                        </proximoTiro>
-                        <ultimoTiro>
-                            <tirador>"nombre del jugador que efectu'o el ultimo tiro"</tirador>
-                            <resultado></resultado>
-                        </ultimoTiro>
-                    </mesaCraps>
-                    ...
-                </mesasCraps>
-            </craps>
-        </juegos>
-        <pozosCasino>
-            <pozoFeliz>"monto del pozo feliz"</pozoFeliz>
-        </pozosCasino>
-        <saldoCasino>"saldo del casino"</saldoCasino>]
+		<saldoCasino monto="monto actual del saldo del casino" />]
     </respuestaReporteEstadoActual>
 \end{verbatim}
+
 
 
 \subsubsubsection{pedirReporteMovimientos}
@@ -176,38 +128,15 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
     <?xml version="1.0" encoding="UTF-8" ?>
     <respuestaReporteMovimientos vTerm="id terminal virtual">
         <aceptado fueAceptado="si | no" />
-       [<jugador nombre="nombre del jugador">
-            <jugadasTragamonedas>
-                <jugadaTragamonedas tipo="normal | todos ponen | feliz | gordo progresivo |
-                feliz y gordo progresivo">
-                    <mesa id="id de mesa" valorFicha="valor de ficha en la mesa" />
-                    <apuesta fichas="cantidad de fichas apostadas" />
-                    <resultado>
-                        <rodillo figura="figura del rodillo" />
-                        ...
-                    </resultado>
-                    <pozoFeliz monto="monto del pozo">
-                    <pozoProgesivo monto="monto del pozo">
-                </jugadaTragamonedas>
-                ...
-            </jugadasTragamonedas>
-            <jugadasCraps tiroSalida="si | no" punto="valor de punto" tipo="normal | todos ponen |
-            feliz | gordo progresivo | feliz y gordo progresivo">
-                <jugadaCraps>
-                    <mesa id="id de mesa" />
-                    <apuesta monto="creditos apostados" tipo="en sitio a perder | en sitio a ganar |
-                    de campo | venir | no venir | barra no pase | linea de pase" />
-                    <resultado>
-                        <dado numero="numero del dado">
-                        ...
-                    </resultado>
-                    <pozoFeliz monto="monto del pozo">
-                </jugadaCraps>
-                ...
-            </jugadasCraps>
-            ...
-        </jugador>
-        ...]
+       [<jugadores>
+				<jugador nombre="nombre del jugador">
+				<tipoApuesta nombre="en sitio a perder | en sitio a ganar |de campo | venir | no venir | barra no pase | linea de pase | tragamonedas"/>
+				<normal monto="pago por ganar la apuesta sin adicionales"/>
+            <feliz monto="adicional correspondiente al pago de la jugada Feliz"/>
+				<todosPonen monto="retencion correspondiente cobro de la jugada
+TodosPonen"/>
+				<progresivo monto="adicional correspondiente al pago del pozo progresivo"(en caso de tragamonedas, si no el tag estará vacío)/>
+			</jugadores>]
     </respuestaReporteMovimientos>
 \end{verbatim}
 
