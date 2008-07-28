@@ -1,5 +1,7 @@
 \subsection{Gr'aficos del Diagrama}
-Para facilitar la visualizaci'on del diagrama de clases, en lugar de imprimirlo completamente (de ser as'i se necesitar'ia una enorme mesa con agujeros en el medio para poder recorrerlo) preferimos particionarlo generando un gr'afico por cada m'odulo. Notar que en cada diagrama de m'odulo s'olo se muestran las clases de 'este (tambi'en, solo se muestran las asociaciones y dependencias de 'estas clases y no otras). La distribuci'on gr'afica fue modificada en cada caso para la claridad del diagrama.
+Para facilitar la visualizaci'on del diagrama de clases, en lugar de imprimirlo completamente (de ser as'i se necesitar'ia una enorme mesa con agujeros en el medio para poder recorrerlo) preferimos particionarlo generando un gr'afico por cada m'odulo. Notar que en cada diagrama de m'odulo s'olo se muestran las clases de 'este (tambi'en, solo se muestran las asociaciones y dependencias de 'estas clases y no otras). La distribuci'on gr'afica fue modificada en cada caso para la claridad del diagrama. 
+
+En el soporte digital adicionado junto al presente informe se encuentran no s'olo todas las im'agenes aqu'i presentadas si no que adem'as, por ejemeplo, el diagrama de clases completo (ese que necesita una mesa con agujeros) y las versiones a color de todos los diagramas (se asegura un mayor disfrute al leer esos que 'estos \italica{printer friendly}).
 \clearpage
 
 
@@ -16,13 +18,26 @@ Para facilitar la visualizaci'on del diagrama de clases, en lugar de imprimirlo 
 \clearpage
 
 \subsubsection{Modelo}
-%\imagenvertical{DC_Servidor/DC_Comunicacion.png}{Diagrama de clases de la capa de comunicacion}{0.3}
+Dado el tama'no del Modelo, se volvi'o a particionar ahora a 'este m'odulo en subconjuntos de clases. Notar que las clases que se desean mostrar son las que est'an en azul y las que s'olo aparecen en el diagrama para mostrar dependencias con 'estas se encuentran en celeste.
+
+\subsubsubsection{Relacionado a Usuario}
+\imagenvertical{DC_Servidor/DC_Jugador.png}{Diagrama de clases del Modelo referente a los usuarios}{0.45}
 \clearpage
 
+\subsubsubsection{Relacionado a Mesa y Jugada}
+\imagenvertical{DC_Servidor/DC_MesaJugada.png}{Diagrama de clases del Modelo referente a las mesas y jugadas}{0.31}
+\clearpage
 
-%\todo{Agregar el diagrama}
-% \imagenvertical{DC_DiagramaCompleto_modelo.png}{Diagrama de Clases}{0.18}
+\subsubsubsection{Relacionado a los accesorios de Jugada}
+\imagenvertical{DC_Servidor/DC_AccesoriosJugada.png}{Diagrama de clases del Modelo referente a las clases auxiliaries de Jugada}{0.32}
+\clearpage
 
+\subsubsubsection{Relacionado a ServiciosJugada, ConfiguracionCasino y Pozos}
+\imagenvertical{DC_Servidor/DC_MdConfigPozos.png}{Diagrama de clases del Modelo referente a los servicios de jugada, configuraci'on del casino y los pozos}{0.27}
+\clearpage
+
+\subsubsubsection{Relacionado a las Fachadas}
+\imagenvertical{DC_Servidor/DC_Fachadas.png}{Diagrama de clases del Modelo referente a las fachadas}{0.32}
 \clearpage
 
 
