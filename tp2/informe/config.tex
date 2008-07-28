@@ -78,11 +78,7 @@
 \newcounter{contadorEscenarios}
 \setcounter{contadorEscenarios}{1}
 
-\newcommand{\escenario}[1]
-{\negrita{Escenario \arabic{contadorEscenarios}}
-#1
-\stepcounter{contadorEscenarios}
-}
+\newcommand{\escenario}[2]{\textbf{Escenario para \textit{#1}} #2 }
 
 % -----------------------------------------------------------------------------------------------------
 % Codigo para generar los casos de uso, basado en caratula.sty del DC-FCEN-UBA 
