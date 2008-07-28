@@ -1,0 +1,21 @@
+Bas'andonos en las especificaciones observamos que ser'ia coherente que un usuario jugador/observador no conozca las posibles funcionalidades que puede utilizar un administrador y viceversa. En particular nos parece que los aspectos relacionados con el modo dirigido deber'ian incluso quedar expl'icitamente ocultos a observadores y jugadores. Por estas razones hemos decidido construir dos aplicaciones cliente separadas para modularizar el acceso a las distintas funcionalidades que un usuario puede efectuar. De esta forma dise'namos un cliente para jugadores/observadores y otro cliente exclusivo para administradores.
+
+Debido a que la mayor'ia de la l'ogica de negocios de nuestro sistema est'a en el servidor y que los clientes son aplicaciones que reflejan una suerte de ``vista'' de lo que el servidor administra, el dise'no realizado consiste b'asicamente de estructuras que permiten la administraci'on de las distintas ventanas presentadas al usuario. Tambi'en existen cuestiones a resolver dependiendo de las respuestas del servidor a un pedido del usuario, las cuales son resueltas por los controladores en todos los casos. Es en los controladores de ventanas donde se toman las decisiones importantes acerca del estado de una sesi'on y la actualizaci'on de las interfases de usuario.
+
+De esta forma el dise'no se reduce a una capa de presentaci'on, correspondiente a las clases de ventanas, otra muy acoplada a la anterior donde se encuentran los controladores de ventanas, y por 'ultimo una capa de comunicaci'on, muy parecida a la empleada en el servidor.
+
+Nunca hab'iamos dise'nado un sistema con interfaz gr'afica de usuario, lo cual result'o en muchas dudas que fuimos resolviendo de la forma que cre'imos m'as apropiada. El dise'no resultante satisface los requerimientos aunque nos quedamos con la inquietud de saber qu'e otras maneras de modelar interfases gr'aficas de usuario existen.
+
+%\subsubsection{Cliente Jugadores/Observadores}\label{Clientes::Jugadores/Observadores}
+
+%\subsubsection{Cliente Administradores}\label{Clientes::Administradores}
+
+Los clientes se basan en un dise'no en capas.
+
+\subsubsection{Justificaci'on del dise'no}
+Creemos que este dise~no es adecuado para este problema ya que es sumamente flexible tanto si se cambia la capa de presentaci'on como si se cambia la capa de comunciaci'on. Por ejemplo, si el d'ia de ma'nana queremos mostrarlo v'ia una p'agina web o si decidimos que la comunicaci'on sea hecha v'ia sockets nuestro dise'no se puede adaptar facilmente, ya que solo hay que modificar la capa correspondiente.
+
+\subsubsection{Ejemplo DS}
+Ejemplos de la interac'on de las distintas capas del cliente pueden verse en el DS:
+
+\imagen{DS_Craps/ApostarCraps/DS_ApostarCrapsCliente.png}{Diagrama de secuencia de apostar en mesa de juego Craps del Cliente Jugador}{0.4}

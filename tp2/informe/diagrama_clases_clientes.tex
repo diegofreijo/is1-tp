@@ -1,0 +1,41 @@
+Los diagrama de clases se encuentran aparte.
+
+Debido a la necesidad de una interfaz gr'afica de usuario para la utilizaci'on del producto, decidimos adoptar como estrategia para el modelado una aproximaci'on a un sistema de eventos y ventanas tal como los masivamente usados en casi todas las plataformas (celulares, pcs, agendas electr'onicas, etc). En este tipo de sistemas el desarrollador de aplicaciones consta con bibliotecas y APIs que le permiten interactuar con el sistema de ventanas y eventos. Hemos realizado la simplificaci'on y abstracci'on que creemos conveniente para que nuestros diagramas sean simples y al mismo tiempo lo suficientemente expresivos para no dejar de lado cuestiones que hacen al mundo de la programaci'on orientada a eventos.
+Presentamos a continuaci'on la descripci'on de los m'odulos componentes.
+\clearpage
+
+\subsubsection{GUI}
+Es el conjunto de clases que modelan la interfaz gr'afica presentada al usuario.
+
+\subsubsubsection{Clases relevantes}
+
+\begin{description}
+\item[\italica{Ventana}] Modela la clase base a toda representaci'on subyacente de un gr'afico de ventana. Generalmente esta clase es provista por una biblioteca. Es de esta clase que, mediante herencia, podemos definir las ventanas personalizadas que utilizan nuestros clientes. Se destaca principalmente el m'etodo \italica{MostrarModal} el cual muestra el objeto visual ventana de forma modal (el usuario s'olo podr'a interactuar con la ventana modal y no con el resto hasta que esta se cierre) y espera a que el usuario la cierre presionando un bot'on, devolviendo un identificador que permite conocer qu'e bot'on fue presionado al cerrar la ventana y de esa forma tomar decisiones. El m'etodo \italica{MostrarMensajeDeTexto} modela el conocido MessageBox modal que permite mostrar un texto al usuario en una ventana popup.
+\end{description}
+
+Las clases de ventanas concretas proveen m'etodos para acceder y modificar los distintos controles de las ventanas, como ser recuadros de texto, listas de opciones, radiobuttons, etc. Hemos tratado de ser gen'ericos y usar controles razonables.
+
+\subsubsection{Controladores GUI}
+Consisten en el conjunto de clases que controlan los eventos desencadenados por acciones del usuario en su interacci'on con el sistema de ventanas o generados exclusivamente por el sistema de ventanas.
+
+Existe una 'unica ventana activa en todo momento, cuyo controlador ser'a quien maneje los pedidos del usuario hasta que se transfiera el control.
+
+Son los responsables de actualizar la interfaz de usuario acorde a las respuestas que da el servidor. Existe un controlador por cada ventana a excepci'on de ventanas particularmente sencillas de las cuales no resulta imprescindible manejar de una forma interesante los eventos que podr'ia generar un usuario al interaccionar con las mismas.
+
+Los controladores se encargan de contruir la/s ventanas correspondientes en su constructor e inicializan las ventanas solicitando la informaci'on pertinente al servidor.
+
+Hemos simplificado nuestro dise'no asumiendo que los eventos desencadenados por acciones sobre la interfaz de usuario eran 'unicamente clicks de botones. Esto nos permitir'a elegir dentro de un amplio rango de bibliotecas gr'aficas, ya que casi todas proveen un control del estilo bot'on pulsable y permiten asociar el evento del pulsado con una funci'on o m'etodo. Aqu'i realizamos una simplificaci'on referida a la forma de asociar las interacciones del usuario sobre el entorno gr'afico con los m'etodos del objeto de la clase que se encarga de manejar dichos eventos: ser'a el sistema de ventanas qui'en de alguna manera que no modelamos asociar'a los m'etodos de un controlador con los eventos correspondientes en la creaci'on de una ventana.
+
+Nuestro diagrama puede dar una noci'on parcial referente a la apariencia visual de las ventanas gr'aficas definidas si inferimos y caracterizamos de alguna forma intuitiva los nombres de los m'etodos de las clases de ventanas y controladores. Cre'imos apropiado incluir una descripci'on aproximada pero mucho m'as precisa de c'omo lucir'an nuestras interfases gr'aficas en el producto final. Adem'as, es en estas interfases en las que pensamos al momento de dise'nar el cliente, con lo cual hay una correspondencia 1 a 1 (salvando algunos casos) con las clases presentadas en el diagrama.
+
+\subsubsection{Comunicaci'on}
+Esquema semejante al que utilizamos para el dise'no del servidor aunque con algunos cambios que vale la pena mencionar.
+
+El env'io y recepci'on de respuesta de los mensajes que los clientes env'ian a trav'es de los puertos de comunicaci'on se dise'n'o para que se realice de forma sincr'onica.
+Esto es que cuando un usuario desencadena una acci'on que requiere respuesta del servidor el cliente se bloquear'a hasta recibir respuesta. Es por eso que los m'etodos de las clases de los puertos devuelven un Xml consistente de la respuesta que el servidor proporciona.
+
+\subsubsection{Cliente Jugador}
+\input{diagrama_clases_cliente_jugador.tex}
+
+\subsubsection{Cliente Administrador}
+\input{diagrama_clases_cliente_administrador.tex}
