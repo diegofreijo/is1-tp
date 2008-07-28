@@ -1,32 +1,32 @@
-% 
-% % \escenario{
-% \begin{itemize}
-%   \item el jugador entra al casino.
-%   \item se loguea
-%   \item el casino autentica sus datos.
-%   \item da la respuesta
-% \end{itemize}
-% % }
-% 
-% 
-% 
-% % \escenario{
-% \begin{itemize}
-%   \item el jugador le pide salir al casino
-%   \item el casino verifica si puede hacerlo
-%   \item da la respuesta
-% \end{itemize}
-% 
-% % }
-% 
-% % \escenario{
-% 
-%     \begin{itemize}
-%       \item elige jugar al tragamonedas, especifica el valor de ficha
-%       \item el casino valida el valor ingresado, resulta valido
-%       \item le da el n'umero de mesa
-%       \item o le niega la entrada
-%     \end{itemize}
-% 
-% % }
-% 
+Los escenarios aqui presentados son muy gen'ericos.
+
+
+\escenario{ la Configuraci'on general del Casino}
+{
+Se setea el valor de las fichas, el saldo del casino y la pasword del aministrador
+}
+% imagen
+
+\imagen{DS_InicioServidor/DS_InicializarConfiguracion.png}{Inicializar Configuraci'on}{0.5}
+
+\escenario{Jugadores Registrados}{
+En este DS se ve como se setea la lista de jugadores registrados del casino
+}
+\imagenvertical{DS_InicioServidor/DS_InicializarJugadoresRegistrados.png}{Inicializar Jugadores Registrados}{0.4}
+
+% imagen
+
+
+\escenario{Inicializar Mesas}{
+En este DS puede verse como se inicalizan las mesas abiertas, se asigna el observador de cambios.
+}
+\imagen{DS_InicioServidor/DS_InicializarMesas.png}{Inicializar Mesas}{0.5}
+% imagen
+
+
+\escenario{Inicio del Servidor}{
+En este DS se puede ver como se ``enciende'' el servidor,
+como se crea el el Obtenerdor de pedidos, el receptor de pedidos de archivos,  
+
+}
+\imagen{DS_InicioServidor/DS_InicioServidor.png}{Inicio Servidor}{0.5}
