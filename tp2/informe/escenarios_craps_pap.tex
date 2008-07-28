@@ -1,5 +1,5 @@
 
-\escenario{TirarDados}{
+\escenario{Tirar Dados de punta a punta}{
 
 El usuario puede o no estar en la mesa. El usuario puede o no ser el tirador. En caso de que sea el tirador y est'e en la mesa. Se tiran los dados. Si sali'o alg'un valor de punto este se setea. Hay alguna cantidad de apuestas de alg'un tipo que se resuelven o no con su l'ogica particular, dependiendo del contexto. Estamos en un ``est'an saliendo''. Es una jugada feliz 
 
@@ -15,16 +15,18 @@ La notificaci'on de que una mesa cambió se pude ver en el DS \textit{apostarCra
 
 Este DS se dividió en 3 secciones:
 \begin{enumerate}
- \item Recepcion de pedido: es la recepcion de pedido,  y la respuesta hacia el modulo de comunciación, no se muestra lo que sucede en la llamada TirarCraps (usuario, unXML)
+\item Recepcion de pedido: es la recepcion de pedido,  y la respuesta hacia el modulo de comunciación, no se muestra lo que sucede en la llamada TirarCraps (usuario, unXML)
 \item  TirarCraps: Hace todo lo concerniente a la validaci'on, no se hace zoom en TirarDados.
-\item TirarDados: aqui puede verse lo que pasa cuando se hace un tirar dados de una mesa
+\item TirarDados: aqui puede verse lo que pasa cuando se hace un tirar dados de una mesa (Va impreso aparte o digital por el tama~no)
 \end{enumerate}
 
 %aca iria una imagen------------------------------------------------------------
+\imagenvertical{DS_Craps/TirarDados/RecepcionpPedido.png}{Recepcion de pedido}{0.5}
+\imagenvertical{DS_Craps/TirarDados/tirarCraps.png}{TirarCraps}{0.5}
+% \imagen{}{TirarDados}{0.5}
 
+\escenario{Apostar Craps de punta a punta}{
 
-
-\escenario{Apostar Craps}{
 El jugador Cosme Fulanito desea apostar en el juego de craps. La apuesta realizada es a ganar sobre el n'umero cinco. La cantidad apostada es una ficha de valor 20 y dos de valor 10. Cosme est'a en la mesa 25.
 }
 %Se crea el XML correspondiente con el nombre del archivo "apuestaCraps059999" y se deposita en la carpeta del servidor.
@@ -43,29 +45,9 @@ Si alguna de las validaciones anteriormente mencionadas no se cumple entonces no
 
 Si se cumplen todas las validaciones se agregar'a la apuesta a la mesa y adem'as se notificar'a a todos los dem'as jugadores de la mesa 25 del cambio sucedido.
 
-\clearpage
 
 
-
- \escenario{Entrar Casino}{
-Un usuario desea entrar al casino, puede hacerlo en modo jugador o en modo observador.
-Si ya ha ingresado en modo jugador no se lo dejar'a entrar nuevamente. Si est'a en modo observador y desea ingresar en el mismo modo tampoco podr'a hacerlo.
-
-En cambio si quiere entrar como jugador (independientemente de si ingres'o como observador o si no ingres'o) se deber'a validar que sea un usuario autorizado por marketing:
-
-\begin{itemize}
- \item En caso afirmativo quedar'a ingresado en modo jugador.
- \item En caso negativo quedar'a en modo observador o fuera del casino seg'un cual fuese su estado anterior.
-\end{itemize}
- }
-
-%aca iria una imagen------------------------------------------------------------
-
-\clearpage
-
-
-
- \escenario{ PedirEstado }{
+ \escenario{ PedirEstado de punta a punta }{
 Un usuario desea informarse sobre el estado del casino. Se le informar'a s'olo si ha ingresado en el casino, m'as haya si es en modo jugador o en modo observador.
 
 El estado del casino est'a formado por:
@@ -87,3 +69,24 @@ El estado del casino est'a formado por:
 	\end{itemize}
 \end{itemize}
  }
+
+
+
+ \escenario{Entrar Casino}{
+Un usuario desea entrar al casino, puede hacerlo en modo jugador o en modo observador.
+Si ya ha ingresado en modo jugador no se lo dejar'a entrar nuevamente. Si est'a en modo observador y desea ingresar en el mismo modo tampoco podr'a hacerlo.
+
+En cambio si quiere entrar como jugador (independientemente de si ingres'o como observador o si no ingres'o) se deber'a validar que sea un usuario autorizado por marketing:
+
+\begin{itemize}
+ \item En caso afirmativo quedar'a ingresado en modo jugador.
+ \item En caso negativo quedar'a en modo observador o fuera del casino seg'un cual fuese su estado anterior.
+\end{itemize}
+ }
+\imagen{DS_Casino/EntarCasino/DS_EntrarCasinoFueraDelModelo.png}{Entrar casino fuera del Modelo}{0.6}
+%aca iria una imagen------------------------------------------------------------
+Entrar casino dentro del Modelo Va impreso aparte o digital por el tama~no
+
+\clearpage
+
+
