@@ -1,44 +1,52 @@
-Debido a la necesidad de una interfaz gr'afica de usuario para la utilizaci'on del producto, decidimos adoptar como estrategia para el modelado una aproximaci'on a un sistema de eventos y ventanas tal como los masivamente usados en casi todas las plataformas. En este tipo de sistemas el desarrollador de aplicaciones consta con bibliotecas y APIs que le permiten interactuar con el sistema de ventanas y eventos. Hemos realizado la simplificaci'on y abstracci'on que creemos conveniente para que nuestros diagramas sean simples y al mismo tiempo lo suficientemente expresivos para no dejar de lado cuestiones que hacen al mundo de la programaci'on orientada a eventos.
-Presentamos a continuaci'on la descripci'on de los m'odulos componentes.
-
-\subsubsection{GUI}
-Es el conjunto de clases que modelan la interfaz gr'afica presentada al usuario.
-
 \subsubsubsection{Clases relevantes}
-
 \begin{description}
-\item[\italica{Ventana}] Modela la clase base a toda representaci'on subyacente de un gr'afico de ventana. Generalmente esta clase es provista por una biblioteca. Es de esta clase que, mediante herencia, podemos definir las ventanas personalizadas que utilizan nuestros clientes.
+\item[\italica{Sesion}] Contiene la informaci'on de la sesi'on del usuario logueado. Tiene la informaci'on del saldo del usuario, lo cual es lo 'unico que debe mantener el cliente localmente como informaci'on, ya que todo lo dem'as es notificado por el servidor en sus notificaciones. El nombre de usuario y el modo son necesarios para la construcci'on de los mensajes de pedidos y para la configuraci'on de ciertas ventanas.
 \end{description}
 
+\subsubsubsection{Controladores GUI}
+Hay en determinados casos que vimos la necesidad de pollear para saber si hay mensajes de notificaci'on del servidor. Es el caso de la notificaci'on de actualizaci'on de estado del juego Craps. Para resolver esta cuesti'on decidimos agregar un m'etodo \italica{OnIdle} que ser'a llamado peri'odicamente por el sistema de eventos y ventanas el cual nos permitir'a chequear regularmente si hay una notificaci'on de estado del juego. El flujo de control de atenci'on de este m'etodo termina utilizando el receptor de mensajes as'incrono en la capa de comunicaci'on.
 
+De la misma forma fue necesario agregar un m'etodo \italica{OnActualizarInfoCasino} que permite obtener la informaci'on referida a los pozos especiales que deben mostrarse al usuario en todo momento. El protocolo no notifica acerca de cambios a estos pozos, con lo cual la 'unica forma que encontramos para mantener las interfases de usuario actualizadas fue realizar un pedido del estado del casino a intervalos regulares razonables, como ser por ejemplo un par de segundos, de manera de no saturar al servidor ya que 'este debe dar respuesta a cada uno de estos pedidos en cada uno de los clientes que los soliciten. Adem'as, estos pedidos son bloqueantes, con lo cual tampoco queremos que la interfaz de usuario se bloquee demasiado seguido en caso de tener que esperar un tiempo considerable la respuesta del servidor si 'este est'a ocupado.
 
-\subsubsection{Controladores GUI}
-Consisten en el conjunto de clases que controlan los eventos desencadenados por acciones del usuario en su interacci'on con el sistema de ventanas o generados exclusivamente por el sistema de ventanas. Existe un controlador por cada ventana a excepci'on de ventanas particularmente sencillas de las cuales no resulta imprescindible manejar de una forma interesante los eventos que podr'ia generar un usuario al interaccionar con las mismas.
+\begin{description}
+\item[\italica{ControladorVentanaCraps}] Referido al protocolo: El mensaje de notificaci'on de estado para el juego Craps definido por el protocolo no informa del tipo de jugada (feliz, normal, todosponen) del 'ultimo tiro, con lo cual no pudimos reflejar esto en las interfases de usuario, aunque mostramos los pagos correspondientes a cada tipo de jugada, informaci'on que s'i proporciona el protocolo. Tampoco da una descripci'on de por qu'e fall'o una apuesta de craps al enviar un mensaje de apuestaCraps, por lo cual mostramos un msgbox con alguna informaci'on de error.
+Asumimos que el tag ``ultimoTiro'' solo ser'a completado por el servidor cuando la actualizaci'on corresponda a efectos de una nueva tirada de dados. De no hacerlo as'a no habr'ia manera de saber cu'ando actualizar los saldos de los jugadores en los clientes.
+\end{description}
 
-Nuestro diagrama puede dar una noci'on parcial referente a la apariencia visual de las ventanas gr'aficas definidas si inferimos y caracterizamos de alguna forma intuitiva los nombres de los m'etodos de las clases de ventanas y controladores. Cre'imos apropiado incluir una descripci'on aproximada pero mucho m'as precisa de c'omo lucir'an nuestras interfases gr'aficas en el producto final. Adem'as, es en estas interfases en las que pensamos al momento de dise'nar el cliente, con lo cual hay una correspondencia 1 a 1 (salvando algunos casos) con las clases presentadas en el diagrama.
+\subsubsubsection{Comunicaci'on}
+\subsubsubsection{Clases relevantes}
+\begin{description}
+\item[\italica{IReceptorMensajes}] Permite la recepci'on en forma sincr'onica o as'incrona de mensajes del servidor. Posee dos m'etodos a tales fines. Ambos toman como par'ametro el tipo del mensaje a recibir y el id de la terminarl virtual del receptor. El m'etodo as'incrono se utiliza exclusivamente para la recepci'on del mensaje de notificaci'on de actualizaci'on del estado de un juego Craps, devolviendo el control inmediatamente al llamador e informando en el valor de retorno si hab'ia un mensaje del tipo solicitado disponible. De existir un mensaje al momento de realizar la llamada el m'etodo devuelve el mensaje en cuesti'on en el par'ametro pasado por referencia en forma de Xml.
+\end{description}
 
-% \subsubsubsection{LogIn}
-\imagen{PrototiposPantalla/PlayerClient_SignIn.png}{Prototipo de pantalla de ingreso al casino. Clase \italica{VentanaLogin}}{0.5}
-% 
-% 
-% % \subsubsubsection{Lobby}
-\imagen{PrototiposPantalla/PlayerClient_Lobby.png}{Prototipo de pantalla del lobby del casino. Clase \italica{VentanaLobby}}{0.5}
-% 
-% 
-% % \subsubsubsection{Selecci'on de ficha}
-\imagen{PrototiposPantalla/PlayerClient_SelectCoinValue.png}{Prototipo de pantalla de selecci'on de ficha. Clase \italica{VentanaSeleccionarValorFicha}}{0.5}
-% 
-% 
-% % \subsubsubsection{Selecci'on de mesa}
-\imagen{PrototiposPantalla/PlayerClient_SelectTable.png}{Prototipo de pantalla de selecci'on de mesa. Clase \italica{VentanaSeleccionarMesa}}{0.5}
-% 
-% % \subsubsubsection{Tragamonedas}
-\imagen{PrototiposPantalla/PlayerClient_Tragamonedas.png}{Prototipo de pantalla del juego Tragamonedas. Clase \italica{VentanaTragamonedas}}{0.5}
-% \clearpage
-% 
-% % \subsubsubsection{Craps}
+\subsubsubsection{Prototipos de pantalla}
+
+\subsubsubsection{LogIn}
+Permite al usuario elegir el modo en que desea ingresar al casino y su nombre. En el prototipo presentado hemos inclu'ido un password feliz para usuarios jugadores que har'ia que los usuarios del sistema sientan mayor seguridad, aunque este aspecto no fue modelado (no es un requerimiento).
+\imagen{PrototiposPantalla/PlayerClient_SignIn.png}{Prototipo de pantalla de ingreso al casino. Clase \italica{VentanaLogin}}{1}
+\clearpage
+
+\subsubsubsection{Lobby}
+El Lobby del casino permite seleccionar el tipo de juego al que se desea jugar (u observar).
+\imagen{PrototiposPantalla/PlayerClient_Lobby.png}{Prototipo de pantalla del lobby del casino. Clase \italica{VentanaLobby}}{1}
+\clearpage
+
+\subsubsubsection{Selecci'on de ficha}
+Esta ventana se usa exclusivamente para elegir el valor de la ficha cuando un usuario jugador quiere abrir una mesa para el juego Tragamonedas. Mostrar'a la lista de valores de ficha existentes en la jornada actual del casino.
+\imagen{PrototiposPantalla/PlayerClient_SelectCoinValue.png}{Prototipo de pantalla de selecci'on de ficha. Clase \italica{VentanaSeleccionarValorFicha}}{1}
+\clearpage
+
+\subsubsubsection{Selecci'on de mesa}
+Muestra la lista de ids de mesas a las que el usuario puede ingresar. Incluye una opci'on para crear una nueva mesa en los casos que corresponda, ya que esta ventana es utilizada tanto para la selecci'on de mesa por parte de jugadores como de observadores.
+\imagen{PrototiposPantalla/PlayerClient_SelectTable.png}{Prototipo de pantalla de selecci'on de mesa. Clase \italica{VentanaSeleccionarMesa}}{1}
+\clearpage
+
+\subsubsubsection{Tragamonedas}
+Corresponde al juego Tragamonedas y muestra toda la informaci'on relevante referido al mismo. Permite seleccionar la cantidad de fichas a apostar y girar los rodillos.
+\imagen{PrototiposPantalla/PlayerClient_Tragamonedas.png}{Prototipo de pantalla del juego Tragamonedas. Clase \italica{VentanaTragamonedas}}{0.8}
+\clearpage
+
+\subsubsubsection{Craps}
+El juego Craps. La ventana muestra todos los datos que se solicit'o. Utiliza recuadros de texto para mostrar las apuestas por jugador para cada tipo de jugada.
 \imagenvertical{PrototiposPantalla/PlayerClient_Craps.png}{Prototipo de pantalla del juego Craps. Clase \italica{VentanaCraps}}{0.65}
-% \clearpage
-
-\subsubsection{Comunicaci'on}
-Esquema semejante al que utilizamos para el dise'no del servidor aunque con algunos cambios que vale la pena mencionar.
+\clearpage
