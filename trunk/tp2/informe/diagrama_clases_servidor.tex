@@ -1,7 +1,7 @@
 \subsection{Gr'aficos del Diagrama}
 Para facilitar la visualizaci'on del diagrama de clases, en lugar de imprimirlo completamente (de ser as'i se necesitar'ia una enorme mesa con agujeros en el medio para poder recorrerlo) preferimos particionarlo generando un gr'afico por cada m'odulo. Notar que en cada diagrama de m'odulo s'olo se muestran las clases de 'este (tambi'en, solo se muestran las asociaciones y dependencias de 'estas clases y no otras). La distribuci'on gr'afica fue modificada en cada caso para la claridad del diagrama. 
 
-En el soporte digital adicionado junto al presente informe se encuentran no s'olo todas las im'agenes aqu'i presentadas si no que adem'as, por ejemeplo, el diagrama de clases completo (ese que necesita una mesa con agujeros) y las versiones a color de todos los diagramas (se asegura un mayor disfrute al leer esos que 'estos \italica{printer friendly}).
+En el soporte digital adicionado junto al presente informe se encuentran no s'olo todas las im'agenes aqu'i presentadas si no que adem'as, por ejemplo, el diagrama de clases completo (ese que necesita una mesa con agujeros) y las versiones a color de todos los diagramas (se asegura un mayor disfrute al leer esos que 'estos \italica{printer friendly}).
 \clearpage
 
 
@@ -47,13 +47,13 @@ Para facilitar el dise'no, mantener un nivel bajo de acoplamiento e incluso fome
 
 
 \subsubsection{Comunicaci'on}
-Se encarga de mantener la comunicaci'on de bajo nivel contra los clientes. 'Esto incluye la recepci'on de pedidos y el envio de las respuestas y mensajes de estado. Adem'as es el encargado de abstraer el medio de comunicaci'on (por ejemplo, por archivo que es el utilizado en el presente trabajo). Su l'ogica es simple y genera, consistiendo de rutinas de escucha de mensajes
+Se encarga de mantener la comunicaci'on de bajo nivel contra los clientes. 'Esto incluye la recepci'on de pedidos y el envio de las respuestas y mensajes de estado. Adem'as es el encargado de abstraer el medio de comunicaci'on (por ejemplo, por archivo que es el utilizado en el presente trabajo). Su l'ogica es simple y general, consistiendo de rutinas de escucha de mensajes.
 
 \subsubsubsection{Clases relevantes}
 
 \begin{description}
-\item[ReceptorPedidos] Es el encargado de \italica{poolear} el medio que le fue especificado en b'usqueda de nuevos pedidos. Posee un ReceptorPedidosConcreto qui'en es el encargado de especificar el medio por el cual debe escuchar pedidos (en nuestro caso, por archivo) y es establecido en el arranque de la aplicaci'on. Una vez que se invoca a ComenzarRecepcion, el servidor ya est'a listo para comenzar a recibir pedidos de clientes. Notar que no es un singleton porque no se requiere limitar la cantidad de receptores (pueden haber uno por thread si el sistema fuese multithreading) ni requiere ser referenciado. 
-\item[DespachadorRespuestas] Similar al receptor, 'este se encarga de enviar la respuesta ya generada de vuelta a un cliente. Es un singleton para que se permita su uso a quien as'i lo requiera, pero no para limitar la cantidad de instancias (en principio, podrian ser m'as si se necesitan atender despachos de varios threads). Al igual que el receptor, posee un DespachadorRespuestasEspecifico que se encarga de hacer el env'io real porque es quien realmente conoce el medio por donde se debe enviar la respuesta (en nuestro caso, por archivo).
+\item[ReceptorPedidos] Es el encargado de \italica{pollear} el medio que le fue especificado en b'usqueda de nuevos pedidos. Posee un ReceptorPedidosConcreto quien es el encargado de especificar el medio por el cual debe escuchar pedidos (en nuestro caso, por archivo) y es establecido en el arranque de la aplicaci'on. Una vez que se invoca a ComenzarRecepcion, el servidor ya est'a listo para comenzar a recibir pedidos de clientes. Notar que no es un singleton porque no se requiere limitar la cantidad de receptores (pueden haber uno por thread si el sistema fuese multithreading) ni requiere ser referenciado. 
+\item[DespachadorRespuestas] Similar al receptor, 'este se encarga de enviar la respuesta ya generada de vuelta a un cliente. Es un singleton para que se permita su uso a quien as'i lo requiera, pero no para limitar la cantidad de instancias (en principio, podr'ian ser m'as si se necesitan atender despachos de varios threads). Al igual que el receptor, posee un DespachadorRespuestasEspecifico que se encarga de hacer el env'io real porque es quien realmente conoce el medio por donde se debe enviar la respuesta (en nuestro caso, por archivo).
 \end{description}
 
 
