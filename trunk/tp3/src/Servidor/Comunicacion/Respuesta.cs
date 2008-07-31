@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace CasinoOnline.Servidor.MensajeroDeSalida
+namespace CasinoOnline.Servidor.Comunicacion
 {
+	using IdTerminalVirtual = Int32;
+
 	class Respuesta
 	{
 		private XElement parametros = null;
 		private String tipo = "";
-		private int id_terminal = -1;
+		private IdTerminalVirtual id_terminal = -1;
 
 
 		/// <summary>
@@ -19,7 +21,6 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida
 		public int IdTerminal
 		{
 			get { return id_terminal; }
-			set { id_terminal = value; }
 		}
 
 		/// <summary>
@@ -28,7 +29,6 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida
 		public String Tipo
 		{
 			get { return tipo; }
-			set { tipo = value; }
 		}
 
 		/// <summary>
@@ -37,7 +37,6 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida
 		internal XElement Parametros
 		{
 			get { return parametros; }
-			set { parametros = value; }
 		}
 
 		/// <summary>

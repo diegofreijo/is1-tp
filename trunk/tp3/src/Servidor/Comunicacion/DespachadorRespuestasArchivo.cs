@@ -5,38 +5,17 @@ using System.Text;
 using System.IO;
 using CasinoOnline.Servidor.Utils;
 
-namespace CasinoOnline.Servidor.MensajeroDeSalida
+namespace CasinoOnline.Servidor.Comunicacion
 {
-	class DespachadorRespuestasArchivo : DespachadorRespuestas
+	class DespachadorRespuestasArchivo : IDespachadorRespuestasEspecifico
 	{
+		#region Miembros
 		private const string numero_grupo = "05";
 		private const string buffer_salida = "..\\buffer_salida\\";
-
-		#region Singleton
-		/// <summary>
-		/// La instancia de la clase
-		/// </summary>
-		private static DespachadorRespuestasArchivo instancia = null;
-
-		/// <summary>
-		/// Constructor privado para no permitir crear mas instancias que las necesarias
-		/// </summary>
-		private DespachadorRespuestasArchivo()
-		{
-		}
-
-		/// <summary>
-		/// Devuelve la instancia de la clase
-		/// </summary>
-		public static DespachadorRespuestasArchivo ObtenerInstancia()
-		{
-			if (instancia == null)
-			{
-				instancia = new DespachadorRespuestasArchivo();
-			}
-			return instancia;
-		}
 		#endregion
+
+
+		#region Metodos Publicos
 
 		public override void DespacharRespuesta(Respuesta respuesta)
 		{
@@ -57,5 +36,7 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida
 			// Informo que se envio una nueva respuesta
 			Log.Mensaje("Envie una respuesta de tipo " + respuesta.Tipo);
 		}
+
+		#endregion
 	}
 }

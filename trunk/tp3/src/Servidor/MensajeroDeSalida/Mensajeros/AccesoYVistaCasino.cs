@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
-using CasinoOnline.Servidor.Utils;
+using System;
+using Servidor.Modelo;
+using Servidor.Comunicacion;
 
-namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
+namespace CasinoOnline.Servidor.MensajeroDeSalida
 {
+	using IdMesa = Int32;
+	using IdTerminalVirtual = Int32;
+	using Nombre = String;
+	using Creditos = Decimal;
+
 	public class AccesoYVistaCasino
 	{
 		#region Singleton
@@ -35,93 +37,33 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 		}
 		#endregion
 
-		public void ResponderEntradaCasino(int id_terminal, string usuario, string descripcion, bool aceptado)
-		{
-			try
-			{
-				// Genero la respuesta
-				XElement parametros = new XElement("entradaCasino", new object[] {
-						new XAttribute("vTerm", id_terminal),
-						new XAttribute("usuario", usuario)
-				});
-				if (aceptado)
-				{
-					throw new NotImplementedException();
-				}
-				else
-				{
-					parametros.Add(new object[] {
-						new XElement("aceptado", "no"),
-						new XElement("modoAcceso"),
-						new XElement("saldo"),
-						new XElement("descripcion", descripcion)
-					});
-				}
 
-				// Despacho la respuesta
-				Respuesta respuesta = new Respuesta("respuestaEntradaCasino", id_terminal, parametros);
-				DespachadorRespuestasArchivo.ObtenerInstancia().DespacharRespuesta(respuesta);
-			}
-			catch(Exception ex)
-			{
-				Log.Error("Ocurrio un error generando la vista ResponderEntradaCasino: " + ex.ToString());
-			}
+		/// 
+		/// <param name="idt"></param>
+		/// <param name="idu"></param>
+		/// <param name="descripcion"></param>
+		/// <param name="aceptado"></param>
+		public void ResponderEntrada(IdTerminalVirtual idt, Nombre idu, String descripcion, Boolean aceptado)
+		{
+			throw new NotImplementedException();
 		}
 
-		public void ResponderSalidaCasino(int id_terminal, string usuario, string descripcion, bool aceptado)
+		/// 
+		/// <param name="idt"></param>
+		/// <param name="idu"></param>
+		/// <param name="descripcion"></param>
+		/// <param name="aceptado"></param>
+		public void ResponderSalida(IdTerminalVirtual idt, Nombre idu, String descripcion, Boolean aceptado)
 		{
-			try
-			{
-				// Genero la respuesta
-				XElement parametros = new XElement("entradaCasino", new object[] {
-						new XAttribute("vTerm", id_terminal),
-						new XAttribute("usuario", usuario)
-				});
-				if (aceptado)
-				{
-					throw new NotImplementedException();
-				}
-				else
-				{
-					parametros.Add(new object[] {
-						new XElement("aceptado", "no"),
-						new XElement("modoAcceso"),
-						new XElement("saldo"),
-						new XElement("descripcion", descripcion)
-					});
-				}
-
-				// Despacho la respuesta
-				Respuesta respuesta = new Respuesta("respuestaEntradaCasino", id_terminal, parametros);
-				DespachadorRespuestasArchivo.ObtenerInstancia().DespacharRespuesta(respuesta);
-			}
-			catch (Exception ex)
-			{
-				Log.Error("Ocurrio un error generando la vista ResponderEntradaCasino: " + ex.ToString());
-			}
+			throw new NotImplementedException();
 		}
 
-		public void ResponderEstadoCasino(int id_terminal, string usuario)
+		/// 
+		/// <param name="idt"></param>
+		/// <param name="idu"></param>
+		public void ResponderEstadoCasino(IdTerminalVirtual idt, Nombre idu)
 		{
-			try
-			{
-				// Genero la respuesta
-				XElement parametros = new XElement("estadoCasino", new object[] {
-						new XAttribute("vTerm", id_terminal),
-						new XAttribute("usuario", usuario)
-				});
-				
-				// Logica de negocio
-				throw new NotImplementedException();
-
-				// Despacho la respuesta
-				Respuesta respuesta = new Respuesta("respuestaEstadoCasino", id_terminal, parametros);
-				DespachadorRespuestasArchivo.ObtenerInstancia().DespacharRespuesta(respuesta);
-			}
-			catch (Exception ex)
-			{
-				Log.Error("Ocurrio un error generando la vista ResponderEstadoCasino: " + ex.ToString());
-			}
+			throw new NotImplementedException();
 		}
 	}
 }
