@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CasinoOnline.Servidor.Vista;
-using CasinoOnline.Servidor.Controlador;
-using CasinoOnline.Servidor.Logueo;
+using CasinoOnline.Servidor.MensajeroDeSalida;
+using CasinoOnline.Servidor.MensajeroDeEntrada;
+using CasinoOnline.Servidor.Utils;
 
 namespace CasinoOnline.Servidor
 {
@@ -17,12 +17,12 @@ namespace CasinoOnline.Servidor
 
 		private static void EncenderServidor()
 		{
-			Log.Mensaje("Servidor de CasinoOnline iniciado" + 
-				Environment.NewLine + "=============================================");
+			Log.Mensaje("Servidor de CasinoOnline iniciado" + Environment.NewLine + 
+				"=============================================");
 
 			// Comienzo la recepcion de pedidos
 			Log.Mensaje("Comenzando recepcion de pedidos" + Environment.NewLine);
-			ReceptorPedidos receptor = new ReceptorPedidosArchivo();
+			ReceptorPedidos receptor = new ObtenedorPedidosArchivo();
 			receptor.ComenzarRecepcion();
 		}
     }
