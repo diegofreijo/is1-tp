@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
+using System;
+using Servidor.Modelo;
+using Servidor.Comunicacion;
 
-namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
+namespace CasinoOnline.Servidor.MensajeroDeSalida
 {
+	using IdMesa = Int32;
+	using IdTerminalVirtual = Int32;
 	using Nombre = String;
-	using CasinoOnline.Servidor.Utils;
+	using Creditos = Decimal;
 
-	class JuegoCraps
+	public class JuegoCraps
 	{
 		#region Singleton
 		/// <summary>
@@ -37,60 +37,26 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 		}
 		#endregion
 
-		public void ResponderApuestaCraps(int id_terminal, Nombre usuario, int id_mesa, bool aceptado)
-		{
-			try
-			{
-				// Genero la respuesta
-				XElement parametros = new XElement("respuestaApuestaCraps", new object[] {
-					new XAttribute("vTerm", id_terminal),
-					new XAttribute("usuario", usuario),
-					new XAttribute("mesa", id_mesa),
-					new XElement("aceptado", (aceptado ? "si" : "no"))
-				});
 
-				// Despacho la respuesta
-				Respuesta respuesta = new Respuesta("respuestaApuestaCraps", id_terminal, parametros);
-				DespachadorRespuestasArchivo.ObtenerInstancia().DespacharRespuesta(respuesta);
-			}
-			catch (Exception ex)
-			{
-				Log.Error("Ocurrio un error generando la vista ResponderApuestaCraps: " + ex.ToString());
-			}
+		/// 
+		/// <param name="idt"></param>
+		/// <param name="idu"></param>
+		/// <param name="idm"></param>
+		/// <param name="aceptado"></param>
+		public void ResponderApuestaCraps(IdTerminalVirtual idt, Nombre idu, IdMesa idm, Boolean aceptado)
+		{
+			throw new NotImplementedException();
 		}
 
-		public void ResponderTiroCraps(int id_terminal, Nombre usuario, int id_mesa, bool aceptado)
+		/// 
+		/// <param name="idt"></param>
+		/// <param name="idu"></param>
+		/// <param name="idm"></param>
+		/// <param name="aceptado"></param>
+		public void ResponderTiroCraps(IdTerminalVirtual idt, Nombre idu, IdMesa idm, Boolean aceptado)
 		{
-			try
-			{
-				// Genero la parte en comun de la respuesta a ambos casos
-				XElement parametros = new XElement("respuestaTiroCraps", new object[] {
-					new XAttribute("vTerm", id_terminal),
-					new XAttribute("usuario", usuario),
-					new XAttribute("mesa", id_mesa),
-					new XElement("aceptado", (aceptado ? "si" : "no"))
-				});
-
-				// Termino la respuesta dependiendo si fue o no aceptado el tiro
-				if (aceptado)
-				{
-					parametros.Add(new XElement("tipoJugada"));
-					parametros.Add(new XElement("resultado"));
-					throw new NotImplementedException();
-				}
-				else
-				{
-					parametros.Add(new XElement("resultado"));
-				}
-
-				// Despacho la respuesta
-				Respuesta respuesta = new Respuesta("respuestaTiroCraps", id_terminal, parametros);
-				DespachadorRespuestasArchivo.ObtenerInstancia().DespacharRespuesta(respuesta);
-			}
-			catch (Exception ex)
-			{
-				Log.Error("Ocurrio un error generando la vista ResponderTiroCraps: " + ex.ToString());
-			}
+			throw new NotImplementedException();
 		}
+
 	}
 }

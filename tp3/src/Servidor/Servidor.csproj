@@ -64,15 +64,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comunicacion\IDespachadorRespuestasEspecifico.cs" />
     <Compile Include="Comunicacion\IObtenedorPedidos.cs" />
     <Compile Include="MensajeroDeEntrada\Mensajeros\AccesoYVistaCasino.cs" />
     <Compile Include="MensajeroDeEntrada\Mensajeros\AccesoYVistaCraps.cs" />
     <Compile Include="MensajeroDeEntrada\Mensajeros\JuegoCraps.cs" />
     <Compile Include="MensajeroDeEntrada\DespachadorPedidos.cs" />
+    <Compile Include="MensajeroDeSalida\IMesaObserver.cs" />
+    <Compile Include="MensajeroDeSalida\Mensajeros\AccesoYJuegoTragamonedas.cs" />
+    <Compile Include="MensajeroDeSalida\Mensajeros\AccesoYManejoAdministrador.cs" />
+    <Compile Include="MensajeroDeSalida\NotificadorDeCambiosAClientes.cs" />
     <Compile Include="Modelo\Apuesta.cs" />
     <Compile Include="Modelo\ApuestaCraps.cs" />
     <Compile Include="Modelo\ApuestaTragamonedas.cs" />
     <Compile Include="Modelo\BarraNoPase.cs" />
+    <Compile Include="Modelo\ConfiguracionCasino.cs" />
+    <Compile Include="Modelo\ConfiguracionCraps.cs" />
+    <Compile Include="Modelo\ConfiguracionGeneralDelCasino.cs" />
+    <Compile Include="Modelo\ConfiguracionPozoFeliz.cs" />
+    <Compile Include="Modelo\ConfiguracionPozoProgresivo.cs" />
+    <Compile Include="Modelo\ConfiguracionTragamonedas.cs" />
+    <Compile Include="Modelo\Enums.cs" />
+    <Compile Include="Modelo\Pozo.cs" />
+    <Compile Include="Modelo\PozoFeliz.cs" />
+    <Compile Include="Modelo\PozoProgresivo.cs" />
+    <Compile Include="Modelo\Pozos.cs" />
     <Compile Include="Modelo\SelectorNormal.cs" />
     <Compile Include="Modelo\SelectorAzar.cs" />
     <Compile Include="Modelo\SelectorNoFeliz.cs" />

@@ -9,43 +9,64 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida
 	using Nombre = String;
 	using Creditos = Decimal;
 
-	public class AccesoYVistaCraps
+	public class AccesoYJuegoTragamonedas
 	{
 		#region Singleton
 		/// <summary>
 		/// La instancia de la clase
 		/// </summary>
-		private static AccesoYVistaCraps instancia = null;
+		private static AccesoYJuegoTragamonedas instancia = null;
 
 		/// <summary>
 		/// Constructor privado para no permitir crear mas instancias que las necesarias
 		/// </summary>
-		private AccesoYVistaCraps()
+		private AccesoYJuegoTragamonedas()
 		{
 		}
 
 		/// <summary>
 		/// Devuelve la instancia de la clase
 		/// </summary>
-		public static AccesoYVistaCraps ObtenerInstancia()
+		public static AccesoYJuegoTragamonedas ObtenerInstancia()
 		{
 			if (instancia == null)
 			{
-				instancia = new AccesoYVistaCraps();
+				instancia = new AccesoYJuegoTragamonedas();
 			}
 			return instancia;
 		}
 		#endregion
 
 
+		/// 
+		/// <param name="idt"></param>
+		/// <param name="idu"></param>
+		/// <param name="idm"></param>
+		/// <param name="descripcion"></param>
+		/// <param name="aceptado"></param>
+		public void ResponderEntradaTragamonedas(IdTerminalVirtual idt, Nombre idu, IdMesa idm, String descripcion, Boolean aceptado)
+		{
+			throw new NotImplementedException();
+		}
 
 		/// 
 		/// <param name="idt"></param>
 		/// <param name="idu"></param>
 		/// <param name="idm"></param>
-		/// <param name="aceptado"></param>
 		/// <param name="descripcion"></param>
-		public void ResponderEntradaCraps(IdTerminalVirtual idt, Nombre idu, IdMesa idm, Boolean aceptado, String descripcion)
+		/// <param name="aceptado"></param>
+		public void RespoderSalidaTragamonedas(IdTerminalVirtual idt, Nombre idu, IdMesa idm, String descripcion, Boolean aceptado)
+		{
+			throw new NotImplementedException();
+		}
+
+		/// 
+		/// <param name="idt"></param>
+		/// <param name="idu"></param>
+		/// <param name="idm"></param>
+		/// <param name="monto"></param>
+		/// <param name="aceptado"></param>
+		public void ResponderApuestaTragamonedas(IdTerminalVirtual idt, Nombre idu, IdMesa idm, Creditos monto, Boolean aceptado)
 		{
 			throw new NotImplementedException();
 		}
@@ -55,17 +76,7 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida
 		/// <param name="idu"></param>
 		/// <param name="idm"></param>
 		/// <param name="aceptado"></param>
-		/// <param name="descripcion"></param>
-		public void ResponderSalidaCraps(IdTerminalVirtual idt, Nombre idu, IdMesa idm, Boolean aceptado, String descripcion)
-		{
-			throw new NotImplementedException();
-		}
-
-		/// 
-		/// <param name="idt"></param>
-		/// <param name="idu"></param>
-		/// <param name="idm"></param>
-		public void NotificarEstadoCraps(IdTerminalVirtual idt, Nombre idu, IdMesa idm)
+		public void ResponderTiroTragamonedas(IdTerminalVirtual idt, Nombre idu, IdMesa idm, Boolean aceptado)
 		{
 			throw new NotImplementedException();
 		}
