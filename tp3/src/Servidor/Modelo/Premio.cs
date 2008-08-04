@@ -49,10 +49,10 @@ namespace CasinoOnline.Servidor.Modelo
 		#endregion
 
 
-		public Premio(Jugador jugador, Texto nombre_tipo_apuesta, Creditos monto_apostado, Creditos monto_normal, 
+		public Premio(Jugador apostador, String nombre_tipo_apuesta, Creditos monto_apostado, Creditos monto_normal, 
 			Creditos monto_feliz, Creditos monto_todosponen)
 		{
-			this.jugador = jugador;
+			this.apostador = apostador;
 			this.nombre_tipo_apuesta = nombre_tipo_apuesta ;
 			this.monto_apostado = monto_apostado ;
 			this.monto_normal = monto_normal ;

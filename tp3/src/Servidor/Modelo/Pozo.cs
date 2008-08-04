@@ -19,7 +19,7 @@ namespace CasinoOnline.Servidor.Modelo
 		}
 
 		
-		public virtual Pozo(Creditos monto_minimo)
+		public Pozo(Creditos monto_minimo)
 		{
 			this.monto_minimo = monto_minimo;
 			this.Resetear();

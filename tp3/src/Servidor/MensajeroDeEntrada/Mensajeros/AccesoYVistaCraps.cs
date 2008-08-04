@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using CasinoOnline.Servidor.Utils;
 
 namespace CasinoOnline.Servidor.MensajeroDeEntrada.Mensajeros
 {
 	using Nombre = String;
+	using IdTerminalVirtual = Int32;
+	using IdMesa = Int32;
 
 	class AccesoYVistaCraps
 	{
@@ -36,62 +39,38 @@ namespace CasinoOnline.Servidor.MensajeroDeEntrada.Mensajeros
 		}
 		#endregion
 
+
+		#region Manejadores
+
 		public void EntrarCraps(XElement parametros)
 		{
-			try
-			{
-				// Recorro el Xml y busco las variables que necesito
-				Nombre usuario = parametros.Attribute("usuario").Value;
-				int id_mesa = int.Parse(parametros.Attribute("mesa").Value);
-				int id_terminal = int.Parse(parametros.Attribute("vTerm").Value);
+			// Recorro el Xml y busco las variables que necesito
+			Nombre usuario = parametros.Attribute("usuario").Value;
+			int? id_mesa = String.IsNullOrEmpty(parametros.Attribute("mesa").Value) ? null : IdMesa.Parse(parametros.Attribute("mesa").Value);
+			IdTerminalVirtual id_terminal = IdTerminalVirtual.Parse(parametros.Attribute("vTerm").Value);
 
-				// Informo la accion que se esta realizando
-				Log.Mensaje("Procesando EntrarCraps: " + id_terminal + ", " + usuario + ", " + id_mesa);
+			// Invoco al modelo
+			bool aceptado = Modelo.Fachadas.JuegoCraps.ObtenerInstancia().EntrarCraps(usuario, id_mesa);
 
-
-				// Validaciones
-				// 
-				
-
-				// Logica de negocio
-
-
-				// Envio la respuesta satisfactoria
-				MensajeroDeSalida.Mensajeros.AccesoYVistaCraps.ObtenerInstancia().ResponderEntradaCraps(id_terminal, usuario, id_mesa, true, "Bienvenido a la mesa!");
-			}
-			catch (Exception ex)
-			{
-				Log.Error("Ocurrio un error procesando un pedido de EntrarCraps: " + ex.ToString());
-			}
+			// Envio la respuesta segun el resultado de la operacion
+			MensajeroDeSalida.Mensajeros.AccesoYVistaCraps.ObtenerInstancia().
+				ResponderEntradaCraps(id_terminal, usuario, id_mesa, aceptado, Modelo.Fachadas.JuegoCraps.ObtenerInstancia().DetalleUltimaAccion());
 		}
-
 		public void SalirCraps(XElement parametros)
 		{
-			try
-			{
-				// Recorro el Xml y busco las variables que necesito
-				Nombre usuario = parametros.Attribute("usuario").Value;
-				int id_mesa = int.Parse(parametros.Attribute("mesa").Value);
-				int id_terminal = int.Parse(parametros.Attribute("vTerm").Value);
+			// Recorro el Xml y busco las variables que necesito
+			Nombre usuario = parametros.Attribute("usuario").Value;
+			IdMesa id_mesa = IdMesa.Parse(parametros.Attribute("mesa").Value);
+			IdTerminalVirtual id_terminal = IdTerminalVirtual.Parse(parametros.Attribute("vTerm").Value);
 
-				// Informo la accion que se esta realizando
-				Log.Mensaje("Procesando SalirCraps: " + id_terminal + ", " + usuario + ", " + id_mesa);
+			// Invoco al modelo
+			bool aceptado = Modelo.Fachadas.JuegoCraps.ObtenerInstancia().SalirCraps(usuario, id_mesa);
 
-
-				// Validaciones
-				// 
-
-
-				// Logica de negocio
-
-
-				// Envio la respuesta satisfactoria
-				MensajeroDeSalida.Mensajeros.AccesoYVistaCraps.ObtenerInstancia().ResponderEntradaCraps(id_terminal, usuario, id_mesa, true, "Gracias por gastar plata en esta mesa!");
-			}
-			catch (Exception ex)
-			{
-				Log.Error("Ocurrio un error procesando un pedido de SalirCraps: " + ex.ToString());
-			}
+			// Envio la respuesta segun el resultado de la operacion
+			MensajeroDeSalida.Mensajeros.AccesoYVistaCraps.ObtenerInstancia().
+				ResponderSalidaCraps(id_terminal, usuario, id_mesa, aceptado, Modelo.Fachadas.JuegoCraps.ObtenerInstancia().DetalleUltimaAccion());
 		}
+
+		#endregion
 	}
 }

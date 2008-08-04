@@ -1,16 +1,15 @@
 using System;
-using Servidor.Modelo;
-using Servidor.Comunicacion;
+using CasinoOnline.Servidor.Modelo;
+using CasinoOnline.Servidor.Comunicacion;
 
 namespace CasinoOnline.Servidor.MensajeroDeSalida
 {
+	using IdMesa = Int32;
+
 	public interface IMesaObserver
 	{
 		/// 
 		/// <param name="mesa"></param>
-		public void NotificarCambio(IdMesa mesa)
-		{
-
-		}
+		void NotificarCambio(IdMesa mesa);
 	}
 }

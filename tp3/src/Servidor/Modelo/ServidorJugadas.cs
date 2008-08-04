@@ -6,7 +6,7 @@ namespace CasinoOnline.Servidor.Modelo
 {
 	using IdMesa = Int32;
 
-	public class ServidorJugadas
+	class ServidorJugadas
 	{
 		#region Singleton
 		/// <summary>
@@ -36,7 +36,6 @@ namespace CasinoOnline.Servidor.Modelo
 
 
 		#region Miembros
-		private static ServidorJugadas instancia;
 		private Dictionary<IdMesa, KeyValuePair<SelectorTipoJugada, SelectorResultadoCraps>> mesas_craps;
 		private Dictionary<IdMesa, KeyValuePair<SelectorTipoJugada, SelectorResultadoTragamonedas>> mesas_tragamonedas;
 		#endregion
@@ -55,11 +54,11 @@ namespace CasinoOnline.Servidor.Modelo
 		{
 			throw new NotImplementedException();
 		}
-		public Tupla<Dado, Dado> CalcularDados()
+		public KeyValuePair<Dado, Dado> CalcularDados()
 		{
 			throw new NotImplementedException();
 		}
-		public Tupla<Rodillo, Rodillo, Rodillo> CalcularRodillos()
+		public KeyValuePair<KeyValuePair<RodilloTragamonedas, RodilloTragamonedas>, RodilloTragamonedas> CalcularRodillos()
 		{
 			throw new NotImplementedException();
 		}

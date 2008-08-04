@@ -13,15 +13,15 @@ namespace CasinoOnline.Servidor.Modelo
 
 		private EstadoRondaCraps estado;
 		private int punto;
-		private MesaCrapsObserver observador_cambios;
+		private MensajeroDeSalida.IMesaObserver observador_cambios;
 		private List<ApuestaCraps> apuestas;
 		
 		#endregion
 
 
 		#region Metodos Publicos
-		
-		public MesaCraps(IdMesa id, MesaCrapsObserver observador)
+
+		public MesaCraps(IdMesa id, MensajeroDeSalida.IMesaObserver observador)
 		{
 			this.id = id;
 			this.observador_cambios = observador;

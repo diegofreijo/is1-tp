@@ -1,11 +1,12 @@
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CasinoOnline.Servidor.Modelo
 {
 	using Nombre = String;
 
-	public class UsuariosEnCasino 
+	class UsuariosEnCasino 
 	{
 		#region Singleton
 		/// <summary>
@@ -53,35 +54,32 @@ namespace CasinoOnline.Servidor.Modelo
 		#endregion
 
 		#region Metodos Publicos
+
 		public Jugador ObtenerJugador(Nombre nombre)
 		{
-			throw new NotImplementedException();
+			return jugadores.SingleOrDefault(j => j.Nombre == nombre);
 		}
-
 		public Observador ObtenerObservador(Nombre nombre)
 		{
-			throw new NotImplementedException();
+			return observadores.SingleOrDefault(j => j.Nombre == nombre);
 		}
-
 		public void AgregarJugador(Jugador jugador)
 		{
-			throw new NotImplementedException();
+			jugadores.Add(jugador);
 		}
-
 		public void AgregarObservador(Observador observador)
 		{
-			throw new NotImplementedException();
+			observadores.Add(observador);
 		}
-
 		public void QuitarJugador(Nombre nombre)
 		{
-			throw new NotImplementedException();
+			jugadores.Remove(jugadores.Single(j => j.Nombre == nombre));
 		}
-
 		public void QuitarObservador(Nombre nombre)
 		{
-			throw new NotImplementedException();
+			observadores.Remove(observadores.Single(o => o.Nombre == nombre));
 		}
+
 		#endregion
 	}
 }

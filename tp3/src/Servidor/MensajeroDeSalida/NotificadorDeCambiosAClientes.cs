@@ -1,7 +1,6 @@
 using System;
-using System;
-using Servidor.Modelo;
-using Servidor.Comunicacion;
+using CasinoOnline.Servidor.Modelo;
+using CasinoOnline.Servidor.Comunicacion;
 using System.Collections.Generic;
 
 namespace CasinoOnline.Servidor.MensajeroDeSalida
@@ -10,7 +9,7 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida
 	using IdTerminalVirtual = Int32;
 	using Nombre = String;
 
-	public class NotificadorDeCambiosAClientes : IMesaObserver
+	class NotificadorDeCambiosAClientes : IMesaObserver
 	{
 		#region Singleton
 		/// <summary>

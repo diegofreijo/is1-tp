@@ -17,7 +17,7 @@ namespace CasinoOnline.Servidor.Comunicacion
 
 		#region Metodos Publicos
 
-		public override void DespacharRespuesta(Respuesta respuesta)
+		public void DespacharRespuesta(Respuesta respuesta)
 		{
 			// Escribo un nuevo archivo XML al buffer de salida
 			try
@@ -34,7 +34,7 @@ namespace CasinoOnline.Servidor.Comunicacion
 			}
 
 			// Informo que se envio una nueva respuesta
-			Log.Mensaje("Envie una respuesta de tipo " + respuesta.Tipo);
+			Log.MensajeEnvioRespuesta(respuesta);
 		}
 
 		#endregion

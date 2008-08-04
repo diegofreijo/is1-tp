@@ -1,12 +1,15 @@
+using System;
 using System.Xml.Linq;
 using CasinoOnline.Servidor;
 using CasinoOnline.Servidor.MensajeroDeEntrada;
+using CasinoOnline.Servidor.Utils;
 
 namespace CasinoOnline.Servidor.MensajeroDeEntrada.Mensajeros
 {
 	using Nombre = String;
+	using IdTerminalVirtual = Int32;
 
-	public class AccesoYVistaCasino
+	class AccesoYVistaCasino
 	{
 		#region Singleton
 		/// <summary>
@@ -38,76 +41,43 @@ namespace CasinoOnline.Servidor.MensajeroDeEntrada.Mensajeros
 
 		public void EntrarCasino(XElement parametros)
 		{
-			try
-			{
-				// Recorro el Xml y busco las variables que necesito
-				Nombre usuario = parametros.Attribute("usuario").Value;
-				int id_terminal = int.Parse(parametros.Attribute("vTerm").Value);
+			// Recorro el Xml y busco las variables que necesito
+			Nombre usuario = parametros.Attribute("usuario").Value;
+			String modo = parametros.Element("modoAcceso").Value;
+			IdTerminalVirtual id_terminal = IdTerminalVirtual.Parse(parametros.Attribute("vTerm").Value);
 
-				// Informo la accion que se esta realizando
-				Log.Mensaje("Procesando EntrarCasino: " + id_terminal + ", " + usuario + ", " + id_mesa);
+			// Invoco al modelo
+			bool aceptado = Modelo.Fachadas.LobbyCasino.ObtenerInstancia().EntrarCasino(usuario, modo);
 
-
-				// Validaciones
-				// El usuario es observador o (es jugador y esta registrado como jugador)?
-				// El usuario ya entro al casino?
-
-				// Envio la respuesta
-				MensajeroDeSalida.Mensajeros.AccesoYVistaCasino.ObtenerInstancia().ResponderEntradaCasino(id_terminal, usuario, "Bienvenido al CasinoOnlie Grupo 05! Esperamos que gastes mucha plata.", true);
-			}
-			catch (Exception ex)
-			{
-				Log.Error("Ocurrio un error procesando un pedido de EntrarCasino: " + ex.ToString());
-			}
+			// Envio la respuesta segun el resultado de la operacion
+			MensajeroDeSalida.Mensajeros.AccesoYVistaCasino.ObtenerInstancia().
+				ResponderEntrada(id_terminal, usuario, Modelo.Fachadas.LobbyCasino.ObtenerInstancia().DetalleUltimaAccion(), aceptado);
 		}
-
 		public void SalirCasino(XElement parametros)
 		{
-			try
-			{
-				// Recorro el Xml y busco las variables que necesito
-				Nombre usuario = parametros.Attribute("usuario").Value;
-				int id_terminal = int.Parse(parametros.Attribute("vTerm").Value);
+			// Recorro el Xml y busco las variables que necesito
+			Nombre usuario = parametros.Attribute("usuario").Value;
+			IdTerminalVirtual id_terminal = IdTerminalVirtual.Parse(parametros.Attribute("vTerm").Value);
 
-				// Informo la accion que se esta realizando
-				Log.Mensaje("Procesando SalirCasino: " + id_terminal + ", " + usuario + ", " + id_mesa);
+			// Invoco al modelo
+			bool aceptado = Modelo.Fachadas.LobbyCasino.ObtenerInstancia().SalirCasino(usuario);
 
-
-				// Validaciones
-				// El usuario es observador o (es jugador y esta registrado como jugador)?
-				// El usuario ya entro al casino?
-
-				// Envio la respuesta
-				MensajeroDeSalida.Mensajeros.AccesoYVistaCasino.ObtenerInstancia().ResponderSalidaCasino(id_terminal, usuario, "Esperamos que la proximas traigas mas plata para gastar! Chau!", true);
-			}
-			catch (Exception ex)
-			{
-				Log.Error("Ocurrio un error procesando un pedido de SalirCasino: " + ex.ToString());
-			}
+			// Envio la respuesta segun el resultado de la operacion
+			MensajeroDeSalida.Mensajeros.AccesoYVistaCasino.ObtenerInstancia().
+				ResponderSalida(id_terminal, usuario, Modelo.Fachadas.LobbyCasino.ObtenerInstancia().DetalleUltimaAccion(), aceptado);
 		}
-
 		public void PedirEstadoCasino(XElement parametros)
 		{
-			try
-			{
-				// Recorro el Xml y busco las variables que necesito
-				Nombre usuario = parametros.Attribute("usuario").Value;
-				int id_terminal = int.Parse(parametros.Attribute("vTerm").Value);
+			// Recorro el Xml y busco las variables que necesito
+			Nombre usuario = parametros.Attribute("usuario").Value;
+			IdTerminalVirtual id_terminal = IdTerminalVirtual.Parse(parametros.Attribute("vTerm").Value);
 
-				// Informo la accion que se esta realizando
-				Log.Mensaje("Procesando PedirEstadoCasino: " + id_terminal + ", " + usuario + ", " + id_mesa);
+			// Invoco al modelo
+			bool aceptado = Modelo.Fachadas.LobbyCasino.ObtenerInstancia().PedirEstadoCasino(usuario);
 
-
-				// Validaciones
-				// El usuario existe y entro al casino?
-
-				// Envio la respuesta
-				MensajeroDeSalida.Mensajeros.AccesoYVistaCasino.ObtenerInstancia().ResponderEstadoCasino(id_terminal, usuario);
-			}
-			catch (Exception ex)
-			{
-				Log.Error("Ocurrio un error procesando un pedido de PedirEstadoCasino: " + ex.ToString());
-			}
+			// Envio la respuesta segun el resultado de la operacion
+			MensajeroDeSalida.Mensajeros.AccesoYVistaCasino.ObtenerInstancia().
+				ResponderEstadoCasino(id_terminal, usuario, aceptado);
 		}
 
 		#endregion

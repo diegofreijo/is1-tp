@@ -1,15 +1,15 @@
 using System;
-using Servidor.Modelo;
-using Servidor.Comunicacion;
+using CasinoOnline.Servidor.Modelo;
+using CasinoOnline.Servidor.Comunicacion;
 
-namespace CasinoOnline.Servidor.MensajeroDeSalida
+namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 {
 	using IdMesa = Int32;
 	using IdTerminalVirtual = Int32;
 	using Nombre = String;
 	using Creditos = Decimal;
 
-	public class AccesoYVistaCraps
+	class AccesoYVistaCraps
 	{
 		#region Singleton
 		/// <summary>

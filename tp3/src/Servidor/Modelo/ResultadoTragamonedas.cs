@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CasinoOnline.Servidor.Modelo
 {
-	class ResultadoTragamonedas
+	class ResultadoTragamonedas : Resultado
 	{
 		#region Miembros
 		private RodilloTragamonedas rodillo1;

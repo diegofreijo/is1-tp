@@ -40,7 +40,7 @@ namespace CasinoOnline.Servidor.Modelo
 		/// Id de la siguiente mesa a crear
 		/// </summary>
 		private int contador_idmesa = 1;
-		private MesaCrapsObserver observador_cambios_craps;
+		private MensajeroDeSalida.IMesaObserver observador_cambios_craps;
 		private List<MesaCraps> mesas_craps;
 		private List<MesaTragamonedas> mesas_tragamonedas;
 		#endregion
@@ -63,9 +63,10 @@ namespace CasinoOnline.Servidor.Modelo
 
 		/// 
 		/// <param name="observador"></param>
-		public void Inicializar(MesaCrapsObserver observador)
+		public void Inicializar(MensajeroDeSalida.IMesaObserver observador)
 		{
-
+			// Me guardo el observador para futuras mesas
+			this.observador_cambios_craps = observador;
 		}
 
 		public MesaCraps CrearMesaCraps()

@@ -4,7 +4,7 @@ namespace CasinoOnline.Servidor.Modelo
 {
 	using Creditos = Decimal;
 
-	public class ConfiguracionPozoFeliz
+	class ConfiguracionPozoFeliz
 	{
 
 		private Decimal porcentaje_descuento_todosponen;

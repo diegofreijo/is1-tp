@@ -7,6 +7,6 @@ namespace CasinoOnline.Servidor.Comunicacion
 {
 	interface IDespachadorRespuestasEspecifico
 	{
-		public void DespacharRespuesta(Respuesta respuesta);
+		void DespacharRespuesta(Respuesta respuesta);
 	}
 }

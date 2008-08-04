@@ -36,7 +36,7 @@ namespace CasinoOnline.Servidor.Modelo
 			this.estado_ronda = estado_ronda;
 			this.punto = punto;
 		}
-		public void Resolverse()
+		public override void Resolverse()
 		{
 			throw new NotImplementedException();
 		}
