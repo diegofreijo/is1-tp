@@ -5,12 +5,14 @@ using System.Text;
 
 namespace CasinoOnline.Servidor.Modelo
 {
+	using IdMesa = Int32;
+
 	abstract class Mesa
 	{
 		#region Miembros
 		
 		protected IdMesa id;
-		protected List<Jugador> jugadores_en_mesa;
+		private List<Jugador> jugadores_en_mesa;
 		protected Jugador proximo_tirador;
 		protected Jugada ultima_jugada;
 
@@ -30,6 +32,10 @@ namespace CasinoOnline.Servidor.Modelo
 		public Jugador ProximoTirador
 		{
 			get { return proximo_tirador; }
+		}
+		public List<Jugador> JugadoresEnMesa
+		{
+			get { return jugadores_en_mesa; }
 		}
 
 		#endregion

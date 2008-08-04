@@ -41,7 +41,6 @@ namespace CasinoOnline.Servidor.Comunicacion
 					Pedido nuevo_pedido = new Pedido(nuevo_xml.Name.ToString(), nuevo_xml);
 
 					// Proceso el nuevo pedido
-					Log.Mensaje("Llego un nuevo pedido de tipo " + nuevo_pedido.Tipo);
 					MensajeroDeEntrada.DespachadorPedidos.ObtenerInstancia().DespacharPedido(nuevo_pedido);
 				}
 				else

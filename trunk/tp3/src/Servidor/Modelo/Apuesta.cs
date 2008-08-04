@@ -28,7 +28,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 		#region Metodos Publicos
 
-		public abstract void Resolverse(Resultado resultado);
+		public abstract Creditos Resolverse(Resultado resultado);
 		public abstract string ObtenerNombreTipoApuesta();
 
 		#endregion

@@ -1,9 +1,9 @@
 using System;
-using Servidor.Modelo;
+using CasinoOnline.Servidor.Modelo;
 
 namespace CasinoOnline.Servidor.Modelo
 {
-	public abstract class ApuestaCraps : Apuesta
+	abstract class ApuestaCraps : Apuesta
 	{
 		private EstadoApuestaCraps estado;
 
@@ -13,7 +13,7 @@ namespace CasinoOnline.Servidor.Modelo
 			set { estado = value; }
 		}
 
-		public Entero ObtenerPuntajeApostado()
+		public virtual int ObtenerPuntajeApostado()
 		{
 			throw new NotImplementedException();
 		}

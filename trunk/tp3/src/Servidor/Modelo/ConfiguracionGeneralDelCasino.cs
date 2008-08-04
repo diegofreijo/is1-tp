@@ -5,7 +5,7 @@ namespace CasinoOnline.Servidor.Modelo
 {
 	using Creditos = Decimal;
 
-	public class ConfiguracionGeneralDelCasino
+	class ConfiguracionGeneralDelCasino
 	{
 		private List<Creditos> fichas_validas;
 		private Creditos saldo_casino;
@@ -30,7 +30,7 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="fichas_validas"></param>
 		/// <param name="saldo_casino"></param>
 		/// <param name="pass"></param>
-		public ConfiguracionGeneralDelCasino(Coleccion<Creditos> fichas_validas, Creditos saldo_casino, String pass)
+		public ConfiguracionGeneralDelCasino(List<Creditos> fichas_validas, Creditos saldo_casino, String pass)
 		{
 			this.fichas_validas = fichas_validas;
 			this.saldo_casino = saldo_casino;

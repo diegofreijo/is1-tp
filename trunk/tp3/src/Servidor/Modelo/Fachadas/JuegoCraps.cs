@@ -1,9 +1,14 @@
 using System;
-using Servidor.Modelo;
+using System.Collections.Generic;
+using CasinoOnline.Servidor.Modelo;
 
-namespace CasinoOnline.Servidor.Modelo
+namespace CasinoOnline.Servidor.Modelo.Fachadas
 {
-	public class JuegoCraps
+	using Creditos = Decimal;
+	using Nombre = String;
+	using IdMesa = Int32;
+
+	class JuegoCraps
 	{
 		#region Singleton
 		/// <summary>
@@ -36,12 +41,59 @@ namespace CasinoOnline.Servidor.Modelo
 		#endregion
 
 		#region Metodos Publicos
+
 		/// 
 		/// <param name="jug"></param>
 		/// <param name="mesa"></param>
-		public Boolean EntrarCraps(Nombre jug, IdMesa mesa)
+		public Boolean EntrarCraps(Nombre nombre_jugador, int? idmesa)
 		{
+			Boolean ret = false;
+			Mesa mesa;
 
+			// Veo si el jugador ingreso
+			Jugador jugador = UsuariosEnCasino.ObtenerInstancia().ObtenerJugador(nombre_jugador);
+			if (jugador != null)
+			{
+				// Veo si el jugador no esta en una mesa
+				if (jugador.MesaElegida == null)
+				{
+					// Veo si hay que crear la mesa
+					if (idmesa == null)
+					{
+						mesa = CrearMesaCraps();
+						detalle_ultima_accion = "Se creo una nueva mesa y el jugador acaba de ingresar a ella";
+					}
+					else
+					{
+						mesa = MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps((int)idmesa);
+						detalle_ultima_accion = "El jugador entro a la mesa que selecciono";
+					}
+
+					// falta el e/h
+					throw new NotImplementedException();
+
+					// Agrego al jugador a la mes
+					mesa.JugadoresEnMesa.Add(jugador);
+					ret = true;
+				}
+				else
+				{
+					// Ya estaba en una mesa
+					detalle_ultima_accion = "El jugador ya estaba en una mesa, no se puede ingresar a una nueva.";
+					ret = false;
+				}
+			}
+			else
+			{
+				// El usuario no es un jugador
+				detalle_ultima_accion = "El usuario no ingreso o no ingreso al casino en modo jugador.";
+				ret = false;
+			}
+
+			return ret;
+		}
+		public Boolean SalirCraps(Nombre jugador, IdMesa mesa)
+		{
 			throw new NotImplementedException();
 		}
 
@@ -51,7 +103,7 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="tipo_apuesta"></param>
 		/// <param name="fichas"></param>
 		/// <param name="puntaje_apostado"></param>
-		public Boolean ApostarCraps(Nombre jugador, IdMesa mesa, String tipo_apuesta, Diccionario<Creditos, Entero> fichas, Entero puntaje_apostado)
+		public Boolean ApostarCraps(Nombre jugador, IdMesa mesa, String tipo_apuesta, Dictionary<Creditos, int> fichas, int puntaje_apostado)
 		{
 			throw new NotImplementedException();
 		}
@@ -67,7 +119,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 		/// 
 		/// <param name="mesa"></param>
-		public Entero Dado1UltimoTiro(IdMesa mesa)
+		public int Dado1UltimoTiro(IdMesa mesa)
 		{
 
 			throw new NotImplementedException();
@@ -75,7 +127,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 		/// 
 		/// <param name="mesa"></param>
-		public Entero Dado2UltimoTiro(IdMesa mesa)
+		public int Dado2UltimoTiro(IdMesa mesa)
 		{
 
 			throw new NotImplementedException();
@@ -113,7 +165,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 		/// 
 		/// <param name="mesa"></param>
-		public Entero ValorPuntoProximoTiro(IdMesa mesa)
+		public int ValorPuntoProximoTiro(IdMesa mesa)
 		{
 
 			throw new NotImplementedException();
@@ -129,7 +181,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 		/// 
 		/// <param name="mesa"></param>
-		public Lista<Tupla<Nombre, Creditos, Creditos, Creditos>> PremiosUltimoTiro(IdMesa mesa)
+		public List<KeyValuePair<KeyValuePair<KeyValuePair<Nombre, Creditos>, Creditos>, Creditos>> PremiosUltimoTiro(IdMesa mesa)
 		{
 
 			throw new NotImplementedException();
@@ -137,7 +189,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 		/// 
 		/// <param name="mesa"></param>
-		public Lista<Tupla<Nombre, String, String, DIccionario<Creditos, Entero>>> ApuestasVigentes(IdMesa mesa)
+		public List<KeyValuePair<KeyValuePair<KeyValuePair<Nombre, String>, String>, Dictionary<Creditos, int>>> ApuestasVigentes(IdMesa mesa)
 		{
 
 			throw new NotImplementedException();
@@ -154,6 +206,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 			throw new NotImplementedException();
 		}
+
 		#endregion
 
 		#region Metodos Privados

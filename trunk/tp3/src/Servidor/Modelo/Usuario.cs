@@ -1,5 +1,5 @@
 using System;
-using Servidor.Modelo;
+using CasinoOnline.Servidor.Modelo;
 
 namespace CasinoOnline.Servidor.Modelo
 {

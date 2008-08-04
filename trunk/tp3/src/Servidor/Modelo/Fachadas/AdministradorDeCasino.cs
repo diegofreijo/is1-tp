@@ -1,9 +1,16 @@
 using System;
-using Servidor.Modelo;
+using System.Linq;
+using System.Xml.Linq;
+using System.Collections.Generic;
+using CasinoOnline.Servidor.Modelo;
 
-namespace CasinoOnline.Servidor.Modelo
+namespace CasinoOnline.Servidor.Modelo.Fachadas
 {
-	public class AdministradorDeCasino
+	using IdMesa = Int32;
+	using Creditos = Decimal;
+	using Nombre = String;
+
+	class AdministradorDeCasino
 	{
 		#region Singleton
 		/// <summary>
@@ -51,7 +58,6 @@ namespace CasinoOnline.Servidor.Modelo
 
 			throw new NotImplementedException();
 		}
-
 		/// 
 		/// <param name="pass"></param>
 		public Boolean PuedePedirReporteDetalleMovimientosPorJugador(String pass)
@@ -62,7 +68,6 @@ namespace CasinoOnline.Servidor.Modelo
 
 		public String DetalleUltimaAccion()
 		{
-
 			throw new NotImplementedException();
 		}
 
@@ -83,7 +88,7 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="dado2"></param>
 		/// <param name="tipo_jugada"></param>
 		/// <param name="pass"></param>
-		public Boolean ConfigurarModoDirigidoCraps(Entero dado1, Entero dado2, String tipo_jugada, String pass)
+		public Boolean ConfigurarModoDirigidoCraps(int dado1, int dado2, String tipo_jugada, String pass)
 		{
 
 			throw new NotImplementedException();
@@ -100,32 +105,32 @@ namespace CasinoOnline.Servidor.Modelo
 
 		/// 
 		/// <param name="configuracion"></param>
-		public void InicializarConfiguracion(Xml configuracion)
+		public void InicializarConfiguracion(XElement configuracion)
 		{
-
+			ConfiguracionCasino.ObtenerInstancia().Inicializar(configuracion);
 		}
 
 		/// 
 		/// <param name="lista_clientes"></param>
-		public void InicializarJugadoresRegistrados(Xml lista_clientes)
+		public void InicializarJugadoresRegistrados(XElement lista_clientes)
 		{
-
+			JugadoresRegistrados.ObtenerInstancia().Inicializar(lista_clientes);
 		}
 
 		/// 
 		/// <param name="observador"></param>
-		public void InicializarMesas(MesaCrapsObserver observador)
+		public void InicializarMesas(MensajeroDeSalida.IMesaObserver observador)
 		{
-
+			MesasAbiertas.ObtenerInstancia().Inicializar(observador);
 		}
 
-		public Lista<Nombre> ObtenerJugadoresMasGanadores()
+		public List<Nombre> ObtenerJugadoresMasGanadores()
 		{
 
 			throw new NotImplementedException();
 		}
 
-		public Lista<Nombre> ObtenerJugadoresMasPerdedores()
+		public List<Nombre> ObtenerJugadoresMasPerdedores()
 		{
 
 			throw new NotImplementedException();
@@ -133,21 +138,20 @@ namespace CasinoOnline.Servidor.Modelo
 
 		public Creditos ObtenerSaldoCasino()
 		{
-
-			throw new NotImplementedException();
+			return ConfiguracionCasino.ObtenerInstancia().SaldoCasino;
 		}
 
-		public List<Tupla<Nombre, Creditos>> ObtenerJugadoresConSaldo()
+		public Dictionary<Nombre, Creditos> ObtenerJugadoresConSaldo()
+		{
+			return UsuariosEnCasino.ObtenerInstancia().Jugadores.ToDictionary(j => j.Nombre, j => j.Saldo);
+		}
+
+		public List<KeyValuePair<KeyValuePair<KeyValuePair<KeyValuePair<KeyValuePair<Nombre, String>, Creditos>, Creditos>, Creditos>, Creditos>> DetalleMovimientoJugadores()
 		{
 
 			throw new NotImplementedException();
 		}
 
-		public List<Tupla<Nombre, String, Creditos, Creditos, Creditos, Creditos>> DetalleMovimientoJugadores()
-		{
-
-			throw new NotImplementedException();
-		}
 		#endregion
 	}
 }

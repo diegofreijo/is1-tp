@@ -5,6 +5,9 @@ using System.Text;
 
 namespace CasinoOnline.Servidor.Modelo
 {
+	using Creditos = Decimal;
+	using Nombre = String;
+
 	class ApuestaTragamonedas : Apuesta
 	{
 		private int cant_fichas;
@@ -17,7 +20,7 @@ namespace CasinoOnline.Servidor.Modelo
 			this.cant_fichas = cant_fichas;
 			this.valor = valor;
 		}
-		public override void Resolverse(Resultado resultado)
+		public override Creditos Resolverse(Resultado resultado)
 		{
 			throw new NotImplementedException();
 		}

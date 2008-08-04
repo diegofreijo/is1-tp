@@ -1,18 +1,21 @@
 using System;
-using Servidor.Modelo;
+using CasinoOnline.Servidor.Modelo;
+using System.Collections.Generic;
 
 namespace CasinoOnline.Servidor.Modelo
 {
-	public class Venir : ApuestaCraps
+	using Creditos = Decimal;
+
+	class Venir : ApuestaCraps
 	{
 
-		private Entero puntaje_venir;
+		private int puntaje_venir;
 
 		/// 
 		/// <param name="fichas"></param>
 		/// <param name="apostador"></param>
 		/// <param name="estado"></param>
-		public Venir(Diccionario<Creditos, Entero> fichas, Jugador apostador, EstadoApuestaCraps estado)
+		public Venir(Dictionary<Creditos, int> fichas, Jugador apostador, EstadoApuestaCraps estado)
 		{
 			throw new NotImplementedException();
 		}
@@ -22,19 +25,16 @@ namespace CasinoOnline.Servidor.Modelo
 		public override Creditos Resolverse(Resultado resultado)
 		{
 			throw new NotImplementedException();
-			return null;
 		}
 
-		public override Texto ObtenerNombreTipoApuesta()
+		public override String ObtenerNombreTipoApuesta()
 		{
 			throw new NotImplementedException();
-			return null;
 		}
 
-		public override Entero ObtenerPuntajeApostado()
+		public override int ObtenerPuntajeApostado()
 		{
 			throw new NotImplementedException();
-			return null;
 		}
 
 	}

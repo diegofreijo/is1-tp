@@ -4,7 +4,7 @@ namespace CasinoOnline.Servidor.Modelo
 {
 	using Creditos = Decimal;
 
-	public class ConfiguracionPozoProgresivo
+	class ConfiguracionPozoProgresivo
 	{
 		private int cant_apuestas_jugada_maxima_gordo_progresivo;
 		private Decimal porcentaje_descuento_por_apuesta;

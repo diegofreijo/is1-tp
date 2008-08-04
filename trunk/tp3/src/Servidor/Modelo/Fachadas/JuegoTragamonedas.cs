@@ -1,11 +1,14 @@
 using System;
-using Servidor.Modelo;
+using CasinoOnline.Servidor.Modelo;
 
-namespace CasinoOnline.Servidor.Modelo
+namespace CasinoOnline.Servidor.Modelo.Fachadas
 {
 	using IdMesa = Int32;
+	using Creditos = Decimal;
+	using Nombre = String;
+	using System.Collections.Generic;
 
-	public class JuegoTragamonedas
+	class JuegoTragamonedas
 	{
 		#region Singleton
 		/// <summary>
@@ -60,7 +63,7 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="jugador"></param>
 		/// <param name="mesa"></param>
 		/// <param name="fichas"></param>
-		public Boolean ApostarTragamonedas(Nombre jugador, IdMesa mesa, Entero fichas)
+		public Boolean ApostarTragamonedas(Nombre jugador, IdMesa mesa, int fichas)
 		{
 
 			throw new NotImplementedException();
@@ -81,7 +84,7 @@ namespace CasinoOnline.Servidor.Modelo
 			throw new NotImplementedException();
 		}
 
-		public List<Tupla<IdMesa, Nombre, Nombre, String, String, String>> ObtenerDatosTragamonedas()
+		public List<KeyValuePair<KeyValuePair<KeyValuePair<KeyValuePair<KeyValuePair<IdMesa, Nombre>, Nombre>, String>, String>, String>> ObtenerDatosTragamonedas()
 		{
 
 			throw new NotImplementedException();

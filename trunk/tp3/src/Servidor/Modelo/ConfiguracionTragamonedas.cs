@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CasinoOnline.Servidor.Modelo
 {
-	public class ConfiguracionTragamonedas
+	class ConfiguracionTragamonedas
 	{
 		private Dictionary<FiguraRodillo, Decimal> probabilidad_ocurrencia_figuras;
 

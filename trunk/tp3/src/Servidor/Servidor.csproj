@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="Comunicacion\IDespachadorRespuestasEspecifico.cs" />
     <Compile Include="Comunicacion\IObtenedorPedidos.cs" />
+    <Compile Include="MensajeroDeEntrada\Mensajeros\AccesoYJuegoTragamonedas.cs" />
+    <Compile Include="MensajeroDeEntrada\Mensajeros\AccesoYManejoAdministrador.cs" />
     <Compile Include="MensajeroDeEntrada\Mensajeros\AccesoYVistaCasino.cs" />
     <Compile Include="MensajeroDeEntrada\Mensajeros\AccesoYVistaCraps.cs" />
     <Compile Include="MensajeroDeEntrada\Mensajeros\JuegoCraps.cs" />

@@ -1,12 +1,16 @@
 using System;
-using Servidor.Modelo;
+using CasinoOnline.Servidor.Modelo;
 
 namespace CasinoOnline.Servidor.Modelo
 {
 	using Creditos = Decimal;
+	using Nombre = String;
 
-	public class JugadorVip : Jugador
+	class JugadorVip : Jugador
 	{
+		public JugadorVip(Nombre nombre, Creditos saldo) : base(nombre, saldo)
+		{ 
+		}
 		public override bool PuedePagar(decimal cantidad)
 		{
 			return true;
