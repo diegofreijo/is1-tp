@@ -34,8 +34,8 @@ namespace CasinoOnline.Servidor.Modelo
 		#endregion
 
 		#region Miembros
-		private List<JugadaCraps> jugadas_craps;
-		private List<JugadaTragamonedas> jugadas_tragamonedas;
+		private List<JugadaCraps> jugadas_craps = new List<JugadaCraps>();
+		private List<JugadaTragamonedas> jugadas_tragamonedas = new List<JugadaTragamonedas>();
 		#endregion
 
 

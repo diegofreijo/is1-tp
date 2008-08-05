@@ -8,8 +8,8 @@ namespace CasinoOnline.Servidor.Modelo
 	class JugadaTragamonedas : Jugada
 	{
 		#region Miembros
-		private PozoProgresivo pozo_progresivo;
-		private PremioTragamonedas premio;
+		private PozoProgresivo pozo_progresivo = null;
+		private PremioTragamonedas premio = null;
 		private ApuestaTragamonedas apuesta;
 		#endregion
 
@@ -26,12 +26,11 @@ namespace CasinoOnline.Servidor.Modelo
 
 		#region Metodos Publicos
 
-		public JugadaTragamonedas(ApuestaTragamonedas apuesta, ResultadoTragamonedas resultado,
-			TipoJugada tipo_jugada)
+		public JugadaTragamonedas(Jugador tirador, ResultadoTragamonedas resultado, TipoJugada tipo_jugada, PozoFeliz pozo_feliz,
+			ApuestaTragamonedas apuesta)
+			: base(tirador, resultado, tipo_jugada, pozo_feliz)
 		{
 			this.apuesta = apuesta;
-			this.resultado = resultado;
-			this.tipo_jugada = tipo_jugada;
 		}
 		public override void Resolverse()
 		{

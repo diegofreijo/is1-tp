@@ -106,7 +106,7 @@ namespace CasinoOnline.Servidor.Utils
 			Console.ForegroundColor = ConsoleColor.Cyan;
 			Console.WriteLine(idterm);
 
-			Console.ForegroundColor = ConsoleColor.Red;
+			Console.ForegroundColor = ConsoleColor.DarkRed;
 			Console.WriteLine(ex.ToString());
 		}
 

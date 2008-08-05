@@ -33,7 +33,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 		}
 
-		public override int ObtenerPuntajeApostado()
+		public override int? ObtenerPuntajeApostado()
 		{
 			throw new NotImplementedException();
 

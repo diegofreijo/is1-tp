@@ -25,19 +25,19 @@ namespace CasinoOnline.Servidor.Modelo
 		{
 			get { return monto_normal; }
 		}
-		public Creditos Monto_feliz
+		public Creditos MontoFeliz
 		{
 			get { return monto_feliz; }
 		}
-		public Creditos Monto_todosponen
+		public Creditos MontoTodosPonen
 		{
 			get { return monto_todosponen; }
 		}
-		public Creditos Monto_apostado
+		public Creditos MontoApostado
 		{
 			get { return monto_apostado; }
 		}
-		public String Nombre_tipo_apuesta
+		public String NombreTipoApuesta
 		{
 			get { return nombre_tipo_apuesta; }
 		}

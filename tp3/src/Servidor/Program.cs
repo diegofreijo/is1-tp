@@ -16,6 +16,7 @@ namespace CasinoOnline.Servidor
 
         static void Main(string[] args)
         {
+			Console.Title = "CasinoOnline - Grupo 05";
 			EncenderServidor();
         }
 

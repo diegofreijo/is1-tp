@@ -18,6 +18,7 @@ namespace CasinoOnline.Servidor.Modelo
 		/// </summary>
 		private Pozos()
 		{
+			pozo_feliz = new PozoFeliz(ConfiguracionCasino.ObtenerInstancia().MontoMinimoPozoFeliz);
 		}
 
 		/// <summary>
@@ -33,17 +34,17 @@ namespace CasinoOnline.Servidor.Modelo
 		}
 		#endregion
 
-		private PozoProgresivo prozo_progresivo;
-		private PozoFeliz prozo_feliz;
+		private PozoProgresivo pozo_progresivo;
+		private PozoFeliz pozo_feliz;
 
 
 		public PozoProgresivo ProzoProgresivo
 		{
-			get { return prozo_progresivo; }
+			get { return pozo_progresivo; }
 		}
 		public PozoFeliz ProzoFeliz
 		{
-			get { return prozo_feliz; }
+			get { return pozo_feliz; }
 		}
 
 	}
