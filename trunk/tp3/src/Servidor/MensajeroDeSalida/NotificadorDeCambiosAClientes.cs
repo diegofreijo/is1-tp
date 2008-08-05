@@ -38,13 +38,17 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida
 		#endregion
 
 
-		private Dictionary<Nombre, IdTerminalVirtual> terminales;
+		private Dictionary<Nombre, IdTerminalVirtual> terminales = new Dictionary<string,int>();
 
 		/// 
 		/// <param name="mesa"></param>
-		public void NotificarCambio(IdMesa mesa)
+		public void NotificarCambio(IdMesa idmesa)
 		{
-			throw new NotImplementedException();
+			// Notifico el cambio a cada terminal
+			foreach (Nombre usuario in Modelo.Fachadas.JuegoCraps.ObtenerInstancia().JugadoresEnMesa(idmesa))
+			{
+				Mensajeros.AccesoYVistaCraps.ObtenerInstancia().NotificarEstadoCraps(terminales[usuario], usuario, idmesa);
+			}
 		}
 
 		/// 
@@ -52,14 +56,14 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida
 		/// <param name="jugador"></param>
 		public void SuscribirJugadorAMesa(IdTerminalVirtual id_term, Nombre jugador)
 		{
-			throw new NotImplementedException();
+			terminales.Add(jugador, id_term);
 		}
 
 		/// 
 		/// <param name="jugador"></param>
 		public void DesuscribirJugadorAMesa(Nombre jugador)
 		{
-			throw new NotImplementedException();
+			terminales.Remove(jugador);
 		}
 	}
 }

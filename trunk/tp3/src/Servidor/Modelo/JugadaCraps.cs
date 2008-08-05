@@ -9,9 +9,9 @@ namespace CasinoOnline.Servidor.Modelo
 	{
 		#region Miembros
 		private EstadoRondaCraps estado_ronda;
-		private int punto;
+		private int? punto;
 		private List<ApuestaCraps> apuestas;
-		private List<Premio> premios;
+		private List<Premio> premios = new List<Premio>();
 		#endregion
 
 
@@ -27,14 +27,13 @@ namespace CasinoOnline.Servidor.Modelo
 
 		#region Metodos Publicos
 
-		public JugadaCraps(List<ApuestaCraps> apuestas, ResultadoCraps reultado, 
-			TipoJugada tipo, EstadoRondaCraps estado_ronda, int punto)
+		public JugadaCraps(Jugador tirador, ResultadoCraps resultado, TipoJugada tipo_jugada, PozoFeliz pozo_feliz,
+			EstadoRondaCraps estado_ronda, int? punto, List<ApuestaCraps> apuestas)
+			: base(tirador, resultado, tipo_jugada, pozo_feliz)
 		{
-			this.apuestas = apuestas;
-			this.resultado = resultado;
-			this.tipo_jugada = tipo;
 			this.estado_ronda = estado_ronda;
 			this.punto = punto;
+			this.apuestas = apuestas;
 		}
 		public override void Resolverse()
 		{

@@ -13,9 +13,9 @@ namespace CasinoOnline.Servidor.Modelo
 			set { estado = value; }
 		}
 
-		public virtual int ObtenerPuntajeApostado()
+		public virtual int? ObtenerPuntajeApostado()
 		{
-			throw new NotImplementedException();
+			return null;
 		}
 	}
 }

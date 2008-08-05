@@ -10,8 +10,8 @@ namespace CasinoOnline.Servidor.Modelo
 	abstract class Apuesta
 	{
 		#region Miembros
-		protected Jugador apostador;
-		protected Dictionary<Creditos, int> fichas;
+		private Jugador apostador = null;
+		private Dictionary<Creditos, int> fichas = new Dictionary<decimal, int>();
 		protected Creditos valor;
 		#endregion
 
@@ -21,6 +21,14 @@ namespace CasinoOnline.Servidor.Modelo
 		public Creditos Valor
 		{
 			get { return valor; }
+		}
+		public Dictionary<Creditos, int> Fichas
+		{
+			get { return fichas; }
+		}
+		public Jugador Apostador
+		{
+			get { return apostador; }
 		}
 
 		#endregion

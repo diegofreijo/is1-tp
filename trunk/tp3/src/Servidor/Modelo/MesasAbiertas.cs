@@ -41,23 +41,38 @@ namespace CasinoOnline.Servidor.Modelo
 		/// </summary>
 		private int contador_idmesa = 1;
 		private MensajeroDeSalida.IMesaObserver observador_cambios_craps;
-		private List<MesaCraps> mesas_craps;
-		private List<MesaTragamonedas> mesas_tragamonedas;
+		private List<MesaCraps> mesas_craps = new List<MesaCraps>();
+		private List<MesaTragamonedas> mesas_tragamonedas = new List<MesaTragamonedas>();
+
 		#endregion
+
+
+		#region Propiedades
+
+		public List<MesaCraps> MesasCraps
+		{
+			get { return mesas_craps; }
+		}
+		public List<MesaTragamonedas> MesasTragamonedas
+		{
+			get { return mesas_tragamonedas; }
+		}
+
+		#endregion
+
 
 		#region Metodos Publicos
 		/// 
 		/// <param name="id"></param>
 		public MesaCraps ObtenerMesaCraps(IdMesa id)
 		{
-			throw new NotImplementedException();
+			return mesas_craps.Single(m => m.Id == id);
 		}
 
 		/// 
 		/// <param name="id"></param>
 		public MesaTragamonedas ObtenerMesaTragamonedas(IdMesa id)
 		{
-
 			throw new NotImplementedException();
 		}
 
@@ -71,31 +86,30 @@ namespace CasinoOnline.Servidor.Modelo
 
 		public MesaCraps CrearMesaCraps()
 		{
-
-			throw new NotImplementedException();
+			MesaCraps nuevaMesa = new MesaCraps(contador_idmesa++, observador_cambios_craps);
+			mesas_craps.Add(nuevaMesa);
+			return nuevaMesa;
 		}
 
 		public MesaTragamonedas CrearMesaTragamonedas()
 		{
-
 			throw new NotImplementedException();
 		}
 
 		/// 
 		/// <param name="mesa"></param>
-		public void BorrarMesaCraps(IdMesa mesa)
+		public void BorrarMesaCraps(IdMesa idmesa)
 		{
-
+			mesas_craps.Remove(ObtenerMesaCraps(idmesa));
 		}
 
 		/// 
 		/// <param name="mesa"></param>
-		public void BorrarMesaTragamonedas(IdMesa mesa)
+		public void BorrarMesaTragamonedas(IdMesa idmesa)
 		{
-
+			throw new NotImplementedException();
 		}
-
-
+		
 		#endregion
 	}
 }

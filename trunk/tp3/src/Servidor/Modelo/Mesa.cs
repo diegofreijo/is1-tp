@@ -12,9 +12,9 @@ namespace CasinoOnline.Servidor.Modelo
 		#region Miembros
 		
 		protected IdMesa id;
-		private List<Jugador> jugadores_en_mesa;
-		protected Jugador proximo_tirador;
-		protected Jugada ultima_jugada;
+		protected List<Jugador> jugadores_en_mesa = new List<Jugador>();
+		protected Jugador proximo_tirador = null;
+		protected Jugada ultima_jugada = null;
 
 		#endregion
 
@@ -35,8 +35,29 @@ namespace CasinoOnline.Servidor.Modelo
 		}
 		public List<Jugador> JugadoresEnMesa
 		{
-			get { return jugadores_en_mesa; }
+			get { return  jugadores_en_mesa; }
 		}
+
+		#endregion
+
+
+		#region Metodos Publicos
+
+		public virtual void AgregarJugador(Jugador jugador)
+		{
+			jugadores_en_mesa.Add(jugador);
+		}
+		public virtual void QuitarJugador(Jugador jugador)
+		{
+			jugadores_en_mesa.Remove(jugador);
+
+			// AGREGADO: Si no hay nadie mas jugando en mi, me mato
+			if (jugadores_en_mesa.Count == 0)
+			{
+				MesasAbiertas.ObtenerInstancia().BorrarMesaCraps(this.id);
+			}
+		}
+
 
 		#endregion
 	}

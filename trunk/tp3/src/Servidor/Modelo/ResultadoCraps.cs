@@ -11,10 +11,24 @@ namespace CasinoOnline.Servidor.Modelo
 		private Dado dado1;
 		private Dado dado2;
 
+
+		#region Propiedades
+
+		public Dado Dado1
+		{
+			get { return dado1; }
+		}
+		public Dado Dado2
+		{
+			get { return dado2; }
+		}
 		public EstadoRondaCraps EstadoRonda
 		{
 			get { return estado_ronda; }
 		}
+
+		#endregion
+
 
 		public ResultadoCraps(Dado dado1, Dado dado2, EstadoRondaCraps estado_ronda)
 		{

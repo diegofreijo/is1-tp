@@ -151,8 +151,9 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 		/// <param name="usuario"></param>
 		public Boolean PedirEstadoCasino(Nombre usuario)
 		{
-			// Como no se especifica que se puede denegar este pedido, siempre es aceptado
-			return true;
+			// Esta el usuario en el casino?
+			return UsuariosEnCasino.ObtenerInstancia().ObtenerJugador(usuario) != null
+				|| UsuariosEnCasino.ObtenerInstancia().ObtenerObservador(usuario) != null;
 		}
 
 		public String DetalleUltimaAccion()
@@ -172,13 +173,11 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 
 		public Creditos MontoPozoFeliz()
 		{
-
-			throw new NotImplementedException();
+			return Pozos.ObtenerInstancia().ProzoFeliz.Monto;
 		}
 
 		public Creditos MontoPozoProgresivo()
 		{
-
 			throw new NotImplementedException();
 		}
 

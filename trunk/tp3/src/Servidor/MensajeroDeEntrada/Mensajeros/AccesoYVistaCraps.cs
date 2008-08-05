@@ -46,11 +46,17 @@ namespace CasinoOnline.Servidor.MensajeroDeEntrada.Mensajeros
 		{
 			// Recorro el Xml y busco las variables que necesito
 			Nombre usuario = parametros.Attribute("usuario").Value;
-			int? id_mesa = String.IsNullOrEmpty(parametros.Attribute("mesa").Value) ? null : IdMesa.Parse(parametros.Attribute("mesa").Value);
+			int? id_mesa = String.IsNullOrEmpty(parametros.Attribute("mesa").Value) ? (int?)null : IdMesa.Parse(parametros.Attribute("mesa").Value);
 			IdTerminalVirtual id_terminal = IdTerminalVirtual.Parse(parametros.Attribute("vTerm").Value);
 
 			// Invoco al modelo
-			bool aceptado = Modelo.Fachadas.JuegoCraps.ObtenerInstancia().EntrarCraps(usuario, id_mesa);
+			bool aceptado = Modelo.Fachadas.JuegoCraps.ObtenerInstancia().EntrarCraps(usuario, ref id_mesa);
+
+			// Si fue aceptado, lo suscribo al notificador
+			if (aceptado)
+			{
+				MensajeroDeSalida.NotificadorDeCambiosAClientes.ObtenerInstancia().SuscribirJugadorAMesa(id_terminal, usuario);
+			}
 
 			// Envio la respuesta segun el resultado de la operacion
 			MensajeroDeSalida.Mensajeros.AccesoYVistaCraps.ObtenerInstancia().
@@ -65,6 +71,12 @@ namespace CasinoOnline.Servidor.MensajeroDeEntrada.Mensajeros
 
 			// Invoco al modelo
 			bool aceptado = Modelo.Fachadas.JuegoCraps.ObtenerInstancia().SalirCraps(usuario, id_mesa);
+
+			// Si fue aceptado, lo desuscribo al notificador
+			if (aceptado)
+			{
+				MensajeroDeSalida.NotificadorDeCambiosAClientes.ObtenerInstancia().DesuscribirJugadorAMesa(usuario);
+			}
 
 			// Envio la respuesta segun el resultado de la operacion
 			MensajeroDeSalida.Mensajeros.AccesoYVistaCraps.ObtenerInstancia().
