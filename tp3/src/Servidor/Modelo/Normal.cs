@@ -14,7 +14,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 		public override string ObtenerNombreTipoJugada()
 		{
-			throw new NotImplementedException();
+			return "normal";
 		}
 	}
 }

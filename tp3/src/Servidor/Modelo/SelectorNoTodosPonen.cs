@@ -9,7 +9,15 @@ namespace CasinoOnline.Servidor.Modelo
 	{
 		public override TipoJugada SeleccionarTipoJugada()
 		{
-			throw new NotImplementedException();
+			Random rand = new Random(DateTime.Now.Millisecond);
+			if ((decimal)rand.NextDouble() < ConfiguracionCasino.ObtenerInstancia().ProbabilidadOcurrenciaFeliz)
+			{
+				return new Feliz();
+			}
+			else
+			{
+				return new Normal();
+			}
 		}
 	}
 }

@@ -41,11 +41,11 @@ namespace CasinoOnline.Servidor.Modelo
 
 		#region Propiedades
 
-		private List<JugadaTragamonedas> JugadasTragamonedas
+		public List<JugadaTragamonedas> JugadasTragamonedas
 		{
 			get { return jugadas_tragamonedas; }
 		}
-		private List<JugadaCraps> JugadasCraps
+		public List<JugadaCraps> JugadasCraps
 		{
 			get { return jugadas_craps; }
 		}

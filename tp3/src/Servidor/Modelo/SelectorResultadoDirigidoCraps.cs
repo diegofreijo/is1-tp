@@ -17,7 +17,7 @@ namespace CasinoOnline.Servidor.Modelo
 		}
 		public override KeyValuePair<Dado, Dado> SeleccionarResultado()
 		{
-			throw new NotImplementedException();
+			return new KeyValuePair<Dado, Dado>(dado1, dado2);
 		}
 	}
 }

@@ -16,9 +16,12 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="apostador"></param>
 		/// <param name="puntaje"></param>
 		/// <param name="estado"></param>
-		public EnSitioAPerder(Dictionary<Creditos, int> fichas, Jugador apostador, int puntaje, EstadoApuestaCraps estado)
+		public EnSitioAPerder(Dictionary<Creditos, int> fichas, Jugador apostador, int puntaje)
 		{
-			throw new NotImplementedException();
+			this.fichas = fichas;
+			this.apostador = apostador;
+			this.puntaje = puntaje;
+			this.estado = EstadoApuestaCraps.Iniciada;
 		}
 
 		/// 
@@ -30,12 +33,12 @@ namespace CasinoOnline.Servidor.Modelo
 
 		public override String ObtenerNombreTipoApuesta()
 		{
-			throw new NotImplementedException();
+			return "a perder";
 		}
 
 		public override int? ObtenerPuntajeApostado()
 		{
-			throw new NotImplementedException();
+			return puntaje;
 		}
 
 	}

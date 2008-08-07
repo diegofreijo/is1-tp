@@ -9,7 +9,8 @@ namespace CasinoOnline.Servidor.Modelo
 	{
 		public override KeyValuePair<Dado, Dado> SeleccionarResultado()
 		{
-			throw new NotImplementedException();
+			Random rand = new Random(DateTime.Now.Millisecond);
+			return new KeyValuePair<Dado, Dado>(new Dado(rand.Next(1, 6)), new Dado(rand.Next(1, 6)));
 		}
 	}
 }

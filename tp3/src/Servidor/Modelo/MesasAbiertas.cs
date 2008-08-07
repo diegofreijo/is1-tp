@@ -66,7 +66,7 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="id"></param>
 		public MesaCraps ObtenerMesaCraps(IdMesa id)
 		{
-			return mesas_craps.Single(m => m.Id == id);
+			return mesas_craps.SingleOrDefault(m => m.Id == id);
 		}
 
 		/// 
