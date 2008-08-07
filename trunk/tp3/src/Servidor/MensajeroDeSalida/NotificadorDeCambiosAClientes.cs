@@ -56,7 +56,14 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida
 		/// <param name="jugador"></param>
 		public void SuscribirJugadorAMesa(IdTerminalVirtual id_term, Nombre jugador)
 		{
-			terminales.Add(jugador, id_term);
+			if (terminales.ContainsKey(jugador))
+			{
+				terminales[jugador] = id_term;
+			}
+			else
+			{
+				terminales.Add(jugador, id_term);
+			}			
 		}
 
 		/// 

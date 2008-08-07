@@ -53,7 +53,8 @@ namespace CasinoOnline.Servidor.MensajeroDeEntrada.Mensajeros
 			Nombre usuario = parametros.Attribute("usuario").Value;
 			IdMesa id_mesa = IdMesa.Parse(parametros.Attribute("mesa").Value);
 			IdTerminalVirtual id_terminal = IdTerminalVirtual.Parse(parametros.Attribute("vTerm").Value);
-			int puntaje_apostado = int.Parse(parametros.Element("opcionApuesta").Element("puntajeApostado").Value);
+			int? puntaje_apostado = !String.IsNullOrEmpty(parametros.Element("opcionApuesta").Element("puntajeApostado").Value) ?
+				int.Parse(parametros.Element("opcionApuesta").Element("puntajeApostado").Value) : (int?)null;
 			String tipo_apuesta = parametros.Element("opcionApuesta").Element("tipoApuesta").Value;
 			Dictionary<Creditos, int> fichas_apostadas = parametros.Element("valorApuesta").Elements("fichaValor").
 				ToDictionary(n => Creditos.Parse(n.Element("valor").Value), n => int.Parse(n.Element("cantidad").Value));

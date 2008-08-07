@@ -14,7 +14,7 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="fichas"></param>
 		/// <param name="apostador"></param>
 		/// <param name="estado"></param>
-		public BarraNoPase(Dictionary<Creditos, int> fichas, Jugador apostador, EstadoApuestaCraps estado)
+		public BarraNoPase(Dictionary<Creditos, int> fichas, Jugador apostador)
 		{
 			throw new NotImplementedException();
 		}

@@ -36,8 +36,10 @@ namespace CasinoOnline.Servidor.Modelo
 
 
 		#region Miembros
-		private Dictionary<IdMesa, KeyValuePair<SelectorTipoJugada, SelectorResultadoCraps>> mesas_craps;
-		private Dictionary<IdMesa, KeyValuePair<SelectorTipoJugada, SelectorResultadoTragamonedas>> mesas_tragamonedas;
+		private Dictionary<IdMesa, KeyValuePair<SelectorTipoJugada, SelectorResultadoCraps>> mesas_craps = 
+			new Dictionary<int,KeyValuePair<SelectorTipoJugada,SelectorResultadoCraps>>();
+		private Dictionary<IdMesa, KeyValuePair<SelectorTipoJugada, SelectorResultadoTragamonedas>> mesas_tragamonedas = 
+			new Dictionary<int,KeyValuePair<SelectorTipoJugada,SelectorResultadoTragamonedas>>();
 		#endregion
 
 
@@ -46,7 +48,12 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="mesa"></param>
 		public TipoJugada CalcularTipoJugadaDeCasinoCraps(IdMesa mesa)
 		{
-			throw new NotImplementedException();
+			if (!mesas_craps.ContainsKey(mesa))
+			{
+				mesas_craps.Add(mesa, new KeyValuePair<SelectorTipoJugada,SelectorResultadoCraps>(
+					new SelectorAzar(), new SelectorResultadoAlAzarCraps()));
+			}
+			return mesas_craps[mesa].Key.SeleccionarTipoJugada();
 		}
 		/// 
 		/// <param name="mesa"></param>
@@ -54,9 +61,14 @@ namespace CasinoOnline.Servidor.Modelo
 		{
 			throw new NotImplementedException();
 		}
-		public KeyValuePair<Dado, Dado> CalcularDados()
+		public KeyValuePair<Dado, Dado> CalcularDados(IdMesa mesa)
 		{
-			throw new NotImplementedException();
+			if (!mesas_craps.ContainsKey(mesa))
+			{
+				mesas_craps.Add(mesa, new KeyValuePair<SelectorTipoJugada, SelectorResultadoCraps>(
+					new SelectorAzar(), new SelectorResultadoAlAzarCraps()));
+			}
+			return mesas_craps[mesa].Value.SeleccionarResultado();
 		}
 		public KeyValuePair<KeyValuePair<RodilloTragamonedas, RodilloTragamonedas>, RodilloTragamonedas> CalcularRodillos()
 		{
@@ -67,14 +79,30 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="selector"></param>
 		public void EstablecerTipoJugadaCraps(IdMesa mesa, SelectorTipoJugada selector)
 		{
-			throw new NotImplementedException();
+			if (!mesas_craps.ContainsKey(mesa))
+			{
+				mesas_craps.Add(mesa, new KeyValuePair<SelectorTipoJugada, SelectorResultadoCraps>(
+					selector, new SelectorResultadoAlAzarCraps()));
+			}
+			else
+			{
+				mesas_craps[mesa] = new KeyValuePair<SelectorTipoJugada,SelectorResultadoCraps>(selector, mesas_craps[mesa].Value);
+			}
 		}
 		/// 
 		/// <param name="mesa"></param>
 		/// <param name="selector"></param>
 		public void EstablecerResultadoCraps(IdMesa mesa, SelectorResultadoCraps selector)
 		{
-			throw new NotImplementedException();
+			if (!mesas_craps.ContainsKey(mesa))
+			{
+				mesas_craps.Add(mesa, new KeyValuePair<SelectorTipoJugada, SelectorResultadoCraps>(
+					new SelectorAzar(), selector));
+			}
+			else
+			{
+				mesas_craps[mesa] = new KeyValuePair<SelectorTipoJugada,SelectorResultadoCraps>(mesas_craps[mesa].Key, selector);
+			}
 		}
 		/// 
 		/// <param name="mesa"></param>

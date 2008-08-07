@@ -83,6 +83,27 @@ namespace CasinoOnline.Servidor.MensajeroDeEntrada
 						Mensajeros.JuegoCraps.ObtenerInstancia().TirarCraps(pedido.Parametros);
 						break;
 
+					// Administrador
+					case "pedidoReporteRankingDeJugadores":
+						Mensajeros.AccesoYManejoAdministrador.ObtenerInstancia().PedidoReporteRankingDeJugadores(pedido.Parametros);
+						break;
+
+					case "pedidoReporteEstadoActual":
+						Mensajeros.AccesoYManejoAdministrador.ObtenerInstancia().PedidoReporteEstadoActual(pedido.Parametros);
+						break;
+
+					case "pedidoReporteMovimientos":
+						Mensajeros.AccesoYManejoAdministrador.ObtenerInstancia().PedidoReporteDetalleMovimientosPorJugador(pedido.Parametros);
+						break;
+
+					case "configurarModoDirigidoCraps":
+						Mensajeros.AccesoYManejoAdministrador.ObtenerInstancia().EstablecerModoDirigidoCraps(pedido.Parametros);
+						break;
+
+					case "configurarModoDirigidoJugadaFeliz":
+						Mensajeros.AccesoYManejoAdministrador.ObtenerInstancia().EstablecerModoDirigidoFeliz(pedido.Parametros);
+						break;
+
 					// No encontre destinatario
 					default:
 						throw new Exception("Me llego un pedido que no se adonde despachar, Tipo: " + pedido.Tipo);

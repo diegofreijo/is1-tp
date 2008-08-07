@@ -53,16 +53,15 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 \negrita{Descripci'on del xml:}
 \begin{verbatim}
 <?xml version="1.0" encoding="UTF-8" ?>
-    <respuestaReporteRankingDeJugadores vTerm="id terminal virtual">
-        <aceptado fueAceptado="si | no" />
-       [<jugadoresMasGanadores>
+    <respuestaReporteRankingDeJugadores vTerm="id terminal virtual" aceptado="si | no" >
+        <jugadoresMasGanadores>
             <jugador ranking="posicion" nombre="nombre del jugador" />
             ...
         </jugadoresMasGanadores>
         <jugadoresMasPerdedores>
             <jugador ranking="posicion" nombre="nombre del jugador" />
             ...
-        </jugadoresMasPerdedores>]
+        </jugadoresMasPerdedores>
     </respuestaReporteRankingDeJugadores>
 \end{verbatim}
 
@@ -91,13 +90,12 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 \negrita{Descripci'on del xml:}
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
-    <respuestaReporteEstadoActual vTerm="id terminal virtual">
-        <aceptado fueAceptado="si | no" />
-       [<jugadores>
+    <respuestaReporteEstadoActual vTerm="id terminal virtual" aceptado="si | no" >
+       <jugadores>
             <jugador nombre="nombre del usuario jugador" saldo="saldo del jugador" />
             ... 
         </jugadores>
-		<saldoCasino monto="monto actual del saldo del casino" />]
+        <saldoCasino monto="monto actual del saldo del casino" />
     </respuestaReporteEstadoActual>
 \end{verbatim}
 
@@ -127,19 +125,21 @@ Se realizaron cambios con respecto a la notaci'on empleada en el documento del p
 \negrita{Descripci'on del xml:}
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
-    <respuestaReporteMovimientos vTerm="id terminal virtual">
-        <aceptado fueAceptado="si | no" />
-       [<jugadores>
-				<jugador nombre="nombre del jugador">
-				<tipoApuesta nombre="en sitio a perder | en sitio a ganar |de campo
-| venir | no venir | barra no pase | linea de pase | tragamonedas"/>
-				<normal monto="pago por ganar la apuesta sin adicionales"/>
-            <feliz monto="adicional correspondiente al pago de la jugada Feliz"/>
-				<todosPonen monto="retencion correspondiente cobro de la jugada
-TodosPonen"/>
-				<progresivo monto="adicional correspondiente al pago del pozo
-progresivo"(en caso de tragamonedas, si no el tag estar vacio)/>
-			</jugadores>]
+    <respuestaReporteMovimientos vTerm="id terminal virtual" aceptado="si | no" >
+        <apuestas>
+            <apuesta>
+                <jugador nombre="nombre del jugador" />
+                <tipoApuesta nombre="en sitio a perder | en sitio a ganar | de campo
+                    | venir | no venir | barra no pase | linea de pase | tragamonedas" />
+                <normal monto="pago por ganar la apuesta sin adicionales"/>
+                <feliz monto="adicional correspondiente al pago de la jugada Feliz" />
+                <todosPonen monto="retencion correspondiente cobro de la jugada
+                    TodosPonen" />
+                <progresivo monto="adicional correspondiente al pago del pozo
+                    progresivo"(en caso de tragamonedas, si no el tag estar vacio) />
+            </apuesta>
+            ...
+        </apuestas>
     </respuestaReporteMovimientos>
 \end{verbatim}
 
@@ -155,13 +155,13 @@ progresivo"(en caso de tragamonedas, si no el tag estar vacio)/>
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
     <configurarModoDirigidoTragamonedas vTerm="id terminal virtual" password="password de administrador">
-        <controlResultados activo="si | no">
-           [<rueda1>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda1>
+        <controlResultados>
+            <rueda1>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda1>
             <rueda2>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda2>
-            <rueda3>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda3>]
+            <rueda3>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda3>
         </controlResultados>
-        <controlTipoJugadas activo="si | no">
-           [<tipo> "Azar" | "Normal" | "TodosPonen" | "NoTodosPonen" | "NoFeliz"</tipo>]
+        <controlTipoJugadas>
+           <tipo> "Azar" | "Normal" | "TodosPonen" | "NoTodosPonen" | "NoFeliz"</tipo>
         </controlTipoJugadas>
     </configurarModoDirigidoTragamonedas>
 \end{verbatim}
@@ -177,8 +177,7 @@ progresivo"(en caso de tragamonedas, si no el tag estar vacio)/>
 \negrita{Descripci'on del xml:}
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
-    <respuestaConfigurarModoDirigidoTragamonedas vTerm="id terminal virtual">
-        <aceptado fueAceptado="si | no" />
+    <respuestaConfigurarModoDirigidoTragamonedas vTerm="id terminal virtual" aceptado="si | no" >
         <descripcion>"informaci'on adicional, de por qu'e no fue aceptado por ejemplo u otra
         informacion relevante"</descripcion>
     </respuestaConfigurarModoDirigidoTragamonedas>
@@ -196,12 +195,12 @@ progresivo"(en caso de tragamonedas, si no el tag estar vacio)/>
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
     <configurarModoDirigidoCraps vTerm="id terminal virtual" password="password de administrador">
-        <controlResultados activo="si | no">
-           [<dado1>"1" | "2" | "3" | "4" | "5" | "6"</dado1>
-            <dado2>"1" | "2" | "3" | "4" | "5" | "6"</dado2>]
+        <controlResultados>
+            <dado1>"1" | "2" | "3" | "4" | "5" | "6"</dado1>
+            <dado2>"1" | "2" | "3" | "4" | "5" | "6"</dado2>
         </controlResultados>
-        <controlTipoJugadas activo="si | no">
-           [<tipo> "Azar" | "Normal" | "TodosPonen" | "NoTodosPonen" | "NoFeliz"</tipo>]
+        <controlTipoJugadas>
+            <tipo> "Azar" | "Normal" | "TodosPonen" | "NoTodosPonen" | "NoFeliz"</tipo>
         </controlTipoJugadas>
     </configurarModoDirigidoCraps>
 \end{verbatim}
@@ -217,8 +216,7 @@ progresivo"(en caso de tragamonedas, si no el tag estar vacio)/>
 \negrita{Descripci'on del xml:}
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
-    <respuestaConfigurarModoDirigidoCraps vTerm="id terminal virtual">
-        <aceptado fueAceptado="si | no" />
+    <respuestaConfigurarModoDirigidoCraps vTerm="id terminal virtual" aceptado="si | no" >
         <descripcion>"informaci'on adicional, de por que no fue aceptado por ejemplo u otra
         informacion relevante"</descripcion>
     </respuestaConfigurarModoDirigidoCraps>
@@ -237,9 +235,7 @@ progresivo"(en caso de tragamonedas, si no el tag estar vacio)/>
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
     <configurarModoDirigidoJugadaFeliz vTerm="id terminal virtual" password="password de administrador">
-        <control activo="si | no">
-           [<mesa>"id de la mesa"</mesa>]
-        </control>
+        <mesa>"id de la mesa"</mesa>
     </configurarModoDirigidoJugadaFeliz>
 \end{verbatim}
 
@@ -254,8 +250,7 @@ progresivo"(en caso de tragamonedas, si no el tag estar vacio)/>
 \negrita{Descripci'on del xml:}
 \begin{verbatim}
     <?xml version="1.0" encoding="UTF-8" ?>
-    <respuestaConfigurarModoDirigidoJugadaFeliz vTerm="id terminal virtual">
-        <aceptado fueAceptado="si | no" />
+    <respuestaConfigurarModoDirigidoJugadaFeliz vTerm="id terminal virtual" aceptado="si | no" >
         <descripcion>"informacion adicional, de por que no fue aceptado por ejemplo u otra
         informacion relevante"</descripcion>
     </respuestaConfigurarModoDirigidoJugadaFeliz>

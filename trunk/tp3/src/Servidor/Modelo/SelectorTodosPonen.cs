@@ -9,7 +9,7 @@ namespace CasinoOnline.Servidor.Modelo
 	{
 		public override TipoJugada SeleccionarTipoJugada()
 		{
-			throw new NotImplementedException();
+			return new TodosPonen();
 		}
 	}
 }

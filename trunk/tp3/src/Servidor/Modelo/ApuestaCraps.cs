@@ -5,12 +5,11 @@ namespace CasinoOnline.Servidor.Modelo
 {
 	abstract class ApuestaCraps : Apuesta
 	{
-		private EstadoApuestaCraps estado;
+		protected EstadoApuestaCraps estado;
 
-		protected EstadoApuestaCraps Estado
+		public EstadoApuestaCraps Estado
 		{
 			get { return estado; }
-			set { estado = value; }
 		}
 
 		public virtual int? ObtenerPuntajeApostado()

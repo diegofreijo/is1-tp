@@ -2,7 +2,7 @@ using System;
 using System.Xml.Linq;
 using CasinoOnline.Servidor;
 
-namespace CasinoOnline.Servidor.MensajeroDeEntrada
+namespace CasinoOnline.Servidor.MensajeroDeEntrada.Mensajeros
 {
 	public class AccesoYJuegoTragamonedas
 	{

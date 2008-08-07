@@ -47,11 +47,32 @@ namespace CasinoOnline.Servidor.Modelo
 		}
 		public void TirarDados()
 		{
+			// Pido los dados
+			KeyValuePair<Dado, Dado> dados = ServidorJugadas.ObtenerInstancia().CalcularDados(this.id);
+			int sumaDados = dados.Key.Numero + dados.Value.Numero;
+
+			// Pido el tipo de jugada
+			TipoJugada tipoJugada = ServidorJugadas.ObtenerInstancia().CalcularTipoJugadaDeCasinoCraps(this.id);
+
+			// Creo el resultado
+			ResultadoCraps resultado = new ResultadoCraps(dados.Key, dados.Value, this.estado);
+
+			// Veo como seguir segun mi estado y lo que salio en los dados
+			if (new int[] { 4, 5, 6, 8, 9, 10 }.Contains(sumaDados))
+			{
+
+			}
+
+			// COMO SIGO!??!??!!
 			throw new NotImplementedException();
+
 		}
 		public void AgregarApuesta(ApuestaCraps apuesta)
 		{
-			throw new NotImplementedException();
+			// Agrego la apuesta
+			apuestas.Add(apuesta);
+
+			// Aviso el cambio
 			observador_cambios.NotificarCambio(this.id);
 		}
 		public override void AgregarJugador(Jugador jugador)

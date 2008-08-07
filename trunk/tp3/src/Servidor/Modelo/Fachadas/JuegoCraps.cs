@@ -138,17 +138,89 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 		/// <param name="tipo_apuesta"></param>
 		/// <param name="fichas"></param>
 		/// <param name="puntaje_apostado"></param>
-		public Boolean ApostarCraps(Nombre jugador, IdMesa idmesa, String tipo_apuesta, Dictionary<Creditos, int> fichas, int puntaje_apostado)
+		public Boolean ApostarCraps(Nombre nombreJugador, IdMesa idmesa, String tipo_apuesta, Dictionary<Creditos, int> fichas, int? puntaje_apostado)
 		{
-			throw new NotImplementedException();
+			// Existe la mesa?
+			MesaCraps mesa = MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps(idmesa);
+			if (mesa == null)
+			{
+				detalle_ultima_accion = "La mesa especificada no existe";
+				return false;
+			}			
+
+			// Esta el jugador en la mesa?
+			if (!mesa.JugadoresEnMesa.Any(j => j.Nombre == nombreJugador))
+			{
+				detalle_ultima_accion = "El jugador trata de apostar en una mesa donde no esta";
+				return false;
+			}
+
+			// Son las fichas apostadas validas?
+			if (!fichas.All(f => ConfiguracionCasino.ObtenerInstancia().FichasValidas.Contains(f.Key)))
+			{
+				detalle_ultima_accion = "Se jugo una ficha no valida";
+				return false;
+			}
+
+			// Puede el jugador pagar la apuesta?
+			Creditos apuestaTotal = fichas.Sum(f => f.Key * f.Value);
+			Jugador jugador = UsuariosEnCasino.ObtenerInstancia().ObtenerJugador(nombreJugador);
+			if (!jugador.PuedePagar(apuestaTotal))
+			{
+				detalle_ultima_accion = "El jugador no puede pagar la apuesta";
+				return false;
+			}
+
+			// Creo la nueva apuesta
+			ApuestaCraps nuevaApuesta = null;
+			switch (tipo_apuesta)
+			{
+				case "pase": nuevaApuesta = new LineaDePase(fichas, jugador); break;
+				case "no pase": nuevaApuesta = new BarraNoPase(fichas, jugador); break;
+				case "venir": nuevaApuesta = new Venir(fichas, jugador); break;
+				case "no venir": nuevaApuesta = new NoVenir(fichas, jugador); break;
+				case "campo": nuevaApuesta = new DeCampo(fichas, jugador); break;
+				case "a ganar": nuevaApuesta = new EnSitioAGanar(fichas, jugador, (int)puntaje_apostado); break;
+				case "en contra": nuevaApuesta = new EnSitioAPerder(fichas, jugador, (int)puntaje_apostado); break;
+				default:
+					throw new ArgumentException("Me vino un tipo de apuesta no valido: " + tipo_apuesta);
+			}
+
+			// Le descuento al jugador
+			jugador.Saldo -= apuestaTotal;
+
+			// Agrego la apuesta a la mesa
+			mesa.AgregarApuesta(nuevaApuesta);
+
+			detalle_ultima_accion = "El jugador realizo la apuesta con todo exito";
+			return true;
 		}
 
 		/// 
 		/// <param name="jugador"></param>
 		/// <param name="mesa"></param>
-		public Boolean TirarCraps(Nombre jugador, IdMesa idmesa)
+		public Boolean TirarCraps(Nombre nombreJugador, IdMesa idmesa)
 		{
-			throw new NotImplementedException();
+			// Existe la mesa?
+			MesaCraps mesa = MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps(idmesa);
+			if (mesa == null)
+			{
+				detalle_ultima_accion = "La mesa donde se quieren tirar los dados no existe";
+				return false;
+			}
+
+			// El jugador es el tirador?
+			Jugador jugador = UsuariosEnCasino.ObtenerInstancia().ObtenerJugador(nombreJugador);
+			if (jugador != mesa.ProximoTirador)
+			{
+				detalle_ultima_accion = "El jugador no es el tirador";
+				return false;
+			}
+
+			// Tiro los dados
+			mesa.TirarDados();
+			detalle_ultima_accion = "El jugador tiro los dados con todo exito";
+			return true;
 		}
 
 		/// 
