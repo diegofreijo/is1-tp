@@ -54,18 +54,63 @@ namespace CasinoOnline.Servidor.Modelo
 			// Pido el tipo de jugada
 			TipoJugada tipoJugada = ServidorJugadas.ObtenerInstancia().CalcularTipoJugadaDeCasinoCraps(this.id);
 
-			// Creo el resultado
-			ResultadoCraps resultado = new ResultadoCraps(dados.Key, dados.Value, this.estado);
+			// Creo el resultado y la jugada
+			ResultadoCraps resultado = new ResultadoCraps(dados.Key, dados.Value, this.estado, this.punto);
+			JugadaCraps jugada = new JugadaCraps(this.proximo_tirador, resultado, tipoJugada, 
+				Pozos.ObtenerInstancia().ProzoFeliz, this.estado, this.punto, this.apuestas);
+
+			// Le pido a la jugada que se resuelva
+			jugada.Resolverse();
 
 			// Veo como seguir segun mi estado y lo que salio en los dados
-			if (new int[] { 4, 5, 6, 8, 9, 10 }.Contains(sumaDados))
+			if(estado == EstadoRondaCraps.EstanSaliendo)
 			{
-
+				if(new int[] { 2, 3, 12 }.Contains(sumaDados))
+				{
+					// El tirador pierde de una
+					proximo_tirador = ElegirProximoTirador();
+				}
+				else if (new int[] { 4, 5, 6, 8, 9, 10 }.Contains(sumaDados))
+				{
+					// Se establece el punto
+					punto = sumaDados;
+					estado = EstadoRondaCraps.PuntoEstablecido;
+				}
+				else
+				{
+					// Es porque los dados son 7 u 11, entonces el jugador ganaria con lo cual seguiria siendo 
+					// el tirador y el estado para la proxima ronda sigue siendo estanSaliendo
+				}
+			}
+			else
+			{
+				if(sumaDados == 7)
+				{
+					// El tirador pierde
+					this.proximo_tirador = ElegirProximoTirador();
+					estado = EstadoRondaCraps.EstanSaliendo;
+					punto = null;
+				}
+				else if(sumaDados == (int)punto)
+				{
+					// Sale punto antes que 7, tirador gana
+					estado = EstadoRondaCraps.EstanSaliendo;
+					punto = null;
+				}
+				else
+				{
+					// Cualquier otro numero que salga es indiferente y todo se mantiene igual
+				}
 			}
 
-			// COMO SIGO!??!??!!
-			throw new NotImplementedException();
+			// Le pido a la jugada las apuestas no resueltas
+			apuestas = jugada.ApuestasNoResueltas();
 
+			// Guardo la jugada en el historial
+			HistorialJugadas.ObtenerInstancia().JugadasCraps.Add(jugada);
+
+			// Notifico el cambio en la mesa
+			observador_cambios.NotificarCambio(this.id);
 		}
 		public void AgregarApuesta(ApuestaCraps apuesta)
 		{
@@ -100,7 +145,7 @@ namespace CasinoOnline.Servidor.Modelo
 				// Si era el proximo tirador, elijo otro
 				if (proximo_tirador == jugador)
 				{
-					SeleccionarProximoTirador();
+					proximo_tirador = ElegirProximoTirador();
 				}
 			}
 		}
@@ -110,9 +155,9 @@ namespace CasinoOnline.Servidor.Modelo
 
 		#region Metodos Privados
 
-		private void SeleccionarProximoTirador()
+		private Jugador ElegirProximoTirador()
 		{
-			proximo_tirador = jugadores_en_mesa[new Random().Next(jugadores_en_mesa.Count)];
+			return jugadores_en_mesa[new Random().Next(jugadores_en_mesa.Count)];
 		}
 
 		#endregion

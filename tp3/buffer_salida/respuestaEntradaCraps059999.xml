@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<entradaCraps vTerm="9999" usuario="Matute" mesa="1">
+  <aceptado>si</aceptado>
+  <descripcion>Se creo una nueva mesa y el jugador acaba de ingresar a ella</descripcion>
+</entradaCraps>

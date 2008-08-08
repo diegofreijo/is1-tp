@@ -8,10 +8,12 @@ namespace CasinoOnline.Servidor.Modelo
 	class JugadaCraps : Jugada
 	{
 		#region Miembros
+
 		private EstadoRondaCraps estado_ronda;
 		private int? punto;
 		private List<ApuestaCraps> apuestas;
-		private List<Premio> premios = new List<Premio>();
+		private List<Premio> premios = null;
+		
 		#endregion
 
 
@@ -20,6 +22,10 @@ namespace CasinoOnline.Servidor.Modelo
 		public List<Premio> Premios
 		{
 			get { return premios; }
+		}
+		public override List<Apuesta> Apuestas
+		{
+			get { return apuestas.Cast<Apuesta>().ToList(); }
 		}
 
 		#endregion
@@ -37,11 +43,11 @@ namespace CasinoOnline.Servidor.Modelo
 		}
 		public override void Resolverse()
 		{
-			throw new NotImplementedException();
+			this.premios = tipo_jugada.Resolverse(this);
 		}
 		public List<ApuestaCraps> ApuestasNoResueltas()
 		{
-			throw new NotImplementedException();
+			return apuestas.Where(a => a.Estado == EstadoApuestaCraps.EnTranscurso).ToList();
 		}
 
 		#endregion

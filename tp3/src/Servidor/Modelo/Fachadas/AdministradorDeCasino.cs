@@ -143,11 +143,12 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 					ServidorJugadas.ObtenerInstancia().EstablecerTipoJugadaCraps(idmesa, new SelectorFeliz());
 					return true;
 				}
-				else if (MesasAbiertas.ObtenerInstancia().ObtenerMesaTragamonedas(idmesa) != null)
-				{
-					ServidorJugadas.ObtenerInstancia().EstablecerTipoJugadaTragamonedas(idmesa, new SelectorFeliz());
-					return true;
-				}
+				// La parte de tragamonedas no esta implementada
+				//else if (MesasAbiertas.ObtenerInstancia().ObtenerMesaTragamonedas(idmesa) != null)
+				//{
+				//    ServidorJugadas.ObtenerInstancia().EstablecerTipoJugadaTragamonedas(idmesa, new SelectorFeliz());
+				//    return true;
+				//}
 				else
 				{
 					return false;
