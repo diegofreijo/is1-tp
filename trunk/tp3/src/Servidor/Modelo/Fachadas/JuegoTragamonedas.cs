@@ -37,11 +37,15 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 		#endregion
 
 		#region Miembros
+
 		private IdMesa idmesa_recien_creada;
 		private String detalle_ultima_accion;
+		
 		#endregion
 
+
 		#region Metodos Publicos
+
 		/// 
 		/// <param name="jugador"></param>
 		public Boolean EntrarTragamonedas(Nombre jugador)
@@ -55,7 +59,6 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 		/// <param name="mesa"></param>
 		public Boolean SalirTragamonedas(Nombre jugador, IdMesa mesa)
 		{
-
 			throw new NotImplementedException();
 		}
 

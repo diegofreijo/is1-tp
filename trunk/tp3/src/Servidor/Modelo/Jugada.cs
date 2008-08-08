@@ -9,10 +9,10 @@ namespace CasinoOnline.Servidor.Modelo
 	{
 		#region Miembros
 
-		private Jugador tirador;
+		protected Jugador tirador;
 		protected Resultado resultado;
-		private TipoJugada tipo_jugada;
-		private PozoFeliz pozo_feliz;
+		protected TipoJugada tipo_jugada;
+		protected PozoFeliz pozo_feliz;
 
 		#endregion
 
@@ -34,6 +34,10 @@ namespace CasinoOnline.Servidor.Modelo
 		public PozoFeliz PozoFeliz
 		{
 			get { return pozo_feliz; }
+		}
+		public abstract List<Apuesta> Apuestas
+		{
+			get;
 		}
 
 		#endregion

@@ -8,9 +8,11 @@ namespace CasinoOnline.Servidor.Modelo
 	class JugadaTragamonedas : Jugada
 	{
 		#region Miembros
+
 		private PozoProgresivo pozo_progresivo = null;
 		private PremioTragamonedas premio = null;
 		private ApuestaTragamonedas apuesta;
+
 		#endregion
 
 
@@ -19,6 +21,10 @@ namespace CasinoOnline.Servidor.Modelo
 		public PremioTragamonedas Premio
 		{
 			get { return premio; }
+		}
+		public override List<Apuesta> Apuestas
+		{
+			get { throw new NotImplementedException(); }
 		}
 
 		#endregion

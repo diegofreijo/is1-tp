@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configurarModoDirigidoCraps vTerm="8888" password="MentaGranizada">
+	<controlResultados>
+		<dado1>1</dado1>
+		<dado2>6</dado2>
+	</controlResultados>
+	<controlTipoJugadas>
+		<tipo>TodosPonen</tipo>
+	</controlTipoJugadas>
+</configurarModoDirigidoCraps>
