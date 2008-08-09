@@ -110,7 +110,7 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 			parametros.Add(jugadores);
 
 			// Proximo tiro
-			XElement proximoTiro = new XElement("proxmoTiro", new object[] {
+			XElement proximoTiro = new XElement("proximoTiro", new object[] {
 				new XElement("tirador", Modelo.Fachadas.JuegoCraps.ObtenerInstancia().TiradorProximoTiro(idmesa)),
 				new XElement("tiroSalida", Modelo.Fachadas.JuegoCraps.ObtenerInstancia().EsProximoTiroDeSalida(idmesa) ? "si" : "no"),
 				new XElement("punto", Modelo.Fachadas.JuegoCraps.ObtenerInstancia().ValorPuntoProximoTiro(idmesa) != null ?

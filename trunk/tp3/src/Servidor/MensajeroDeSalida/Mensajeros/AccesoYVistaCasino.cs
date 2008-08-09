@@ -160,7 +160,7 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 					mesaCraps.Add(jugadoresEnMesa);
 
 					// Proximo tiro
-					XElement proximoTiro = new XElement("proxmoTiro", new object[] {
+					XElement proximoTiro = new XElement("proximoTiro", new object[] {
 						new XElement("tirador", Modelo.Fachadas.JuegoCraps.ObtenerInstancia().TiradorProximoTiro(idmesa)),
 						new XElement("tiroSalida", Modelo.Fachadas.JuegoCraps.ObtenerInstancia().EsProximoTiroDeSalida(idmesa) ? "si" : "no"),
 						new XElement("punto", Modelo.Fachadas.JuegoCraps.ObtenerInstancia().ValorPuntoProximoTiro(idmesa) != null ?
@@ -199,7 +199,7 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 			}
 
 			// Genero la respuesta
-			Respuesta respuesta = new Respuesta("estadoCasino", idterminal, parametros);
+			Respuesta respuesta = new Respuesta("respuestaEstadoCasino", idterminal, parametros);
 
 			// Envio el XML de salida
 			DespachadorRespuestas.ObtenerInstancia().DespacharRespuesta(respuesta);

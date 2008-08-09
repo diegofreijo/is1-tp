@@ -23,6 +23,13 @@ namespace CasinoOnline.PlayerClient.GUI
 
         private void m_logoutButton_Click(object sender, EventArgs e)
         {
+            XElement res = AccesoYVistaCasino.ObtenerInstancia().SalirCasino(m_session.Nombre);
+
+            if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
+            {
+                MessageBox.Show(this, res.Element("descripcion").Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Close();
         }
 

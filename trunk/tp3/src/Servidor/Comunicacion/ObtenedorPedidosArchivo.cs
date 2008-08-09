@@ -57,8 +57,14 @@ namespace CasinoOnline.Servidor.Comunicacion
 				}
 				finally
 				{
-					// Borro el archivo del buffer de entrada
-					File.Move(ruta_archivo, ruta_buffer_entrada + "_" + nombre_archivo);
+                    string backupFile = ruta_buffer_entrada + "_" + nombre_archivo;
+					
+                    // Borro el archivo de backup si existe
+                    if (File.Exists(backupFile))
+                        File.Delete(backupFile);
+
+                    // Renombro el archivo procesado en vez de borrarlo por si interesa mirarlo...
+                    File.Move(ruta_archivo, backupFile);
 				}
 
 				return levantado;

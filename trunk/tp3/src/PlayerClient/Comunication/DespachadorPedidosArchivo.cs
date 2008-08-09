@@ -9,7 +9,7 @@ namespace CasinoOnline.PlayerClient.Comunication
     public class DespachadorPedidosArchivo : IDespachadorPedidos
     {
         private const String m_numero_grupo = "05";
-        private const String m_bufferSalida = "./OutputMessages/";
+        private const String m_bufferSalida = "..\\buffer_entrada\\";
 
         public void DespacharPedido(Pedido pedido)
         {
