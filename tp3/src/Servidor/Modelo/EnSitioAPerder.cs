@@ -28,7 +28,40 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="resultado"></param>
 		public override Creditos Resolverse(Resultado resultado)
 		{
-			throw new NotImplementedException();
+
+            ResultadoCraps resultadoCraps = (ResultadoCraps)resultado;
+            int valorDados = resultadoCraps.Dado1.Numero + resultadoCraps.Dado2.Numero;
+            Creditos aPagar = 0;
+            if (valorDados == 7)
+            { // termino la apuesta
+                estado = EstadoApuestaCraps.Cerrada;
+            }
+            if (valorDados == puntaje)
+            {
+                if (valorDados == 4 ||
+                    valorDados == 10)
+                {  // gano paga 5 a 11
+                    aPagar = CalcularPagoApuesta(fichas, 5, 11);
+                    estado = EstadoApuestaCraps.Cerrada;
+                }
+                if (valorDados == 5 ||
+                    valorDados == 9) // ganó paga 5 a 8
+                {
+                    aPagar = CalcularPagoApuesta(fichas, 5, 8);
+                    estado = EstadoApuestaCraps.Cerrada;
+                }
+
+                if (valorDados == 6 ||
+                    valorDados == 8) // ganó paga 4 a 5
+                {
+                    aPagar = CalcularPagoApuesta(fichas, 4, 5);
+                    estado = EstadoApuestaCraps.Cerrada;
+
+                }
+            }
+            // no hacer nada en 2 3 5 6 8 9 10 11 12
+
+            return aPagar;
 		}
 
 		public override String ObtenerNombreTipoApuesta()

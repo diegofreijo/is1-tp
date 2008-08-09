@@ -17,25 +17,71 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="estado"></param>
 		public Venir(Dictionary<Creditos, int> fichas, Jugador apostador)
 		{
-			throw new NotImplementedException();
+            this.fichas = fichas;
+            this.apostador = apostador;
 		}
 
 		/// 
 		/// <param name="resultado"></param>
 		public override Creditos Resolverse(Resultado resultado)
 		{
-			throw new NotImplementedException();
+
+            ResultadoCraps resultadoCraps = (ResultadoCraps)resultado;
+
+            int valorDados = resultadoCraps.Dado1.Numero + resultadoCraps.Dado2.Numero;
+            
+            Creditos aPagar = 0;
+
+            if (estado == EstadoApuestaCraps.Iniciada)
+            {
+
+                if (valorDados == 7 ||
+                    valorDados == 11) //ganó
+                {
+                    estado = EstadoApuestaCraps.Cerrada;
+                    aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
+                }                       
+                if (valorDados == 2 ||
+                    valorDados == 3 ||
+                    valorDados == 12) // perdió
+                {
+                    estado = EstadoApuestaCraps.Cerrada;
+
+                }
+                if (valorDados == 4 ||
+                    valorDados == 5 ||
+                    valorDados == 6 ||
+                    valorDados == 8 ||
+                    valorDados == 9 ||
+                    valorDados == 10) // puntaje venir
+                {
+                    puntaje_venir = valorDados;
+                    estado = EstadoApuestaCraps.EnTranscurso;
+                }
+            }
+            else { // la apuesta se desplaza al espacio de puntaje NO venir correspondiente
+                if (estado == EstadoApuestaCraps.EnTranscurso)
+                {
+                    if (valorDados == puntaje_venir)
+                    {
+                        aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
+                        estado = EstadoApuestaCraps.Cerrada;
+                    }
+                }
+            }
+            return aPagar;
+
 		}
 
 		public override String ObtenerNombreTipoApuesta()
 		{
-			throw new NotImplementedException();
+            return "Venir";
 		}
 
-		public override int? ObtenerPuntajeApostado()
-		{
-			throw new NotImplementedException();
-		}
+        public override int? ObtenerPuntajeApostado()
+        {
+            return puntaje_venir;
+        }
 
 	}
 }

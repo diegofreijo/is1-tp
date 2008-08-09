@@ -15,7 +15,7 @@ namespace CasinoOnline.Servidor.Modelo
 		protected Creditos valor;
 		#endregion
 
-		
+
 		#region Propiedades
 
 		public Creditos Valor
