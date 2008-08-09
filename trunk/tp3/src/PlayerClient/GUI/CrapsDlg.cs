@@ -66,6 +66,10 @@ namespace CasinoOnline.PlayerClient.GUI
 
         private void InitGUI()
         {
+            this.Text += " <Jugador: ";
+            this.Text += m_session.Nombre;
+            this.Text += ">";
+
             XElement estadoCasino = AccesoYVistaCasino.ObtenerInstancia().PedirEstadoCasino(m_session.Nombre);
             XElement mesaCraps = estadoCasino.Element("juegos").Element("craps").Element("mesasCraps").Elements("mesaCraps").Single(delegate(XElement elem) { return int.Parse(elem.Attribute("id").Value) == m_idMesa; });
 
@@ -137,18 +141,45 @@ namespace CasinoOnline.PlayerClient.GUI
             {
                 IEnumerable<XElement> apuestasVigentes = estadoCraps.Element("apuestasVigentes").Elements("apuesta");
 
-                m_LineaDePaseTextBox.Text = "";
-                m_BarraNoPaseTextBox.Text = "";
-                m_VenirTextBox.Text = "";
-                m_NoVenirTextBox.Text = "";
-                m_CampoTextBox.Text = "";
-                m_AGanarTextBox.Text = "";
-                m_EnContraTextBox.Text = "";
+                IEnumerable<XElement> apuestasLineaDePase = apuestasVigentes.Where(delegate(XElement elem) { return elem.Element("opcionApuesta").Element("tipoApuesta").Value == "pase"; });
+                IEnumerable<XElement> apuestasBarraNoPase = apuestasVigentes.Where(delegate(XElement elem) { return elem.Element("opcionApuesta").Element("tipoApuesta").Value == "no pase"; });
+                IEnumerable<XElement> apuestasVenir = apuestasVigentes.Where(delegate(XElement elem) { return elem.Element("opcionApuesta").Element("tipoApuesta").Value == "venir"; });
+                IEnumerable<XElement> apuestasNoVenir = apuestasVigentes.Where(delegate(XElement elem) { return elem.Element("opcionApuesta").Element("tipoApuesta").Value == "no venir"; });
+                IEnumerable<XElement> apuestasDeCampo = apuestasVigentes.Where(delegate(XElement elem) { return elem.Element("opcionApuesta").Element("tipoApuesta").Value == "campo"; });
+                IEnumerable<XElement> apuestasEnSitioAGanar = apuestasVigentes.Where(delegate(XElement elem) { return elem.Element("opcionApuesta").Element("tipoApuesta").Value == "a ganar"; });
+                IEnumerable<XElement> apuestasEnSitioEnContra = apuestasVigentes.Where(delegate(XElement elem) { return elem.Element("opcionApuesta").Element("tipoApuesta").Value == "en contra"; });
 
-                foreach (XElement apuesta in apuestasVigentes)
+                UpdateApuestas(apuestasLineaDePase, ref m_LineaDePaseTextBox, false);
+                UpdateApuestas(apuestasBarraNoPase, ref m_BarraNoPaseTextBox, false);
+                UpdateApuestas(apuestasVenir, ref m_VenirTextBox, false);
+                UpdateApuestas(apuestasNoVenir, ref m_NoVenirTextBox, false);
+                UpdateApuestas(apuestasDeCampo, ref m_CampoTextBox, false);
+                UpdateApuestas(apuestasEnSitioAGanar, ref m_AGanarTextBox, true);
+                UpdateApuestas(apuestasEnSitioEnContra, ref m_EnContraTextBox, true);
+            }
+        }
+
+        private void UpdateApuestas(IEnumerable<XElement> apuestas, ref TextBox box, bool bEnSitio)
+        {
+            box.Text = "";
+            foreach (XElement apuesta in apuestas)
+            {
+                box.Text += apuesta.Element("apostador").Value;
+                if (bEnSitio)
                 {
-                    /*m_LineaDePaseTextBox.Text += apuesta.Element("apostador").Value;
-                    m_LineaDePaseTextBox.Text += Environment.NewLine;*/
+                    box.Text += " <al ";
+                    box.Text += apuesta.Element("opcionApuesta").Element("puntajeApostado").Value;
+                    box.Text += ">";
+                }
+                box.Text += Environment.NewLine;
+                IEnumerable<XElement> fichasApostadas = apuesta.Element("valorApuesta").Elements("fichaValor");
+                foreach (XElement fichaValor in fichasApostadas)
+                {
+                    box.Text += "Ficha: €";
+                    box.Text += fichaValor.Element("valor").Value;
+                    box.Text += " Cantidad: ";
+                    box.Text += fichaValor.Element("cantidad").Value;
+                    box.Text += Environment.NewLine;
                 }
             }
         }
@@ -206,7 +237,7 @@ namespace CasinoOnline.PlayerClient.GUI
 
             if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
             {
-                MessageBox.Show(this, res.Element("descripcion").Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "Tiro no aceptado. Razones desconocidas :P", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

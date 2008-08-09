@@ -16,7 +16,7 @@ namespace CasinoOnline.PlayerClient.Comunication
     {
         private const String m_numero_grupo = "05";
         private const String m_bufferEntrada = "..\\buffer_salida\\";
-        private const int m_pollingWaitTimeMilliSeconds = 1000;
+        private const int m_pollingWaitTimeMilliSeconds = 100;
 
         public bool ObtenerNuevoMensajeAsync(MessageId msgId, IdTerminalVirtual termId, ref XElement xml)
         {

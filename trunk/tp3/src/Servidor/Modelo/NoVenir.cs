@@ -84,7 +84,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 		public override String ObtenerNombreTipoApuesta()
 		{
-			return  "No Venir";
+            return "no venir";
 
 		}
 

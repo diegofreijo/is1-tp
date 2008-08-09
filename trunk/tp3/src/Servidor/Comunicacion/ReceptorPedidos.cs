@@ -13,7 +13,7 @@ namespace CasinoOnline.Servidor.Comunicacion
     class ReceptorPedidos
 	{
 		#region Miembros
-		private const int espera_entre_pooleo = 1000;
+		private const int espera_entre_pooleo = 100;
 		private bool encendido = true;
 		private IObtenedorPedidos obtenedor = null;
 		#endregion

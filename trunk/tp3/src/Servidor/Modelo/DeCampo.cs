@@ -55,14 +55,11 @@ namespace CasinoOnline.Servidor.Modelo
             estado = EstadoApuestaCraps.Cerrada;
 
             return aPagar;
-
 		}
 
 		public override String ObtenerNombreTipoApuesta()
 		{
-            return "De campo";
-
+            return "campo";
 		}
-
 	}
 }
