@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Cliente")]
+[assembly: AssemblyTitle("PlayerClient")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Lagash")]
-[assembly: AssemblyProduct("Cliente")]
-[assembly: AssemblyCopyright("Copyright © Lagash 2008")]
+[assembly: AssemblyCompany("Psychedelic Violence")]
+[assembly: AssemblyProduct("PlayerClient")]
+[assembly: AssemblyCopyright("Copyright © Psychedelic Violence 2008")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("066f7769-5c84-4c06-a15d-fb0fd5fff9ca")]
+[assembly: Guid("ce45747a-40a0-4b7e-998f-16e0ea86ae8d")]
 
 // Version information for an assembly consists of the following four values:
 //

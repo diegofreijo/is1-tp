@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0131D103-62D5-4CCD-92CA-0634EC5B1DE9}</ProjectGuid>
+    <ProjectGuid>{3785CDFB-7BBC-4EA9-B438-E9BBA1984715}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cliente</RootNamespace>
-    <AssemblyName>Cliente</AssemblyName>
+    <RootNamespace>PlayerClient</RootNamespace>
+    <AssemblyName>PlayerClient</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,22 +48,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controlador\Craps.cs" />
-    <Compile Include="Presentacion\Craps.cs">
+    <Compile Include="Comunication\DespachadorPedidosArchivo.cs" />
+    <Compile Include="Comunication\DespachadorPedidosGlobal.cs" />
+    <Compile Include="Comunication\IDespachadorPedidos.cs" />
+    <Compile Include="Comunication\IReceptorMensajes.cs" />
+    <Compile Include="Comunication\Pedido.cs" />
+    <Compile Include="Comunication\Ports\AccesoYVistaCraps.cs" />
+    <Compile Include="Comunication\Ports\AccesoYVistaCasino.cs" />
+    <Compile Include="Comunication\Ports\JuegoCraps.cs" />
+    <Compile Include="Comunication\ReceptorMensajesArchivo.cs" />
+    <Compile Include="Comunication\ReceptorMensajesGlobal.cs" />
+    <Compile Include="Comunication\TerminalInfo.cs" />
+    <Compile Include="defines.cs" />
+    <Compile Include="GUI\CrapsDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\Craps.Designer.cs">
-      <DependentUpon>Craps.cs</DependentUpon>
+    <Compile Include="GUI\CrapsDlg.Designer.cs">
+      <DependentUpon>CrapsDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\LogInDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LogInDlg.Designer.cs">
+      <DependentUpon>LogInDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\LobbyDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LobbyDlg.Designer.cs">
+      <DependentUpon>LobbyDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Presentacion\Craps.resx">
-      <DependentUpon>Craps.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\CrapsDlg.resx">
+      <DependentUpon>CrapsDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LobbyDlg.resx">
+      <DependentUpon>LobbyDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LogInDlg.resx">
+      <DependentUpon>LogInDlg.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SelectTableDlg.resx">
+      <DependentUpon>SelectTableDlg.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -79,6 +114,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="GUI\SelectTableDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SelectTableDlg.Designer.cs">
+      <DependentUpon>SelectTableDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Session.cs" />
+    <Compile Include="Utils\Log.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
