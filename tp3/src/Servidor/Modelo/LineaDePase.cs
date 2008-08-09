@@ -79,7 +79,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 		public override String ObtenerNombreTipoApuesta()
 		{
-            return "Linea de Pase";
+            return "pase";
 
 		}
         

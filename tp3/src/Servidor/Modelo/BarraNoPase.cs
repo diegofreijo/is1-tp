@@ -84,7 +84,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 		public override String ObtenerNombreTipoApuesta()
 		{
-            return "Barra No Pase";
+            return "no pase";
 		}
 
         //public override int? ObtenerPuntajeApostado()
