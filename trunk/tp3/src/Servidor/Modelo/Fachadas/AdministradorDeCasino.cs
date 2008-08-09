@@ -239,6 +239,11 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 			return UsuariosEnCasino.ObtenerInstancia().Jugadores.ToDictionary(j => j.Nombre, j => j.Saldo);
 		}
 
+		public List<Creditos> ObtenerFichasValidas()
+		{
+			return ConfiguracionCasino.ObtenerInstancia().FichasValidas;
+		}
+
 		public List<PremioDetalleMovimientoJugadores> DetalleMovimientoJugadores()
 		{
 			// Levanto todas las apuestas y genero el resultado (no considero los de tragamonedas)

@@ -73,6 +73,9 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 				new XElement("aceptado", aceptado ? "si" : "no"),
 				new XElement("modoAcceso", modoAcceso),
 				new XElement("saldo", saldo),
+				new XElement("fichasHabilitadas", 
+					Modelo.Fachadas.AdministradorDeCasino.ObtenerInstancia().ObtenerFichasValidas().
+					Select(c => new XElement("valorFicha", c)).ToList()),
 				new XElement("descripcion", descripcion)
 			});
 
