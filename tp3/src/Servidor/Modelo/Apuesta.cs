@@ -12,7 +12,6 @@ namespace CasinoOnline.Servidor.Modelo
 		#region Miembros
 		protected Jugador apostador = null;
 		protected Dictionary<Creditos, int> fichas = new Dictionary<decimal, int>();
-		protected Creditos valor;
 		#endregion
 
 
@@ -20,7 +19,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 		public Creditos Valor
 		{
-			get { return valor; }
+			get { return fichas.Sum(f => f.Key * f.Value); }
 		}
 		public Dictionary<Creditos, int> Fichas
 		{

@@ -19,9 +19,10 @@ namespace CasinoOnline.Servidor.Modelo
 			return null;
 		}
 
-
-        protected Credito CalcularPagoApuesta( Dictionary<Credito, int> fichas, int a, int b) 
-            //si paga 2 a 1 , a = 2, b = 1
+		/// <summary>
+		/// Calcula el pago "a a b"
+		/// </summary>
+		protected Credito CalcularPagoApuesta( Dictionary<Credito, int> fichas, int a, int b) 
         {
             Credito apostado = 0; 
 
