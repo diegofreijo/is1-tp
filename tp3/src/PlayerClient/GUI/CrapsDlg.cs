@@ -73,6 +73,7 @@ namespace CasinoOnline.PlayerClient.GUI
             XElement estadoCasino = AccesoYVistaCasino.ObtenerInstancia().PedirEstadoCasino(m_session.Nombre);
             XElement mesaCraps = estadoCasino.Element("juegos").Element("craps").Element("mesasCraps").Elements("mesaCraps").Single(delegate(XElement elem) { return int.Parse(elem.Attribute("id").Value) == m_idMesa; });
 
+            SetBetButtonsState(false);
             RefreshSaldo();
             m_historyTextBox.Text = "";
 
@@ -95,6 +96,27 @@ namespace CasinoOnline.PlayerClient.GUI
             // fichas en mano
             m_fichasEnMano = new Dictionary<ValorFicha, int>();
             DropAllCoinsInHand();
+        }
+
+        private void SetBetButtonsState(bool bEnable)
+        {
+            m_LineaDePaseBetButton.Enabled = bEnable;
+            m_BarraNoPaseBetButton.Enabled = bEnable;
+            m_VenirBetButton.Enabled = bEnable;
+            m_NoVenirBetButton.Enabled = bEnable;
+            m_CampoBetButton.Enabled = bEnable;
+            m_EnSitioAGanar4BetButton.Enabled = bEnable;
+            m_EnSitioAGanar5BetButton.Enabled = bEnable;
+            m_EnSitioAGanar6BetButton.Enabled = bEnable;
+            m_EnSitioAGanar8BetButton.Enabled = bEnable;
+            m_EnSitioAGanar9BetButton.Enabled = bEnable;
+            m_EnSitioAGanarXBetButton.Enabled = bEnable;
+            m_EnSitioEnContra4BetButton.Enabled = bEnable;
+            m_EnSitioEnContra5BetButton.Enabled = bEnable;
+            m_EnSitioEnContra6BetButton.Enabled = bEnable;
+            m_EnSitioEnContra8BetButton.Enabled = bEnable;
+            m_EnSitioEnContra9BetButton.Enabled = bEnable;
+            m_EnSitioEnContraXBetButton.Enabled = bEnable;
         }
 
         private void UpdateGUI(ref XElement estadoCraps)
@@ -260,6 +282,7 @@ namespace CasinoOnline.PlayerClient.GUI
             ValorFicha ficha = ValorFicha.Parse(m_coinsComboBox.SelectedItem.ToString().Substring(1));
             m_fichasEnMano[ficha] = m_fichasEnMano[ficha] + 1;
             RefreshCoinsInHand();
+            SetBetButtonsState(true);
         }
 
         private void m_dropAllButton_Click(object sender, EventArgs e)
@@ -269,6 +292,8 @@ namespace CasinoOnline.PlayerClient.GUI
 
         private void DropAllCoinsInHand()
         {
+            SetBetButtonsState(false);
+
             foreach (ValorFicha ficha in m_session.Fichas)
                 m_fichasEnMano[ficha] = 0;
 
