@@ -1,8 +1,10 @@
 using System;
 using CasinoOnline.Servidor.Modelo;
+using System.Collections.Generic;
 
 namespace CasinoOnline.Servidor.Modelo
 {
+    using Credito = Decimal;
 	abstract class ApuestaCraps : Apuesta
 	{
 		protected EstadoApuestaCraps estado;
@@ -16,5 +18,20 @@ namespace CasinoOnline.Servidor.Modelo
 		{
 			return null;
 		}
+
+
+        protected Credito CalcularPagoApuesta( Dictionary<Credito, int> fichas, int a, int b) 
+            //si paga 2 a 1 , a = 2, b = 1
+        {
+            Credito apostado = 0; 
+
+            foreach (Credito valorFicha in fichas.Keys) // calculo valor de la apuesta
+            {
+                apostado += valorFicha * fichas[valorFicha];
+            }
+
+            return a / b * apostado + apostado ;     // calculo con los factores de pago
+                                                     // la ganancia + la de
+        }
 	}
 }

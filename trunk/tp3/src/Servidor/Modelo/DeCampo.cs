@@ -14,20 +14,53 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="estado"></param>
 		public DeCampo(Dictionary<Creditos, int> fichas, Jugador apostador)
 		{
-			throw new NotImplementedException();
+            this.fichas = fichas;
+            this.apostador = apostador;
 		}
 
 		/// 
 		/// <param name="resultado"></param>
 		public override Creditos Resolverse(Resultado resultado)
 		{
-			throw new NotImplementedException();
+
+            ResultadoCraps resultadoCraps = (ResultadoCraps)resultado;
+
+            int valorDados = resultadoCraps.Dado1.Numero + resultadoCraps.Dado2.Numero;
+
+            Creditos aPagar = 0;
+
+
+            if (valorDados == 3 ||
+                valorDados == 4 ||
+                valorDados == 9 ||
+                valorDados == 10 ||
+                valorDados == 11
+                ) // ganó 1 a 1
+            {
+                aPagar = CalcularPagoApuesta(fichas,1,1);
+               
+            }
+            if (valorDados == 2 ||                
+                valorDados == 12) // ganó 2 a 1
+            {
+                aPagar = CalcularPagoApuesta(fichas,2,1);
+                
+            }
+            //    valorDados == 2 ||                
+            //    valorDados == 3 ||
+            //    valorDados == 4 ||
+            //    valorDados == 9              
+            //                   perdió 
+                
+            estado = EstadoApuestaCraps.Cerrada;
+
+            return aPagar;
 
 		}
 
 		public override String ObtenerNombreTipoApuesta()
 		{
-			throw new NotImplementedException();
+            return "De campo";
 
 		}
 
