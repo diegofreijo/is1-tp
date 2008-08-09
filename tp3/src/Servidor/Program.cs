@@ -11,7 +11,7 @@ namespace CasinoOnline.Servidor
 {
     class Program
     {//..\\config\\
-		public const string archivo_config = "configuracion_casino.xml";
+		public const string archivo_config = "..\\config\\configuracion_casino.xml";
 		public const string archivo_lista_jugadores = "..\\config\\lista_jugadores.xml";
 
         static void Main(string[] args)
