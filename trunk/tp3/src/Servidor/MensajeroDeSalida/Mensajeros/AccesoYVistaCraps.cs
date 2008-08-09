@@ -127,6 +127,7 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 				})
 			});
 
+			// Premios
 			XElement premios = new XElement("premios");
 			foreach (KeyValuePair<KeyValuePair<KeyValuePair<Nombre, Creditos>, Creditos>, Creditos> premio in Modelo.Fachadas.JuegoCraps.ObtenerInstancia().PremiosUltimoTiro(idmesa))
 			{
