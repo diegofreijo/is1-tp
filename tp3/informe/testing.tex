@@ -1,22 +1,53 @@
-Se testear'an 2 funcionalidades con el metodo de particiones por categorias.
+Se testear'an 2 funcionalidades con el m'etodo de partici'on en categorias.
 
 
 \subsection{Entrar al casino} 
 
-\imagen{EntrarCasinoFactoresCategoriasChoices.png}{EntrarCasino Factores Categorias Choices}{0.6}
+Esta funcionalidad es la que se ejecuta en el servidor cuando un cliente desea ingresar.
 
+Las validaciones que debe superar para ingresar un usuario son:
+\begin{itemize}
+\item Si ya ingres'o al casino.
+\item En el caso de querer entrar en modo jugador, si est'a en la lista de Marketing
+\end{itemize}
 
-\imagen{EntrarCasinoCasosDePrueba1.png}{EntrarCasino Casos de Prueba}{0.6}
+En dicha lista est'an los jugadores que realizaron el tr'amite con Rosa y est'an autorizados para ingresar.
 
+Adem'as la lista contiene los saldos de los jugadores. Los cuales son actualizados cuando 'estos salen del casino. Dicho de otra manera, un jugador entra al casino por primera vez, modifica su saldo y sale. Luego desea entrar nuevamente, al hacerlo el saldo acreditado es el modificado (no el inicial).
+
+Todo esto en el caso de que el casino est'e abierto. Si el casino estuviera cerrado la terminal del cliente quedar'ia esperando una respuesta que no va a llegar hasta que el servidor abra.
+
+\imagen{TF_EntrarCasinoFactoresCategoriasChoices.png}{EntrarCasino Factores Categorias Choices}{0.6}
+
+\imagen{TF_EntrarCasinoCasosDePrueba.png}{EntrarCasino Casos de Prueba}{0.49}
+
+\clearpage
 
 
 \subsection{Tirar dados en Craps bajo modo dirigido}
-(incluye pago de apuestas, y aumentos/disminuciones de pozos)
 
-\imagen{TirarDadosFactoresCategoriasChoices.png}{TirarDados Factores Categorias Choices}{0.6} 
+Este testing es sobre la funcionalidad de TirarDados en una mesa de Craps en el caso especial de estar en modo dirigido. Esto provoca que el resultado de los dados y el tipo de jugada ya est'en seteadas, es decir, no es el azar quien determina dichos resultados.
 
- \imagenvertical{TirarDadosCasosDePrueba1.png}{TirarDados Casos de Prueba 1/3 }{0.55}
- \imagenvertical{TirarDadosCasosDePrueba2.png}{TirarDados Casos de Prueba 2/3}{0.55}
- \imagenvertical{TirarDadosCasosDePrueba3.png}{TirarDados Casos de Prueba 3/3}{0.55}
+Para poder hacer efectivo el tiro, quien desea hacerlo debe ser el tirador de la mesa en cuestion, adem'as de que 'esta mesa debe existir y ser del juego de craps.
+
+Por la simplificaci'on dada por la c'atedra las 'unicas apuestas que se tienen en cuenta en el testeo son \italica{Linea de Pase} y \italica{Barra No Pase}. Un 'unico jugador apostando y una 'unica apuesta.
+
+Estas apuestas s'olo pueden realizarse antes del tiro de salida y duran 'unicamente una ronda. El pago que otorgan es de 1 a 1.
+
+Las cuestiones a tener en cuenta para resolver la apuesta y determinar el pago son:
+\begin{itemize}
+\item El valor de los dados, en particular su suma.
+\item El valor del punto (siempre y cuando ya est'e establecido)
+\item La relaci'on entre el punto y la suma de los dados, m'as especificamente si son iguales o no (nuevamente, en el caso de que el punto est'e establecido).
+\item El estado de la apuesta. La cual va de la mano del estado de la ronda, ya si la ronda est'a en \italica{Est'an saliendo} las apuestas necesariamente deben estar en \italica{iniciada}. Que una apuesta tenga como estado \italica{iniciada} significa que fue reci'en creada, despu'es del 'ultimo tiro y, obviamente, antes del actual.
+\item El tipo de jugada. El pago si el estado es \italica{Normal}, en el caso de ganar, ser'a el antedicho. Pero si el estado es \italica{Todos Ponen} o \italica{Feliz} el pago ser'a modificado con una disminuci'on o un aumento respectivamente. Dicho pago se hace efectivo mediante el aumento del saldo del jugador que realiz'o la apuesta.
+\item El Pozo Feliz. El monto de este pozo debe ser siempre mayor o igual que el m'inimo determinado por el administrador en la carga inicial de la configuraci'on. Si la jugada es \italica{Todos Ponen} a 'este pozo ir'an a parar los cr'editos descontados al jugador que realiz'o la apuesta. Si la jugada es \italica{Feliz} el total del monto ser'a acreditado en el saldo del jugador y se resetear'a el pozo dejando el monto en el valor m'inimo.
+\end{itemize}
+
+\imagen{TF_TirarDadosFactoresCategoriasChoices.png}{TirarDados Factores Categorias Choices}{0.8} 
+
+\imagen{TF_TirarDadosCasosDePrueba.png}{TirarDados Casos de Prueba}{0.57}
+
+\imagen{TF_TirarDadosResutadoEsperado.png}{TirarDados Resultado Esperado}{0.57}
  
 
