@@ -15,7 +15,7 @@ namespace CasinoOnline.PlayerClient.Comunication
     class ReceptorMensajesArchivo : IReceptorMensajes
     {
         private const String m_numero_grupo = "05";
-        private const String m_bufferEntrada = "./InputMessages/";
+        private const String m_bufferEntrada = "..\\buffer_salida\\";
         private const int m_pollingWaitTimeMilliSeconds = 1000;
 
         public bool ObtenerNuevoMensajeAsync(MessageId msgId, IdTerminalVirtual termId, ref XElement xml)
@@ -45,8 +45,14 @@ namespace CasinoOnline.PlayerClient.Comunication
                     }
                     finally
                     {
-                        // Borro el archivo del buffer de entrada
-                        File.Move(ruta_archivo_esperado, m_bufferEntrada + "_" + archivo_esperado);
+                        string backupFile = m_bufferEntrada + "_" + archivo_esperado;
+
+                        // Borro el archivo de backup si existe
+                        if (File.Exists(backupFile))
+                            File.Delete(backupFile);
+
+                        // Renombro el archivo procesado en vez de borrarlo por si interesa mirarlo...
+                        File.Move(ruta_archivo_esperado, backupFile);
                     }
                 }
             }
@@ -89,8 +95,14 @@ namespace CasinoOnline.PlayerClient.Comunication
                 }
                 finally
                 {
-                    // Borro el archivo del buffer de entrada
-                    File.Move(ruta_archivo_esperado, m_bufferEntrada + "_" + archivo_esperado);
+                    string backupFile = m_bufferEntrada + "_" + archivo_esperado;
+
+                    // Borro el archivo de backup si existe
+                    if (File.Exists(backupFile))
+                        File.Delete(backupFile);
+
+                    // Renombro el archivo procesado en vez de borrarlo por si interesa mirarlo...
+                    File.Move(ruta_archivo_esperado, backupFile);
                 }
             }
             catch (Exception ex)

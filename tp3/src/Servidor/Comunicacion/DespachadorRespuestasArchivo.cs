@@ -23,7 +23,7 @@ namespace CasinoOnline.Servidor.Comunicacion
 			try
 			{
 				// Genero el nombre del archivo
-				string ruta_archivo = buffer_salida + respuesta.Tipo + numero_grupo + respuesta.IdTerminal + ".xml";
+				string ruta_archivo = buffer_salida + respuesta.Tipo + numero_grupo + respuesta.IdTerminal.ToString("D4") + ".xml";
 
 				// Guardo el Xml
 				respuesta.Parametros.Save(ruta_archivo);

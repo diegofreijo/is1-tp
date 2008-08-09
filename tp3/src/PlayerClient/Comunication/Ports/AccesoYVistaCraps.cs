@@ -90,7 +90,7 @@ namespace CasinoOnline.PlayerClient.Comunication.Ports
             IdTerminalVirtual idt = TerminalInfo.ObtenerInstancia().Id;
 
             // Intento obtener una respuesta (no bloqueante)
-            return ReceptorMensajesGlobal.ObtenerInstancia().ObtenerNuevoMensajeAsync("EstadoCraps", idt, ref msg);
+            return ReceptorMensajesGlobal.ObtenerInstancia().ObtenerNuevoMensajeAsync("estadoCraps", idt, ref msg);
         }
 
         #endregion

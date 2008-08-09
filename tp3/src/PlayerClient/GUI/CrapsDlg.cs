@@ -69,6 +69,7 @@ namespace CasinoOnline.PlayerClient.GUI
             XElement estadoCasino = AccesoYVistaCasino.ObtenerInstancia().PedirEstadoCasino(m_session.Nombre);
             XElement mesaCraps = estadoCasino.Element("juegos").Element("craps").Element("mesasCraps").Elements("mesaCraps").Single(delegate(XElement elem) { return int.Parse(elem.Attribute("id").Value) == m_idMesa; });
 
+            RefreshSaldo();
             m_historyTextBox.Text = "";
 
             UpdateJugadoresEnMesa(mesaCraps.Element("jugadores"));
@@ -179,6 +180,10 @@ namespace CasinoOnline.PlayerClient.GUI
             string dado2 = resultado.Element("dado2").Value;
             m_lastResultDado1TextBox.Text = dado1;
             m_lastResultDado2TextBox.Text = dado2;
+
+            if (dado1 == "" || dado2 == "")
+                return;
+
             m_historyTextBox.Text = "<" + dado1 + "," + dado2 + "> " + m_historyTextBox.Text;
         }
 
@@ -345,10 +350,13 @@ namespace CasinoOnline.PlayerClient.GUI
 
         void Apostar(TipoApuestaCraps tipo, PuntoEnSitioCraps punto)
         {
+            List<KeyValuePair<ValorFicha,int> > fichasApostadas = m_fichasEnMano.ToList();
+            fichasApostadas.RemoveAll(delegate(KeyValuePair<ValorFicha,int> fichaCantidad) { return fichaCantidad.Value == 0; } );
+
             XElement res = JuegoCraps.ObtenerInstancia().ApostarCraps(
                 m_session.Nombre,
                 m_idMesa,
-                m_fichasEnMano.ToList(),
+                fichasApostadas,
                 tipo,
                 punto
             );
