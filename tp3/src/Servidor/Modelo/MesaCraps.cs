@@ -106,8 +106,9 @@ namespace CasinoOnline.Servidor.Modelo
 			// Le pido a la jugada las apuestas no resueltas
 			apuestas = jugada.ApuestasNoResueltas();
 
-			// Guardo la jugada en el historial
+			// Guardo la jugada en el historial y la registro como que fue mi ultima jugada
 			HistorialJugadas.ObtenerInstancia().JugadasCraps.Add(jugada);
+			this.ultima_jugada = jugada;
 
 			// Notifico el cambio en la mesa
 			observador_cambios.NotificarCambio(this.id);
