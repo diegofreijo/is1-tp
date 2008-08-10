@@ -55,16 +55,24 @@ namespace CasinoOnline.PlayerClient.GUI
             selectTableIdDlg.FinishConstruction(m_session.Modo, idsMesasCraps);
             if (selectTableIdDlg.ShowDialog() == DialogResult.OK)
             {
-                XElement res = AccesoYVistaCraps.ObtenerInstancia().EntrarCraps(m_session.Nombre,selectTableIdDlg.GetSelectedId());
-
-                if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
+                CrapsDlg crapsDlg;
+                if (m_session.Modo == ModoUsuario.eJugador)
                 {
-                    MessageBox.Show(this, res.Element("descripcion").Value, "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    return;
-                }
+                    XElement res = AccesoYVistaCraps.ObtenerInstancia().EntrarCraps(m_session.Nombre, selectTableIdDlg.GetSelectedId());
 
-                CrapsDlg dlg = new CrapsDlg(ref m_session, int.Parse(res.Attribute("mesa").Value));
-                dlg.ShowDialog(this);
+                    if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
+                    {
+                        MessageBox.Show(this, res.Element("descripcion").Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    crapsDlg = new CrapsDlg(ref m_session, int.Parse(res.Attribute("mesa").Value));
+                }
+                else
+                {
+                    crapsDlg = new CrapsDlg(ref m_session, selectTableIdDlg.GetSelectedId());
+                }
+                crapsDlg.ShowDialog(this);
             }
         }
     }

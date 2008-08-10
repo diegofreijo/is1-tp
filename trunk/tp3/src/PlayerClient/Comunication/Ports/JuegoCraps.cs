@@ -54,12 +54,12 @@ namespace CasinoOnline.PlayerClient.Comunication.Ports
             return tipoApuestaCraps2String[tipo];
         }
 
-        private String PuntoEnSitioCraps2String(ref PuntoEnSitioCraps punto)
+        private String PuntoEnSitioCraps2String(PuntoEnSitioCraps? punto)
         {
-            /*if (punto == null)
-                return "";*/
+            if (punto == null)
+                return "";
 
-            Dictionary<PuntoEnSitioCraps, String> puntoEnSitioCraps2String = new Dictionary<PuntoEnSitioCraps, String>();
+            Dictionary<PuntoEnSitioCraps?, String> puntoEnSitioCraps2String = new Dictionary<PuntoEnSitioCraps?, String>();
             puntoEnSitioCraps2String[PuntoEnSitioCraps.e4] = "4";
             puntoEnSitioCraps2String[PuntoEnSitioCraps.e5] = "5";
             puntoEnSitioCraps2String[PuntoEnSitioCraps.eSEIS] = "6";
@@ -110,7 +110,7 @@ namespace CasinoOnline.PlayerClient.Comunication.Ports
             return ReceptorMensajesGlobal.ObtenerInstancia().ObtenerNuevoMensajeSync("respuestaTiroCraps", idt);
         }
 
-        public XElement ApostarCraps(Nombre nombre, IdMesa idMesa, List<KeyValuePair<ValorFicha,int>> fichasApostadas, TipoApuestaCraps tipoApuesta, PuntoEnSitioCraps punto)
+        public XElement ApostarCraps(Nombre nombre, IdMesa idMesa, List<KeyValuePair<ValorFicha,int>> fichasApostadas, TipoApuestaCraps tipoApuesta, PuntoEnSitioCraps? punto)
         {
             // Obtengo el id de la terminal
             IdTerminalVirtual idt = TerminalInfo.ObtenerInstancia().Id;
@@ -122,7 +122,7 @@ namespace CasinoOnline.PlayerClient.Comunication.Ports
     			new XAttribute("mesa", idMesa.ToString()),
                 new XElement("opcionApuesta", new object[]{
                     new XElement("tipoApuesta", TipoApuestaCraps2String(ref tipoApuesta)),
-                    new XElement("puntajeApostado", PuntoEnSitioCraps2String(ref punto))
+                    new XElement("puntajeApostado", PuntoEnSitioCraps2String(punto))
                 }),
                 FichasApostadas2XElement(ref fichasApostadas)
 			});

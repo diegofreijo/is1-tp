@@ -15,10 +15,10 @@ namespace CasinoOnline.PlayerClient
     {
         private Nombre m_nombreUsuario;
         private ModoUsuario m_modo;
-        private Creditos m_saldo;
+        private Creditos? m_saldo;
         private List<ValorFicha> m_fichasHabilitadas;
 
-        public Session(Nombre nombreUsuario, ModoUsuario modo, Creditos saldo, List<ValorFicha> fichasHabilitadas)
+        public Session(Nombre nombreUsuario, ModoUsuario modo, Creditos? saldo, List<ValorFicha> fichasHabilitadas)
         {
             m_nombreUsuario = nombreUsuario;
             m_modo = modo;
@@ -38,7 +38,7 @@ namespace CasinoOnline.PlayerClient
             get { return m_modo; }
         }
 
-        public Creditos Saldo
+        public Creditos? Saldo
         {
             set { m_saldo = value; }
             get { return m_saldo; }

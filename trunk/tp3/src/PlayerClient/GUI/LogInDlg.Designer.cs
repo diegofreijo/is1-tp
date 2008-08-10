@@ -138,6 +138,7 @@
             this.m_guestName.Name = "m_guestName";
             this.m_guestName.Size = new System.Drawing.Size(154, 20);
             this.m_guestName.TabIndex = 5;
+            this.m_guestName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnGuestNameTextBoxClicked);
             // 
             // label3
             // 
@@ -169,6 +170,7 @@
             this.m_userName.Name = "m_userName";
             this.m_userName.Size = new System.Drawing.Size(154, 20);
             this.m_userName.TabIndex = 4;
+            this.m_userName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnPlayerNameTextBoxClicked);
             // 
             // label4
             // 
