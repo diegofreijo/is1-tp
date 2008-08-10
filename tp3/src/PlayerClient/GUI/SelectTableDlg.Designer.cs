@@ -81,10 +81,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(285, 94);
+            this.ControlBox = false;
             this.Controls.Add(this.m_cancelButton);
             this.Controls.Add(this.m_OKButton);
             this.Controls.Add(this.m_tablesComboBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SelectTableDlg";
             this.Text = "CasinoOnline :: Select Table";
             this.ResumeLayout(false);
