@@ -239,6 +239,13 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 			return ultimaJugada != null ? ((ResultadoCraps)ultimaJugada.Resultado).Dado2.Numero : (int?)null;
 		}
 
+		public int IdUltimoTiro(IdMesa idmesa)
+		{
+			return HistorialJugadas.ObtenerInstancia().JugadasCraps.FindIndex(
+				delegate(JugadaCraps jug) { return jug == (JugadaCraps)MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps(idmesa).UltimaJugada; }
+			);
+		}
+
 		public String TipoJugadaUltimoTiro(IdMesa idmesa)
 		{
 			Jugada ultimaJugada = MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps(idmesa).UltimaJugada;
@@ -332,5 +339,6 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 		}
 
 		#endregion
+
 	}
 }

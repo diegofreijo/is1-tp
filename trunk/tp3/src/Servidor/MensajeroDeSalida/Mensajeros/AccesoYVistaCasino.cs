@@ -54,16 +54,19 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 			// Averiguo el modoAcceso
 			string modoAcceso = "";
 			string saldo = "";
-			if (Modelo.Fachadas.LobbyCasino.ObtenerInstancia().ObservadoresEnCasino().
-				Exists(delegate(string nombre) { return nombre == usuario; }))
+			if (aceptado)
 			{
-				modoAcceso = "observador";
-			}
-			else
-			{
-				modoAcceso = "jugador";
-				saldo = Modelo.Fachadas.AdministradorDeCasino.ObtenerInstancia().
-					ObtenerJugadoresConSaldo()[usuario].ToString();
+				if (Modelo.Fachadas.LobbyCasino.ObtenerInstancia().ObservadoresEnCasino().
+					Exists(delegate(string nombre) { return nombre == usuario; }))
+				{
+					modoAcceso = "observador";
+				}
+				else
+				{
+					modoAcceso = "jugador";
+					saldo = Modelo.Fachadas.AdministradorDeCasino.ObtenerInstancia().
+						ObtenerJugadoresConSaldo()[usuario].ToString();
+				}
 			}
 
 			// Genero el XML de salida
@@ -170,6 +173,7 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 
 					// Ultimo tiro
 					XElement ultimoTiro = new XElement("ultimoTiro", new object[] {
+						new XElement("id", Modelo.Fachadas.JuegoCraps.ObtenerInstancia().IdUltimoTiro(idmesa)),
 						new XElement("tirador", Modelo.Fachadas.JuegoCraps.ObtenerInstancia().TiradorUltimoTiro(idmesa)),
 						new XElement("resultado", new object[] {
 							new XElement("dado1", Modelo.Fachadas.JuegoCraps.ObtenerInstancia().Dado1UltimoTiro(idmesa).ToString()),
