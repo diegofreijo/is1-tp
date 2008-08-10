@@ -44,7 +44,9 @@ namespace CasinoOnline.PlayerClient.GUI
                 return;
             }
 
-            Creditos saldo = Creditos.Parse(res.Element("saldo").Value);
+            Creditos? saldo = null;
+            if (modo == ModoUsuario.eJugador)
+                saldo = Creditos.Parse(res.Element("saldo").Value);
 
             IEnumerable<XElement> fichasHabilitadas = res.Element("fichasHabilitadas").Elements("valorFicha");
             List<ValorFicha> fichas = new List<ValorFicha>();
@@ -60,6 +62,16 @@ namespace CasinoOnline.PlayerClient.GUI
         private void QuitButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void OnPlayerNameTextBoxClicked(object sender, MouseEventArgs e)
+        {
+            m_joinAsMemberRadioButton.Checked = true;
+        }
+
+        private void OnGuestNameTextBoxClicked(object sender, MouseEventArgs e)
+        {
+            m_joinAsGuestRadioButton.Checked = true;
         }
     }
 }
