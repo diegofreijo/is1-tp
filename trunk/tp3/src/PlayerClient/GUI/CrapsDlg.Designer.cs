@@ -1048,6 +1048,8 @@
             this.Controls.Add(this.groupBox18);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "CrapsDlg";
             this.Text = "CasinoOnline :: Craps";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);

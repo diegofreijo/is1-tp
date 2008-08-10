@@ -19,6 +19,16 @@ namespace CasinoOnline.PlayerClient.GUI
         {
             InitializeComponent();
             m_session = session;
+
+            // nombre del jugador/observador en barra de título
+            this.Text += " <";
+            this.Text += m_session.Modo == ModoUsuario.eJugador ? "Jugador" : "Observador";
+            this.Text += ": ";
+            this.Text += m_session.Nombre;
+            this.Text += ">";
+
+            if (m_session.Modo == ModoUsuario.eObservador)
+                PlayCrapsButton.Text = "View Craps";
         }
 
         private void m_logoutButton_Click(object sender, EventArgs e)

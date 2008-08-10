@@ -62,8 +62,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 126);
+            this.ControlBox = false;
             this.Controls.Add(this.PlayCrapsButton);
             this.Controls.Add(this.m_logoutButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(339, 160);
             this.Name = "LobbyDlg";
