@@ -9,7 +9,6 @@ namespace CasinoOnline.Servidor.Modelo
 
 	class LineaDePase : ApuestaCraps
 	{
-
 		/// 
 		/// <param name="fichas"></param>
 		/// <param name="apostador"></param>
@@ -28,8 +27,6 @@ namespace CasinoOnline.Servidor.Modelo
             int valorDados = resultadoCraps.Dado1.Numero + resultadoCraps.Dado2.Numero;
             Creditos aPagar = 0;
             
-
-
             if (resultadoCraps.EstadoRonda == EstadoRondaCraps.EstanSaliendo)
             {
                 if (valorDados == 7 || 
@@ -54,41 +51,26 @@ namespace CasinoOnline.Servidor.Modelo
                 {
                     estado = EstadoApuestaCraps.EnTranscurso;
                 }
-
             }
             else // estamos con el punto establecido
             {
-                if (resultadoCraps.EstadoRonda == EstadoRondaCraps.PuntoEstablecido)
+                if (valorDados == resultadoCraps.Punto)// ganó
                 {
-
-                    if (valorDados == resultadoCraps.Punto)// ganó
-                    {
-                        aPagar = CalcularPagoApuesta(fichas, 1, 1);
-                    }
-                    //if (valorDados == 7) // perdió
-                    //{
-                    //}
-                    /* la ronda termina con alguno de estos valores así */
+                    aPagar = CalcularPagoApuesta(fichas, 1, 1);
                     estado = EstadoApuestaCraps.Cerrada;
                 }
+                else if (valorDados == 7) // perdió
+                    estado = EstadoApuestaCraps.Cerrada;
+                else
+                    estado = EstadoApuestaCraps.EnTranscurso;
             }
 
             return aPagar;
-            
 		}
 
 		public override String ObtenerNombreTipoApuesta()
 		{
             return "pase";
-
 		}
-        
-        /*
-		public override int? ObtenerPuntajeApostado()
-		{
-            return null;
-
-		}
-        */
 	}
 }
