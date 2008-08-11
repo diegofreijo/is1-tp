@@ -8,8 +8,6 @@ namespace CasinoOnline.Servidor.Modelo
 
 	class BarraNoPase : ApuestaCraps
 	{
-
-
 		/// 
 		/// <param name="fichas"></param>
 		/// <param name="apostador"></param>
@@ -33,23 +31,23 @@ namespace CasinoOnline.Servidor.Modelo
             if (resultadoCraps.EstadoRonda == EstadoRondaCraps.EstanSaliendo)
             {
                 if (valorDados == 7 ||
-                    valorDados == 11) // ganó
-                {
-                    aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
-                }
-                if (valorDados == 2 ||
-                    valorDados == 3 ||
-                    valorDados == 12) // perdio
+                    valorDados == 11) // perdio
                 {
                     estado = EstadoApuestaCraps.Cerrada;
                 }
-                if (valorDados == 12) // empató
+                else if (valorDados == 2 ||
+                    valorDados == 3) // ganó
                 {
                     aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
-                    aPagar = aPagar / 2;
                     estado = EstadoApuestaCraps.Cerrada;
                 }
-                if (valorDados == 4 ||
+                else if (valorDados == 12) // empató
+                {
+                    aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
+                    aPagar /= 2;
+                    estado = EstadoApuestaCraps.Cerrada;
+                }
+                else if (valorDados == 4 ||
                      valorDados == 5 ||
                      valorDados == 6 ||
                      valorDados == 8 ||
@@ -58,39 +56,27 @@ namespace CasinoOnline.Servidor.Modelo
                 {
                     estado = EstadoApuestaCraps.EnTranscurso;
                 }
-
-
             }
-            else 
+            else // estamos con el punto establecido
             {
-                if (resultadoCraps.EstadoRonda == EstadoRondaCraps.PuntoEstablecido)
+                if (valorDados == 7) // ganó
                 {
-                    if (valorDados == 7)// perdió
-                    {
-                        aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
-                        estado = EstadoApuestaCraps.Cerrada;
+                    aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
+                    estado = EstadoApuestaCraps.Cerrada;
 
-                    }
-                    if (valorDados == resultadoCraps.Punto) // ganó
-                    {
-                        estado = EstadoApuestaCraps.Cerrada;
-                    }
+                }
+                if (valorDados == resultadoCraps.Punto) // perdió
+                {
+                    estado = EstadoApuestaCraps.Cerrada;
                 }
             }
 
             return aPagar;
-
         }
 
 		public override String ObtenerNombreTipoApuesta()
 		{
             return "no pase";
 		}
-
-        //public override int? ObtenerPuntajeApostado()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
 	}
 }
