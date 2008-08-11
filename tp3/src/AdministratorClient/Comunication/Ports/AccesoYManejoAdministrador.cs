@@ -104,15 +104,21 @@ namespace CasinoOnline.AdminClient.Comunication.Ports
             return ReceptorMensajesGlobal.ObtenerInstancia().ObtenerNuevoMensajeSync("respuestaReporteMovimientos", idt);
         }
 
-        public XElement ConfigurarModoDirigidoCraps(Password pass, ResultadoCraps resultado, TipoJugada? tipoJugada)
+        public XElement ConfigurarModoDirigidoCraps(
+            Password pass,
+            bool bEstablecerTipoResultado, 
+            ResultadoCraps resultado, 
+            bool bEstablecerTipoJugada, 
+            TipoJugada? tipoJugada)
         {
             // Obtengo el id de la terminal
             IdTerminalVirtual idt = TerminalInfo.ObtenerInstancia().Id;
 
             // Genero el XML de salida
             XElement controlResultados = new XElement("controlResultados", new object[]{
-                new XElement("dado1",resultado != null ? ValorDado2String(resultado.Dado1) : ""),
-                new XElement("dado2",resultado != null ? ValorDado2String(resultado.Dado2) : "")
+                new XAttribute("azar", (bEstablecerTipoResultado && resultado == null) ? "si" : "no"),
+                new XElement("dado1", (bEstablecerTipoResultado && resultado != null) ? ValorDado2String(resultado.Dado1) : ""),
+                new XElement("dado2", (bEstablecerTipoResultado && resultado != null) ? ValorDado2String(resultado.Dado1) : "")
             });
 
             XElement controlTipoJugada = new XElement("controlTipoJugadas", new object[]{
