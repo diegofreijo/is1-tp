@@ -89,5 +89,10 @@ namespace CasinoOnline.AdminClient.GUI
         {
             SetNewConfig();
         }
+
+        private void m_CancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -32,6 +32,8 @@ namespace CasinoOnline.AdminClient.GUI
             Dado2ComboBox.Items.Add(ValorDado.Cinco);
             Dado2ComboBox.Items.Add(ValorDado.Seis);
             Dado2ComboBox.SelectedItem = Dado2ComboBox.Items[0];
+
+            UpdateControls();
         }
 
         private void SetNewConfig()
@@ -43,14 +45,14 @@ namespace CasinoOnline.AdminClient.GUI
             ResultadoCraps resultadoCraps = null;
             TipoJugada? tipoJugada = null;
 
-            if (m_ControlarResultadoCheckBox.Checked)
-            {
-                resultadoCraps = new ResultadoCraps((ValorDado)Dado1ComboBox.SelectedItem, (ValorDado)Dado2ComboBox.SelectedItem);                
-            }
+            if (m_EstablecerResultadoCheckBox.Checked && m_ControlResultRadioButton.Checked)
+                resultadoCraps = new ResultadoCraps((ValorDado)Dado1ComboBox.SelectedItem, (ValorDado)Dado2ComboBox.SelectedItem);
 
-            if (m_ControlarTipoJugadaCheckBox.Checked)
+            if (m_EstablecerTipoJugadaCheckBox.Checked)
             {
-                if (m_NormalRadioButton.Checked)
+                if (m_AzarRadioButton.Checked)
+                    tipoJugada = TipoJugada.eAzar;
+                else if (m_NormalRadioButton.Checked)
                     tipoJugada = TipoJugada.eNormal;
                 else if (m_TodosPonenRadioButton.Checked)
                     tipoJugada = TipoJugada.eTodosPonen;
@@ -60,7 +62,13 @@ namespace CasinoOnline.AdminClient.GUI
                     tipoJugada = TipoJugada.eNoFeliz;
             }
 
-            XElement res = AccesoYManejoAdministrador.ObtenerInstancia().ConfigurarModoDirigidoCraps(passwordDlg.GetPassword(), resultadoCraps, tipoJugada);
+            XElement res = AccesoYManejoAdministrador.ObtenerInstancia().ConfigurarModoDirigidoCraps(
+                passwordDlg.GetPassword(),
+                m_EstablecerResultadoCheckBox.Checked,
+                resultadoCraps,
+                m_EstablecerTipoJugadaCheckBox.Checked,
+                tipoJugada
+            );
 
             if (String.Compare(res.Attribute("aceptado").Value, "no", true) == 0)
             {
@@ -78,6 +86,47 @@ namespace CasinoOnline.AdminClient.GUI
         {
             SetNewConfig();
             Close();
+        }
+
+        private void m_CancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void m_AzarResultRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateControls();
+        }
+
+        private void m_ControlResultRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateControls();
+        }
+
+        private void m_ControlarResultadoCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateControls();
+        }
+
+        private void m_ControlarTipoJugadaCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateControls();
+        }
+
+        private void UpdateControls()
+        {
+            // resultado
+            m_AzarResultRadioButton.Enabled = m_EstablecerResultadoCheckBox.Checked;
+            m_ControlResultRadioButton.Enabled = m_EstablecerResultadoCheckBox.Checked;
+            Dado1ComboBox.Enabled = m_ControlResultRadioButton.Checked && m_EstablecerResultadoCheckBox.Checked;
+            Dado2ComboBox.Enabled = m_ControlResultRadioButton.Checked && m_EstablecerResultadoCheckBox.Checked;
+
+            // tipo jugada
+            m_AzarRadioButton.Enabled = m_EstablecerTipoJugadaCheckBox.Checked;
+            m_NormalRadioButton.Enabled = m_EstablecerTipoJugadaCheckBox.Checked;
+            m_TodosPonenRadioButton.Enabled = m_EstablecerTipoJugadaCheckBox.Checked;
+            m_NoTodosPonenRadioButton.Enabled = m_EstablecerTipoJugadaCheckBox.Checked;
+            m_NoFelizRadioButton.Enabled = m_EstablecerTipoJugadaCheckBox.Checked;
         }
     }
 }
