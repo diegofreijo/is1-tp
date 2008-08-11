@@ -142,7 +142,7 @@ namespace CasinoOnline.AdminClient.Comunication.Ports
             return ReceptorMensajesGlobal.ObtenerInstancia().ObtenerNuevoMensajeSync("respuestaConfigurarModoDirigidoCraps", idt);
         }
 
-        public XElement ConfigurarModoDirigidoJugadaFeliz(Password pass, IdMesa? idMesa)
+        public XElement ConfigurarModoDirigidoJugadaFeliz(Password pass, IdMesa idMesa)
         {
             // Obtengo el id de la terminal
             IdTerminalVirtual idt = TerminalInfo.ObtenerInstancia().Id;
@@ -151,7 +151,7 @@ namespace CasinoOnline.AdminClient.Comunication.Ports
             XElement parametros = new XElement("configurarModoDirigidoJugadaFeliz", new object[]{
 				new XAttribute("vTerm", idt),
 				new XAttribute("password", pass),
-                new XElement("mesa", idMesa == null? "" : idMesa.Value.ToString())
+                new XElement("mesa", idMesa.ToString())
 			});
 
             // Genero el pedido

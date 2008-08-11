@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ControlarCheckBox = new System.Windows.Forms.CheckBox();
             this.m_ApplyButton = new System.Windows.Forms.Button();
             this.m_CancelButton = new System.Windows.Forms.Button();
             this.m_OKButton = new System.Windows.Forms.Button();
@@ -39,20 +38,10 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ControlarCheckBox
-            // 
-            this.ControlarCheckBox.AutoSize = true;
-            this.ControlarCheckBox.Location = new System.Drawing.Point(12, 12);
-            this.ControlarCheckBox.Name = "ControlarCheckBox";
-            this.ControlarCheckBox.Size = new System.Drawing.Size(68, 17);
-            this.ControlarCheckBox.TabIndex = 0;
-            this.ControlarCheckBox.Text = "Controlar";
-            this.ControlarCheckBox.UseVisualStyleBackColor = true;
-            // 
             // m_ApplyButton
             // 
             this.m_ApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_ApplyButton.Location = new System.Drawing.Point(294, 96);
+            this.m_ApplyButton.Location = new System.Drawing.Point(294, 75);
             this.m_ApplyButton.Name = "m_ApplyButton";
             this.m_ApplyButton.Size = new System.Drawing.Size(75, 23);
             this.m_ApplyButton.TabIndex = 7;
@@ -64,7 +53,7 @@
             // 
             this.m_CancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.m_CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.m_CancelButton.Location = new System.Drawing.Point(193, 96);
+            this.m_CancelButton.Location = new System.Drawing.Point(193, 75);
             this.m_CancelButton.Name = "m_CancelButton";
             this.m_CancelButton.Size = new System.Drawing.Size(75, 23);
             this.m_CancelButton.TabIndex = 6;
@@ -75,7 +64,7 @@
             // m_OKButton
             // 
             this.m_OKButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.m_OKButton.Location = new System.Drawing.Point(112, 96);
+            this.m_OKButton.Location = new System.Drawing.Point(112, 75);
             this.m_OKButton.Name = "m_OKButton";
             this.m_OKButton.Size = new System.Drawing.Size(75, 23);
             this.m_OKButton.TabIndex = 5;
@@ -90,7 +79,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.MesaCrapsComboBox);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 35);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(357, 49);
             this.groupBox1.TabIndex = 8;
@@ -134,12 +123,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.m_CancelButton;
-            this.ClientSize = new System.Drawing.Size(381, 131);
+            this.ClientSize = new System.Drawing.Size(381, 110);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.m_ApplyButton);
             this.Controls.Add(this.m_CancelButton);
             this.Controls.Add(this.m_OKButton);
-            this.Controls.Add(this.ControlarCheckBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "HappyMoveCfgDlg";
@@ -147,13 +135,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.CheckBox ControlarCheckBox;
         private System.Windows.Forms.Button m_ApplyButton;
         private System.Windows.Forms.Button m_CancelButton;
         private System.Windows.Forms.Button m_OKButton;
