@@ -7,7 +7,6 @@ namespace CasinoOnline.Servidor.Modelo
 
 	class DeCampo : ApuestaCraps
 	{
-
 		/// 
 		/// <param name="fichas"></param>
 		/// <param name="apostador"></param>
@@ -22,34 +21,30 @@ namespace CasinoOnline.Servidor.Modelo
 		/// <param name="resultado"></param>
 		public override Creditos Resolverse(Resultado resultado)
 		{
-
             ResultadoCraps resultadoCraps = (ResultadoCraps)resultado;
 
             int valorDados = resultadoCraps.Dado1.Numero + resultadoCraps.Dado2.Numero;
 
             Creditos aPagar = 0;
 
-
             if (valorDados == 3 ||
                 valorDados == 4 ||
                 valorDados == 9 ||
                 valorDados == 10 ||
-                valorDados == 11
-                ) // ganó 1 a 1
+                valorDados == 11) // ganó 1 a 1
             {
                 aPagar = CalcularPagoApuesta(fichas,1,1);
                
             }
-            if (valorDados == 2 ||                
+            else if (valorDados == 2 ||                
                 valorDados == 12) // ganó 2 a 1
             {
                 aPagar = CalcularPagoApuesta(fichas,2,1);
-                
             }
-            //    valorDados == 2 ||                
-            //    valorDados == 3 ||
-            //    valorDados == 4 ||
-            //    valorDados == 9              
+            //    valorDados == 5 ||                
+            //    valorDados == 6 ||
+            //    valorDados == 7 ||
+            //    valorDados == 8              
             //                   perdió 
                 
             estado = EstadoApuestaCraps.Cerrada;
