@@ -68,7 +68,7 @@ namespace CasinoOnline.Servidor.Modelo
 				if(new int[] { 2, 3, 12 }.Contains(sumaDados))
 				{
 					// El tirador pierde de una
-					proximo_tirador = ElegirProximoTirador();
+					CambiarTirador();
 				}
 				else if (new int[] { 4, 5, 6, 8, 9, 10 }.Contains(sumaDados))
 				{
@@ -87,7 +87,7 @@ namespace CasinoOnline.Servidor.Modelo
 				if(sumaDados == 7)
 				{
 					// El tirador pierde
-					this.proximo_tirador = ElegirProximoTirador();
+					CambiarTirador();
 					estado = EstadoRondaCraps.EstanSaliendo;
 					punto = null;
 				}
@@ -146,7 +146,7 @@ namespace CasinoOnline.Servidor.Modelo
 				// Si era el proximo tirador, elijo otro
 				if (proximo_tirador == jugador)
 				{
-					proximo_tirador = ElegirProximoTirador();
+					CambiarTirador();
 				}
 			}
 		}
@@ -156,9 +156,14 @@ namespace CasinoOnline.Servidor.Modelo
 
 		#region Metodos Privados
 
-		private Jugador ElegirProximoTirador()
+		private void CambiarTirador()
 		{
-			return jugadores_en_mesa[new Random().Next(jugadores_en_mesa.Count)];
+			// Pongo al primero en la lista como siguiente
+			proximo_tirador = jugadores_en_mesa[0];
+
+			// Saco a este tirador y pongo al que sigue como siguiente tirador
+			jugadores_en_mesa.RemoveAt(0);
+			jugadores_en_mesa.Add(proximo_tirador);
 		}
 
 		#endregion
