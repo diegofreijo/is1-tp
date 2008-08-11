@@ -120,6 +120,7 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 				{
 					// Le asigno el resultado a cada mesa de craps
 					SelectorResultadoCraps nuevoSelectorResultado = new SelectorResultadoAlAzarCraps();
+					ServidorJugadas.ObtenerInstancia().ResultadoDefaultCraps = nuevoSelectorResultado;
 					foreach (IdMesa mesa in MesasAbiertas.ObtenerInstancia().MesasCraps.Select(m => m.Id).ToList())
 					{
 						ServidorJugadas.ObtenerInstancia().EstablecerResultadoCraps(mesa, nuevoSelectorResultado);
@@ -132,6 +133,7 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 					{
 						// Le asigno el resultado a cada mesa de craps
 						SelectorResultadoCraps nuevoSelectorResultado = new SelectorResultadoDirigidoCraps(new Dado((int)dado1), new Dado((int)dado2));
+						ServidorJugadas.ObtenerInstancia().ResultadoDefaultCraps = nuevoSelectorResultado;
 						foreach (IdMesa mesa in MesasAbiertas.ObtenerInstancia().MesasCraps.Select(m => m.Id).ToList())
 						{
 							ServidorJugadas.ObtenerInstancia().EstablecerResultadoCraps(mesa, nuevoSelectorResultado);
@@ -156,6 +158,7 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 					}
 
 					// Le asigno el tipo de jugada a cada mesa de craps
+					ServidorJugadas.ObtenerInstancia().JugadaDefaultCraps = nuevoSelectorTipoJugada;
 					foreach (IdMesa mesa in MesasAbiertas.ObtenerInstancia().MesasCraps.Select(m => m.Id).ToList())
 					{
 						ServidorJugadas.ObtenerInstancia().EstablecerTipoJugadaCraps(mesa, nuevoSelectorTipoJugada);

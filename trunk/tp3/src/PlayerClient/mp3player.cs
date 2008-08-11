@@ -402,36 +402,17 @@ namespace Media
         {
             if (Opened)
             {
-                if (!Playing)
+                if (Playing)
                 {
-                    Playing = true;
-                    Pcommand = "play MediaFile";
-                    if (Loop) Pcommand += " REPEAT";
-                    if((Err=mciSendString(Pcommand, null, 0, IntPtr.Zero))!=0)
-                        OnError(new ErrorEventArgs(Err));
-                    OnPlayFile(new PlayFileEventArgs());
-                }
-                else
-                {
-                    if (!Paused)
-                    {
-                        Pcommand = "seek MediaFile to start";
-                        if((Err=mciSendString(Pcommand, null, 0, IntPtr.Zero))!=0)
-                            OnError(new ErrorEventArgs(Err));
-                        Pcommand = "play MediaFile";
-                        if((Err=mciSendString(Pcommand, null, 0, IntPtr.Zero))!=0)
-                            OnError(new ErrorEventArgs(Err));
-                        OnPlayFile(new PlayFileEventArgs());
-                    }
-                    else
-                    {
-                        Paused = false;
-                        Pcommand = "play MediaFile";
-                        if((Err=mciSendString(Pcommand, null, 0, IntPtr.Zero))!=0)
-                            OnError(new ErrorEventArgs(Err));
-                        OnPlayFile(new PlayFileEventArgs());
-                    }
-                }
+					Stop();
+				}
+
+                Playing = true;
+                Pcommand = "play MediaFile";
+                if (Loop) Pcommand += " REPEAT";
+                if((Err=mciSendString(Pcommand, null, 0, IntPtr.Zero))!=0)
+                    OnError(new ErrorEventArgs(Err));
+                OnPlayFile(new PlayFileEventArgs());
             }
         }
 
