@@ -34,13 +34,13 @@ namespace CasinoOnline.PlayerClient.GUI
             // inicializo el timer para polleo del estado craps
             m_updateCrapsStateTimer = new System.Windows.Forms.Timer();
             m_updateCrapsStateTimer.Tick += new EventHandler(OnUpdateCrapsStateTimer);
-            m_updateCrapsStateTimer.Interval = 1000;
+            m_updateCrapsStateTimer.Interval = 100;
             m_updateCrapsStateTimer.Start();
 
             // inicializo el timer para la actualización del estado del casino
             m_updateEstadoCasinoTimer = new System.Windows.Forms.Timer();
             m_updateEstadoCasinoTimer.Tick += new EventHandler(OnUpdateEstadoCasinoTimer);
-            m_updateEstadoCasinoTimer.Interval = 5000;
+            m_updateEstadoCasinoTimer.Interval = 100;
             m_updateEstadoCasinoTimer.Start();
         }
 
@@ -443,7 +443,7 @@ namespace CasinoOnline.PlayerClient.GUI
 
             if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
             {
-                MessageBox.Show(this, res.Element("descripcion").Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "Apuesta no aceptada. Error desconocido. Consulte a su arquitecto en protocolos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
