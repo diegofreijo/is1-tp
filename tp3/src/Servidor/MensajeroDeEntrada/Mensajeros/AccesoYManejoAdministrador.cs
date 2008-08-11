@@ -100,6 +100,7 @@ namespace CasinoOnline.Servidor.MensajeroDeEntrada.Mensajeros
 			// Recorro el Xml y busco las variables que necesito
 			String pass = parametros.Attribute("password").Value;
 			IdTerminalVirtual id_terminal = IdTerminalVirtual.Parse(parametros.Attribute("vTerm").Value);
+			bool azar = parametros.Element("controlResultados").Attribute("azar").ToString() == "si";
 			int? dado1 = string.IsNullOrEmpty(parametros.Element("controlResultados").Element("dado1").Value) ? (int?)null :
 				int.Parse(parametros.Element("controlResultados").Element("dado1").Value);
 			int? dado2 = string.IsNullOrEmpty(parametros.Element("controlResultados").Element("dado2").Value) ? (int?)null :
@@ -107,7 +108,7 @@ namespace CasinoOnline.Servidor.MensajeroDeEntrada.Mensajeros
 			string tipoJugada = parametros.Element("controlTipoJugadas").Element("tipo").Value;
 
 			// Invoco al modelo
-			bool aceptado = Modelo.Fachadas.AdministradorDeCasino.ObtenerInstancia().ConfigurarModoDirigidoCraps(dado1, dado2, tipoJugada, pass);
+			bool aceptado = Modelo.Fachadas.AdministradorDeCasino.ObtenerInstancia().ConfigurarModoDirigidoCraps(azar, dado1, dado2, tipoJugada, pass);
 
 			// Envio la respuesta segun el resultado de la operacion
 			MensajeroDeSalida.Mensajeros.AccesoYManejoAdministrador.ObtenerInstancia().
