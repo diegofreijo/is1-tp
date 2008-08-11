@@ -31,16 +31,16 @@ namespace CasinoOnline.PlayerClient.GUI
                 PlayCrapsButton.Text = "View Craps";
         }
 
-        private void m_logoutButton_Click(object sender, EventArgs e)
+        private bool TryToLogout()
         {
             XElement res = AccesoYVistaCasino.ObtenerInstancia().SalirCasino(m_session.Nombre);
 
             if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
             {
                 MessageBox.Show(this, res.Element("descripcion").Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
-            Close();
+            return true;
         }
 
         private void PlayCrapsButton_Click(object sender, EventArgs e)
@@ -91,6 +91,12 @@ namespace CasinoOnline.PlayerClient.GUI
                 // mostramos nuevamente la ventana
                 this.Visible = true;
             }
+        }
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!TryToLogout())
+                e.Cancel = true;
         }
     }
 }

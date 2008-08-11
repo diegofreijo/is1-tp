@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrapsDlg));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.m_lastResultDado2TextBox = new System.Windows.Forms.TextBox();
@@ -1037,7 +1038,6 @@
             this.ExitButton.TabIndex = 4;
             this.ExitButton.Text = "E&xit";
             this.ExitButton.UseVisualStyleBackColor = true;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // CrapsDlg
             // 
@@ -1046,13 +1046,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.ExitButton;
             this.ClientSize = new System.Drawing.Size(1044, 751);
-            this.ControlBox = false;
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.groupBox19);
             this.Controls.Add(this.groupBox18);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "CrapsDlg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDlg));
             this.m_OKButton = new System.Windows.Forms.Button();
             this.ReporteRichTextBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
@@ -65,6 +66,7 @@
             this.ClientSize = new System.Drawing.Size(589, 459);
             this.Controls.Add(this.ReporteRichTextBox);
             this.Controls.Add(this.m_OKButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportDlg";
             this.Text = "CasinoOnline :: Reporte";
             this.ResumeLayout(false);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HappyMoveCfgDlg));
             this.m_ApplyButton = new System.Windows.Forms.Button();
             this.m_CancelButton = new System.Windows.Forms.Button();
             this.m_OKButton = new System.Windows.Forms.Button();
@@ -128,7 +129,8 @@
             this.Controls.Add(this.m_ApplyButton);
             this.Controls.Add(this.m_CancelButton);
             this.Controls.Add(this.m_OKButton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "HappyMoveCfgDlg";
             this.Text = "CasinoOnline :: Modo Dirigido :: Jugada Feliz";
