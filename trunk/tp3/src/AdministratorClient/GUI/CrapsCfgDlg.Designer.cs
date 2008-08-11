@@ -74,6 +74,7 @@
             // 
             // Dado2ComboBox
             // 
+            this.Dado2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Dado2ComboBox.FormattingEnabled = true;
             this.Dado2ComboBox.Location = new System.Drawing.Point(156, 41);
             this.Dado2ComboBox.Name = "Dado2ComboBox";
@@ -82,6 +83,7 @@
             // 
             // Dado1ComboBox
             // 
+            this.Dado1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Dado1ComboBox.FormattingEnabled = true;
             this.Dado1ComboBox.Location = new System.Drawing.Point(13, 41);
             this.Dado1ComboBox.Name = "Dado1ComboBox";
