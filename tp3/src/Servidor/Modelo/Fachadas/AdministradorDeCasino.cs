@@ -47,20 +47,47 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 		/// <param name="pass"></param>
 		public Boolean PuedePedirReporteRankingDeJugadores(String pass)
 		{
-			return pass == ConfiguracionCasino.ObtenerInstancia().PasswordAdmin;
+			if (pass == ConfiguracionCasino.ObtenerInstancia().PasswordAdmin)
+			{
+				detalle_ultima_accion = "Pedido de reporte aceptado";
+				return true;
+			}
+			else
+			{
+				detalle_ultima_accion = "Contaseña de administrador invalida";
+				return false;
+			}
 		}
 
 		/// 
 		/// <param name="pass"></param>
 		public Boolean PuedePedirReporteEstadoActual(String pass)
 		{
-			return pass == ConfiguracionCasino.ObtenerInstancia().PasswordAdmin;
+			if (pass == ConfiguracionCasino.ObtenerInstancia().PasswordAdmin)
+			{
+				detalle_ultima_accion = "Pedido de reporte aceptado";
+				return true;
+			}
+			else
+			{
+				detalle_ultima_accion = "Contaseña de administrador invalida";
+				return false;
+			}
 		}
 		/// 
 		/// <param name="pass"></param>
 		public Boolean PuedePedirReporteDetalleMovimientosPorJugador(String pass)
 		{
-			return pass == ConfiguracionCasino.ObtenerInstancia().PasswordAdmin;
+			if (pass == ConfiguracionCasino.ObtenerInstancia().PasswordAdmin)
+			{
+				detalle_ultima_accion = "Pedido de reporte aceptado";
+				return true;
+			}
+			else
+			{
+				detalle_ultima_accion = "Contaseña de administrador invalida";
+				return false;
+			}
 		}
 
 		public String DetalleUltimaAccion()
@@ -122,10 +149,12 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 					}
 				}
 
+				detalle_ultima_accion = "Configuracion de craps establecida con todo exito";
 				return true;
 			}
 			else
 			{
+				detalle_ultima_accion = "Contaseña de administrador invalida";
 				return false;
 			}
 		}
@@ -141,6 +170,8 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 				if (MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps(idmesa) != null)
 				{
 					ServidorJugadas.ObtenerInstancia().EstablecerTipoJugadaCraps(idmesa, new SelectorFeliz());
+
+					detalle_ultima_accion = "Configuracion feliz establecida con todo exito";
 					return true;
 				}
 				// La parte de tragamonedas no esta implementada
@@ -151,11 +182,13 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 				//}
 				else
 				{
+					detalle_ultima_accion = "La mesa seleccionada para ser feliz no existe";
 					return false;
 				}
 			}
 			else
 			{
+				detalle_ultima_accion = "Contaseña de administrador invalida";
 				return false;
 			}
 		}

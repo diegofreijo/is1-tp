@@ -186,6 +186,9 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 					throw new ArgumentException("Me vino un tipo de apuesta no valido: " + tipo_apuesta);
 			}
 
+			// Es posible realizar este tipo de apuesta en el estado actual de la ronda?
+
+
 			// Le descuento al jugador
 			jugador.Saldo -= apuestaTotal;
 

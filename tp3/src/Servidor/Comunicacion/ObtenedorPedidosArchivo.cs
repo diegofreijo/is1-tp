@@ -5,6 +5,7 @@ using System.Threading;
 using System.Xml.Linq;
 using CasinoOnline.Servidor.Utils;
 using System.Reflection.Emit;
+using System.Xml;
 
 namespace CasinoOnline.Servidor.Comunicacion
 {
@@ -17,8 +18,27 @@ namespace CasinoOnline.Servidor.Comunicacion
 		private const string ruta_buffer_entrada = "..\\buffer_entrada\\";
         #endregion
 
-		#region Metodos Protegidos
-        /// <summary>
+
+		#region Metodos Publicos
+
+		/// <summary>
+		/// Constructor por defecto
+		/// </summary>
+		public ObtenedorPedidosArchivo()
+		{
+			// Borro (logicamente) todos los archivos en los buffers que puedan ser considerados pedidos
+			string[] ruta_archivos_buffer = Directory.GetFiles(ruta_buffer_entrada);
+			foreach (string ruta_archivo_actual in ruta_archivos_buffer)
+			{
+				if (EsArchivoUnPedido(ruta_archivo_actual))
+				{
+					// Es un pedido, borro el archivo
+					BorrarArchivo(Path.GetFileName(ruta_archivo_actual));
+				}
+			}
+		}
+		
+		/// <summary>
         /// Obtiene el siguiente XML a procesar
         /// </summary>
 		public bool ObtenerNuevoPedido(ref XElement nuevo_xml)
@@ -35,6 +55,7 @@ namespace CasinoOnline.Servidor.Comunicacion
 					{
 						ruta_archivo = ruta_archivo_actual;
 						nombre_archivo = Path.GetFileName(ruta_archivo);
+						break;
 					}
 				}
 
@@ -42,11 +63,23 @@ namespace CasinoOnline.Servidor.Comunicacion
 				if (String.IsNullOrEmpty(ruta_archivo))
 					return false;
 
-				// Lo trato de levantar
-				bool levantado = false;
+				// Intento abrir el archivo solo para ver si tengo acceso o no
+				XmlTextReader xml_reader;
 				try
 				{
-					nuevo_xml = XElement.Load(ruta_archivo);
+					xml_reader = new XmlTextReader(File.Open(ruta_archivo, FileMode.Open, FileAccess.ReadWrite));
+				}
+				catch (IOException )
+				{
+					// Considero que el archivo esta en uso asi que no lo toco por ahora
+					return false;
+				}
+
+				// Lo trato de parsear
+				bool levantado = false;
+				try
+				{ 
+					nuevo_xml = XElement.Load(xml_reader);
 					levantado = true;
 				}
 				catch (Exception ex)
@@ -57,14 +90,11 @@ namespace CasinoOnline.Servidor.Comunicacion
 				}
 				finally
 				{
-                    string backupFile = ruta_buffer_entrada + "_" + nombre_archivo;
-					
-                    // Borro el archivo de backup si existe
-                    if (File.Exists(backupFile))
-                        File.Delete(backupFile);
+					// Cierro el reader
+					xml_reader.Close();
 
-                    // Renombro el archivo procesado en vez de borrarlo por si interesa mirarlo...
-                    File.Move(ruta_archivo, backupFile);
+					// Borro el archivo
+					BorrarArchivo(nombre_archivo);
 				}
 
 				return levantado;
@@ -75,9 +105,12 @@ namespace CasinoOnline.Servidor.Comunicacion
 				return false;
 			}
         }
+		
 		#endregion
 
+
 		#region Metdos Privados
+		
 		/// <summary>
 		/// Informa si la ruta del archivo es un archivo de pedido
 		/// </summary>
@@ -87,6 +120,23 @@ namespace CasinoOnline.Servidor.Comunicacion
 				!Path.GetFileName(ruta_archivo).StartsWith("_") &&
 				Path.GetExtension(ruta_archivo) == ".xml";
 		}
+
+		/// <summary>
+		/// Borra el archivo para que no se lo vuelva a levantar de nuevo
+		/// </summary>
+		private void BorrarArchivo(string nombre_archivo)
+		{
+			string ruta_archivo = Path.Combine(ruta_buffer_entrada, nombre_archivo);
+			string ruta_borrado = Path.Combine(ruta_buffer_entrada, "_" + nombre_archivo);
+
+			// Borro el archivo de backup si existe
+			if (File.Exists(ruta_borrado))
+				File.Delete(ruta_borrado);
+
+			// Renombro el archivo procesado en vez de borrarlo por si interesa mirarlo...
+			File.Move(ruta_archivo, ruta_borrado);
+		}
+		
 		#endregion
 	}
 }
