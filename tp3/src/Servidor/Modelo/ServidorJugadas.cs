@@ -36,14 +36,34 @@ namespace CasinoOnline.Servidor.Modelo
 
 
 		#region Miembros
-		private Dictionary<IdMesa, KeyValuePair<SelectorTipoJugada, SelectorResultadoCraps>> mesas_craps = 
-			new Dictionary<int,KeyValuePair<SelectorTipoJugada,SelectorResultadoCraps>>();
-		private Dictionary<IdMesa, KeyValuePair<SelectorTipoJugada, SelectorResultadoTragamonedas>> mesas_tragamonedas = 
-			new Dictionary<int,KeyValuePair<SelectorTipoJugada,SelectorResultadoTragamonedas>>();
+
+		private Dictionary<IdMesa, KeyValuePair<SelectorTipoJugada, SelectorResultadoCraps>> mesas_craps =
+			new Dictionary<IdMesa, KeyValuePair<SelectorTipoJugada, SelectorResultadoCraps>>();
+		private Dictionary<IdMesa, KeyValuePair<SelectorTipoJugada, SelectorResultadoTragamonedas>> mesas_tragamonedas =
+			new Dictionary<IdMesa, KeyValuePair<SelectorTipoJugada, SelectorResultadoTragamonedas>>();
+
+		private SelectorTipoJugada jugadaDefaultCraps = new SelectorAzar();
+		private SelectorResultadoCraps resultadoDefaultCraps = new SelectorResultadoAlAzarCraps();
+
+		#endregion
+
+
+		#region Propiedades Publicas
+
+		public SelectorTipoJugada JugadaDefaultCraps
+		{
+			set { jugadaDefaultCraps = value; }
+		}
+		public SelectorResultadoCraps ResultadoDefaultCraps
+		{
+			set { resultadoDefaultCraps = value; }
+		}
+
 		#endregion
 
 
 		#region Metodos Publicos
+
 		/// 
 		/// <param name="mesa"></param>
 		public TipoJugada CalcularTipoJugadaDeCasinoCraps(IdMesa mesa)
@@ -51,29 +71,33 @@ namespace CasinoOnline.Servidor.Modelo
 			if (!mesas_craps.ContainsKey(mesa))
 			{
 				mesas_craps.Add(mesa, new KeyValuePair<SelectorTipoJugada,SelectorResultadoCraps>(
-					new SelectorAzar(), new SelectorResultadoAlAzarCraps()));
+					jugadaDefaultCraps, resultadoDefaultCraps));
 			}
 			return mesas_craps[mesa].Key.SeleccionarTipoJugada();
 		}
+
 		/// 
 		/// <param name="mesa"></param>
 		public TipoJugada CalcularTipoJugadaDeCasinoTragamonedas(IdMesa mesa)
 		{
 			throw new NotImplementedException();
 		}
+
 		public KeyValuePair<Dado, Dado> CalcularDados(IdMesa mesa)
 		{
 			if (!mesas_craps.ContainsKey(mesa))
 			{
 				mesas_craps.Add(mesa, new KeyValuePair<SelectorTipoJugada, SelectorResultadoCraps>(
-					new SelectorAzar(), new SelectorResultadoAlAzarCraps()));
+					jugadaDefaultCraps, resultadoDefaultCraps));
 			}
 			return mesas_craps[mesa].Value.SeleccionarResultado();
 		}
+
 		public KeyValuePair<KeyValuePair<RodilloTragamonedas, RodilloTragamonedas>, RodilloTragamonedas> CalcularRodillos()
 		{
 			throw new NotImplementedException();
 		}
+
 		/// 
 		/// <param name="mesa"></param>
 		/// <param name="selector"></param>
@@ -89,6 +113,7 @@ namespace CasinoOnline.Servidor.Modelo
 				mesas_craps[mesa] = new KeyValuePair<SelectorTipoJugada,SelectorResultadoCraps>(selector, mesas_craps[mesa].Value);
 			}
 		}
+
 		/// 
 		/// <param name="mesa"></param>
 		/// <param name="selector"></param>
