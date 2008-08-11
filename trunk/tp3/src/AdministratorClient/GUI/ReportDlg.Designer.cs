@@ -35,6 +35,7 @@
             // m_OKButton
             // 
             this.m_OKButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.m_OKButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.m_OKButton.Location = new System.Drawing.Point(257, 424);
             this.m_OKButton.Name = "m_OKButton";
             this.m_OKButton.Size = new System.Drawing.Size(75, 23);
@@ -60,6 +61,7 @@
             this.AcceptButton = this.m_OKButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.m_OKButton;
             this.ClientSize = new System.Drawing.Size(589, 459);
             this.Controls.Add(this.ReporteRichTextBox);
             this.Controls.Add(this.m_OKButton);

@@ -67,6 +67,7 @@
             // 
             // m_cancelButton
             // 
+            this.m_cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.m_cancelButton.Location = new System.Drawing.Point(145, 57);
             this.m_cancelButton.MinimumSize = new System.Drawing.Size(75, 23);
             this.m_cancelButton.Name = "m_cancelButton";
@@ -78,8 +79,10 @@
             // 
             // SelectTableDlg
             // 
+            this.AcceptButton = this.m_OKButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.m_cancelButton;
             this.ClientSize = new System.Drawing.Size(285, 94);
             this.ControlBox = false;
             this.Controls.Add(this.m_cancelButton);
@@ -88,6 +91,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SelectTableDlg";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CasinoOnline :: Select Table";
             this.ResumeLayout(false);
             this.PerformLayout();

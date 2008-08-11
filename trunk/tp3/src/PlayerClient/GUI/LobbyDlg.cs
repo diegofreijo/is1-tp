@@ -82,7 +82,14 @@ namespace CasinoOnline.PlayerClient.GUI
                 {
                     crapsDlg = new CrapsDlg(ref m_session, selectTableIdDlg.GetSelectedId());
                 }
+
+                // escondemos esta ventana para que no moleste
+                this.Visible = false;
+
                 crapsDlg.ShowDialog(this);
+
+                // mostramos nuevamente la ventana
+                this.Visible = true;
             }
         }
     }

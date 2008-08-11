@@ -170,6 +170,7 @@
             // 
             // m_ExitButton
             // 
+            this.m_ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.m_ExitButton.Location = new System.Drawing.Point(105, 235);
             this.m_ExitButton.Name = "m_ExitButton";
             this.m_ExitButton.Size = new System.Drawing.Size(75, 23);
@@ -182,6 +183,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.m_ExitButton;
             this.ClientSize = new System.Drawing.Size(285, 262);
             this.Controls.Add(this.m_ExitButton);
             this.Controls.Add(this.groupBox2);

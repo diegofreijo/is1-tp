@@ -19,9 +19,15 @@ namespace CasinoOnline.PlayerClient.GUI
         private Session m_session;
         private IdMesa m_idMesa;
         private Dictionary<ValorFicha, int> m_fichasEnMano;
+        private int m_lastRollId;
 
         private System.Windows.Forms.Timer m_updateCrapsStateTimer;
         private System.Windows.Forms.Timer m_updateEstadoCasinoTimer;
+
+        #region WeAreTheChampions
+        private Media.MP3Player m_soundPlayer = new Media.MP3Player();
+        private bool m_tiroEsDeSalida;
+        #endregion // WeAreTheChampions
 
         public CrapsDlg(ref Session session, int idMesa)
         {
@@ -40,13 +46,17 @@ namespace CasinoOnline.PlayerClient.GUI
             // inicializo el timer para la actualización del estado del casino
             m_updateEstadoCasinoTimer = new System.Windows.Forms.Timer();
             m_updateEstadoCasinoTimer.Tick += new EventHandler(OnUpdateEstadoCasinoTimer);
-            m_updateEstadoCasinoTimer.Interval = 100;
+            m_updateEstadoCasinoTimer.Interval = 2000;
             m_updateEstadoCasinoTimer.Start();
+
+            // we are the champions...
+            m_soundPlayer = new Media.MP3Player();
+            m_soundPlayer.Open("../music/Queen - We Are The Champions.mp3");
         }
 
         private void OnUpdateCrapsStateTimer(object sender, EventArgs e)
         {
-            XElement estadoCraps = new XElement("tmp");
+            XElement estadoCraps = null;
             if (AccesoYVistaCraps.ObtenerInstancia().EstadoCraps(ref estadoCraps) == true)
             {
                 UpdateGUI(ref estadoCraps);
@@ -85,7 +95,15 @@ namespace CasinoOnline.PlayerClient.GUI
             // estado de la mesa al ingresar
             XElement estadoCasino = AccesoYVistaCasino.ObtenerInstancia().PedirEstadoCasino(m_session.Nombre);
             XElement mesaCraps = estadoCasino.Element("juegos").Element("craps").Element("mesasCraps").Elements("mesaCraps").Single(delegate(XElement elem) { return int.Parse(elem.Attribute("id").Value) == m_idMesa; });
-            UpdateEstadoMesaCraps(mesaCraps,true);
+            UpdateEstadoMesaCraps(mesaCraps);
+
+            XElement ultimoTiro = mesaCraps.Element("ultimoTiro");
+            m_lastRollId = int.Parse(ultimoTiro.Element("id").Value);
+            XElement resultado = ultimoTiro.Element("resultado");
+            string dado1 = resultado.Element("dado1").Value;
+            string dado2 = resultado.Element("dado2").Value;
+            if (dado1 != "" && dado2 != "")
+                m_historyTextBox.Text = "<" + dado1 + "," + dado2 + "> " + m_historyTextBox.Text;
 
             // pozo feliz
             HappyPozoTextBox.Text = "€" + estadoCasino.Element("pozosCasino").Element("pozoFeliz").Value;
@@ -131,33 +149,61 @@ namespace CasinoOnline.PlayerClient.GUI
 
         private void UpdateGUI(ref XElement estadoCraps)
         {
-            UpdateEstadoMesaCraps(estadoCraps, true);
+            bool esTiroDeSalida = m_tiroEsDeSalida;
+
+            UpdateEstadoMesaCraps(estadoCraps);
 
             // actualizar información de último tiro
             {
                 XElement ultimoTiro = estadoCraps.Element("ultimoTiro");
 
-                if (!ultimoTiro.IsEmpty)
+                int rollId = int.Parse(ultimoTiro.Element("id").Value);
+
+                // verificar si es una notificación por tirada de dados
+                if (rollId != m_lastRollId)
                 {
-                    IEnumerable<XElement> todosLosPremios = ultimoTiro.Element("premios").Elements("premio");
-                    try
+                    // actualizar historial
                     {
-                        XElement premios = todosLosPremios.Single(delegate(XElement elem) { return elem.Element("apostador").Value == m_session.Nombre; });
-                        string normalPaid = premios.Element("montoPremioJugada").Value;
-                        string happyBonusPaid = premios.Element("montoPremioJugadaFeliz").Value;
-                        string todosPonenReduction = premios.Element("montoRetenidoJugadaTodosponen").Value;
-                        m_normalPaidTextBox.Text = "€" + normalPaid;
-                        m_happyBonusTextBox.Text = "€" + happyBonusPaid;
-                        m_todosPonenReductionTextBox.Text = "€" + todosPonenReduction;
-                        m_session.Saldo += decimal.Parse(normalPaid);
-                        m_session.Saldo += decimal.Parse(happyBonusPaid);
-                        m_session.Saldo -= decimal.Parse(todosPonenReduction);
-                        RefreshSaldo();
+                        XElement resultado = ultimoTiro.Element("resultado");
+                        string dado1 = resultado.Element("dado1").Value;
+                        string dado2 = resultado.Element("dado2").Value;
+                        if (dado1 != "" && dado2 != "")
+                        {
+                            m_historyTextBox.Text = "<" + dado1 + "," + dado2 + "> " + m_historyTextBox.Text;
+                            
+                            // we are the champions?
+                            if ((int.Parse(dado1) + int.Parse(dado2)) == 7 && esTiroDeSalida)
+                            {
+                                this.Text += " WE ARE THE CHAMPIONS!!!!!! My Friend...!";
+                                m_soundPlayer.Play();
+                            }
+                        }
                     }
-                    catch (Exception)
+
+                    // actualizar premios y pagos
                     {
+                        IEnumerable<XElement> todosLosPremios = ultimoTiro.Element("premios").Elements("premio");
+                        try
+                        {
+                            XElement premios = todosLosPremios.Single(delegate(XElement elem) { return elem.Element("apostador").Value == m_session.Nombre; });
+                            string normalPaid = premios.Element("montoPremioJugada").Value;
+                            string happyBonusPaid = premios.Element("montoPremioJugadaFeliz").Value;
+                            string todosPonenReduction = premios.Element("montoRetenidoJugadaTodosponen").Value;
+                            m_normalPaidTextBox.Text = "€" + normalPaid;
+                            m_happyBonusTextBox.Text = "€" + happyBonusPaid;
+                            m_todosPonenReductionTextBox.Text = "€" + todosPonenReduction;
+                            m_session.Saldo += decimal.Parse(normalPaid);
+                            m_session.Saldo += decimal.Parse(happyBonusPaid);
+                            m_session.Saldo -= decimal.Parse(todosPonenReduction);
+                            RefreshSaldo();
+                        }
+                        catch (Exception)
+                        {
+                        }
                     }
                 }
+
+                m_lastRollId = rollId;
             }
 
             // actualizar información de apuestas
@@ -207,11 +253,11 @@ namespace CasinoOnline.PlayerClient.GUI
             }
         }
 
-        private void UpdateEstadoMesaCraps(XElement mesaCraps, bool bUpdateHistory)
+        private void UpdateEstadoMesaCraps(XElement mesaCraps)
         {
             UpdateJugadoresEnMesa(mesaCraps.Element("jugadores"));
             UpdateProximoTiro(mesaCraps.Element("proximoTiro"));
-            UpdateUltimoTiro(mesaCraps.Element("ultimoTiro"), bUpdateHistory);
+            UpdateUltimoTiro(mesaCraps.Element("ultimoTiro"));
         }
 
         private void UpdateJugadoresEnMesa(XElement jugadoresEnMesa)
@@ -228,12 +274,13 @@ namespace CasinoOnline.PlayerClient.GUI
         private void UpdateProximoTiro(XElement proximoTiro)
         {
             bool esTiroDeSalida = String.Compare(proximoTiro.Element("tiroSalida").Value, "si", true) == 0;
+            m_tiroEsDeSalida = esTiroDeSalida;
             m_rondaTiradorTextBox.Text = proximoTiro.Element("tirador").Value;
             m_rondaTiroTextBox.Text = esTiroDeSalida ? "Salida" : "Punto";
             m_rondaPuntoTextBox.Text = esTiroDeSalida ? "-" : proximoTiro.Element("punto").Value;
         }
 
-        private void UpdateUltimoTiro(XElement ultimoTiro, bool bUpdateHistory)
+        private void UpdateUltimoTiro(XElement ultimoTiro)
         {
             m_lastResultTiradorTextBox.Text = ultimoTiro.Element("tirador").Value;
             XElement resultado = ultimoTiro.Element("resultado");
@@ -241,9 +288,6 @@ namespace CasinoOnline.PlayerClient.GUI
             string dado2 = resultado.Element("dado2").Value;
             m_lastResultDado1TextBox.Text = dado1;
             m_lastResultDado2TextBox.Text = dado2;
-
-            if (bUpdateHistory && dado1 != "" && dado2 != "")
-                m_historyTextBox.Text = "<" + dado1 + "," + dado2 + "> " + m_historyTextBox.Text;
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -290,7 +334,7 @@ namespace CasinoOnline.PlayerClient.GUI
             if (!IsPlayer())
             {
                 XElement mesaCraps = estadoCasino.Element("juegos").Element("craps").Element("mesasCraps").Elements("mesaCraps").Single(delegate(XElement elem) { return int.Parse(elem.Attribute("id").Value) == m_idMesa; });
-                UpdateEstadoMesaCraps(mesaCraps,false);
+                UpdateEstadoMesaCraps(mesaCraps);
             }
             else
             {
