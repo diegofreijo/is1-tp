@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <jugadores>
+    <jugador nombre="a" saldo="2000" tipo="normal" />
+    <jugador nombre="as" saldo="2000" tipo="normal" />
     <jugador nombre="asd" saldo="2000" tipo="normal" />
     <jugador nombre="Cosme Fulanito" saldo="2000" tipo="normal" />
     <jugador nombre="Benito Camela" saldo="100,50" tipo="normal" />

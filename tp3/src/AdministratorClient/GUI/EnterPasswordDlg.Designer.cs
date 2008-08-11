@@ -58,7 +58,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 9);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(213, 13);
             this.label1.TabIndex = 2;
@@ -77,6 +77,7 @@
             this.AcceptButton = this.m_OKButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.m_CancelButton;
             this.ClientSize = new System.Drawing.Size(361, 81);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.label1);
@@ -85,6 +86,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "EnterPasswordDlg";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CasinoOnline :: Verificación de identidad";
             this.ResumeLayout(false);
             this.PerformLayout();

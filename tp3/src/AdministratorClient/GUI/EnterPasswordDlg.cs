@@ -16,6 +16,7 @@ namespace CasinoOnline.AdminClient.GUI
         public EnterPasswordDlg()
         {
             InitializeComponent();
+            this.ActiveControl = PasswordTextBox;
         }
 
         private void OKButton_Click(object sender, EventArgs e)

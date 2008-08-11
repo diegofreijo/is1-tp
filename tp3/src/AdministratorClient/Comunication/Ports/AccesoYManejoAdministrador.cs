@@ -118,7 +118,7 @@ namespace CasinoOnline.AdminClient.Comunication.Ports
             XElement controlResultados = new XElement("controlResultados", new object[]{
                 new XAttribute("azar", (bEstablecerTipoResultado && resultado == null) ? "si" : "no"),
                 new XElement("dado1", (bEstablecerTipoResultado && resultado != null) ? ValorDado2String(resultado.Dado1) : ""),
-                new XElement("dado2", (bEstablecerTipoResultado && resultado != null) ? ValorDado2String(resultado.Dado1) : "")
+                new XElement("dado2", (bEstablecerTipoResultado && resultado != null) ? ValorDado2String(resultado.Dado2) : "")
             });
 
             XElement controlTipoJugada = new XElement("controlTipoJugadas", new object[]{

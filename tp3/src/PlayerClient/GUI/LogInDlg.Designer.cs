@@ -38,7 +38,7 @@
             this.m_guestName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.m_userName = new System.Windows.Forms.TextBox();
+            this.m_playerName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.m_joinAsGuestRadioButton = new System.Windows.Forms.RadioButton();
             this.m_joinAsMemberRadioButton = new System.Windows.Forms.RadioButton();
@@ -138,7 +138,6 @@
             this.m_guestName.Name = "m_guestName";
             this.m_guestName.Size = new System.Drawing.Size(154, 20);
             this.m_guestName.TabIndex = 5;
-            this.m_guestName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnGuestNameTextBoxClicked);
             // 
             // label3
             // 
@@ -153,7 +152,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.m_userName);
+            this.groupBox2.Controls.Add(this.m_playerName);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(127, 25);
             this.groupBox2.Name = "groupBox2";
@@ -162,15 +161,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Account";
             // 
-            // m_userName
+            // m_playerName
             // 
-            this.m_userName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.m_playerName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_userName.Location = new System.Drawing.Point(75, 21);
-            this.m_userName.Name = "m_userName";
-            this.m_userName.Size = new System.Drawing.Size(154, 20);
-            this.m_userName.TabIndex = 4;
-            this.m_userName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnPlayerNameTextBoxClicked);
+            this.m_playerName.Location = new System.Drawing.Point(75, 21);
+            this.m_playerName.Name = "m_playerName";
+            this.m_playerName.Size = new System.Drawing.Size(154, 20);
+            this.m_playerName.TabIndex = 4;
             // 
             // label4
             // 
@@ -191,6 +189,7 @@
             this.m_joinAsGuestRadioButton.TabStop = true;
             this.m_joinAsGuestRadioButton.Text = "Join as guest";
             this.m_joinAsGuestRadioButton.UseVisualStyleBackColor = true;
+            this.m_joinAsGuestRadioButton.CheckedChanged += new System.EventHandler(this.m_joinAsGuestRadioButton_CheckedChanged);
             // 
             // m_joinAsMemberRadioButton
             // 
@@ -203,11 +202,14 @@
             this.m_joinAsMemberRadioButton.TabStop = true;
             this.m_joinAsMemberRadioButton.Text = "Join as member";
             this.m_joinAsMemberRadioButton.UseVisualStyleBackColor = true;
+            this.m_joinAsMemberRadioButton.CheckedChanged += new System.EventHandler(this.m_joinAsMemberRadioButton_CheckedChanged);
             // 
             // SignInDlg
             // 
+            this.AcceptButton = this.SignInButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.QuitButton;
             this.ClientSize = new System.Drawing.Size(392, 264);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
@@ -216,6 +218,7 @@
             this.Controls.Add(this.SignInButton);
             this.MinimumSize = new System.Drawing.Size(400, 298);
             this.Name = "SignInDlg";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CasinoOnline :: Sign In";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -239,7 +242,7 @@
         private System.Windows.Forms.TextBox m_guestName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox m_userName;
+        private System.Windows.Forms.TextBox m_playerName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton m_joinAsGuestRadioButton;
         private System.Windows.Forms.RadioButton m_joinAsMemberRadioButton;

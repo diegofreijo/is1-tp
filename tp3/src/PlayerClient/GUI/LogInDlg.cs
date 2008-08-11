@@ -19,6 +19,8 @@ namespace CasinoOnline.PlayerClient.GUI
         public SignInDlg()
         {
             InitializeComponent();
+            UpdateControls();
+            this.ActiveControl = m_playerName;
         }
 
         private void SignInButton_Click(object sender, EventArgs e)
@@ -32,7 +34,7 @@ namespace CasinoOnline.PlayerClient.GUI
             }
             else // join as member
             {
-                nombre = m_userName.Text;
+                nombre = m_playerName.Text;
                 modo = ModoUsuario.eJugador;
             }
 
@@ -55,8 +57,15 @@ namespace CasinoOnline.PlayerClient.GUI
 
             Session session = new Session(nombre, modo, saldo, fichas);
 
+            // escondemos esta ventana para que no moleste
+            this.Visible = false;
+
+            // damos el control al lobby
             LobbyDlg dlg = new LobbyDlg(ref session);
             dlg.ShowDialog(this);
+
+            // mostramos nuevamente la ventana
+            this.Visible = true;
         }
 
         private void QuitButton_Click(object sender, EventArgs e)
@@ -64,14 +73,22 @@ namespace CasinoOnline.PlayerClient.GUI
             Close();
         }
 
-        private void OnPlayerNameTextBoxClicked(object sender, MouseEventArgs e)
+        private void m_joinAsMemberRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            m_joinAsMemberRadioButton.Checked = true;
+            UpdateControls();
+            this.ActiveControl = m_playerName;
         }
 
-        private void OnGuestNameTextBoxClicked(object sender, MouseEventArgs e)
+        private void m_joinAsGuestRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            m_joinAsGuestRadioButton.Checked = true;
+            UpdateControls();
+            this.ActiveControl = m_guestName;
+        }
+
+        private void UpdateControls()
+        {
+            m_playerName.Enabled = m_joinAsMemberRadioButton.Checked;
+            m_guestName.Enabled = m_joinAsGuestRadioButton.Checked;
         }
     }
 }

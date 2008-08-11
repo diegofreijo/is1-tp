@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.m_ControlResultRadioButton = new System.Windows.Forms.RadioButton();
+            this.m_AzarResultRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Dado2ComboBox = new System.Windows.Forms.ComboBox();
             this.Dado1ComboBox = new System.Windows.Forms.ComboBox();
@@ -36,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.m_EstablecerResultadoCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.m_AzarRadioButton = new System.Windows.Forms.RadioButton();
             this.m_NoFelizRadioButton = new System.Windows.Forms.RadioButton();
             this.m_NoTodosPonenRadioButton = new System.Windows.Forms.RadioButton();
             this.m_TodosPonenRadioButton = new System.Windows.Forms.RadioButton();
@@ -44,9 +47,6 @@
             this.m_OKButton = new System.Windows.Forms.Button();
             this.m_CancelButton = new System.Windows.Forms.Button();
             this.m_ApplyButton = new System.Windows.Forms.Button();
-            this.m_AzarResultRadioButton = new System.Windows.Forms.RadioButton();
-            this.m_ControlResultRadioButton = new System.Windows.Forms.RadioButton();
-            this.m_AzarRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -67,6 +67,30 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Resultado dados";
+            // 
+            // m_ControlResultRadioButton
+            // 
+            this.m_ControlResultRadioButton.AutoSize = true;
+            this.m_ControlResultRadioButton.Checked = true;
+            this.m_ControlResultRadioButton.Location = new System.Drawing.Point(253, 19);
+            this.m_ControlResultRadioButton.Name = "m_ControlResultRadioButton";
+            this.m_ControlResultRadioButton.Size = new System.Drawing.Size(67, 17);
+            this.m_ControlResultRadioButton.TabIndex = 7;
+            this.m_ControlResultRadioButton.TabStop = true;
+            this.m_ControlResultRadioButton.Text = "Controlar";
+            this.m_ControlResultRadioButton.UseVisualStyleBackColor = true;
+            this.m_ControlResultRadioButton.CheckedChanged += new System.EventHandler(this.m_ControlResultRadioButton_CheckedChanged);
+            // 
+            // m_AzarResultRadioButton
+            // 
+            this.m_AzarResultRadioButton.AutoSize = true;
+            this.m_AzarResultRadioButton.Location = new System.Drawing.Point(199, 19);
+            this.m_AzarResultRadioButton.Name = "m_AzarResultRadioButton";
+            this.m_AzarResultRadioButton.Size = new System.Drawing.Size(46, 17);
+            this.m_AzarResultRadioButton.TabIndex = 6;
+            this.m_AzarResultRadioButton.Text = "Azar";
+            this.m_AzarResultRadioButton.UseVisualStyleBackColor = true;
+            this.m_AzarResultRadioButton.CheckedChanged += new System.EventHandler(this.m_AzarResultRadioButton_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -145,6 +169,18 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tipo de jugada";
             // 
+            // m_AzarRadioButton
+            // 
+            this.m_AzarRadioButton.AutoSize = true;
+            this.m_AzarRadioButton.Checked = true;
+            this.m_AzarRadioButton.Location = new System.Drawing.Point(19, 51);
+            this.m_AzarRadioButton.Name = "m_AzarRadioButton";
+            this.m_AzarRadioButton.Size = new System.Drawing.Size(46, 17);
+            this.m_AzarRadioButton.TabIndex = 5;
+            this.m_AzarRadioButton.TabStop = true;
+            this.m_AzarRadioButton.Text = "Azar";
+            this.m_AzarRadioButton.UseVisualStyleBackColor = true;
+            // 
             // m_NoFelizRadioButton
             // 
             this.m_NoFelizRadioButton.AutoSize = true;
@@ -210,6 +246,7 @@
             // m_CancelButton
             // 
             this.m_CancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.m_CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.m_CancelButton.Location = new System.Drawing.Point(189, 263);
             this.m_CancelButton.Name = "m_CancelButton";
             this.m_CancelButton.Size = new System.Drawing.Size(75, 23);
@@ -229,46 +266,12 @@
             this.m_ApplyButton.UseVisualStyleBackColor = true;
             this.m_ApplyButton.Click += new System.EventHandler(this.m_ApplyButton_Click);
             // 
-            // m_AzarResultRadioButton
-            // 
-            this.m_AzarResultRadioButton.AutoSize = true;
-            this.m_AzarResultRadioButton.Location = new System.Drawing.Point(199, 19);
-            this.m_AzarResultRadioButton.Name = "m_AzarResultRadioButton";
-            this.m_AzarResultRadioButton.Size = new System.Drawing.Size(46, 17);
-            this.m_AzarResultRadioButton.TabIndex = 6;
-            this.m_AzarResultRadioButton.Text = "Azar";
-            this.m_AzarResultRadioButton.UseVisualStyleBackColor = true;
-            this.m_AzarResultRadioButton.CheckedChanged += new System.EventHandler(this.m_AzarResultRadioButton_CheckedChanged);
-            // 
-            // m_ControlResultRadioButton
-            // 
-            this.m_ControlResultRadioButton.AutoSize = true;
-            this.m_ControlResultRadioButton.Checked = true;
-            this.m_ControlResultRadioButton.Location = new System.Drawing.Point(253, 19);
-            this.m_ControlResultRadioButton.Name = "m_ControlResultRadioButton";
-            this.m_ControlResultRadioButton.Size = new System.Drawing.Size(67, 17);
-            this.m_ControlResultRadioButton.TabIndex = 7;
-            this.m_ControlResultRadioButton.TabStop = true;
-            this.m_ControlResultRadioButton.Text = "Controlar";
-            this.m_ControlResultRadioButton.UseVisualStyleBackColor = true;
-            this.m_ControlResultRadioButton.CheckedChanged += new System.EventHandler(this.m_ControlResultRadioButton_CheckedChanged);
-            // 
-            // m_AzarRadioButton
-            // 
-            this.m_AzarRadioButton.AutoSize = true;
-            this.m_AzarRadioButton.Checked = true;
-            this.m_AzarRadioButton.Location = new System.Drawing.Point(19, 51);
-            this.m_AzarRadioButton.Name = "m_AzarRadioButton";
-            this.m_AzarRadioButton.Size = new System.Drawing.Size(46, 17);
-            this.m_AzarRadioButton.TabIndex = 5;
-            this.m_AzarRadioButton.TabStop = true;
-            this.m_AzarRadioButton.Text = "Azar";
-            this.m_AzarRadioButton.UseVisualStyleBackColor = true;
-            // 
             // CrapsCfgDlg
             // 
+            this.AcceptButton = this.m_OKButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.m_CancelButton;
             this.ClientSize = new System.Drawing.Size(372, 298);
             this.Controls.Add(this.m_ApplyButton);
             this.Controls.Add(this.m_CancelButton);

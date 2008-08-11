@@ -1030,6 +1030,7 @@
             // 
             // ExitButton
             // 
+            this.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ExitButton.Location = new System.Drawing.Point(478, 718);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(75, 23);
@@ -1040,9 +1041,12 @@
             // 
             // CrapsDlg
             // 
+            this.AcceptButton = this.m_RollButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.ExitButton;
             this.ClientSize = new System.Drawing.Size(1044, 751);
+            this.ControlBox = false;
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.groupBox19);
             this.Controls.Add(this.groupBox18);
@@ -1051,6 +1055,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "CrapsDlg";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CasinoOnline :: Craps";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.panel1.ResumeLayout(false);

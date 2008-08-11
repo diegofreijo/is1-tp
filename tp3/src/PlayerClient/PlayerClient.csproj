@@ -78,6 +78,7 @@
     <Compile Include="GUI\LobbyDlg.Designer.cs">
       <DependentUpon>LobbyDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="mp3player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\CrapsDlg.resx">
