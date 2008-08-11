@@ -187,7 +187,14 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 			}
 
 			// Es posible realizar este tipo de apuesta en el estado actual de la ronda?
-
+			if (((nuevaApuesta is LineaDePase || nuevaApuesta is BarraNoPase)  &&  mesa.Estado == EstadoRondaCraps.PuntoEstablecido)
+				||
+				((nuevaApuesta is Venir  ||  nuevaApuesta is NoVenir )  &&  mesa.Estado == EstadoRondaCraps.EstanSaliendo)
+			   )
+			{
+				detalle_ultima_accion = "No se puede realizar este tipo de apuesta en el estado actual de la ronda";
+				return false;
+			}
 
 			// Le descuento al jugador
 			jugador.Saldo -= apuestaTotal;

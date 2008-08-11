@@ -111,18 +111,31 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 		/// <param name="dado2"></param>
 		/// <param name="tipo_jugada"></param>
 		/// <param name="pass"></param>
-		public Boolean ConfigurarModoDirigidoCraps(int? dado1, int? dado2, String tipoJugada, String pass)
+		public Boolean ConfigurarModoDirigidoCraps(bool resultado_azar, int? dado1, int? dado2, String tipoJugada, String pass)
 		{
 			if (pass == ConfiguracionCasino.ObtenerInstancia().PasswordAdmin)
 			{
-				// Si hay dados, seteo resultado
-				if (dado1 != null && dado2 != null)
+				// Si el resultado de los dados esta al azar, lo pongo asi
+				if (resultado_azar)
 				{
 					// Le asigno el resultado a cada mesa de craps
-					SelectorResultadoCraps nuevoSelectorResultado = new SelectorResultadoDirigidoCraps(new Dado((int)dado1), new Dado((int)dado2));
+					SelectorResultadoCraps nuevoSelectorResultado = new SelectorResultadoAlAzarCraps();
 					foreach (IdMesa mesa in MesasAbiertas.ObtenerInstancia().MesasCraps.Select(m => m.Id).ToList())
 					{
 						ServidorJugadas.ObtenerInstancia().EstablecerResultadoCraps(mesa, nuevoSelectorResultado);
+					}
+				}
+				else
+				{
+					// Si hay dados, seteo resultado
+					if (dado1 != null && dado2 != null)
+					{
+						// Le asigno el resultado a cada mesa de craps
+						SelectorResultadoCraps nuevoSelectorResultado = new SelectorResultadoDirigidoCraps(new Dado((int)dado1), new Dado((int)dado2));
+						foreach (IdMesa mesa in MesasAbiertas.ObtenerInstancia().MesasCraps.Select(m => m.Id).ToList())
+						{
+							ServidorJugadas.ObtenerInstancia().EstablecerResultadoCraps(mesa, nuevoSelectorResultado);
+						}
 					}
 				}
 
