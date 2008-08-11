@@ -30,23 +30,24 @@ namespace CasinoOnline.Servidor.Modelo
             ResultadoCraps resultadoCraps = (ResultadoCraps)resultado;
             int valorDados = resultadoCraps.Dado1.Numero + resultadoCraps.Dado2.Numero;
             Creditos aPagar = 0;
-            if (valorDados == 7) { // termino la apuesta
+            if (valorDados == 7) // perdió
+            {
                 estado = EstadoApuestaCraps.Cerrada;
             }
             else if (valorDados == puntaje) // ganó
             {
-                if (valorDados == 4 ||
-                    valorDados == 10) // paga 9 a 5
+                if (puntaje == 4 ||
+                    puntaje == 10) // paga 9 a 5
                 {
                     aPagar = CalcularPagoApuesta(fichas, 9, 5);
                 }
-                else if (valorDados == 5 ||
-                    valorDados == 9) // paga 7 a 5
+                else if (puntaje == 5 ||
+                         puntaje == 9) // paga 7 a 5
                 {
                     aPagar = CalcularPagoApuesta(fichas, 7, 5);
                 }
-                else if (valorDados == 6 ||
-                    valorDados == 8) // paga 7 a 6
+                else if (puntaje == 6 ||
+                         puntaje == 8) // paga 7 a 6
                 {
                     aPagar = CalcularPagoApuesta(fichas, 7, 6);
                 }
