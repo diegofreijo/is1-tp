@@ -8,7 +8,6 @@ namespace CasinoOnline.Servidor.Modelo
 
 	class Venir : ApuestaCraps
 	{
-
 		private int puntaje_venir;
 
 		/// 
@@ -38,17 +37,16 @@ namespace CasinoOnline.Servidor.Modelo
                 if (valorDados == 7 ||
                     valorDados == 11) //ganó
                 {
-                    estado = EstadoApuestaCraps.Cerrada;
                     aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
+                    estado = EstadoApuestaCraps.Cerrada;
                 }                       
-                if (valorDados == 2 ||
+                else if (valorDados == 2 ||
                     valorDados == 3 ||
                     valorDados == 12) // perdió
                 {
                     estado = EstadoApuestaCraps.Cerrada;
-
                 }
-                if (valorDados == 4 ||
+                else if (valorDados == 4 ||
                     valorDados == 5 ||
                     valorDados == 6 ||
                     valorDados == 8 ||
@@ -59,18 +57,16 @@ namespace CasinoOnline.Servidor.Modelo
                     estado = EstadoApuestaCraps.EnTranscurso;
                 }
             }
-            else { // la apuesta se desplaza al espacio de puntaje NO venir correspondiente
-                if (estado == EstadoApuestaCraps.EnTranscurso)
+            else { // puntaje venir establecido
+                if (valorDados == puntaje_venir)
                 {
-                    if (valorDados == puntaje_venir)
-                    {
-                        aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
-                        estado = EstadoApuestaCraps.Cerrada;
-                    }
+                    aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
+                    estado = EstadoApuestaCraps.Cerrada;
                 }
+                else if (valorDados == 7)
+                    estado = EstadoApuestaCraps.Cerrada;
             }
             return aPagar;
-
 		}
 
 		public override String ObtenerNombreTipoApuesta()
@@ -82,6 +78,5 @@ namespace CasinoOnline.Servidor.Modelo
         {
             return puntaje_venir;
         }
-
 	}
 }
