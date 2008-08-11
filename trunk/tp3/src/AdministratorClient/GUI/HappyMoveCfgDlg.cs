@@ -66,9 +66,7 @@ namespace CasinoOnline.AdminClient.GUI
             if (passwordDlg.ShowDialog() != DialogResult.OK)
                 return;
 
-            int? idMesa = null;
-            if (ControlarCheckBox.Checked)
-                idMesa = (int)MesaCrapsComboBox.SelectedItem;
+            int idMesa = (int)MesaCrapsComboBox.SelectedItem;
 
             XElement res = AccesoYManejoAdministrador.ObtenerInstancia().ConfigurarModoDirigidoJugadaFeliz(passwordDlg.GetPassword(), idMesa);
 
