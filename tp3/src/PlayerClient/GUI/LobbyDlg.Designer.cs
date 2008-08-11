@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LobbyDlg));
             this.m_logoutButton = new System.Windows.Forms.Button();
             this.PlayCrapsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -41,7 +42,6 @@
             this.m_logoutButton.TabIndex = 0;
             this.m_logoutButton.Text = "&Logout";
             this.m_logoutButton.UseVisualStyleBackColor = true;
-            this.m_logoutButton.Click += new System.EventHandler(this.m_logoutButton_Click);
             // 
             // PlayCrapsButton
             // 
@@ -62,16 +62,18 @@
             this.AcceptButton = this.PlayCrapsButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.m_logoutButton;
             this.ClientSize = new System.Drawing.Size(331, 126);
-            this.ControlBox = false;
             this.Controls.Add(this.PlayCrapsButton);
             this.Controls.Add(this.m_logoutButton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(339, 160);
             this.Name = "LobbyDlg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CasinoOnline :: Lobby";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.ResumeLayout(false);
 
         }

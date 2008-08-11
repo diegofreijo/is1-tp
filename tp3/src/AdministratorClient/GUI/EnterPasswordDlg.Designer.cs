@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnterPasswordDlg));
             this.m_OKButton = new System.Windows.Forms.Button();
             this.m_CancelButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -83,7 +84,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.m_CancelButton);
             this.Controls.Add(this.m_OKButton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "EnterPasswordDlg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

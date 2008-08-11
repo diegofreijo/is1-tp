@@ -70,8 +70,10 @@ namespace CasinoOnline.PlayerClient.GUI
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
-            m_updateCrapsStateTimer.Stop();
-            m_updateEstadoCasinoTimer.Stop();
+            if (AttemptToExit())
+                Terminate();
+            else
+                e.Cancel = true;
         }
 
         private void InitGUI()
@@ -112,9 +114,9 @@ namespace CasinoOnline.PlayerClient.GUI
             RefreshSaldo();
             m_historyTextBox.Text = "";
 
-            m_normalPaidTextBox.Text = "€0";
-            m_happyBonusTextBox.Text = "€0";
-            m_todosPonenReductionTextBox.Text = "€0";
+            m_normalPaidTextBox.Text = IsPlayer()? "€0" : "-";
+            m_happyBonusTextBox.Text = IsPlayer()? "€0" : "-";
+            m_todosPonenReductionTextBox.Text = IsPlayer() ? "€0" : "-";
 
             // fichas disponibles
             foreach (ValorFicha ficha in m_session.Fichas)
@@ -290,7 +292,7 @@ namespace CasinoOnline.PlayerClient.GUI
             m_lastResultDado2TextBox.Text = dado2;
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
+        private bool AttemptToExit()
         {
             if (IsPlayer())
             {
@@ -299,11 +301,17 @@ namespace CasinoOnline.PlayerClient.GUI
                 if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
                 {
                     MessageBox.Show(this, res.Element("descripcion").Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    return false;
                 }
             }
 
-            Close();
+            return true;
+        }
+
+        private void Terminate()
+        {
+            m_updateCrapsStateTimer.Stop();
+            m_updateEstadoCasinoTimer.Stop();
         }
 
         private void m_RollButton_Click(object sender, EventArgs e)

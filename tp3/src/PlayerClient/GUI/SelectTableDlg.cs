@@ -43,15 +43,6 @@ namespace CasinoOnline.PlayerClient.GUI
         {
             string selection = m_tablesComboBox.SelectedItem.ToString();
             m_selectedId = selection == newTableString ? -1 : int.Parse(selection);
-           
-            DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void m_cancelButton_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-            Close();
         }
     }
 }

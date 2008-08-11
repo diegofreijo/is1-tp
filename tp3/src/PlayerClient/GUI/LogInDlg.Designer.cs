@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignInDlg));
             this.SignInButton = new System.Windows.Forms.Button();
             this.QuitButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -61,6 +62,7 @@
             // QuitButton
             // 
             this.QuitButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.QuitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.QuitButton.Location = new System.Drawing.Point(199, 229);
             this.QuitButton.Name = "QuitButton";
             this.QuitButton.Size = new System.Drawing.Size(75, 23);
@@ -216,6 +218,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.QuitButton);
             this.Controls.Add(this.SignInButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(400, 298);
             this.Name = "SignInDlg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

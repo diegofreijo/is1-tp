@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectTableDlg));
             this.label1 = new System.Windows.Forms.Label();
             this.m_tablesComboBox = new System.Windows.Forms.ComboBox();
             this.m_OKButton = new System.Windows.Forms.Button();
@@ -56,6 +57,7 @@
             // 
             // m_OKButton
             // 
+            this.m_OKButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.m_OKButton.Location = new System.Drawing.Point(64, 57);
             this.m_OKButton.MinimumSize = new System.Drawing.Size(75, 23);
             this.m_OKButton.Name = "m_OKButton";
@@ -75,7 +77,6 @@
             this.m_cancelButton.TabIndex = 3;
             this.m_cancelButton.Text = "&Cancel";
             this.m_cancelButton.UseVisualStyleBackColor = true;
-            this.m_cancelButton.Click += new System.EventHandler(this.m_cancelButton_Click);
             // 
             // SelectTableDlg
             // 
@@ -84,12 +85,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.m_cancelButton;
             this.ClientSize = new System.Drawing.Size(285, 94);
-            this.ControlBox = false;
             this.Controls.Add(this.m_cancelButton);
             this.Controls.Add(this.m_OKButton);
             this.Controls.Add(this.m_tablesComboBox);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "SelectTableDlg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CasinoOnline :: Select Table";

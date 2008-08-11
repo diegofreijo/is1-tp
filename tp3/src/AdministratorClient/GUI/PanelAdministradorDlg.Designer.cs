@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelAdministrador));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ControlJugadaFelizButton = new System.Windows.Forms.Button();
             this.ControlCrapsButton = new System.Windows.Forms.Button();
@@ -188,7 +189,8 @@
             this.Controls.Add(this.m_ExitButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "PanelAdministrador";
             this.Text = "Panel de Administrador";
