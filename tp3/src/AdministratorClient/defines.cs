@@ -7,6 +7,7 @@ namespace CasinoOnline.AdminClient
 {
     enum ValorDado { Uno, Dos, Tres, Cuatro, Cinco, Seis };
     enum TipoJugada { eAzar, eNormal, eTodosPonen, eNoTodosPonen, eNoFeliz };
+    enum ModoUsuario { eJugador, eObservador }
 
     class ResultadoCraps
     {

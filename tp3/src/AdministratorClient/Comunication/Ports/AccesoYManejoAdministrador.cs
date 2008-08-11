@@ -136,7 +136,7 @@ namespace CasinoOnline.AdminClient.Comunication.Ports
             return ReceptorMensajesGlobal.ObtenerInstancia().ObtenerNuevoMensajeSync("respuestaConfigurarModoDirigidoCraps", idt);
         }
 
-        public XElement ConfigurarModoDirigidoJugadaFeliz(Password pass, bool bControlar, IdMesa? idMesa)
+        public XElement ConfigurarModoDirigidoJugadaFeliz(Password pass, IdMesa? idMesa)
         {
             // Obtengo el id de la terminal
             IdTerminalVirtual idt = TerminalInfo.ObtenerInstancia().Id;

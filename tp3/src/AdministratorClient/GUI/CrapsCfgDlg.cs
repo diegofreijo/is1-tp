@@ -23,7 +23,7 @@ namespace CasinoOnline.AdminClient.GUI
             Dado1ComboBox.Items.Add(ValorDado.Cuatro);
             Dado1ComboBox.Items.Add(ValorDado.Cinco);
             Dado1ComboBox.Items.Add(ValorDado.Seis);
-            Dado1ComboBox.SelectedValue = ValorDado.Uno;
+            Dado1ComboBox.SelectedItem = Dado1ComboBox.Items[0];
 
             Dado2ComboBox.Items.Add(ValorDado.Uno);
             Dado2ComboBox.Items.Add(ValorDado.Dos);
@@ -31,7 +31,7 @@ namespace CasinoOnline.AdminClient.GUI
             Dado2ComboBox.Items.Add(ValorDado.Cuatro);
             Dado2ComboBox.Items.Add(ValorDado.Cinco);
             Dado2ComboBox.Items.Add(ValorDado.Seis);
-            Dado2ComboBox.SelectedValue = ValorDado.Uno;
+            Dado2ComboBox.SelectedItem = Dado2ComboBox.Items[0];
         }
 
         private void SetNewConfig()

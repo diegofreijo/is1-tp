@@ -26,7 +26,13 @@ namespace CasinoOnline.AdminClient.GUI
 
         private void ControlJugadaFelizButton_Click(object sender, EventArgs e)
         {
-
+            HappyMoveCfgDlg happyMoveCfgDlg = new HappyMoveCfgDlg();
+            if (happyMoveCfgDlg.FinishConstruction() == false)
+            {
+                MessageBox.Show(this, "En este momento no hay mesas disponibles, inténtelo nuevamente en un ratito.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            happyMoveCfgDlg.ShowDialog();
         }
 
         private void QueryEstadoActualButton_Click(object sender, EventArgs e)
