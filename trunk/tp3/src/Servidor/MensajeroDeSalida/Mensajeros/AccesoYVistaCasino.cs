@@ -181,18 +181,6 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 						})
 					});
 
-					XElement premios = new XElement("premios");
-					foreach (KeyValuePair<KeyValuePair<KeyValuePair<Nombre, Creditos>, Creditos>, Creditos> premio in Modelo.Fachadas.JuegoCraps.ObtenerInstancia().PremiosUltimoTiro(idmesa))
-					{
-						XElement nuevoPremio = new XElement("premio", new object[] {
-							new XElement("apostador", premio.Key.Key.Key),
-							new XElement("montoPremioJugada", premio.Key.Key.Value.ToString()),
-							new XElement("montoPremioJugadaFeliz", premio.Key.Value.ToString()),
-							new XElement("montoRetenidoJugadaTodosponen", premio.Value.ToString())
-						});
-						premios.Add(nuevoPremio);
-					}
-					ultimoTiro.Add(premios);
 					mesaCraps.Add(ultimoTiro);
 				}
 
