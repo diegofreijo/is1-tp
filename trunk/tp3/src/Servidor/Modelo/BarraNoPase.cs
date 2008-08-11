@@ -41,10 +41,9 @@ namespace CasinoOnline.Servidor.Modelo
                     aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
                     estado = EstadoApuestaCraps.Cerrada;
                 }
-                else if (valorDados == 12) // empató
+                else if (valorDados == 12) // empató se le devuelve lo apostado
                 {
-                    aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
-                    aPagar /= 2;
+                    aPagar = CalcularPagoApuesta(fichas, 1, 1) / 2;
                     estado = EstadoApuestaCraps.Cerrada;
                 }
                 else if (valorDados == 4 ||

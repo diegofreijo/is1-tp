@@ -8,7 +8,6 @@ namespace CasinoOnline.Servidor.Modelo
 
 	class NoVenir : ApuestaCraps
 	{
-
 		private int puntaje_no_venir;
 
 		/// 
@@ -32,67 +31,57 @@ namespace CasinoOnline.Servidor.Modelo
 
             if (estado == EstadoApuestaCraps.Iniciada)
             {
-
                 if (valorDados == 7 ||
                     valorDados == 11) //perdió
                 {
                     estado = EstadoApuestaCraps.Cerrada;
-                    
                 }
-                if (valorDados == 12) // empató se le devuleve lo apostado
-                {
-                    aPagar = CalcularPagoApuesta(fichas, 1, 1)/2; 
-                    estado = EstadoApuestaCraps.Cerrada;
-                }
-
-                if (valorDados == 2 ||
-                    valorDados == 3 
-                    ) // ganó
+                else if (valorDados == 2 ||
+                    valorDados == 3) // ganó
                 {
                     aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
                     estado = EstadoApuestaCraps.Cerrada;
-
                 }
-                if (valorDados == 4 ||
+                else if (valorDados == 12) // empató se le devuelve lo apostado
+                {
+                    aPagar = CalcularPagoApuesta(fichas,1,1) / 2; 
+                    estado = EstadoApuestaCraps.Cerrada;
+                }
+                else if (valorDados == 4 ||
                     valorDados == 5 ||
                     valorDados == 6 ||
                     valorDados == 8 ||
                     valorDados == 9 ||
                     valorDados == 10) // puntaje venir
                 {
-                
                     puntaje_no_venir= valorDados;
                     estado = EstadoApuestaCraps.EnTranscurso;
                 }
             }
-            else
-            { // la apuesta se desplaza al espacio de puntaje venir correspondiente
-                if (estado == EstadoApuestaCraps.EnTranscurso)
+            else // puntaje no venir establecido
+            {
+                if (valorDados == 7) // ganó
                 {
-                    if (valorDados == puntaje_no_venir)
-                    {
-                        aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
-                    }
+                    aPagar = CalcularPagoApuesta(fichas, 1, 1); // paga 1 a 1
+                    estado = EstadoApuestaCraps.Cerrada;
                 }
-
+                else if (valorDados == puntaje_no_venir) // perdió
+                {
+                    estado = EstadoApuestaCraps.Cerrada;
+                }
             }
 
             return aPagar;
-
-
 		}
 
 		public override String ObtenerNombreTipoApuesta()
 		{
             return "no venir";
-
 		}
 
 		public override int? ObtenerPuntajeApostado()
 		{
             return this.puntaje_no_venir;
-
 		}
-
 	}
 }
