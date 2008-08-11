@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using CasinoOnline.PlayerClient.Utils;
 
 namespace CasinoOnline.PlayerClient.Comunication
@@ -19,8 +21,24 @@ namespace CasinoOnline.PlayerClient.Comunication
                 // Genero el nombre del archivo
                 string ruta_archivo = m_bufferSalida + pedido.Tipo + m_numero_grupo + pedido.TermId.ToString("D4") + ".xml";
 
+                // Obtengo un writer de acceso exclusivo
+                bool done = false;
+                XmlTextWriter writer = null;
+                while (!done)
+                {
+                    try
+                    {
+                        writer = new XmlTextWriter(File.Open(ruta_archivo, FileMode.Create, FileAccess.Write, FileShare.None), Encoding.UTF8);
+                        done = true;
+                    }
+                    catch (Exception) { }
+                }
+
                 // Guardo el Xml
-                pedido.Parametros.Save(ruta_archivo);
+                pedido.Parametros.Save(writer);
+
+                // Cerramos el stream
+                writer.Close();
             }
             catch (Exception ex)
             {

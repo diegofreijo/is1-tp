@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using System.Threading;
+using System.Xml;
 using CasinoOnline.AdminClient.Utils;
 
 namespace CasinoOnline.AdminClient.Comunication
@@ -36,9 +37,23 @@ namespace CasinoOnline.AdminClient.Comunication
                     ruta_archivos_buffer = Directory.GetFiles(m_bufferEntrada);
                 }
 
+                // Obtengo un reader de acceso exclusivo
+                bool done = false;
+                XmlTextReader reader = null;
+                while (!done)
+                {
+                    try
+                    {
+                        reader = new XmlTextReader(File.Open(ruta_archivo_esperado, FileMode.Open, FileAccess.Read, FileShare.None));
+                        done = true;
+                    }
+                    catch (Exception) { }
+                }
+
+                // Trato de parsear el archivo
                 try
                 {
-                    nuevo_xml = XElement.Load(ruta_archivo_esperado);
+                    nuevo_xml = XElement.Load(reader);
                 }
                 catch (Exception ex)
                 {
@@ -48,6 +63,9 @@ namespace CasinoOnline.AdminClient.Comunication
                 }
                 finally
                 {
+                    // Cerramos el stream
+                    reader.Close();
+
                     string backupFile = m_bufferEntrada + "_" + archivo_esperado;
 
                     // Borro el archivo de backup si existe
