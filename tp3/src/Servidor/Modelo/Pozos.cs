@@ -37,15 +37,16 @@ namespace CasinoOnline.Servidor.Modelo
 		private PozoProgresivo pozo_progresivo;
 		private PozoFeliz pozo_feliz;
 
-
-		public PozoProgresivo ProzoProgresivo
+		public PozoProgresivo PozoProgresivo
 		{
+            set { pozo_progresivo = value; }
 			get { return pozo_progresivo; }
 		}
-		public PozoFeliz ProzoFeliz
+
+		public PozoFeliz PozoFeliz
 		{
+            set { pozo_feliz = value; }
 			get { return pozo_feliz; }
 		}
-
 	}
 }

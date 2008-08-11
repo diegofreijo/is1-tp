@@ -173,7 +173,7 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 
 		public Creditos MontoPozoFeliz()
 		{
-			return Pozos.ObtenerInstancia().ProzoFeliz.Monto;
+			return Pozos.ObtenerInstancia().PozoFeliz.Monto;
 		}
 
 		public Creditos MontoPozoProgresivo()
