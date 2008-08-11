@@ -57,7 +57,7 @@ namespace CasinoOnline.Servidor.Modelo
 			// Creo el resultado y la jugada
 			ResultadoCraps resultado = new ResultadoCraps(dados.Key, dados.Value, this.estado, this.punto);
 			JugadaCraps jugada = new JugadaCraps(this.proximo_tirador, resultado, tipoJugada, 
-				Pozos.ObtenerInstancia().ProzoFeliz, this.estado, this.punto, this.apuestas);
+				Pozos.ObtenerInstancia().PozoFeliz, this.estado, this.punto, this.apuestas);
 
 			// Le pido a la jugada que se resuelva
 			jugada.Resolverse();

@@ -22,7 +22,7 @@ namespace CasinoOnline.Servidor.Modelo
 				// Veo cuanto gano
 				Creditos gananciaNormal = apuesta.Resolverse(jugada.Resultado);
 				Creditos gananciaFeliz = apuesta.Valor / apuestasTotales * 
-					Pozos.ObtenerInstancia().ProzoFeliz.Monto;
+					Pozos.ObtenerInstancia().PozoFeliz.Monto;
 
 				// Pago las ganancias
 				apuesta.Apostador.Saldo += gananciaNormal + gananciaFeliz;
@@ -40,7 +40,7 @@ namespace CasinoOnline.Servidor.Modelo
 			}
 
 			// Reseteo el pozo feliz
-			Pozos.ObtenerInstancia().ProzoFeliz.Resetear();
+			Pozos.ObtenerInstancia().PozoFeliz.Resetear();
 
 			return premios;
 		}

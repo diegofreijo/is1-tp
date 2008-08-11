@@ -12,6 +12,7 @@ namespace CasinoOnline.Servidor.Modelo
 		public override List<Premio> Resolverse(Jugada jugada)
 		{
 			List<Premio> premios = new List<Premio>();
+            Creditos perdidaTotal = 0;
 
 			// Hago que cada apuesta se resuelva
 			foreach (Apuesta apuesta in jugada.Apuestas)
@@ -19,6 +20,7 @@ namespace CasinoOnline.Servidor.Modelo
 				// Veo cuanto gano y cuanto tiene que pagar por ser una jugada TodosPonen
 				Creditos gananciaNormal = apuesta.Resolverse(jugada.Resultado);
 				Creditos perdidaTodosPonen = gananciaNormal * ConfiguracionCasino.ObtenerInstancia().PorcentajeDescuentoTodosponen;
+                perdidaTotal += perdidaTodosPonen;
 
 				// Pago las ganancias y cobro las apuestas
 				apuesta.Apostador.Saldo += gananciaNormal - perdidaTodosPonen;
@@ -35,11 +37,10 @@ namespace CasinoOnline.Servidor.Modelo
 				premios.Add(nuevoPremio);
 			}
 
-			// Reseteo el pozo feliz
-			Pozos.ObtenerInstancia().ProzoFeliz.Resetear();
+			// Actualizo el pozo feliz
+            Pozos.ObtenerInstancia().PozoFeliz.Monto = Pozos.ObtenerInstancia().PozoFeliz.Monto + perdidaTotal;
 
 			return premios;
-
 		}
 
 		public override string ObtenerNombreTipoJugada()

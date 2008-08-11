@@ -15,9 +15,9 @@ namespace CasinoOnline.Servidor.Modelo
 
 		public Creditos Monto
 		{
+            set { monto = value; }
 			get { return monto; }
 		}
-
 		
 		public Pozo(Creditos monto_minimo)
 		{
