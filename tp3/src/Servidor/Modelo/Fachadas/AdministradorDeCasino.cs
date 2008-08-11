@@ -177,31 +177,30 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 		/// <param name="pass"></param>
 		public Boolean ConfigurarModoDirigidoJugadaFeliz(IdMesa idmesa, String pass)
 		{
-			if (pass == ConfiguracionCasino.ObtenerInstancia().PasswordAdmin)
-			{
-				// Veo de que tipo de juego es la mesa
-				if (MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps(idmesa) != null)
-				{
-					ServidorJugadas.ObtenerInstancia().EstablecerTipoJugadaCraps(idmesa, new SelectorFeliz());
-
-					detalle_ultima_accion = "Configuracion feliz establecida con todo exito";
-					return true;
-				}
-				// La parte de tragamonedas no esta implementada
-				//else if (MesasAbiertas.ObtenerInstancia().ObtenerMesaTragamonedas(idmesa) != null)
-				//{
-				//    ServidorJugadas.ObtenerInstancia().EstablecerTipoJugadaTragamonedas(idmesa, new SelectorFeliz());
-				//    return true;
-				//}
-				else
-				{
-					detalle_ultima_accion = "La mesa seleccionada para ser feliz no existe";
-					return false;
-				}
-			}
-			else
+			// Veo si la contraseña es correcta
+			if (pass != ConfiguracionCasino.ObtenerInstancia().PasswordAdmin)
 			{
 				detalle_ultima_accion = "Contaseña de administrador invalida";
+				return false;
+			}
+
+			// Veo de que tipo de juego es la mesa
+			if (MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps(idmesa) != null)
+			{
+				ServidorJugadas.ObtenerInstancia().EstablecerTipoJugadaCraps(idmesa, new SelectorFeliz());
+
+				detalle_ultima_accion = "Configuracion feliz establecida con todo exito";
+				return true;
+			}
+			// La parte de tragamonedas no esta implementada
+			//else if (MesasAbiertas.ObtenerInstancia().ObtenerMesaTragamonedas(idmesa) != null)
+			//{
+			//    ServidorJugadas.ObtenerInstancia().EstablecerTipoJugadaTragamonedas(idmesa, new SelectorFeliz());
+			//    return true;
+			//}
+			else
+			{
+				detalle_ultima_accion = "La mesa seleccionada para ser feliz no existe";
 				return false;
 			}
 		}

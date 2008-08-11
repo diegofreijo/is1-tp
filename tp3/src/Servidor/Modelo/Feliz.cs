@@ -13,6 +13,9 @@ namespace CasinoOnline.Servidor.Modelo
 		{
 			List<Premio> premios = new List<Premio>();
 
+			// Para saber si reseteo o no el pozo
+			bool alguienCobro = false;
+
 			// Averiguo el monto total apostado
 			Creditos apuestasTotales = jugada.Apuestas.Sum(a => a.Valor);
 
@@ -21,8 +24,20 @@ namespace CasinoOnline.Servidor.Modelo
 			{
 				// Veo cuanto gano
 				Creditos gananciaNormal = apuesta.Resolverse(jugada.Resultado);
-				Creditos gananciaFeliz = apuesta.Valor / apuestasTotales * 
-					Pozos.ObtenerInstancia().PozoFeliz.Monto;
+
+				// Si gano, le pago feliz
+				Creditos gananciaFeliz = 0;
+				if (gananciaNormal > 0)
+				{
+					 gananciaFeliz = apuesta.Valor / apuestasTotales *
+						Pozos.ObtenerInstancia().PozoFeliz.Monto;
+
+					 alguienCobro = true;
+				}
+				else
+				{
+					gananciaFeliz = 0;
+				}
 
 				// Pago las ganancias
 				apuesta.Apostador.Saldo += gananciaNormal + gananciaFeliz;
@@ -39,8 +54,11 @@ namespace CasinoOnline.Servidor.Modelo
 				premios.Add(nuevoPremio);
 			}
 
-			// Reseteo el pozo feliz
-			Pozos.ObtenerInstancia().PozoFeliz.Resetear();
+			// Reseteo el pozo feliz si es que alguien/es se lo llevo/aron
+			if (alguienCobro)
+			{
+				Pozos.ObtenerInstancia().PozoFeliz.Resetear();
+			}
 
 			return premios;
 		}
