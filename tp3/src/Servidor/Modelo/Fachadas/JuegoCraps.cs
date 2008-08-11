@@ -105,31 +105,27 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 		{
 			// Veo si el jugador ingreso
 			Jugador jugador = UsuariosEnCasino.ObtenerInstancia().ObtenerJugador(nombre_jugador);
-			if (jugador != null)
-			{
-				// Veo si el jugador esta en la mesa que especifico
-				if (jugador.MesaElegida != null  &&  jugador.MesaElegida.Id == idmesa)
-				{
-					// Saco al jugador de la mesa
-					Mesa mesa = MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps(idmesa);
-					mesa.QuitarJugador(jugador);
-					jugador.ElegirMesa(null);
-					detalle_ultima_accion = "El jugador se fue de la mesa que eligio.";
-					return true;
-				}
-				else
-				{
-					// No estaba en esa mesa
-					detalle_ultima_accion = "El jugador no estaba en la mesa de la que decidio salir.";
-					return false;
-				}
-			}
-			else
+			if (jugador == null)
 			{
 				// El usuario no es un jugador
-				detalle_ultima_accion = "El usuario no ingreso al casino o no ingreso en modo jugador.";
+				detalle_ultima_accion = "El usuario no ingreso al casino o no ingreso en modo jugador";
 				return false;
 			}
+
+			// Veo si el jugador esta en la mesa que especifico
+			if (jugador.MesaElegida == null  ||  jugador.MesaElegida.Id != idmesa)
+			{
+				// No estaba en esa mesa
+				detalle_ultima_accion = "El jugador no estaba en la mesa de la que decidio salir";
+				return false;
+			}
+
+			// Saco al jugador de la mesa
+			MesaCraps mesa = MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps(idmesa);
+			mesa.QuitarJugador(jugador);
+			jugador.ElegirMesa(null);
+			detalle_ultima_accion = "El jugador se fue de la mesa que eligio";
+			return true;
 		}
 
 		/// 
