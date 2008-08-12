@@ -73,6 +73,11 @@ namespace CasinoOnline.Servidor.Modelo
 		}
 		public void QuitarJugador(Nombre nombre)
 		{
+			// Guardo el saldo del jugador
+			JugadoresRegistrados.ObtenerInstancia().Jugadores.Single(j => j.Nombre == nombre).Saldo =
+				UsuariosEnCasino.ObtenerInstancia().ObtenerJugador(nombre).Saldo;
+
+			// Lo saco de la lista de jugadores en el casino
 			jugadores.Remove(jugadores.Single(j => j.Nombre == nombre));
 		}
 		public void QuitarObservador(Nombre nombre)

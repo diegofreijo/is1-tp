@@ -11,5 +11,6 @@ namespace CasinoOnline.Servidor.Modelo
 	abstract class JugadorFactory
 	{
 		public abstract Jugador CrearJugador(Nombre nombre, Creditos saldo);
+		public abstract string Tipo { get; }
 	}
 }

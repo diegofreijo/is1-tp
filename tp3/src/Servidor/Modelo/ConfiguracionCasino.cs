@@ -88,6 +88,7 @@ namespace CasinoOnline.Servidor.Modelo
 		public Creditos SaldoCasino
 		{
 			get { return configuracion_general_del_casino.SaldoCasino; }
+			set { configuracion_general_del_casino.SaldoCasino = value; }
 		}
 		public String PasswordAdmin
 		{

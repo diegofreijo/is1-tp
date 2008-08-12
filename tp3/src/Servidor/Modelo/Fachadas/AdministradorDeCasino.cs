@@ -38,11 +38,17 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 		}
 		#endregion
 
+
 		#region Miembros
-		private String detalle_ultima_accion;
+		
+		private String detalle_ultima_accion = string.Empty;
+		private XElement xml_configuracion = null;
+
 		#endregion
 
+
 		#region Metodos Publicos
+
 		/// 
 		/// <param name="pass"></param>
 		public Boolean PuedePedirReporteRankingDeJugadores(String pass)
@@ -212,6 +218,10 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 		/// <param name="configuracion"></param>
 		public void InicializarConfiguracion(XElement configuracion)
 		{
+			// Me guardo el xml para poder devolverlo mas facilmente despues
+			this.xml_configuracion = configuracion;
+
+			// Pasamano
 			ConfiguracionCasino.ObtenerInstancia().Inicializar(configuracion);
 		}
 
@@ -325,6 +335,33 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 				this.todosPonen = todosPonen;
 				this.progresivo = progresivo;
 			}
+		}
+
+		/// <summary>
+		/// Retorna el XML con la nueva configuracion del casino
+		/// </summary>
+		public XElement PersistirConfiguracion()
+		{
+			// Le modifico el saldo a la configuracion. Notar que la plata en el pozo es plata del casino.
+			xml_configuracion.Element("configuracionDelCasino").Element("saldoCasino").Attribute("monto").Value =
+				(ConfiguracionCasino.ObtenerInstancia().SaldoCasino
+				+ 
+				Pozos.ObtenerInstancia().PozoFeliz.Monto).ToString();
+
+			return xml_configuracion;
+		}
+
+		/// <summary>
+		/// Retorna el XML con la nueva lista de jugadores
+		/// </summary>
+		public XElement PersistirJugadoresRegistrados()
+		{
+			// Proyecto los jugadores registrados al xml
+			return new XElement("jugadores",
+				JugadoresRegistrados.ObtenerInstancia().Jugadores.Select(j => new XElement("jugador", new object[] {
+					new XAttribute("nombre", j.Nombre), new XAttribute("saldo", j.Saldo), new XAttribute("tipo", j.ConstructorJugador.Tipo)
+				})).ToArray()
+			);
 		}
 
 		#endregion

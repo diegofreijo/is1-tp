@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
+using System.Threading;
 using CasinoOnline.Servidor.MensajeroDeSalida;
 using CasinoOnline.Servidor.MensajeroDeEntrada;
 using CasinoOnline.Servidor.Utils;
-using System.Xml.Linq;
 
 namespace CasinoOnline.Servidor
 {
     class Program
-    {//..\\config\\
+    {
 		public const string archivo_config = "..\\config\\configuracion_casino.xml";
 		public const string archivo_lista_jugadores = "..\\config\\lista_jugadores.xml";
 
@@ -44,9 +45,37 @@ namespace CasinoOnline.Servidor
 			Log.Mensaje("Servidor de CasinoOnline inicializado!" + Environment.NewLine + 
 				"=============================================");
 
+			// Levanto un thread que escuche la orden de finalizacion del servidor
+			WaitCallback callback = new WaitCallback(delegate(object r) { EscucharFinServidor((Comunicacion.ReceptorPedidos)r); });
+			ThreadPool.QueueUserWorkItem(callback, receptor);
+
 			// Comienzo la recepcion de pedidos
+			Log.Mensaje("<Para finalizar el servidor, presionar ENTER>");
 			Log.Mensaje("Comenzando recepcion de pedidos");
 			receptor.ComenzarRecepcion();
+			
+			// Persisto la nueva lista de jugadores
+			Log.Mensaje("Persistiendo jugadores...");
+			Modelo.Fachadas.AdministradorDeCasino.ObtenerInstancia().PersistirJugadoresRegistrados().Save(archivo_lista_jugadores);
+
+			// Persisto la nueva configuracion
+			Log.Mensaje("Persistiendo configuracion...");
+			Modelo.Fachadas.AdministradorDeCasino.ObtenerInstancia().PersistirConfiguracion().Save(archivo_config);
+
+			Log.Mensaje("Servidor finalizado, apreta ENTER para cerrar");
+			Console.ReadLine();
+		}
+
+		/// <summary>
+		/// Es el encargado de escuchar si el usuario finalizo el servidor
+		/// </summary>
+		public static void EscucharFinServidor(Comunicacion.ReceptorPedidos receptor)
+		{
+			// Con apretar un enter en la consola se cierra el servidor
+			Console.ReadLine();
+
+			// Apago el servidor
+			receptor.DetenerRecepcion();
 		}
     }
 }

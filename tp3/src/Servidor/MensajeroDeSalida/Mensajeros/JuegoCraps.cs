@@ -44,14 +44,15 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 		/// <param name="idu"></param>
 		/// <param name="idm"></param>
 		/// <param name="aceptado"></param>
-		public void ResponderApuestaCraps(IdTerminalVirtual id_terminal, Nombre usuario, IdMesa id_mesa, Boolean aceptado)
+		public void ResponderApuestaCraps(IdTerminalVirtual id_terminal, Nombre usuario, IdMesa id_mesa, Boolean aceptado, String descripcion)
 		{
 			// Genero el XML de salida
 			XElement parametros = new XElement("apuestaCraps", new object[] {
 				new XAttribute("vTerm", id_terminal),
 				new XAttribute("usuario", usuario),
 				new XAttribute("mesa", id_mesa),
-				new XElement("aceptado", (aceptado ? "si" : "no"))
+				new XElement("aceptado", (aceptado ? "si" : "no")),
+				new XElement("descripcion", descripcion)
 			});
 
 			// Genero la respuesta
@@ -66,14 +67,15 @@ namespace CasinoOnline.Servidor.MensajeroDeSalida.Mensajeros
 		/// <param name="idu"></param>
 		/// <param name="idm"></param>
 		/// <param name="aceptado"></param>
-		public void ResponderTiroCraps(IdTerminalVirtual id_terminal, Nombre usuario, IdMesa id_mesa, Boolean aceptado)
+		public void ResponderTiroCraps(IdTerminalVirtual id_terminal, Nombre usuario, IdMesa id_mesa, Boolean aceptado, String descripcion)
 		{
 			// Genero el XML de salida
 			XElement parametros = new XElement("tiroCraps", new object[] {
 				new XAttribute("vTerm", id_terminal),
 				new XAttribute("usuario", usuario),
 				new XAttribute("mesa", id_mesa),
-				new XElement("aceptado", (aceptado ? "si" : "no"))
+				new XElement("aceptado", (aceptado ? "si" : "no")),
+				new XElement("descripcion", descripcion)
 			});
 
 			if (aceptado)
