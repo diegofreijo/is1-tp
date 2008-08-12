@@ -13,6 +13,7 @@ namespace CasinoOnline.PlayerClient.GUI
 {
     using IdMesa = Int32;
     using ValorFicha = Decimal;
+    using Creditos = Decimal;
 
     public partial class CrapsDlg : Form
     {
@@ -184,24 +185,29 @@ namespace CasinoOnline.PlayerClient.GUI
 
                     // actualizar premios y pagos
                     {
-                        IEnumerable<XElement> todosLosPremios = ultimoTiro.Element("premios").Elements("premio");
-                        try
+                        IEnumerable<XElement> todosLosPremios = ultimoTiro.Element("premios").Elements("premio").Where(a => a.Element("apostador").Value == m_session.Nombre);
+
+                        Creditos totalNormalPaid = 0;
+                        Creditos totalHappyBonusPaid = 0;
+                        Creditos totalTodosPonenReduction = 0;
+
+                        foreach (XElement elem in todosLosPremios)
                         {
-                            XElement premios = todosLosPremios.Single(delegate(XElement elem) { return elem.Element("apostador").Value == m_session.Nombre; });
-                            string normalPaid = premios.Element("montoPremioJugada").Value;
-                            string happyBonusPaid = premios.Element("montoPremioJugadaFeliz").Value;
-                            string todosPonenReduction = premios.Element("montoRetenidoJugadaTodosponen").Value;
-                            m_normalPaidTextBox.Text = "€" + normalPaid;
-                            m_happyBonusTextBox.Text = "€" + happyBonusPaid;
-                            m_todosPonenReductionTextBox.Text = "€" + todosPonenReduction;
-                            m_session.Saldo += decimal.Parse(normalPaid);
-                            m_session.Saldo += decimal.Parse(happyBonusPaid);
-                            m_session.Saldo -= decimal.Parse(todosPonenReduction);
-                            RefreshSaldo();
+                            Creditos normalPaid = Creditos.Parse(elem.Element("montoPremioJugada").Value);
+                            Creditos happyBonusPaid = Creditos.Parse(elem.Element("montoPremioJugadaFeliz").Value);
+                            Creditos todosPonenReduction = Creditos.Parse(elem.Element("montoRetenidoJugadaTodosponen").Value);
+                            totalNormalPaid += normalPaid;
+                            totalHappyBonusPaid += happyBonusPaid;
+                            totalTodosPonenReduction += todosPonenReduction;
                         }
-                        catch (Exception)
-                        {
-                        }
+                        m_session.Saldo += totalNormalPaid;
+                        m_session.Saldo += totalHappyBonusPaid;
+                        m_session.Saldo -= totalTodosPonenReduction;
+                        RefreshSaldo();
+
+                        m_normalPaidTextBox.Text = "€" + totalNormalPaid;
+                        m_happyBonusTextBox.Text = "€" + totalHappyBonusPaid;
+                        m_todosPonenReductionTextBox.Text = "€" + totalTodosPonenReduction;
                     }
                 }
 
