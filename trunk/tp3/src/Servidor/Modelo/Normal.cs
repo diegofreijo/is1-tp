@@ -22,7 +22,10 @@ namespace CasinoOnline.Servidor.Modelo
 					apuesta.Resolverse(jugada.Resultado),
 					0,
 					0);
+
+				// Pago el premio
 				apuesta.Apostador.Saldo += nuevoPremio.MontoNormal;
+				ConfiguracionCasino.ObtenerInstancia().SaldoCasino -= nuevoPremio.MontoNormal;
 
 				premios.Add(nuevoPremio);
 			}

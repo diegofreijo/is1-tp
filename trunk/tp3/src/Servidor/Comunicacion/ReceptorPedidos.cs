@@ -13,9 +13,16 @@ namespace CasinoOnline.Servidor.Comunicacion
     class ReceptorPedidos
 	{
 		#region Miembros
+
+		/// <summary>
+		/// El servidor esta encendido?
+		/// Al ser volatil, esta variable puede ser tocada por varios threads (y lo es)
+		/// </summary>
+		private volatile bool encendido = true;
+		
 		private const int espera_entre_pooleo = 100;
-		private bool encendido = true;
 		private IObtenedorPedidos obtenedor = null;
+
 		#endregion
 
 
@@ -50,6 +57,15 @@ namespace CasinoOnline.Servidor.Comunicacion
 				}
 			}
 		}
+
+		/// <summary>
+		/// Deja de recibir pedidos
+		/// </summary>
+		public void DetenerRecepcion()
+		{
+			encendido = false;
+		}
+
 		#endregion
 	}
 }

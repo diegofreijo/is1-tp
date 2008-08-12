@@ -16,18 +16,22 @@ namespace CasinoOnline.Servidor.Modelo
 			// Para saber si reseteo o no el pozo
 			bool alguienCobro = false;
 
-			// Averiguo el monto total apostado
-			Creditos apuestasTotales = jugada.Apuestas.Sum(a => a.Valor);
-
-			// Hago que cada apuesta se resuelva
-			foreach (Apuesta apuesta in jugada.Apuestas)
+			Dictionary<Apuesta, Creditos> gananciasNormal = new Dictionary<Apuesta,decimal>();
+			foreach(Apuesta apuesta in jugada.Apuestas)
 			{
 				// Veo cuanto gano
-				Creditos gananciaNormal = apuesta.Resolverse(jugada.Resultado);
+				gananciasNormal.Add(apuesta, apuesta.Resolverse(jugada.Resultado));
+			}
 
+			// Averiguo el monto total apostado
+			Creditos apuestasTotales = gananciasNormal.Keys.Where(a => gananciasNormal[a] > 0).Sum(a => a.Valor);
+
+			// Hago que cada apuesta se resuelva
+			foreach (Apuesta apuesta in gananciasNormal.Keys)
+			{	
 				// Si gano, le pago feliz
 				Creditos gananciaFeliz = 0;
-				if (gananciaNormal > 0)
+				if (gananciasNormal[apuesta] > 0)
 				{
 					 gananciaFeliz = apuesta.Valor / apuestasTotales *
 						Pozos.ObtenerInstancia().PozoFeliz.Monto;
@@ -40,14 +44,15 @@ namespace CasinoOnline.Servidor.Modelo
 				}
 
 				// Pago las ganancias
-				apuesta.Apostador.Saldo += gananciaNormal + gananciaFeliz;
+				apuesta.Apostador.Saldo += gananciasNormal[apuesta] + gananciaFeliz;
+				ConfiguracionCasino.ObtenerInstancia().SaldoCasino -= gananciasNormal[apuesta] + gananciaFeliz;
 
 				// Armo el premio
 				Premio nuevoPremio = new Premio(
 					apuesta.Apostador,
 					apuesta.ObtenerNombreTipoApuesta(),
 					apuesta.Valor,
-					gananciaNormal,
+					gananciasNormal[apuesta],
 					gananciaFeliz,
 					0);
 

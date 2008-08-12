@@ -26,7 +26,11 @@ namespace CasinoOnline.Servidor.Modelo
 		}
 		public void Resetear()
 		{
+			// Reseteo el monto
 			this.monto = monto_minimo;
+
+			// El monto inicial lo garpa el casino
+			ConfiguracionCasino.ObtenerInstancia().SaldoCasino -= this.monto;
 		}
 	}
 }

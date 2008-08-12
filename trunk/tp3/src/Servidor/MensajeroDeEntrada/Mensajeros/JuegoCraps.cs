@@ -65,7 +65,7 @@ namespace CasinoOnline.Servidor.MensajeroDeEntrada.Mensajeros
 
 			// Envio la respuesta segun el resultado de la operacion
 			MensajeroDeSalida.Mensajeros.JuegoCraps.ObtenerInstancia().
-				ResponderApuestaCraps(id_terminal, usuario, id_mesa, aceptado);
+				ResponderApuestaCraps(id_terminal, usuario, id_mesa, aceptado, Modelo.Fachadas.JuegoCraps.ObtenerInstancia().DetalleUltimaAccion());
 		}
 		/// <summary>
 		/// Procesa una tirada de dados de craps
@@ -82,7 +82,7 @@ namespace CasinoOnline.Servidor.MensajeroDeEntrada.Mensajeros
 
 			// Envio la respuesta segun el resultado de la operacion
 			MensajeroDeSalida.Mensajeros.JuegoCraps.ObtenerInstancia().
-				ResponderTiroCraps(id_terminal, usuario, id_mesa, aceptado);
+				ResponderTiroCraps(id_terminal, usuario, id_mesa, aceptado, Modelo.Fachadas.JuegoCraps.ObtenerInstancia().DetalleUltimaAccion());
 		}
 
 		#endregion

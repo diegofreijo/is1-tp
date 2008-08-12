@@ -35,11 +35,14 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 			}
 			return instancia;
 		}
+
 		#endregion
+
 
 		#region Miembros
 		private String detalle_ultima_accion;
 		#endregion
+
 
 		#region Metodos Publicos
 
@@ -192,8 +195,9 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 				return false;
 			}
 
-			// Le descuento al jugador
+			// Le descuento al jugador y acredito al casino
 			jugador.Saldo -= apuestaTotal;
+			ConfiguracionCasino.ObtenerInstancia().SaldoCasino += apuestaTotal;
 
 			// Agrego la apuesta a la mesa
 			mesa.AgregarApuesta(nuevaApuesta);

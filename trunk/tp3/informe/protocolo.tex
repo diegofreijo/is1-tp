@@ -1,0 +1,230 @@
+'Este es el documento actualizado que detalla las extensiones que se realizaron al protocolo en el presente informe. Notar que los cambios son meramente sint'acticos y no se afect'o sustancialmente la idea original de las extensiones.
+
+\subsection{Archivos de comunicaci'on}
+
+\subsubsection{pedirReporteRankingDeJugadores}
+\negrita{Nombre del archivo:} \italica{pedidoReporteRankingDeJugadoresXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\negrita{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <pedidoReporteRankingDeJugadores vTerm="id terminal virtual" password="password de administrador" />
+\end{verbatim}
+
+
+\subsubsection{respuestaReporteRankingDeJugadores}
+\negrita{Nombre del archivo:} \italica{respuestaReporteRankingDeJugadoresXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\negrita{Descripci'on del xml:}
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaReporteRankingDeJugadores vTerm="id terminal virtual" aceptado="si | no" >
+        <jugadoresMasGanadores>
+            <jugador ranking="posicion" nombre="nombre del jugador" />
+            ...
+        </jugadoresMasGanadores>
+        <jugadoresMasPerdedores>
+            <jugador ranking="posicion" nombre="nombre del jugador" />
+            ...
+        </jugadoresMasPerdedores>
+    </respuestaReporteRankingDeJugadores>
+\end{verbatim}
+
+
+\subsubsection{pedirReporteEstadoActual}
+\negrita{Nombre del archivo:} \italica{pedidoReporteEstadoActualXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\negrita{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <pedidoReporteEstadoActual vTerm="id terminal virtual" password="password de administrador" />
+\end{verbatim}
+
+
+\subsubsection{respuestaReporteEstadoActual}
+\negrita{Nombre del archivo:} \italica{respuestaReporteEstadoActualXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\negrita{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaReporteEstadoActual vTerm="id terminal virtual" aceptado="si | no" >
+       <jugadores>
+            <jugador nombre="nombre del usuario jugador" saldo="saldo del jugador" />
+            ... 
+        </jugadores>
+        <saldoCasino monto="monto actual del saldo del casino" />
+    </respuestaReporteEstadoActual>
+\end{verbatim}
+
+
+
+\subsubsection{pedirReporteMovimientos}
+\negrita{Nombre del archivo:} \italica{pedidoReporteMovimientosXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\negrita{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <pedidoReporteMovimientos vTerm="id terminal virtual" password="password de administrador" />
+\end{verbatim}
+
+
+\subsubsection{respuestaReporteMovimientos}
+\negrita{Nombre del archivo:} \italica{respuestaReporteMovimientosXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\negrita{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaReporteMovimientos vTerm="id terminal virtual" aceptado="si | no" >
+        <apuestas>
+            <apuesta>
+                <jugador nombre="nombre del jugador" />
+                <tipoApuesta nombre="en sitio a perder | en sitio a ganar | de campo
+                    | venir | no venir | barra no pase | linea de pase | tragamonedas" />
+                <normal monto="pago por ganar la apuesta sin adicionales"/>
+                <feliz monto="adicional correspondiente al pago de la jugada Feliz" />
+                <todosPonen monto="retencion correspondiente cobro de la jugada
+                    TodosPonen" />
+                <progresivo monto="adicional correspondiente al pago del pozo
+                    progresivo"(en caso de tragamonedas, si no el tag estar vacio) />
+            </apuesta>
+            ...
+        </apuestas>
+    </respuestaReporteMovimientos>
+\end{verbatim}
+
+
+\subsubsection{configurarModoDirigidoTragamonedas}
+\negrita{Nombre del archivo:} \italica{configurarModoDirigidoTragamonedasXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\negrita{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <configurarModoDirigidoTragamonedas vTerm="id terminal virtual" password="password de administrador">
+        <controlResultados>
+            <rueda1>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda1>
+            <rueda2>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda2>
+            <rueda3>"cereza" | "barSimple" | "barDoble" | "barTriple" | "dinosaurio"</rueda3>
+        </controlResultados>
+        <controlTipoJugadas>
+           <tipo> "Azar" | "Normal" | "TodosPonen" | "NoTodosPonen" | "NoFeliz"</tipo>
+        </controlTipoJugadas>
+    </configurarModoDirigidoTragamonedas>
+\end{verbatim}
+
+
+\subsubsection{respuestaConfigurarModoDirigidoTragamonedas}
+\negrita{Nombre del archivo:} \italica{respuestaConfigurarModoDirigidoTragamonedasXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\negrita{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaConfigurarModoDirigidoTragamonedas vTerm="id terminal virtual" aceptado="si | no" >
+        <descripcion>"informaci'on adicional, de por qu'e no fue aceptado por ejemplo u otra
+        informacion relevante"</descripcion>
+    </respuestaConfigurarModoDirigidoTragamonedas>
+\end{verbatim}
+
+
+\subsubsection{configurarModoDirigidoCraps}
+\negrita{Nombre del archivo:} \italica{configurarModoDirigidoCrapsXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\negrita{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <configurarModoDirigidoCraps vTerm="id terminal virtual" password="password de administrador">
+        <controlResultados azar="si" | "no">
+            <dado1>"1" | "2" | "3" | "4" | "5" | "6"</dado1>
+            <dado2>"1" | "2" | "3" | "4" | "5" | "6"</dado2>
+        </controlResultados>
+        <controlTipoJugadas>
+            <tipo> "Azar" | "Normal" | "TodosPonen" | "NoTodosPonen" | "NoFeliz"</tipo>
+        </controlTipoJugadas>
+    </configurarModoDirigidoCraps>
+\end{verbatim}
+
+
+\subsubsection{respuestaConfigurarModoDirigidoCraps}
+\negrita{Nombre del archivo:} \italica{respuestaConfigurarModoDirigidoCrapsXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\negrita{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaConfigurarModoDirigidoCraps vTerm="id terminal virtual" aceptado="si | no" >
+        <descripcion>"informaci'on adicional, de por que no fue aceptado por ejemplo u otra
+        informacion relevante"</descripcion>
+    </respuestaConfigurarModoDirigidoCraps>
+\end{verbatim}
+
+
+\subsubsection{configurarModoDirigidoJugadaFeliz}
+\negrita{Nombre del archivo:} \italica{configurarModoDirigidoJugadaFelizXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+
+\negrita{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <configurarModoDirigidoJugadaFeliz vTerm="id terminal virtual" password="password de administrador">
+        <mesa>"id de la mesa"</mesa>
+    </configurarModoDirigidoJugadaFeliz>
+\end{verbatim}
+
+
+\subsubsection{respuestaConfigurarModoDirigidoJugadaFeliz}
+\negrita{Nombre del archivo:} \italica{respuestaConfigurarModoDirigidoJugadaFelizXXYYYY.xml}
+\begin{itemize}
+    \item{XX: n'umero de grupo}
+    \item{YYYY: n'umero de terminal virtual}
+\end{itemize}
+
+\negrita{Descripci'on del xml:}
+\begin{verbatim}
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <respuestaConfigurarModoDirigidoJugadaFeliz vTerm="id terminal virtual" aceptado="si | no" >
+        <descripcion>"informacion adicional, de por que no fue aceptado por ejemplo u otra
+        informacion relevante"</descripcion>
+    </respuestaConfigurarModoDirigidoJugadaFeliz>
+\end{verbatim}

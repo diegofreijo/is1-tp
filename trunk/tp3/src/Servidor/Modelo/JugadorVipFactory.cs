@@ -14,5 +14,10 @@ namespace CasinoOnline.Servidor.Modelo
 		{
 			return new JugadorVip(nombre, saldo);
 		}
+
+		public override string Tipo
+		{
+			get { return "vip"; }
+		}
 	}
 }
