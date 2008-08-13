@@ -110,7 +110,7 @@ namespace CasinoOnline.PlayerClient.GUI
                 m_historyTextBox.Text = "<" + dado1 + "," + dado2 + "> " + m_historyTextBox.Text;
 
             // pozo feliz
-            HappyPozoTextBox.Text = "€" + estadoCasino.Element("pozosCasino").Element("pozoFeliz").Value;
+            HappyPozoTextBox.Text = "€" + Creditos.Parse(estadoCasino.Element("pozosCasino").Element("pozoFeliz").Value).ToString("F2");
 
             SetBetButtonsState(false);
             RefreshSaldo();
@@ -206,9 +206,9 @@ namespace CasinoOnline.PlayerClient.GUI
                         m_session.Saldo -= totalTodosPonenReduction;
                         RefreshSaldo();
 
-                        m_normalPaidTextBox.Text = "€" + totalNormalPaid;
-                        m_happyBonusTextBox.Text = "€" + totalHappyBonusPaid;
-                        m_todosPonenReductionTextBox.Text = "€" + totalTodosPonenReduction;
+                        m_normalPaidTextBox.Text = "€" + totalNormalPaid.ToString("F2");
+                        m_happyBonusTextBox.Text = "€" + totalHappyBonusPaid.ToString("F2");
+                        m_todosPonenReductionTextBox.Text = "€" + totalTodosPonenReduction.ToString("F2");
                     }
                 }
 
@@ -335,7 +335,7 @@ namespace CasinoOnline.PlayerClient.GUI
 
         void RefreshSaldo()
         {
-            m_cashTextBox.Text = IsPlayer() ? "€" + m_session.Saldo.ToString() : "-";
+            m_cashTextBox.Text = IsPlayer() ? "€" + m_session.Saldo.Value.ToString("F2") : "-";
         }
 
         private bool IsPlayer()
@@ -355,7 +355,7 @@ namespace CasinoOnline.PlayerClient.GUI
             else
             {
                 // pozo feliz
-                HappyPozoTextBox.Text = "€" + estadoCasino.Element("pozosCasino").Element("pozoFeliz").Value;
+                HappyPozoTextBox.Text = "€" + Creditos.Parse(estadoCasino.Element("pozosCasino").Element("pozoFeliz").Value).ToString("F2");
             }
         }
 
