@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using CasinoOnline.PlayerClient.Utils;
 using CasinoOnline.PlayerClient.Comunication.Ports;
 
 namespace CasinoOnline.PlayerClient.GUI
@@ -303,10 +304,10 @@ namespace CasinoOnline.PlayerClient.GUI
             if (IsPlayer())
             {
                 XElement res = AccesoYVistaCraps.ObtenerInstancia().SalirCraps(m_session.Nombre, m_idMesa);
-
-                if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
+                KeyValuePair<bool, string> val = Helpers.ValidateAndLogResponse(ref res);
+                if (!val.Key)
                 {
-                    MessageBox.Show(this, res.Element("descripcion").Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, val.Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
@@ -324,9 +325,10 @@ namespace CasinoOnline.PlayerClient.GUI
         {
             XElement res = JuegoCraps.ObtenerInstancia().TirarCraps(m_session.Nombre, m_idMesa);
 
-            if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
+            KeyValuePair<bool, string> val = Helpers.ValidateAndLogResponse(ref res);
+            if (!val.Key)
             {
-                MessageBox.Show(this, "Tiro no aceptado. Razones desconocidas :P", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, val.Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -499,9 +501,10 @@ namespace CasinoOnline.PlayerClient.GUI
                 punto
             );
 
-            if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
+            KeyValuePair<bool, string> val = Helpers.ValidateAndLogResponse(ref res);
+            if (!val.Key)
             {
-                MessageBox.Show(this, "Apuesta no aceptada. Error desconocido. Consulte a su arquitecto en protocolos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, val.Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
