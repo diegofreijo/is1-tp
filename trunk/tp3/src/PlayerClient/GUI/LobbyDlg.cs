@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using CasinoOnline.PlayerClient.Utils;
 using CasinoOnline.PlayerClient.Comunication.Ports;
 
 namespace CasinoOnline.PlayerClient.GUI
@@ -34,10 +35,10 @@ namespace CasinoOnline.PlayerClient.GUI
         private bool TryToLogout()
         {
             XElement res = AccesoYVistaCasino.ObtenerInstancia().SalirCasino(m_session.Nombre);
-
-            if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
+            KeyValuePair<bool, string> val = Helpers.ValidateAndLogResponse(ref res);
+            if (!val.Key)
             {
-                MessageBox.Show(this, res.Element("descripcion").Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, val.Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -69,10 +70,10 @@ namespace CasinoOnline.PlayerClient.GUI
                 if (m_session.Modo == ModoUsuario.eJugador)
                 {
                     XElement res = AccesoYVistaCraps.ObtenerInstancia().EntrarCraps(m_session.Nombre, selectTableIdDlg.GetSelectedId());
-
-                    if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
+                    KeyValuePair<bool, string> val = Helpers.ValidateAndLogResponse(ref res);
+                    if (!val.Key)
                     {
-                        MessageBox.Show(this, res.Element("descripcion").Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(this, val.Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 

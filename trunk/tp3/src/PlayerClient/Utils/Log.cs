@@ -1,12 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
+using CasinoOnline.PlayerClient.GUI;
 
 namespace CasinoOnline.PlayerClient.Utils
 {
 	using IdTerminalVirtual = Int32;
+
+    class Helpers
+    {
+        /// <summary>
+        /// Valida que un pedido haya sido aceptad analizando la respuesta. Loguea los cambios y devuelve
+        /// un par que indica si fue aceptado y la descripción correspondiente
+        /// </summary>
+        public static KeyValuePair<bool, string> ValidateAndLogResponse(ref XElement res)
+        {
+            bool accepted;
+            string description = res.Element("descripcion").Value;
+            if (String.Compare(res.Element("aceptado").Value, "no", true) == 0)
+            {
+                Log.Error(description);
+                accepted = false;
+            }
+            else
+            {
+                Log.Mensaje(description);
+                accepted = true;                
+            }
+            return new KeyValuePair<bool, string>(accepted, description);
+        }
+    }
 
 	static class Log
 	{
@@ -15,6 +41,10 @@ namespace CasinoOnline.PlayerClient.Utils
 		/// </summary>
 		public static void Mensaje(string String)
 		{
+            // log activo?
+            if (!Program.bShowConsole)
+                return;
+
 			EscribirSelloTemporal(); 
 			
 			Console.ForegroundColor = ConsoleColor.White;
@@ -25,6 +55,10 @@ namespace CasinoOnline.PlayerClient.Utils
 		/// </summary>
 		public static void Error(string String)
 		{
+            // log activo?
+            if (!Program.bShowConsole)
+                return;
+
 			EscribirSelloTemporal();
 			
 			Console.ForegroundColor = ConsoleColor.Red;
@@ -36,6 +70,10 @@ namespace CasinoOnline.PlayerClient.Utils
 		/// </summary>
 		private static void EscribirSelloTemporal()
 		{
+            // log activo?
+            if (!Program.bShowConsole)
+                return;
+
 			Console.ForegroundColor = ConsoleColor.Green;
 			Console.Write("[" + DateTime.Now.ToString("HH:mm:ss") + "]  ");
 		}
