@@ -36,6 +36,9 @@ namespace CasinoOnline.Servidor
 			// Inicializo las mesas
 			Modelo.Fachadas.AdministradorDeCasino.ObtenerInstancia().InicializarMesas(MensajeroDeSalida.NotificadorDeCambiosAClientes.ObtenerInstancia());
 
+			// Inicializo los pozos
+			Modelo.Fachadas.AdministradorDeCasino.ObtenerInstancia().InicializarPozos();
+
 			// Inicializo el despachador de respuestas
 			Comunicacion.DespachadorRespuestas.ObtenerInstancia().Despachador = new Comunicacion.DespachadorRespuestasArchivo();
 

@@ -18,7 +18,6 @@ namespace CasinoOnline.Servidor.Modelo
 		/// </summary>
 		private Pozos()
 		{
-			pozo_feliz = new PozoFeliz(ConfiguracionCasino.ObtenerInstancia().MontoMinimoPozoFeliz);
 		}
 
 		/// <summary>
@@ -47,6 +46,12 @@ namespace CasinoOnline.Servidor.Modelo
 		{
             set { pozo_feliz = value; }
 			get { return pozo_feliz; }
+		}
+
+		public void Inicializar()
+		{ 
+			// Creo los pozos
+			pozo_feliz = new PozoFeliz(ConfiguracionCasino.ObtenerInstancia().MontoMinimoPozoFeliz);
 		}
 	}
 }

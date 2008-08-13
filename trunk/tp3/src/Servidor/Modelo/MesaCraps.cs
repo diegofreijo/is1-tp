@@ -133,8 +133,8 @@ namespace CasinoOnline.Servidor.Modelo
 		}
 		public override void QuitarJugador(Jugador jugador)
 		{
+			// Saco al jugador de la mesa
 			jugadores_en_mesa.Remove(jugador);
-			observador_cambios.NotificarCambio(this.id);
 
 			// AGREGADO: Si no hay nadie mas jugando en mi, me mato
 			if (jugadores_en_mesa.Count == 0)
@@ -149,6 +149,9 @@ namespace CasinoOnline.Servidor.Modelo
 					CambiarTirador();
 				}
 			}
+
+			// Notifico el cambio
+			observador_cambios.NotificarCambio(this.id);
 		}
 
 		#endregion
