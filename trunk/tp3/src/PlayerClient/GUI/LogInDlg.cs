@@ -47,6 +47,10 @@ namespace CasinoOnline.PlayerClient.GUI
                 return;
             }
 
+            // actualizamos la barra de título de la consola
+            if (Program.bShowConsole)
+                Console.Title += (" - " + nombre);
+
             Creditos? saldo = null;
             if (modo == ModoUsuario.eJugador)
                 saldo = Creditos.Parse(res.Element("saldo").Value);
@@ -67,6 +71,10 @@ namespace CasinoOnline.PlayerClient.GUI
 
             // mostramos nuevamente la ventana
             this.Visible = true;
+
+            // actualizamos la barra de título de la consola
+            if (Program.bShowConsole)
+                Console.Title = "CasinoOnline - PlayerClient Log - Grupo 05";
         }
 
         private void QuitButton_Click(object sender, EventArgs e)
