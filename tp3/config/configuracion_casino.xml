@@ -2,7 +2,7 @@
 <configuracionCasino>
   <configuracionDelCasino>
     <passwordAdmin valor="x" />
-    <saldoCasino monto="15100" />
+    <saldoCasino monto="14190,000000000000000000000000" />
     <fichasValidas>
       <fichaValida valor="100" />
       <fichaValida valor="20" />

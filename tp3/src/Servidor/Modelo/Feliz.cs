@@ -45,7 +45,7 @@ namespace CasinoOnline.Servidor.Modelo
 
 				// Pago las ganancias
 				apuesta.Apostador.Saldo += gananciasNormal[apuesta] + gananciaFeliz;
-				ConfiguracionCasino.ObtenerInstancia().SaldoCasino -= gananciasNormal[apuesta] + gananciaFeliz;
+				ConfiguracionCasino.ObtenerInstancia().SaldoCasino -= gananciasNormal[apuesta];
 
 				// Armo el premio
 				Premio nuevoPremio = new Premio(

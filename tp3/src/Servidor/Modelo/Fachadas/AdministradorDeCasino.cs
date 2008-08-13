@@ -359,9 +359,14 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 			// Proyecto los jugadores registrados al xml
 			return new XElement("jugadores",
 				JugadoresRegistrados.ObtenerInstancia().Jugadores.Select(j => new XElement("jugador", new object[] {
-					new XAttribute("nombre", j.Nombre), new XAttribute("saldo", j.Saldo), new XAttribute("tipo", j.ConstructorJugador.Tipo)
+					new XAttribute("nombre", j.Nombre), new XAttribute("saldo", j.Saldo.ToString()), new XAttribute("tipo", j.ConstructorJugador.Tipo)
 				})).ToArray()
 			);
+		}
+
+		public void InicializarPozos()
+		{
+			Pozos.ObtenerInstancia().Inicializar();
 		}
 
 		#endregion

@@ -123,8 +123,15 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 				return false;
 			}
 
-			// Saco al jugador de la mesa
+			// Veo si el jugador tiene apuestas sin resolver en la mesa
 			MesaCraps mesa = MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps(idmesa);
+			if (mesa.Apuestas.Any(a => a.Apostador.Nombre == nombre_jugador))
+			{
+				detalle_ultima_accion = "El jugador todavia tiene apuestas pendientes en la mesa";
+				return false;
+			}
+
+			// Saco al jugador de la mesa
 			mesa.QuitarJugador(jugador);
 			jugador.ElegirMesa(null);
 			detalle_ultima_accion = "El jugador se fue de la mesa que eligio";
@@ -266,7 +273,15 @@ namespace CasinoOnline.Servidor.Modelo.Fachadas
 		/// <param name="mesa"></param>
 		public List<Nombre> JugadoresEnMesa(IdMesa idmesa)
 		{
-			return MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps(idmesa).JugadoresEnMesa.Select(j => j.Nombre).ToList();
+			MesaCraps mesa = MesasAbiertas.ObtenerInstancia().ObtenerMesaCraps(idmesa);
+			if (mesa != null)
+			{
+				return mesa.JugadoresEnMesa.Select(j => j.Nombre).ToList();
+			}
+			else
+			{
+				return new List<Nombre>();
+			}
 		}
 
 		/// 
