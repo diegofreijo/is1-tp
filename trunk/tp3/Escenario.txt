@@ -251,6 +251,7 @@ Saldo Casino: 12126 - 20 = 12106
 Monto Pozo Feliz = 1000 + 20*0.2 = 1004
 
 Se van todos.
+Se procede a apagar el servidor con lo cual se persisten los saldos de los jugadores y el saldo del casino que pasa ser 12106 + 1004. Debido a que recupera el saldo del pozo feliz. El excedente es a favor del casino, con lo cual al iniciar nuevamente el pozo feliz será 1000.
 
 
 
