@@ -354,7 +354,7 @@ Saldos y pozo después del tiro:
 
 Nico decide irse ya que al salir dos veces seguidas jugadas todos ponen empieza a tener sospechas sobre la seriedad del juego.
 Matute no acepta no empezar ganando con lo cual, se retira de la mesa. 
-Giga decide irse invicto. Para festejar tamaño hecho se va a un bar tranquilo que está sobre Córdoba (a una cuadra de Sanchez de Bustamante).
+Giga decide irse invicto. Para festejar tamaño hecho se va a un bar tranquilo que está en la esquina de Córdoba y Billinghurst.
 Benito no tiene crédito suficiente para seguir jugando. Por dicha razón se va a la casa de normal a jugar al truco (por los porotos... porque ninguno tiene plata).
 
 Se procede a apagar el servidor. Luego se persisten los saldos de los jugadores y el saldo del casino que pasa ser 12106 + 1004. Debido a que recupera el saldo del pozo feliz. El excedente es a favor del casino, con lo cual al iniciar nuevamente el pozo feliz será 1000.
