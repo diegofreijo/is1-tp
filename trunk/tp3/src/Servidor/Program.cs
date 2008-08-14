@@ -85,10 +85,21 @@ namespace CasinoOnline.Servidor
 
 				// Verifico si no quedaban jugadores en el casino
 				List<Nombre> jugadores = Modelo.Fachadas.LobbyCasino.ObtenerInstancia().JugadoresEnCasino();
-				if (jugadores.Count > 0)
+				List<Nombre> observadores = Modelo.Fachadas.LobbyCasino.ObtenerInstancia().ObservadoresEnCasino();
+				if (jugadores.Count > 0 || observadores.Count > 0)
 				{
-					Log.Error("No se puede cerrar el casino en este momento, todavia estan los siguientes jugadores jugando:" + Environment.NewLine +
-						"		" + jugadores.Aggregate((j1, j2) => j1 + ", " + j2));
+					if (jugadores.Count > 0)
+					{
+						Log.Error("No se puede cerrar el casino en este momento, todavia estan los siguientes jugadores jugando:" + Environment.NewLine +
+							"		" + jugadores.Aggregate((j1, j2) => j1 + ", " + j2));
+					}
+
+					if (observadores.Count > 0)
+					{
+						Log.Error("No se puede cerrar el casino en este momento, todavia estan los siguientes observadores observando:" + Environment.NewLine +
+							"		" + observadores.Aggregate((j1, j2) => j1 + ", " + j2));
+					}
+
 				}
 				else
 				{
