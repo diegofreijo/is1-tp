@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <jugadores>
-  <jugador nombre="asd" saldo="28,400" tipo="normal" />
-  <jugador nombre="giga" saldo="3302,6666666666666666666666666" tipo="normal" />
+  <jugador nombre="asd" saldo="25000" tipo="normal" />
+  <jugador nombre="giga" saldo="3202,6666666666666666666666666" tipo="normal" />
   <jugador nombre="Cosme Fulanito" saldo="2000" tipo="normal" />
   <jugador nombre="Benito Camela" saldo="100,50" tipo="normal" />
   <jugador nombre="Matute" saldo="25" tipo="vip" />
   <jugador nombre="Nico" saldo="10" tipo="vip" />
-  <jugador nombre="normal" saldo="0" tipo="normal" />
-  <jugador nombre="vip" saldo="-292,6666666666666666666666766" tipo="vip" />
+  <jugador nombre="normal" saldo="0,0" tipo="normal" />
+  <jugador nombre="vip" saldo="-292,6666666666666666666666666" tipo="vip" />
 </jugadores>

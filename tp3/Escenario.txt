@@ -1,257 +1,363 @@
+Para iniciar el servidor se debe ejecutar el archivo Servidor.exe
+Para iniciar una terminal cliente se debe ejecutar PlayerClient.exe id="número de vTerm" -console
+Para iniciar una terminal administrador se debe ejecutar AdministratorClient.exe "número de vTerm"
+
+Escenarios
+----------
+
+Día 1:
+------
+
 Se inicia el servidor.
 
-Se loguea (como jugador) el jugador normal que es de tipo normal, saldo 100
-Se loguea (como jugador) el jugador vip que es de tipo vip, saldo 1000
+Se loguea (como jugador) el jugador normal que es de tipo normal, saldo 100.
+Se loguea (como jugador) el jugador vip que es de tipo vip, saldo 1000.
 
-Apuestas de normal:
-+ No Pase: 50 créditos.
-+ A Ganar al 5: 10 créditos.
 
-Apuestas de vip:
-+ Pase: 400 créditos
-+ Campo: 1 ficha de 100 = 100
+Normal realiza las siguientes apuestas:
+	+ No Pase: 50 créditos.
+	+ A Ganar al 5: 10 créditos.
 
-Saldo de Normal: 100 - 50 - 10 = 40
-Saldo de Vip: 1000 - 400 - 100 = 500
-Saldo del Casino: 15000 - 1000 + 60 + 500 (por iniciar el pozo feliz)
-Monto Pozo Feliz: 1000
+Vip realiza las siguientes apuestas:
+	+ Pase: 400 créditos.
+	+ Campo: 100 créditos.
 
-La mesa está en estado Saliendo y sin valor de punto.
+Saldos y pozo previos al tiro:
+------------------------------
+	Saldo de Normal: 100 - 50 - 10 = 40 créditos.
+	Saldo de Vip: 1000 - 400 - 100 = 500 créditos.
+	Saldo del Casino: 15000 - 1000 + 60 + 500 = 14560 créditos. (los 1000 restando es por iniciar el pozo feliz)
+	Monto Pozo Feliz: 1000
 
-El tirador es Normal.
+Estado de la mesa antes del tiro:
+---------------------------------
+	La mesa está en estado Saliendo
+	sin valor de punto.
+	El tirador es Normal.
+
 Intenta tirar Vip, el tiro no es aceptado.
 
-**********Normal tira. Sale 5.****************
 
-La mesa pasa al estado Punto.
-El valor del punto es 5.
-Se mantiene el tirador.
+/*/*/ A través del modo dirigido se setea el valor de los dados para que sumen 5 y además para que la jugada sea normal. /*/*/
+
+********** Normal tira. Sale 5. ****************
 
 
-Pase y No pase no se resuelven
-A ganar al 5 paga: 7/5*10 + 10 = 24
-Campo pierde
+Estado de la mesa después del tiro:
+---------------------------------
+	La mesa pasa al estado Punto.
+	El valor del punto es 5.
+	Se mantiene el tirador.
 
-Saldo de Normal: 40 + 24 = 64
-Salde de Vip: 500
-Saldo del Casino: 14560 - 24 = 14536
-Monto Pozo Feliz: 1000
+Resolución de las apuestas:
+---------------------------
+	Pase y No pase no se resuelven.
+	A ganar al 5 paga: 7/5*10 + 10 = 24 créditos.
+	Campo pierde, no paga.
 
-Se loguea el jugador giga que es de tipo normal, saldo 1000
+Saldos y pozo después del tiro:
+------------------------------
+	Saldo de Normal: 40 + 24 = 64
+	Salde de Vip: 500
+	Saldo del Casino: 14560 - 24 = 14536
+	Monto Pozo Feliz: 1000
 
-Apuestas de giga:
-+ Venir: 100 creditos
-+ A Ganar al 5: 200 creditos
+Se loguea el jugador giga que es de tipo normal, saldo 1000. Entra a la mesa que ya está creada.
 
-Apuestas normal:
-+ intenta apostar 100 a no venir y el sistema no lo deja
-+ No Venir: 64 creditos 
+Giga realiza las siguientes apuestas:
+	+ Venir: 100 creditos
+	+ A Ganar al 5: 200 creditos
 
-Apuestas vip:
-+ En contra al 5: 550 creditos
+Normal realiza las siguientes apuestas:
+	+ intenta apostar 100 a no venir y el sistema no lo deja
+	+ No Venir: 64 creditos 
 
-saldo vip = -50
-saldo normal = 0
-saldo giga = 1000 - 100 -200 = 700
-Saldo Casino: 14536 + 100 + 200 + 550 + 64 = 15450
+Vip realiza la siguiente apuesta:
+	+ En contra al 5: 550 creditos
+
+Saldos y pozo previos al tiro:
+------------------------------
+	Saldo de Vip: -50
+	Saldo de Normal: 0
+	Saldo de Giga: 1000 - 100 -200 = 700
+	Saldo del Casino: 14536 + 100 + 200 + 550 + 64 = 15450
+	Monto Pozo Feliz: 1000
 
 Giga intenta tirar y el sistema no lo deja
 
-**************Tira Normal. Sale 5. Jugada Todos Ponen***************
 
-La mesa pasa al estado de Saliendo
-No hay más valor de punto
-Se mantiene el tirador
+/*/*/ A través del modo dirigido se setea el valor de los dados para que sumen 5 y además para que la jugada sea Todos Ponen. /*/*/
 
-Venir y no venir no se resuelven. El puntaje venir y no venir se fijan ambos en 5.
-Pase paga 400 + 400 = 800
-No pase pierde
-A ganar al 5 paga: 7/5*200 + 200 = 480
-En contra al 5, pierde.
+************** Tira Normal. Sale 5. Jugada Todos Ponen ***************
 
-saldo vip = -50 + 800 - 800*0.2 = 590
-saldo normal = 0
-saldo giga = 700 + 480 - 480*0.2 = 1084
-Saldo Casino: 15450 - 800 - 480 = 14170
-Monto Pozo Feliz = 1000 + 480*0.2 + 800*0.2 = 1256
+Estado de la mesa después del tiro:
+---------------------------------
+	La mesa pasa al estado de Saliendo
+	No hay más valor de punto
+	Se mantiene el tirador
 
-Apuestas de vip:
-+ A ganar al 5:  200 creditos
+Resolución de las apuestas:
+---------------------------
+	Venir y no venir no se resuelven. El puntaje venir y no venir se fijan ambos en 5.
+	Pase paga: 400 + 400 = 800 créditos.
+	No pase pierde, no paga.
+	A ganar al 5 paga: 7/5*200 + 200 = 480 créditos.
+	En contra al 5 pierde, no paga.
 
-saldo vip = 590 - 200 = 390
-saldo normal = 0
-saldo giga = 1084
-Saldo Casino: 14170 + 200 = 14370
-Monto Pozo Feliz = 1256
+Saldos y pozo después del tiro:
+------------------------------
+	Saldo de Vip: -50 + 800 - 800*0.2 = 590 créditos.
+	Saldo de Normal: 0 créditos.
+	Saldo de Giga: 700 + 480 - 480*0.2 = 1084 créditos.
+	Saldo Casino: 15450 - 800 - 480 = 14170 créditos.
+	Monto Pozo Feliz: 1000 + 480*0.2 + 800*0.2 = 1256 créditos.
+
+Vip realiza la siguiente apuesta:
+	+ A ganar al 5:  200 creditos
+
+Saldos y pozo previos al tiro:
+------------------------------
+	Saldo de Vip = 590 - 200 = 390 créditos.
+	Saldo de Normal = 0 créditos.
+	Saldo de Giga = 1084 créditos.
+	Saldo del Casino: 14170 + 200 = 14370 créditos.
+	Monto Pozo Feliz = 1256 créditos.
+
+Intentan tirar giga y vip pero el sistema no los deja.
+
+
+/*/*/ A través del modo dirigido se setea el valor de los dados para que sumen 5 y además para que salga jugada feliz en la mesa número 1. /*/*/
 
 **************Tira Normal. Sale 5. Jugada Feliz***************
 
-La mesa pasa al estado Punto.
-El valor del punto es 5.
-se mantiene el tirador
+
+Estado de la mesa después del tiro:
+---------------------------------
+	La mesa pasa al estado Punto.
+	El valor del punto es 5.
+	se mantiene el tirador
+
+Resolución de las apuestas:
+---------------------------
+	Venir paga: 100 + 100 = 200 créditos.
+	No venir pierde, no paga.
+	A ganar al 5 paga 7/5*200 + 200 = 480 créditos.
+	Ninguna sobrevive.
+
+Saldos y pozo después del tiro:
+------------------------------
+	Saldo de Vip = 390 + 480 + 1256*200/300 = 1707.33333 créditos.
+	Saldo de Normal = 0 créditos.
+	Saldo de Giga = 1084 + 200 + 1256*100/300 = 1702.6666 créditos.
+	Saldo del Casino: 14370 - 480 - 200 - 1000 = 12690 créditos.
+	Monto Pozo Feliz = 1000 créditos.
+
+Normal no tiene más crédito, con lo cual cualquier cosa que quiera hacer (más halla de salir o tirar) el sistema no lo dejará. Como no tiene plata decide irse. El tirador cambia a Vip.
+
+No se realiza ninguna apuesta. Se mantienen los saldos y el monto del pozo.
 
 
-Venir paga: 100 + 100 = 200
-No venir pierde
-A ganar al 5 paga 7/5*200 + 200 = 480
-Ninguna sobrevive
-
-saldo vip = 390 + 480 + 1256*200/300 = 1707.33333
-saldo normal = 0
-saldo giga = 1084 + 200 + 1256*100/300 = 1702.6666
-Saldo Casino: 14370 - 480 - 200 - 1000 = 12690
-Monto Pozo Feliz = 1000
-
-normal no tiene más crédito, con lo cual cualquier cosa que quiera hacer (más halla de salir o tirar) el sistema no lo dejará. como no tiene plata decide irse. el tirador cambia a vip.
-
-No se realiza ninguna apuesta
+/*/*/ A través del modo dirigido se setea el valor de los dados para que sumen 7 y además para que la jugada sea normal. /*/*/
 
 **************Tira vip. Sale 7 ***************
 
-La mesa pasa al estado Saliendo.
-no hay valor de punto
-se cambia el tirador a giga
+Estado de la mesa después del tiro:
+---------------------------------
+	La mesa pasa al estado Saliendo.
+	No hay valor de punto
+	Se cambia el tirador a giga
 
-No se modifica ningun saldo, ni el monto del pozo feliz
+Saldos y pozo después del tiro:
+------------------------------
+	No se modifica ningún saldo, ni el monto del pozo feliz.
 
-Apuestas giga:
-+ pase: 500 creditos
+Giga realiza la siguiente apuesta:
+	+ pase: 500 creditos
 
-Apuestas vip:
-+ a ganar al 9: 2000 creditos
+Vip realiza la siguiente apuesta:
+	+ a ganar al 9: 2000 creditos
 
-saldo vip = 1707.33333 - 2000 = -292.66666
-saldo giga = 1702.6666 - 500 = 1202.666
-Saldo Casino: 12690 + 2000 + 500 = 15190
-Monto Pozo Feliz = 1000
+Saldos y pozo previos al tiro:
+------------------------------
+	Saldo de Vip = 1707.33333 - 2000 = -292.66666 créditos.
+	Saldo de Giga = 1702.6666 - 500 = 1202.66666 créditos.
+	Saldo del Casino: 12690 + 2000 + 500 = 15190 créditos.
+	Monto Pozo Feliz = 1000 créditos.
+
+
+/ A través del modo dirigido se setea el valor de los dados para que sumen 7 y además para la jugada se normal. /*/*/
 
 **************Tira giga. Sale 7 ***************
+
 
 guiiiiiiiiii arrrrrrrrr deeeeeeeeeeeee cheeeeeeeeeeeeeeeeempiooooooooonsssssssssssssssssss
 cos gui arrrr de chempionsss
 of de guorlddddd
 mai friend
 
-La mesa pasa al estado Saliendo.
-no hay valor de punto
-se cambia el tirador a vip
+Estado de la mesa después del tiro:
+---------------------------------
+	La mesa pasa al estado Saliendo.
+	No hay valor de punto.
+	Se mantiene el tirador.
 
-pase paga: 500 + 500
-a ganar al 9 pierde
+Resolución de las apuestas:
+---------------------------
+	Pase paga: 500 + 500 = 1000 créditos.
+	A ganar al 9 pierde, no paga.
 
-saldo vip = -292.666666666666666
-saldo giga = 1202.6666 + 1000 + 1000 = 3202.666666
-Saldo Casino: 15190 - 1000 - 1000 = 13190
-Monto Pozo Feliz = 1000
+Saldos y pozo después del tiro:
+-------------------------------
+	Saldo de Vip = -292.666666666666666
+	Saldo de Giga = 1202.6666 + 1000 + 1000 = 3202.666666
+	Saldo del Casino: 15190 - 1000 - 1000 = 13190
+	Monto Pozo Feliz = 1000
 
-Los jugadores se cansan y se van. Primero de la mesa, despues del casino.
+Los jugadores se cansan y se van. Primero de la mesa, después del casino.
 
-Se apaga el servidor.
----------------------------------------------------------------------------------------------------------------------------------------
-Nuevo dia
+Se apaga el servidor. Con lo cual se persisten los saldos. Notar que el saldo del casino tendrá 1000 créditos más que el último visto ya que el dinero que hay en el pozo feliz pasa al casino.
 
-Saldo Casino: 13190
-Monto Pozo Feliz = 1000
+===============================================================================================================================================================================================
+
+Día 2:
+------
+
+Saldo del Casino: 13190 créditos.
+Monto Pozo Feliz = 1000 créditos.
 
 Esperando continuar con su racha ganadora, giga se loguea (como jugador). Elige crear una mesa (Mesa 1). Su saldo es de 3202.66666 créditos.
 Se loguea normal como jugador, entra a la mesa ya creada y se da cuenta de que se olvido recargar su credito y se desloguea. 
-Extrañando esto de la timba (no juega desde el lunes, cabe destacar que no tuvo un gran día...), Benito Camela se loguea, y elige entrar en la mesa en la que ya esta creada. Su saldo es de 100.50 créditos.
+Extrañando esto de la timba (no juega desde el lunes, cabe destacar que no tuvo un gran día...), Benito Camela se loguea, y elige entrar en la mesa en la que ya está creada. Su saldo es de 100.50 créditos.
 
 Matute aparece en escena. Se loguea como jugador, él es de tipo vip y su saldo es de 25 créditos. Como tiene un gran ego no acepta entrar en una mesa ya creada y decide crear una (Mesa 2).
 A ésta mesa se agrega Nico, que también es vip, pero con un saldo menor (10 créditos).
 
-Apuestas de Giga:
-+pase: 100 créditos.
-+a ganar el 9: 60 créditos.
+Giga realiza las siguientes apuestas:
+	+ Pase: 100 créditos.
+	+ A ganar el 9: 60 créditos.
 
-Apuestas de Benito:
-+No pase: 50 créditos.
-+a perder el 9: 50 créditos
+Benito realiza las siguientes apuetas:
+	+ No pase: 50 créditos.
+	+ A perder el 9: 50 créditos
 
-Apuestas de Matute:
-+no pase: 20 créditos.
+Matute realiza la siguiente apuesta:
+	+ No pase: 20 créditos.
 
-Apuestas de Nico:
-+De campo: 10 créditos.
+Nico realiza la siguiente apuesta:
+	+ De campo: 10 créditos.
 
-Saldo giga: 3202.6666 - 100 - 60 = 3042.6666
-Saldo Benito: 100.50 - 50 - 50 = 0.50
-Saldo Matute: 25 - 20 = 5
-Saldo Nico: 10 - 10 = 0
-Saldo Casino: 13190 + 160 + 100 + 20 + 10 = 13480
-Monto Pozo Feliz = 1000
+Saldos y pozo previos al tiro:
+------------------------------
+	Saldo de Giga: 3202.6666 - 100 - 60 = 3042.6666
+	Saldo de Benito: 100.50 - 50 - 50 = 0.50
+	Saldo de Matute: 25 - 20 = 5
+	Saldo de Nico: 10 - 10 = 0
+	Saldo del Casino: 13190 + 160 + 100 + 20 + 10 = 13480
+	Monto Pozo Feliz = 1000
 
 
-El tirador de la mesa 1 es giga, el de la mesa 2 Matute.
+El tirador de la mesa 1 es Giga. El de la mesa 2 Matute.
 
-A través del modo dirigido se setea que salga jugada todos ponen y la suma de dados se setea en 9.
+Normal está sintiendo los síntomas de la abstinencia y para aplacar un poco sus deseos de jugar entra como observador a la mesa 2 (no entra como jugador porque no quiere que sus amigos vean que no tiene crédito, debido a que no realiza apuestas)
+
+
+/*/*/ A través del modo dirigido se setea el valor de los dados para que sumen 9 y además para que la jugada sea Todos Ponen. /*/*/
 
 **************Tira giga. Sale 9 y jugada todos ponen ***************
 **************Tira Matute. Sale 9 y jugada todos ponen *************
 
-en ambas mesas se pasa al estado Punto.
-el valor del punto es 9.
-se mantiene el tirador.
+Estado de las mesas después del tiro:
+-------------------------------------
+	En ambas mesas se pasa al estado Punto.
+	El valor del punto es 9.
+	Se mantiene el tirador.
 
-Las apuestas de pase y no pase no se resuelven.
-a ganar al 9 paga: 7/5*60 + 60 = 144
-a perder al 9 pierde, no paga.
-de campo paga: 10 + 10 = 20
+Resolución de las apuestas:
+---------------------------
+	Las apuestas de Pase y No Pase no se resuelven.
+	A ganar al 9 paga: 7/5*60 + 60 = 144 créditos.
+	A perder al 9 pierde, no paga.
+	De campo paga: 10 + 10 = 20 créditos.
 
-Saldo giga: 3042.6666 + 144 - 144*0.2 = 3157.86666
-Saldo Benito: 0.50 
-Saldo Matute: 5
-Saldo Nico: 0 + 20 - 20*0.2 = 16
-Saldo Casino: 13480 - 144 - 20 = 13316
-Monto Pozo Feliz = 1000 + 144*0.2 + 20*0.2 = 1032.8
+Saldos y pozo después del tiro:
+-------------------------------
+	Saldo de Giga: 3042.6666 + 144 - 144*0.2 = 3157.86666 créditos.
+	Saldo de Benito: 0.50 créditos.
+	Saldo de Matute: 5 créditos.
+	Saldo de Nico: 0 + 20 - 20*0.2 = 16 créditos.
+	Saldo del Casino: 13480 - 144 - 20 = 13316 créditos.
+	Monto Pozo Feliz = 1000 + 144*0.2 + 20*0.2 = 1032.8 créditos.
 
 
-Apuestas de Nico:
-+De campo: 10 créditos.
+Nico realiza la siguiente apuesta:
+	+ De campo: 10 créditos.
 
-Saldo giga: 3157.86666
-Saldo Benito: 0.50 
-Saldo Matute: 5
-Saldo Nico: 16 - 10 = 6
-Saldo Casino: 13316 + 10 = 13326
-Monto Pozo Feliz = 1032.8
+Saldos y pozo previos al tiro:
+-------------------------------
+Saldo de Giga: 3157.86666 créditos.
+Saldo de Benito: 0.50 créditos.
+Saldo de Matute: 5 créditos.
+Saldo de Nico: 16 - 10 = 6 créditos.
+Saldo del Casino: 13316 + 10 = 13326 créditos.
+Monto Pozo Feliz = 1032.8 créditos.
 
-A través del modo dirigido se setea que salga jugada feliz en la mesa 1.
+Benito intenta salir de la mesa pero como todavía tiene apuestas vigentes el sistema no lo deja.
+
+
+/*/*/ A través del modo dirigido se setea que salga jugada feliz en la mesa 1. /*/*/
 
 **************Tira giga. Sale 9 y jugada feliz ***************
 
-La mesa pasa al estado Saliendo.
-no hay valor de punto
-se mantiene el tirador
 
-pase paga: 100 + 100 = 200
-no pase pierde, no paga.
+Estado de la mesa 1 después del tiro:
+-------------------------------------
+	La mesa pasa al estado Saliendo.
+	No hay valor de punto
+	se mantiene el tirador
 
-Saldo giga: 3157.86666 + 200 + 1032.8 = 4390.666666666
-Saldo Benito: 0.50 
-Saldo Matute: 5
-Saldo Nico: 6
-Saldo Casino: 13326 - 200 - 1000 = 12126
-Monto Pozo Feliz = 1000
+Resolución de las apuestas:
+---------------------------
+	Pase paga: 100 + 100 = 200 créditos.
+	No pase pierde, no paga.
 
-**************Tira Matute. Sale 9 y jugada todos ponen *************
+Saldos y pozo después del tiro:
+-------------------------------
+Saldo de Giga: 3157.86666 + 200 + 1032.8 = 4390.666666666 créditos.
+Saldo de Benito: 0.50 créditos.
+Saldo de Matute: 5 créditos.
+Saldo de Nico: 6 créditos.
+Saldo del Casino: 13326 - 200 - 1000 = 12126 créditos.
+Monto Pozo Feliz = 1000 créditos.
 
-La mesa pasa al estado Saliendo.
-no hay valor de punto
-se mantiene el tirador
 
-de campo paga: 10 + 10 = 20
-no pase pierde, no paga.
+************** Tira Matute. Sale 9 y jugada todos ponen *************
 
-Saldo giga: 4390.666666666
-Saldo Benito: 0.50 
-Saldo Matute: 5
-Saldo Nico: 16 + 20 - 20*0.2 = 32
-Saldo Casino: 12126 - 20 = 12106
-Monto Pozo Feliz = 1000 + 20*0.2 = 1004
+Estado de la mesa 2 después del tiro:
+-------------------------------------
+	La mesa pasa al estado Saliendo.
+	No hay valor de punto
+	Se mantiene el tirador
 
-Se van todos.
-Se procede a apagar el servidor con lo cual se persisten los saldos de los jugadores y el saldo del casino que pasa ser 12106 + 1004. Debido a que recupera el saldo del pozo feliz. El excedente es a favor del casino, con lo cual al iniciar nuevamente el pozo feliz será 1000.
+Resolución de las apuestas:
+---------------------------
+	De campo paga: 10 + 10 = 20 créditos.
+	No pase pierde, no paga.
+
+Saldos y pozo después del tiro:
+-------------------------------
+	Saldo de Giga: 4390.666666666 créditos.
+	Saldo de Benito: 0.50 créditos.
+	Saldo de Matute: 5 créditos.
+	Saldo de Nico: 6 + 20 - 20*0.2 = 22 créditos.
+	Saldo del Casino: 12126 - 20 = 12106 créditos.
+	Monto Pozo Feliz = 1000 + 20*0.2 = 1004 créditos.
+
+Nico decide irse ya que al salir dos veces seguidas jugadas todos ponen empieza a tener sospechas sobre la seriedad del juego.
+Matute no acepta no empezar ganando con lo cual, se retira de la mesa. 
+Giga decide irse invicto. Para festejar tamaño hecho se va a un bar tranquilo que está sobre Córdoba (a una cuadra de Sanchez de Bustamante).
+Benito no tiene crédito suficiente para seguir jugando. Por dicha razón se va a la casa de normal a jugar al truco (por los porotos... porque ninguno tiene plata).
+
+Se procede a apagar el servidor. Luego se persisten los saldos de los jugadores y el saldo del casino que pasa ser 12106 + 1004. Debido a que recupera el saldo del pozo feliz. El excedente es a favor del casino, con lo cual al iniciar nuevamente el pozo feliz será 1000.
 
 
 
