@@ -349,7 +349,18 @@ namespace CasinoOnline.PlayerClient.GUI
 
             if (!IsPlayer())
             {
-                XElement mesaCraps = estadoCasino.Element("juegos").Element("craps").Element("mesasCraps").Elements("mesaCraps").Single(delegate(XElement elem) { return int.Parse(elem.Attribute("id").Value) == m_idMesa; });
+                XElement mesaCraps;
+                try
+                {
+                    mesaCraps = estadoCasino.Element("juegos").Element("craps").Element("mesasCraps").Elements("mesaCraps").Single(delegate(XElement elem) { return int.Parse(elem.Attribute("id").Value) == m_idMesa; });
+                }
+                catch (Exception)
+                {
+                    Terminate();
+                    MessageBox.Show(this, "La mesa en observación ha sido cerrada automáticamente por el casino.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    Close();
+                    return;
+                }
                 UpdateEstadoMesaCraps(mesaCraps);
             }
             else
