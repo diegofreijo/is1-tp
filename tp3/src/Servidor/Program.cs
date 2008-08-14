@@ -10,6 +10,8 @@ using CasinoOnline.Servidor.Utils;
 
 namespace CasinoOnline.Servidor
 {
+	using Nombre = String;
+
     class Program
     {
 		public const string archivo_config = "..\\config\\configuracion_casino.xml";
@@ -74,8 +76,25 @@ namespace CasinoOnline.Servidor
 		/// </summary>
 		public static void EscucharFinServidor(Comunicacion.ReceptorPedidos receptor)
 		{
-			// Con apretar un enter en la consola se cierra el servidor
-			Console.ReadLine();
+			bool puede_cerrar = false;
+
+			while (!puede_cerrar)
+			{
+				// Con apretar un enter en la consola se cierra el servidor
+				Console.ReadLine();
+
+				// Verifico si no quedaban jugadores en el casino
+				List<Nombre> jugadores = Modelo.Fachadas.LobbyCasino.ObtenerInstancia().JugadoresEnCasino();
+				if (jugadores.Count > 0)
+				{
+					Log.Error("No se puede cerrar el casino en este momento, todavia estan los siguientes jugadores jugando:" + Environment.NewLine +
+						"		" + jugadores.Aggregate((j1, j2) => j1 + ", " + j2));
+				}
+				else
+				{
+					puede_cerrar = true;
+				}
+			}
 
 			// Apago el servidor
 			receptor.DetenerRecepcion();
